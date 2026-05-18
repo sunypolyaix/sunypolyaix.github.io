@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "title": "Battery Charging Troubleshooting",
+    "user": {
+      "name": "Anonymous",
+      "email": ""
+    },
+    "dates": {
+      "created": "5/16/2026 12:13:52",
+      "updated": "5/16/2026 13:21:45",
+      "exported": "5/17/2026 9:47:28"
+    },
+    "link": "https://chatgpt.com/c/6a0897b3-2e54-832b-9074-8dfb0c9b1d41",
+    "powered_by": "ChatGPT Exporter (https://www.chatgptexporter.com)"
+  },
+  "messages": [
+    {
+      "role": "Response",
+      "say": "This is a Schumacher Electric manual 12V battery charger, likely an older SE-series unit with selectable 2A slow charge and 10A fast charge modes.\n\n\nA few observations from the photo:\n\n\nThe selector switch is currently set to 2A (slow charge).\n\nThe mode switch appears to be in automatic mode.\n\nThe analog meter needle is near the high-charge/current side, which usually means the battery is actively accepting charge.\n\nThe green “full charge” light does not appear illuminated brightly enough to indicate completion yet, though sunlight makes it hard to tell definitively.\n\n\nA few practical points about this style of charger:\n\n\n2A mode is preferable for lawn tractor batteries. It is gentler and reduces overheating/boiling risk.\n\nA typical riding mower battery around 18–35 Ah may take:\n~8–20 hours on 2A depending on discharge state.\n\nIf the battery was deeply discharged below ~10V, some old automatic chargers may fail to detect it correctly.\n\n\nGiven the mower in the background appears to be a John Deere lawn tractor:\n\n\nIf the battery repeatedly dies after charging, the common causes are:\nBattery sulfation/age\n\nFailed voltage regulator\n\nParasitic drain\n\nCorroded terminals or bad ground\n\n\nYou can verify charging state more reliably with a multimeter:\n\n\nResting fully charged battery:\n~12.6–12.8V\n\nEngine running:\n~13.5–14.5V indicates charging system working.\n\n\nOne thing to be cautious about: older Schumacher chargers like this are not “smart maintainers” in the modern sense. Leaving them connected indefinitely can overcharge a small mower battery. Once fully charged, disconnect it rather than leaving it on for days.",
+      "time": "5/16/2026, 12:13:52 PM"
+    },
+    {
+      "role": "Prompt",
+      "say": "So how long o. 10a",
+      "time": "5/16/2026, 12:14:47 PM"
+    },
+    {
+      "role": "Response",
+      "say": "For a typical riding mower battery, 10A is fairly aggressive. It will charge faster, but it is easier to overheat or gas the battery if left too long.\n\n\nApproximate times:\n\nBattery condition\nEstimated time at 10A\nSlightly low\n30–60 min\nMostly discharged\n1–2 hr\nCompletely dead\n2–4 hr\n\nBut those are rough estimates because the actual current tapers as voltage rises.\n\n\nFor a small lawn tractor battery, I would not leave a 10A manual charger unattended for hours. Check periodically for:\n\n\nBattery getting hot\n\nStrong sulfur/rotten egg smell\n\nExcess bubbling\n\n\nA safer practical approach:\n\n\nUse 10A for ~30–60 minutes to bring voltage up quickly.\n\nThen switch to 2A to finish charging.\n\n\nIf you want a more precise estimate, the battery label usually lists amp-hours (Ah) or reserve capacity.",
+      "time": "5/16/2026, 12:14:48 PM"
+    },
+    {
+      "role": "Response",
+      "say": "This second photo confirms the charger is now set to:\n\n\n10A\n\nAutomatic mode\n\n\nThat is the correct configuration if you want a quicker recovery charge.\n\n\nThe meter needle is still fairly far left, which on these Schumacher meters usually means the charger is still pushing substantial current into the battery — i.e. the battery is not full yet.\n\n\nFor a mower battery in this state, I would estimate:\n\n\n~1 hour: probably enough to start the mower\n\n~2–3 hours: likely near full charge\n\n\nI would not leave a small lawn tractor battery on 10A much beyond about 3 hours unless you are monitoring temperature.\n\n\nA good practical endpoint:\n\n\nWhen the needle drops much closer toward the low-current side and stabilizes there, the battery is approaching full.\n\nThen either:\ndisconnect it, or\n\nswitch back to 2A for a gentler finish.\n\n\nAlso, if after charging the mower still only clicks or cranks weakly, the battery itself may be sulfated rather than merely discharged.",
+      "time": "5/16/2026, 12:15:51 PM"
+    },
+    {
+      "role": "Prompt",
+      "say": "It’s o. 2a",
+      "time": "5/16/2026, 12:16:18 PM"
+    },
+    {
+      "role": "Response",
+      "say": "The selector is physically slid toward the 10A side in the photo. The labeling is a little confusing because the arrows are offset, but the switch position itself is what matters here.\n\n\nSo unless the photo angle is misleading, it appears to be on 10A fast charge, not 2A.\n\n\nYou can verify another way:\n\n\nOn 2A, these chargers usually barely hum and the meter moves modestly.\n\nOn 10A, the transformer hum is more noticeable and the meter tends to sit farther left/high-current while charging a low battery.\n\n\nIf you intended 2A, slide the right-hand switch fully toward the side marked by the red triangle under “2A.”",
+      "time": "5/16/2026, 12:16:19 PM"
+    },
+    {
+      "role": "Response",
+      "say": "Yes — this close-up makes it clear. The switch is set to 2A slow charge.\n\n\nThe earlier wider photo was ambiguous because of the angle and the offset arrows. The actual slider position here is aligned with the 2A side.\n\n\nAt 2A:\n\n\nExpect roughly 8–15 hours for a substantially discharged mower battery.\n\nYou can usually get enough charge to start the mower in:\n2–5 hours, depending how dead it was.\n\n\n2A is the better setting for a small lawn tractor battery anyway. Less heat, less stress, lower risk of overcharging.",
+      "time": "5/16/2026, 12:16:45 PM"
+    },
+    {
+      "role": "Prompt",
+      "say": "Can I start mower while connected",
+      "time": "5/16/2026, 1:20:03 PM"
+    },
+    {
+      "role": "Response",
+      "say": "You can, but I would not recommend it with that charger connected.\n\n\nThat Schumacher SE-520MA is a basic charger, not a dedicated jump starter or engine-start unit. When the mower starter engages, current demand spikes far beyond what the charger is designed to supply. Possible outcomes:\n\n\nCharger fuse trips\n\nCharger overheats\n\nVoltage spike damages charger\n\nNothing bad happens and it starts anyway\n\n\nThe safer sequence is:\n\n\nTurn charger off / unplug it.\n\nRemove at least one clamp (preferably negative/black).\n\nStart mower normally.\n\nIf it starts weakly, reconnect charger afterward.\n\n\nIf you absolutely must try starting while connected:\n\n\nKeep charger in 10A, not 2A\n\nDo not crank for long\n\nStop immediately if charger hum changes dramatically or gets hot\n\n\nBut again, this model is primarily a charger, not a boost pack. Disconnecting first is the conservative approach.",
+      "time": "5/16/2026, 1:20:03 PM"
+    },
+    {
+      "role": "Response",
+      "say": "This photo shows the left selector is set to automatic, which is the correct choice for a normal mower battery.\n\n\nAlso, the meter position is useful now:\n\n\nThe needle is around the 90–100% region\n\nThat suggests the battery is getting close to charged, at least according to this charger’s crude analog meter.\n\n\nAt this point, if it has been charging for a while already, you can probably:\n\n\nUnplug charger from wall\n\nRemove negative clamp\n\nRemove positive clamp\n\nTry starting mower\n\n\nI would expect a reasonable chance it starts now unless:\n\n\nthe battery is old/sulfated, or\n\nthere is another issue (starter solenoid, bad connection, charging system, etc.).\n\n\nOne caveat: these old Schumacher meters are not precision instruments. A battery can show “charged” yet still collapse under starter load if one cell is weak. So the real test is cranking performance.",
+      "time": "5/16/2026, 1:21:40 PM"
+    }
+  ]
+}
