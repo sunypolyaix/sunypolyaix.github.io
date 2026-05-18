@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AI Literacy in Applied Contexts — Morrisville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script type="application/json" id="speaker-notes">
+[
+  "Good morning. Thanks for having me. I want to spend the next ten minutes or so talking about what AI literacy actually means for the students you teach — not the students at a four-year liberal arts school, but the students who go to work in barns and shops and greenhouses. I think the framing most institutions are using right now is wrong for your campus, and I want to make the case for a different one. Before we start, one disclosure.",
+  "One hundred percent of this content is AI-generated. Everything but my prompts. I had background knowledge of Morrisville and of AI literacy before I started, but I learned the details — the aviation literature, the failure modes, the greenhouse systems — through sustained conversation with a language model. I'll come back to this at the end, because I think it actually matters for the argument. For now, let's set it aside.",
+  "When most people in higher education talk about AI literacy, they mean this: a student prompts a model, gets text back, makes decisions about what to do with that output. The product is a document. The evidence of their thinking is in the conversation. That's the compositional case — and almost all of the rubrics and course guidelines being developed right now were built for it. I don't think that describes your students. So let me walk you around campus for a few minutes.",
+  "Stop one. Your students working in automated dairy will encounter a milking parlor that looks something like this. Robotic systems handle the milking. The cows come and go on their own schedule. The AI monitors each animal — yield, conductivity, frequency, body weight, reproductive status. It makes feeding recommendations. It flags animals for attention. Your student's job is not to milk the cow. It's to read the dashboard, evaluate the flag, and decide whether to act on it. The system has already shaped the field of attention before your student arrives. And that word — attention — is not accidental. The architecture under many modern AI systems is literally called a transformer, built around what computer scientists call an attention mechanism: a way of weighting which signals matter most. Humans do something similar. But now another attention system is entering the workflow before the human operator begins evaluating the situation. Under what circumstances should your student override the dashboard? That is not a technical question. That is a literacy question.",
+  "Stop two. Your automotive technology students are going to work in shops where the first thing that happens when a vehicle comes in is someone plugs in an OBD-II scanner. The scanner reads the diagnostic trouble codes. AI-assisted platforms cross-reference those codes against repair records, group related codes, prioritize probable causes, and present a recommended repair sequence with confidence scores. Your student sees the recommendation on a tablet. The AI has already organized what looks important. Their attention is directed before their hands-on inspection begins. They might run additional tests. They might catch something the scanner missed. But the workflow is recommendation first, verification second — if at all. What does it take to recognize when the recommendation is wrong? That is not a scanning skill. That is a judgment skill.",
+  "Stop three. Your horticulture students are going to manage crops in environments where AI is already making autonomous decisions. Irrigation adjusts water delivery based on soil moisture sensors and weather data — without asking anyone. Climate control sets temperature, humidity, CO2. Camera systems scan for disease and pest presence, flag anomalies, and recommend treatments. The grower — your student — receives a report. An alert. A dashboard. The system has often already acted before they see it. What does fixation look like when the disease alert fires and attention goes to the flagged plant while the actual outbreak is two rows over? What does it cost when the dashboard declares the field healthy and your student stops looking?",
+  "Three workers. Three dashboards. Manure on the coverall, grease under the fingernails, soil on the gloves. In each case the AI is already in the room before the worker makes a decision. Not a tool they chose to consult — a system that organized the field of attention before they looked up. This is not the compositional case. The compositional case puts a student at a keyboard, evaluating output from a model they deliberately invoked. What you are looking at is different: AI embedded in physical, high-stakes labor — recommending, flagging, acting — in workflows where the student's job is to maintain judgment about a situation the system has already interpreted. The AI got its hands dirty. That is the shift worth naming.",
+  "In all three cases the cognitive challenge is the same. The AI system increasingly organizes what the operator notices first. So the dashboard is not the situation. The dashboard is the model's interpretation of the situation. That distinction sounds small. It is the whole game. The habit of mind your students need is to maintain epistemic separation between what the model surfaced and what is actually happening in the barn, the shop, or the greenhouse.",
+  "Human-factors researchers have documented recurring failure modes when operators work alongside automated systems. You see them in aviation, in clinical decision support, in process control. Manual skill atrophy — procedural skills degrade from disuse. Plan continuation bias — cognitive commitment to the AI-established course despite new cues. Vigilance decrement — attention drifts from primary indicators. Omission errors — failing to notice when the automation misses something. Commission errors — acting on automated recommendations without independent verification. Confirmation bias — misinterpreting ambiguous information to confirm the plan. Expectation-driven processing — seeing what the AI predicted, not what is actually there. What these have in common is not complexity. They are all failures of attention. The operator's attention has been pre-organized by the system, and independent judgment has been displaced by cue-following. Aviation addressed several of these through mandatory manual flying and scenario-based training under realistic conditions. The FAA can mandate that because the stakes are existential. Your students at Morrisville are not pilots. We do not need to train them to do everything manually as a backup. But we do need to train them to maintain an independent model of the situation.",
+  "Many earlier automation failures were more mechanically legible. The pump breaks. The sensor malfunctions. You can see it, you can trace it. This round is different in three ways. First, the logic is opaque. The system makes a recommendation based on patterns it learned from large amounts of data. You cannot always ask it why and get a clear answer. Second, it fails by being confidently wrong. AI can produce a plausible-looking recommendation that happens to be incorrect for your specific cow, your specific vehicle, your specific crop — and nothing in the interface signals that. Third, introducing AI into automation may actually increase the cognitive demand on the human operator. The milking robot reduced physical labor. The AI-assisted milking system requires your student to constantly evaluate recommendations from a system they cannot fully see into, at scale, every day.",
+  "So what does AI literacy mean here? It is not — teach students to use the tools. It is not — teach students about automation bias. It is this: design courses where students practice the moment of judgment before compliance. Where the AI recommendation is sometimes wrong by design. Where they have to articulate why they're pausing. Where following the system blindly costs them something in simulation before it costs them something in the field. Your dairy students should encounter scenarios where the feeding algorithm has miscalculated and they have to catch it by reading the herd. Your auto students should encounter vehicles where the scanner recommendation is wrong and their hands-on inspection is the only thing that catches it. Your horticulture students should encounter disease alerts that are false positives — and silent outbreaks the system missed. That is not a new course. That is a design principle you can embed in the courses you are already teaching.",
+  "There is a definition of literacy that does not require AI to be special. Reading, thinking, and writing using tools and techniques consistent with your peers. That is it. That is literacy. What I did to build this talk meets that definition. The transcript is the work. This talk is the artifact — evidence the work concluded. Every prompt is a decision. Every correction is a judgment. Every cut is an argument about what matters. That is what we should be assessing. Not whether a student used AI. Whether they can show you the thinking. There is also a fifteen-exercise scaffold for teaching this practice in the repository, if you want it. It is called the Learner's Permit. I want to say one more thing before I get to the question. Preparing this talk changed how I think about what I do. I teach AI literacy in the compositional case. Student, keyboard, model, text. The recommendation arrives as language. You can read it, push back, cut it, correct it. The thinking is visible. The failure modes are legible. What you teach is harder. The system acts before the student sees it. It recommends before they can question it. It fails without announcing itself. Teaching a student to maintain independent judgment in that environment — where the AI already has its hands on the work before the student does — that is a more difficult pedagogical problem than anything I deal with. I don't have a name for your case that I'm fully satisfied with yet. Directive. Applied. Responsive. The vocabulary is still catching up. But I know it is not the compositional case, and I know the people in this room are going to have to solve it largely without the frameworks the rest of higher education is building right now.",
+  "I told you I would come back to it. I said at the start that one hundred percent of this content is AI-generated, except my prompts. The full transcript of the conversations that produced this talk is in the repository I am sharing with you today. You can zip it, upload it to a language model, and ask it questions. So here is the question I want to leave with you. If a student produced this talk through sustained conversation with a model — guided it, corrected it, organized it, made the judgment calls about what to keep — can they get credit for the assignment? That is the question your colleagues at four-year compositional programs are arguing about. It is not the most important question for your students. The most important question for your students is whether they can maintain an independent model of the situation while AI is already organizing what they see. Thank you.",
+  "I said at the start that one hundred percent of this content is AI-generated, except my prompts. Here is what those prompts actually were. Twenty-nine conversations. Four hundred and fifty-six prompts. Forty-five thousand words — all mine. Now sort those prompts by length and they fall into two groups. About three hundred and sixty-two of them are short — fifty words or fewer, averaging fourteen. Those are steering prompts. Try it this way. Cut that paragraph. No, the other cow. That is thinking out loud with a model in the room. The other ninety-four are long. Some over a thousand words. Pasting in a draft. Asking the model to compare two versions. Validating an argument against the human-factors literature. Moving output from one model to another for a second opinion. That is writing. Composition. It is twenty percent of the prompts and eighty-eight percent of the words. The reading is implicit — reading the model's responses, deciding what to keep. The thinking is short and conversational. And the real writing happens in the validation. Asking the model to check the work.",
+  "Happy to take questions. Before we open it up — the QR code on the screen takes you to the GitHub repository. I'm going to walk over there now and show you what's in it: the readme, the full prompt transcripts, the downloads. You can scan it from your seats. Grab the bundle, run your own conversations against it, and bring the results back to your colleagues. All right — questions."
+]
+</script>
+
+<style>
+  :root {
+    /* Default palette — overridden by Tweaks */
+    --cream: #F0EBDD;
+    --ink: #0E0E12;
+    --rust: #D9421E;
+    --navy: #1A2B40;
+    --muted: #8A8276;
+    --hairline: rgba(14, 14, 18, 0.14);
+    --hairline-cream: rgba(240, 235, 221, 0.22);
+
+    /* Type — projection-appropriate scale */
+    --type-display: 200px;
+    --type-headline: 132px;
+    --type-title: 92px;
+    --type-subtitle: 56px;
+    --type-lead: 42px;
+    --type-body: 32px;
+    --type-small: 24px;
+    --type-mono: 24px;
+
+    /* Spacing */
+    --pad-top: 110px;
+    --pad-bottom: 110px;
+    --pad-x: 140px;
+    --gap-title: 56px;
+    --gap-item: 28px;
+
+    /* Fonts */
+    --font-display: "Space Grotesk", "Helvetica Neue", sans-serif;
+    --font-serif: "Newsreader", Georgia, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: var(--font-display);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  deck-stage { background: #000; }
+
+  /* ── Slide chassis ─────────────────────────────────────────────────── */
+  .slide {
+    width: 100%;
+    height: 100%;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    box-sizing: border-box;
+    background: var(--cream);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide.ink   { background: var(--ink);  color: var(--cream); }
+  .slide.navy  { background: var(--navy); color: var(--cream); }
+  .slide.rust  { background: var(--rust); color: var(--cream); }
+  .slide.image { padding: 0; }
+
+  /* Slide meta strip — top eyebrow */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 40px;
+    opacity: 0.85;
+  }
+  .meta .num { color: var(--rust); }
+  .ink .meta .num, .navy .meta .num, .rust .meta .num { color: inherit; }
+  .rust .meta .num { color: var(--ink); }
+
+  .footer-mark {
+    position: absolute;
+    bottom: 56px;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+
+  /* ── Type helpers ──────────────────────────────────────────────────── */
+  h1.display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--type-headline);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1.huge {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--type-display);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    margin: 0;
+  }
+  h2.title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--type-title);
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .lead {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--type-lead);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .body {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--type-body);
+    line-height: 1.32;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .serif-quote {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 116px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .accent { color: var(--rust); }
+  .ink .accent, .navy .accent { color: var(--rust); }
+
+  /* ── Slide 1: Title ────────────────────────────────────────────────── */
+  .s-title {
+    justify-content: space-between;
+  }
+  .s-title .title-block {
+    margin-top: auto;
+    margin-bottom: 24px;
+  }
+  .s-title h1.display {
+    font-size: 168px;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+  .s-title .subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.1;
+    color: var(--rust);
+    margin-top: 36px;
+    letter-spacing: -0.015em;
+  }
+  .s-title .credit {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 28px;
+  }
+  .s-title .credit .who {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  .s-title .credit .who .org {
+    display: block;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 6px;
+    font-size: 26px;
+  }
+
+  /* ── Slide 2: Disclosure ─────────────────────────────────────────── */
+  .s-disclosure {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .s-disclosure .pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 560px;
+    line-height: 0.82;
+    letter-spacing: -0.06em;
+    color: var(--rust);
+    margin: 0;
+  }
+  .s-disclosure .pct sup {
+    font-size: 0.35em;
+    vertical-align: top;
+    font-weight: 500;
+    color: var(--cream);
+    margin-left: 16px;
+    line-height: 1;
+    top: 0.15em;
+    position: relative;
+  }
+  .s-disclosure .statement {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 88px;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    color: var(--cream);
+    margin: 32px 0 0;
+    max-width: 1400px;
+  }
+  .s-disclosure .statement em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 500;
+  }
+
+  /* ── Slide 3: Wrong Student ───────────────────────────────────────── */
+  .s-wrong .meta { color: var(--muted); }
+  .s-wrong .stack {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .s-wrong h1 {
+    font-size: 168px;
+    line-height: 0.92;
+  }
+  .s-wrong .strike {
+    color: var(--rust);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* ── Stops: 4, 5, 6 ───────────────────────────────────────────────── */
+  .s-stop { padding: 0; }
+  .s-stop .photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .s-stop image-slot {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .s-stop .stop-meta {
+    position: absolute;
+    top: 56px;
+    left: 56px;
+    right: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: var(--type-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.55);
+    z-index: 2;
+  }
+  .s-stop .stop-meta .num { color: var(--cream); }
+  .s-stop .stop-card {
+    position: absolute;
+    left: 56px;
+    bottom: 56px;
+    max-width: 920px;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 56px 64px 60px;
+    z-index: 2;
+  }
+  .s-stop .stop-card .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--rust);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .s-stop .stop-card h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 104px;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    margin: 0 0 28px;
+  }
+  .s-stop .stop-card .role {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0;
+  }
+  .s-stop .stop-card .role b {
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 600;
+    color: var(--rust);
+  }
+
+  /* ── Slide 7: Triptych ────────────────────────────────────────────── */
+  .s-triptych {
+    padding: 0;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+  }
+  .s-triptych .header {
+    flex: 0 0 auto;
+    padding: 56px 80px 36px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .s-triptych .header .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .s-triptych .header .top .num { color: var(--rust); }
+  .s-triptych .header .top .right { opacity: 0.6; }
+  .s-triptych .header h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .s-triptych .header h2 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust);
+  }
+  .s-triptych .photo-wrap {
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .s-triptych img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+  }
+
+  /* ── Slide 7: Pull quote ─────────────────────────────────────────── */
+  .s-quote {
+    justify-content: center;
+  }
+  .s-quote .mark {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 220px;
+    line-height: 0.5;
+    color: var(--rust);
+    margin: 0 0 32px;
+    display: block;
+  }
+  .s-quote .q {
+    color: var(--cream);
+    max-width: 1500px;
+  }
+  .s-quote .q em {
+    color: var(--rust);
+    font-style: italic;
+  }
+  .s-quote .attribution {
+    margin-top: 64px;
+    font-family: var(--font-mono);
+    font-size: var(--type-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.75;
+  }
+
+  /* ── Slide 8: 7 Failure Modes ────────────────────────────────────── */
+  .s-modes .grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--hairline-cream);
+    border: 1px solid var(--hairline-cream);
+  }
+  .s-modes .cell {
+    background: var(--ink);
+    padding: 32px 32px 36px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .s-modes .cell .num {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--rust);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .s-modes .cell h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px;
+    color: var(--cream);
+  }
+  .s-modes .cell p {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.3;
+    color: var(--cream);
+    opacity: 0.7;
+    margin: 0;
+  }
+  .s-modes .cell.summary {
+    background: var(--rust);
+    color: var(--ink);
+  }
+  .s-modes .cell.summary h3 {
+    color: var(--ink);
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  .s-modes .cell.summary p {
+    color: var(--ink);
+    opacity: 0.8;
+  }
+  .s-modes .cell.summary .num {
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .s-modes .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+  }
+  .s-modes h2 {
+    color: var(--cream);
+    max-width: 1100px;
+  }
+  .s-modes .header-row .source {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.55;
+    max-width: 360px;
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  /* ── Slide 9: What's different ───────────────────────────────────── */
+  .s-different .header {
+    max-width: 1300px;
+  }
+  .s-different h2 {
+    margin-top: 24px;
+  }
+  .s-different .three {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .s-different .col {
+    border-top: 2px solid var(--ink);
+    padding-top: 28px;
+  }
+  .s-different .col .n {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+    margin-bottom: 28px;
+  }
+  .s-different .col h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .s-different .col p {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.35;
+    color: var(--ink);
+    opacity: 0.78;
+    margin: 0;
+  }
+
+  /* ── Slide 10: What AI literacy means ─────────────────────────────── */
+  .s-means .stack {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 1500px;
+  }
+  .s-means .nots {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+  }
+  .s-means .nots span {
+    display: block;
+  }
+  .s-means .nots s {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+  }
+  .s-means h2 {
+    font-size: 88px;
+    line-height: 0.98;
+  }
+  .s-means h2 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 500;
+  }
+  .s-means .three-rows {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    row-gap: 16px;
+    column-gap: 40px;
+    font-family: var(--font-display);
+    font-size: 26px;
+    line-height: 1.32;
+    color: var(--ink);
+  }
+  .s-means .three-rows .key {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--rust);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 6px;
+  }
+
+  /* ── Slide 11: Can I get credit? ──────────────────────────────────── */
+  .s-credit {
+    justify-content: space-between;
+  }
+  .s-credit .preamble {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    max-width: 900px;
+    line-height: 1.5;
+  }
+  .s-credit h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 196px;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .s-credit h1 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--cream);
+  }
+  .s-credit .below {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 80px;
+    border-top: 2px solid var(--ink);
+    padding-top: 24px;
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .s-credit .below .right {
+    text-align: right;
+    line-height: 1.4;
+    max-width: 720px;
+  }
+
+  /* ── Slide 12: End ────────────────────────────────────────────────── */
+  .s-end {
+    justify-content: space-between;
+    color: var(--cream);
+  }
+  .s-end .end-grid {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+    align-items: center;
+    margin: 16px 0 24px;
+  }
+  .s-end .end-title-col h1 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 168px;
+    line-height: 0.92;
+    margin: 0;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+  }
+  .s-end .end-title-col h1 .amp {
+    color: var(--rust);
+  }
+  .s-end .end-prompt {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.4;
+    color: var(--cream);
+    opacity: 0.75;
+    margin: 40px 0 0;
+    max-width: 760px;
+    letter-spacing: -0.005em;
+  }
+  .s-end .end-qr-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .s-end .qr-box {
+    --qr-bg: var(--cream);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 24px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .s-end .qr-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .s-end .end-qr-url {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--rust);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    text-align: center;
+    border-bottom: 1px solid var(--hairline-cream);
+    padding-bottom: 10px;
+    word-break: break-all;
+  }
+  .s-end .end-qr-url:hover {
+    color: var(--cream);
+  }
+  .s-end .end-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .s-end .end-foot .right { text-align: right; line-height: 1.4; }
+
+  /* ── Slide 12: Here is the process ────────────────────────────────── */
+  .s-process { color: var(--cream); }
+  .s-process h2 {
+    color: var(--cream);
+    margin-top: 8px;
+    max-width: 1100px;
+  }
+  .s-process h2 em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 500;
+  }
+  .s-process .process-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--cream);
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 48px;
+    max-width: 1300px;
+    line-height: 1.5;
+  }
+  /* ── Slide 14 ─ Thinking / Writing split ────────────────── */
+  .s-process .rtw-split {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--hairline-cream);
+  }
+  .s-process .rtw-card {
+    padding: 32px 36px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .s-process .rtw-thinking {
+    background: var(--ink);
+    color: var(--cream);
+    border-right: 1px solid var(--hairline-cream);
+  }
+  .s-process .rtw-writing {
+    background: var(--rust);
+    color: var(--ink);
+  }
+  .s-process .rtw-card-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .s-process .rtw-thinking .rtw-card-eyebrow { color: var(--rust); }
+  .s-process .rtw-writing  .rtw-card-eyebrow { color: var(--ink); opacity: 0.7; }
+  .s-process .rtw-card-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 144px;
+    line-height: 0.86;
+    letter-spacing: -0.05em;
+  }
+  .s-process .rtw-thinking .rtw-card-num { color: var(--cream); }
+  .s-process .rtw-writing  .rtw-card-num { color: var(--ink); }
+  .s-process .rtw-card-sub {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+  .s-process .rtw-card-desc {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.32;
+    margin-top: 6px;
+  }
+  .s-process .rtw-card-desc em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .s-process .rtw-thinking .rtw-card-desc em { color: var(--rust); }
+  .s-process .rtw-writing  .rtw-card-desc em { color: var(--cream); }
+
+  /* Inversion bars */
+  .s-process .inversion {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .s-process .inv-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: 24px;
+  }
+  .s-process .inv-key {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.65;
+  }
+  .s-process .inv-bar {
+    display: flex;
+    width: 100%;
+    height: 42px;
+    border: 1px solid var(--hairline-cream);
+  }
+  .s-process .inv-seg {
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .s-process .inv-think { background: rgba(217,66,30,0.22); }
+  .s-process .inv-write { background: var(--rust); color: var(--ink); }
+  .s-process .inv-seg + .inv-seg { border-left: 1px solid var(--hairline-cream); }
+
+  /* hide legacy stats markup if any leftover */
+  .s-process .body-grid > .stats,
+  .s-process .body-grid > .platforms { display: none; }
+
+  .s-process .body-grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .s-process .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--hairline-cream);
+    border-left: 1px solid var(--hairline-cream);
+  }
+  .s-process .stat {
+    padding: 40px 36px 36px;
+    border-right: 1px solid var(--hairline-cream);
+    border-bottom: 1px solid var(--hairline-cream);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 230px;
+  }
+  .s-process .stat-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 148px;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    color: var(--rust);
+  }
+  .s-process .stat-label {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    color: var(--cream);
+    opacity: 0.78;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: auto;
+  }
+
+  /* Platform breakdown bar */
+  .s-process .platforms {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .s-process .platforms-label {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--cream);
+    opacity: 0.55;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .s-process .platform-bar {
+    display: flex;
+    width: 100%;
+    border: 1px solid var(--hairline-cream);
+  }
+  .s-process .seg {
+    padding: 22px 28px 24px;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid rgba(14,14,18,0.18);
+    min-width: 0;
+    overflow: hidden;
+  }
+  .s-process .seg:last-child { border-right: none; }
+  .s-process .seg b {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .s-process .seg i {
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+    line-height: 1.3;
+  }
+  .s-process .seg-claude  { background: var(--rust); }
+  .s-process .seg-chatgpt { background: #C8C0AB; color: var(--ink); }
+  .s-process .seg-gemini  { background: #5A5648; color: var(--cream); }
+  .s-process .seg-gemini i { opacity: 0.8; }
+  .s-process .qr-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .s-process .qr-box {
+    --qr-bg: var(--cream);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 20px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .s-process .qr-box svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .s-process .qr-caption {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--cream);
+    opacity: 0.8;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .s-process .qr-caption .url {
+    color: var(--rust);
+    display: block;
+    margin-top: 10px;
+    word-break: break-all;
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Slide 13: Reading, thinking, writing with tools ──────────────── */
+  .s-rtw .rtw-top {
+    margin-top: 32px;
+    max-width: 1600px;
+  }
+  .s-rtw .rtw-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+  }
+  .s-rtw .rtw-def {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 84px;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin: 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .s-rtw .rtw-def em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--rust);
+  }
+  .s-rtw .rtw-after {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.4;
+    color: var(--ink);
+    opacity: 0.78;
+    margin: 36px 0 0;
+    max-width: 1400px;
+  }
+  .s-rtw .rtw-divider {
+    margin: 56px 0 48px;
+    border-top: 2px solid var(--ink);
+    width: 200px;
+  }
+  .s-rtw .rtw-coda-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--ink);
+    opacity: 0.55;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+  .s-rtw .rtw-coda {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 1.32;
+    color: var(--ink);
+    margin: 0;
+    max-width: 1500px;
+    letter-spacing: -0.01em;
+  }
+  .s-rtw .rtw-coda em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080" data-om-id="db684539:7" style="--deck-rail-w: 188px;">
+
+  <!-- ─────────── 01 · TITLE ─────────── -->
+  <section data-label="01 Title" class="slide s-title" data-om-id="db684539:8" data-screen-label="01 01 Title" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="0">
+    <div class="meta" data-om-id="db684539:9">
+      <span data-om-id="db684539:10"><span class="num" data-om-id="db684539:11">01</span> &nbsp;·&nbsp; Opening</span>
+      <span data-om-id="db684539:12">SUNY Morrisville · Faculty Development · May 19, 2026</span>
+    </div>
+
+    <div class="title-block" data-om-id="db684539:13">
+      <h1 class="display" data-om-id="db684539:14">AI literacy<br data-om-id="db684539:15">in applied contexts.</h1>
+      <div class="subtitle" data-om-id="db684539:16">When the AI tells you what to do.</div>
+    </div>
+
+    <div class="credit" data-om-id="db684539:17">
+      <div class="who" data-om-id="db684539:18">
+        <span data-om-id="db684539:19">Steven M. Schneider</span>
+        <span class="org" data-om-id="db684539:20">SUNY Polytechnic Institute · AIX Center</span>
+      </div>
+      <div class="who" style="text-align:right;font-family:var(--font-mono);font-size: 24px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.65;font-weight:400;" data-om-id="db684539:21">
+        A talk in four stops<br data-om-id="db684539:22">and one question.
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 02 · DISCLOSURE ─────────── -->
+  <section data-label="02 Disclosure" class="slide s-disclosure ink" data-om-id="db684539:23" data-screen-label="02 02 Disclosure" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="1">
+    <div class="meta" style="position:absolute;top:var(--pad-top);left:var(--pad-x);right:var(--pad-x);" data-om-id="db684539:24">
+      <span data-om-id="db684539:25"><span class="num" style="color:var(--rust);" data-om-id="db684539:26">00</span> &nbsp;·&nbsp; Disclosure</span>
+      <span data-om-id="db684539:27">Before we start</span>
+    </div>
+
+    <div style="margin-top:auto;margin-bottom:auto;" data-om-id="db684539:28">
+      <div class="pct" data-om-id="db684539:29">100<sup data-om-id="db684539:30">%</sup></div>
+      <div class="statement" data-om-id="db684539:31">of this content is<br data-om-id="db684539:32">AI-generated. <em data-om-id="db684539:33">Except&nbsp;my&nbsp;prompts.</em></div>
+    </div>
+
+    <div class="footer-mark" style="color:var(--cream);opacity:0.55;" data-om-id="db684539:34">
+      <span data-om-id="db684539:35">— I'll come back to that at the end.</span>
+      <span data-om-id="db684539:36">02 / 15</span>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 03 · WRONG STUDENT ─────────── -->
+  <section data-label="03 Wrong student" class="slide s-wrong" data-om-id="db684539:37" data-screen-label="03 03 Wrong student" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2">
+    <div class="meta" data-om-id="db684539:38">
+      <span data-om-id="db684539:39"><span class="num" data-om-id="db684539:40">01</span> &nbsp;·&nbsp; The framing problem</span>
+      <span data-om-id="db684539:41">Most AI literacy pedagogy</span>
+    </div>
+
+    <div class="stack" data-om-id="db684539:42">
+      <h1 class="display" data-om-id="db684539:43">
+        Most AI literacy<br data-om-id="db684539:44">
+        was built for<br data-om-id="db684539:45">
+        <span class="strike" data-om-id="db684539:46">the wrong student.</span>
+      </h1>
+    </div>
+
+    <div class="footer-mark" data-om-id="db684539:47">
+      <span data-om-id="db684539:48">The compositional case is not your case.</span>
+      <span data-om-id="db684539:49">03 / 15</span>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 04 · STOP ONE — DAIRY ─────────── -->
+  <section data-label="04 Stop one — Dairy" class="slide s-stop image" data-om-id="db684539:50" data-screen-label="04 04 Stop one — Dairy" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="3">
+    <div class="photo" data-om-id="db684539:51">
+      <image-slot id="stop-dairy-2" placeholder="Drop a photo of a robotic milking parlor / dairy dashboard" data-om-id="db684539:52" data-editable="" data-filled=""></image-slot>
+    </div>
+
+    <div class="stop-meta" data-om-id="db684539:53">
+      <span data-om-id="db684539:54">02 · Walk around campus</span>
+      <span data-om-id="db684539:55">Stop one of three</span>
+    </div>
+
+    <div class="stop-card" data-om-id="db684539:56">
+      <div class="eyebrow" data-om-id="db684539:57">Stop One</div>
+      <h2 data-om-id="db684539:58">The dairy farm.</h2>
+      <p class="role" data-om-id="db684539:59">Your student's job is not to milk the cow.<br data-om-id="db684539:60">
+        It's to <b data-om-id="db684539:61">read the dashboard,</b> evaluate the flag, and decide whether to act.</p>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 05 · STOP TWO — AUTO SHOP ─────────── -->
+  <section data-label="05 Stop two — Auto shop" class="slide s-stop image" data-om-id="db684539:62" data-screen-label="05 05 Stop two — Auto shop" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
+    <div class="photo" data-om-id="db684539:63">
+      <image-slot id="stop-auto" placeholder="Drop a photo of an OBD-II scanner / diagnostic tablet in a shop" data-om-id="db684539:64" data-editable="" data-filled=""></image-slot>
+    </div>
+
+    <div class="stop-meta" data-om-id="db684539:65">
+      <span data-om-id="db684539:66">02 · Walk around campus</span>
+      <span data-om-id="db684539:67">Stop two of three</span>
+    </div>
+
+    <div class="stop-card" data-om-id="db684539:68">
+      <div class="eyebrow" data-om-id="db684539:69">Stop Two</div>
+      <h2 data-om-id="db684539:70">The auto shop.</h2>
+      <p class="role" data-om-id="db684539:71">Recommendation first,<br data-om-id="db684539:72">
+        <b data-om-id="db684539:73">verification second</b> — if at all.</p>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 06 · STOP THREE — GREENHOUSE ─────────── -->
+  <section data-label="06 Stop three — Greenhouse" class="slide s-stop image" data-om-id="db684539:74" data-screen-label="06 06 Stop three — Greenhouse" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5">
+    <div class="photo" data-om-id="db684539:75">
+      <image-slot id="stop-green" placeholder="Drop a photo of a greenhouse with sensors / a climate dashboard" data-om-id="db684539:76" data-editable="" data-filled=""></image-slot>
+    </div>
+
+    <div class="stop-meta" data-om-id="db684539:77">
+      <span data-om-id="db684539:78">02 · Walk around campus</span>
+      <span data-om-id="db684539:79">Stop three of three</span>
+    </div>
+
+    <div class="stop-card" data-om-id="db684539:80">
+      <div class="eyebrow" data-om-id="db684539:81">Stop Three</div>
+      <h2 data-om-id="db684539:82">The greenhouse.</h2>
+      <p class="role" data-om-id="db684539:83">The system has often already <b data-om-id="db684539:84">acted</b><br data-om-id="db684539:85">
+        before your student sees it.</p>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 07 · TRIPTYCH — AI with dirty hands ─────────── -->
+  <section data-label="07 AI with dirty hands" class="slide s-triptych" data-om-id="db684539:86" data-screen-label="07 07 AI with dirty hands" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
+    <div class="header" data-om-id="db684539:87">
+      <div class="top" data-om-id="db684539:88">
+        <span data-om-id="db684539:89"><span class="num" data-om-id="db684539:90">04a</span> &nbsp;·&nbsp; The composite</span>
+        <span class="right" data-om-id="db684539:91">Three workers · Three dashboards · Three kinds of dirt</span>
+      </div>
+      <h2 data-om-id="db684539:92">AI with <em data-om-id="db684539:93">dirty hands.</em></h2>
+    </div>
+    <div class="photo-wrap" data-om-id="db684539:94">
+      <img src="images/three-students-triptych.png" alt="Three students from the three stops, each shown with the dirt of their work — a dairy worker in manure-stained Carhartt coveralls, an auto tech with oily hands holding an OBD-II scanner, a horticulture student with soil under her fingernails reading a tablet." data-om-id="db684539:95">
+    </div>
+  </section>
+
+
+  <!-- ─────────── 08 · PULL QUOTE ─────────── -->
+  <section data-label="08 Dashboard is not the situation" class="slide s-quote navy" data-om-id="db684539:96" data-screen-label="08 08 Dashboard is not the situation" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
+    <div class="meta" style="position:absolute;top:var(--pad-top);left:var(--pad-x);right:var(--pad-x);color:var(--cream);opacity:0.65;" data-om-id="db684539:97">
+      <span data-om-id="db684539:98"><span class="num" style="color:var(--rust);" data-om-id="db684539:99">03</span> &nbsp;·&nbsp; The pivot</span>
+      <span data-om-id="db684539:100">What changed</span>
+    </div>
+
+    <div style="margin-top:auto;margin-bottom:auto;" data-om-id="db684539:101">
+      <div class="mark" data-om-id="db684539:102">“</div>
+      <p class="serif-quote q" data-om-id="db684539:103">
+        The dashboard is not <em data-om-id="db684539:104">the situation.</em><br data-om-id="db684539:105">
+        It is the model's <em data-om-id="db684539:106">interpretation</em> of the situation.
+      </p>
+      <div class="attribution" data-om-id="db684539:107">The whole game, in one sentence.</div>
+    </div>
+
+    <div class="footer-mark" style="color:var(--cream);opacity:0.55;" data-om-id="db684539:108">
+      <span data-om-id="db684539:109">Maintain epistemic separation.</span>
+      <span data-om-id="db684539:110">08 / 15</span>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 09 · SEVEN FAILURE MODES ─────────── -->
+  <section data-label="09 Seven failure modes" class="slide s-modes ink" data-om-id="db684539:111" data-screen-label="09 09 Seven failure modes" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8">
+    <div class="meta" style="color:var(--cream);opacity:0.7;" data-om-id="db684539:112">
+      <span data-om-id="db684539:113"><span class="num" style="color:var(--rust);" data-om-id="db684539:114">04</span> &nbsp;·&nbsp; The cognitive challenge</span>
+      <span data-om-id="db684539:115">Aviation · Clinical decision support · Process control</span>
+    </div>
+
+    <div class="header-row" style="margin-top:48px;" data-om-id="db684539:116">
+      <h2 class="title" data-om-id="db684539:117">Seven failure modes,<br data-om-id="db684539:118">one root cause.</h2>
+      <p class="source" data-om-id="db684539:119">Human-factors research on operators working alongside automated systems.</p>
+    </div>
+
+    <div class="grid" data-om-id="db684539:120">
+      <div class="cell" data-om-id="db684539:121">
+        <div data-om-id="db684539:122">
+          <div class="num" data-om-id="db684539:123">01</div>
+          <h3 data-om-id="db684539:124">Manual skill atrophy</h3>
+        </div>
+        <p data-om-id="db684539:125">Procedural skills degrade from disuse.</p>
+      </div>
+      <div class="cell" data-om-id="db684539:126">
+        <div data-om-id="db684539:127">
+          <div class="num" data-om-id="db684539:128">02</div>
+          <h3 data-om-id="db684539:129">Plan continuation bias</h3>
+        </div>
+        <p data-om-id="db684539:130">Cognitive commitment to the AI-established course despite new cues.</p>
+      </div>
+      <div class="cell" data-om-id="db684539:131">
+        <div data-om-id="db684539:132">
+          <div class="num" data-om-id="db684539:133">03</div>
+          <h3 data-om-id="db684539:134">Vigilance decrement</h3>
+        </div>
+        <p data-om-id="db684539:135">Attention drifts from primary indicators during automation.</p>
+      </div>
+      <div class="cell" data-om-id="db684539:136">
+        <div data-om-id="db684539:137">
+          <div class="num" data-om-id="db684539:138">04</div>
+          <h3 data-om-id="db684539:139">Omission errors</h3>
+        </div>
+        <p data-om-id="db684539:140">Failing to notice when the automation misses something.</p>
+      </div>
+      <div class="cell" data-om-id="db684539:141">
+        <div data-om-id="db684539:142">
+          <div class="num" data-om-id="db684539:143">05</div>
+          <h3 data-om-id="db684539:144">Commission errors</h3>
+        </div>
+        <p data-om-id="db684539:145">Acting on recommendations without independent verification.</p>
+      </div>
+      <div class="cell" data-om-id="db684539:146">
+        <div data-om-id="db684539:147">
+          <div class="num" data-om-id="db684539:148">06</div>
+          <h3 data-om-id="db684539:149">Confirmation bias</h3>
+        </div>
+        <p data-om-id="db684539:150">Misinterpreting ambiguous information to confirm the plan.</p>
+      </div>
+      <div class="cell" data-om-id="db684539:151">
+        <div data-om-id="db684539:152">
+          <div class="num" data-om-id="db684539:153">07</div>
+          <h3 data-om-id="db684539:154">Expectation-driven processing</h3>
+        </div>
+        <p data-om-id="db684539:155">Seeing what the AI predicted, not what is actually there.</p>
+      </div>
+      <div class="cell summary" data-om-id="db684539:156">
+        <div data-om-id="db684539:157">
+          <div class="num" data-om-id="db684539:158">↳</div>
+          <h3 data-om-id="db684539:159">= failures of attention.</h3>
+        </div>
+        <p data-om-id="db684539:160">Attention has been pre-organized by the system.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 10 · WHAT'S DIFFERENT ─────────── -->
+  <section data-label="10 What is different now" class="slide s-different" data-om-id="db684539:161" data-screen-label="10 10 What is different now" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
+    <div class="meta" data-om-id="db684539:162">
+      <span data-om-id="db684539:163"><span class="num" data-om-id="db684539:164">05</span> &nbsp;·&nbsp; What makes this round different</span>
+      <span data-om-id="db684539:165">vs. earlier automation</span>
+    </div>
+
+    <div class="header" data-om-id="db684539:166">
+      <h2 class="title" data-om-id="db684539:167">Earlier failures<br data-om-id="db684539:168">were <span class="accent" data-om-id="db684539:169">mechanically legible.</span><br data-om-id="db684539:170">This round is not.</h2>
+    </div>
+
+    <div class="three" data-om-id="db684539:171">
+      <div class="col" data-om-id="db684539:172">
+        <div class="n" data-om-id="db684539:173">01</div>
+        <h3 data-om-id="db684539:174">The logic is opaque.</h3>
+        <p data-om-id="db684539:175">The system recommends based on patterns learned from large amounts of data. You cannot always ask why and get a clear answer.</p>
+      </div>
+      <div class="col" data-om-id="db684539:176">
+        <div class="n" data-om-id="db684539:177">02</div>
+        <h3 data-om-id="db684539:178">It fails by being confidently wrong.</h3>
+        <p data-om-id="db684539:179">A plausible-looking recommendation that happens to be incorrect for your specific cow, vehicle, or crop. Nothing in the interface signals that.</p>
+      </div>
+      <div class="col" data-om-id="db684539:180">
+        <div class="n" data-om-id="db684539:181">03</div>
+        <h3 data-om-id="db684539:182">It can <em style="font-family:var(--font-serif);color:var(--rust);" data-om-id="db684539:183">increase</em> cognitive demand.</h3>
+        <p data-om-id="db684539:184">The milking robot reduced physical labor. The AI-assisted system requires constant evaluation of recommendations you cannot fully see into — at scale, every day.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 10 · WHAT AI LITERACY MEANS HERE ─────────── -->
+  <section data-label="11 What AI literacy means here" class="slide s-means" data-om-id="db684539:185" data-screen-label="11 11 What AI literacy means here" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
+    <div class="meta" data-om-id="db684539:186">
+      <span data-om-id="db684539:187"><span class="num" data-om-id="db684539:188">06</span> &nbsp;·&nbsp; The proposal</span>
+      <span data-om-id="db684539:189">A design principle, not a course</span>
+    </div>
+
+    <div class="stack" data-om-id="db684539:190">
+      <div class="nots" data-om-id="db684539:191">
+        <span data-om-id="db684539:192"><s data-om-id="db684539:193">Not: teach students to use the tools.</s></span>
+        <span data-om-id="db684539:194"><s data-om-id="db684539:195">Not: teach students about automation bias.</s></span>
+      </div>
+
+      <h2 class="title" data-om-id="db684539:196">Design courses where students<br data-om-id="db684539:197">
+        practice the <em data-om-id="db684539:198">moment of judgment</em><br data-om-id="db684539:199">
+        — before compliance.</h2>
+
+      <div class="three-rows" data-om-id="db684539:200">
+        <div class="key" data-om-id="db684539:201">Dairy</div>
+        <div data-om-id="db684539:202">Scenarios where the feeding algorithm has miscalculated — and they catch it by reading the herd.</div>
+        <div class="key" data-om-id="db684539:203">Auto</div>
+        <div data-om-id="db684539:204">Vehicles where the scanner recommendation is wrong — and hands-on inspection is the only thing that catches it.</div>
+        <div class="key" data-om-id="db684539:205">Horticulture</div>
+        <div data-om-id="db684539:206">Disease alerts that are false positives — and silent outbreaks the system missed.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 12 · HERE IS THE PROCESS ─────────── -->
+  <section data-label="13 Reading, thinking, writing with tools" class="slide s-rtw" data-om-id="db684539:243" data-screen-label="12 13 Reading, thinking, writing with tools" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11" data-deck-active="">
+    <div class="meta" data-om-id="db684539:244">
+      <span data-om-id="db684539:245"><span class="num" data-om-id="db684539:246">07</span> &nbsp;·&nbsp; The definition</span>
+      <span data-om-id="db684539:247">A literacy that does not require AI to be special</span>
+    </div>
+
+    <div class="rtw-top" data-om-id="db684539:248">
+      <p class="rtw-eyebrow" data-om-id="db684539:249">Literacy, defined.</p>
+      <h2 class="rtw-def" data-om-id="db684539:250">
+        <em data-om-id="db684539:251">Reading, thinking,</em> and <em data-om-id="db684539:252">writing</em><br data-om-id="db684539:253">
+        using tools and techniques<br data-om-id="db684539:254">
+        consistent with your peers.
+      </h2>
+      <p class="rtw-after" data-om-id="db684539:255">
+        The transcript is the work. This talk is the artifact — evidence the work concluded.
+        Every prompt is a decision. Every correction is a judgment. Every cut is an argument about what matters.
+        That is what we should be assessing.
+      </p>
+    </div>
+
+    <div class="rtw-divider" data-om-id="db684539:256"></div>
+
+    <div class="rtw-bottom" data-om-id="db684539:257">
+      <p class="rtw-coda-eyebrow" data-om-id="db684539:258">And one more thing —</p>
+      <p class="rtw-coda" data-om-id="db684539:259">
+        I teach AI literacy in the <em data-om-id="db684539:260">compositional</em> case. The thinking is visible. The failure modes are legible.
+        What you teach is <em data-om-id="db684539:261">harder.</em> The system acts before the student sees it. Maintaining independent judgment in <em data-om-id="db684539:262">that</em> environment is a more difficult pedagogical problem than anything I deal with.
+      </p>
+    </div>
+  </section><section data-label="14 Can I get credit" class="slide s-credit rust" data-om-id="db684539:263" data-screen-label="14 14 Can I get credit" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13">
+    <div class="meta" style="color:var(--ink);" data-om-id="db684539:264">
+      <span data-om-id="db684539:265"><span class="num" style="color:var(--ink);" data-om-id="db684539:266">08</span> &nbsp;·&nbsp; Closing</span>
+      <span data-om-id="db684539:267">Back to the disclosure</span>
+    </div>
+
+    <div style="margin-top:auto;" data-om-id="db684539:268">
+      <div class="preamble" data-om-id="db684539:269">
+        I said at the start: 100% of this content is AI-generated, except my prompts.<br data-om-id="db684539:270">
+        The full transcript is in the repository I'm sharing with you today.
+      </div>
+    </div>
+
+    <h1 style="margin:24px 0;" data-om-id="db684539:271">Can I get <em data-om-id="db684539:272">credit</em><br data-om-id="db684539:273">for this assignment?</h1>
+
+    <div class="below" data-om-id="db684539:274">
+      <span data-om-id="db684539:275">The four-year compositional question.</span>
+      <span class="right" data-om-id="db684539:276">Not the most important one<br data-om-id="db684539:277">for your students.</span>
+    </div>
+  </section><section data-label="12 Here is the process" class="slide s-process ink" data-om-id="db684539:207" data-screen-label="13 12 Here is the process" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12">
+    <div class="meta" data-om-id="db684539:208">
+      <span data-om-id="db684539:209"><span class="num" data-om-id="db684539:210">07</span> &nbsp;·&nbsp; The process</span>
+      <span data-om-id="db684539:211">What "AI-generated" actually looked like</span>
+    </div>
+
+    <h2 class="title" data-om-id="db684539:212" style="font-size:72px;">Here is the <em data-om-id="db684539:213">process.</em></h2>
+    <p class="process-eyebrow" style="margin-top:24px;">
+      29 conversations &nbsp;·&nbsp; 456 prompts &nbsp;·&nbsp; 45,081 words — all of them mine.<br/>
+      Two kinds of work inside that number.
+    </p>
+
+    <div class="rtw-split">
+      <div class="rtw-card rtw-thinking">
+        <div class="rtw-card-eyebrow">Thinking</div>
+        <div class="rtw-card-num">362</div>
+        <div class="rtw-card-sub">short, direct prompts &nbsp;·&nbsp; ≤&thinsp;50 words &nbsp;·&nbsp; median&nbsp;11</div>
+        <div class="rtw-card-desc">
+          Steering. Choosing. Correcting. <em>“Try it this way.” “Cut that paragraph.” “No, the other cow.”</em>
+        </div>
+      </div>
+
+      <div class="rtw-card rtw-writing">
+        <div class="rtw-card-eyebrow">Writing</div>
+        <div class="rtw-card-num">94</div>
+        <div class="rtw-card-sub">long, structured prompts &nbsp;·&nbsp; &gt;&thinsp;50 words &nbsp;·&nbsp; median&nbsp;154</div>
+        <div class="rtw-card-desc">
+          Pasting drafts. Comparing versions. Validating against the literature.
+          Moving output between models. <em>Composition.</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="inversion">
+      <div class="inv-row">
+        <span class="inv-key">By count</span>
+        <div class="inv-bar">
+          <span class="inv-seg inv-think" style="flex-grow:79.4;">79%&nbsp;·&nbsp;thinking</span>
+          <span class="inv-seg inv-write" style="flex-grow:20.6;">21%</span>
+        </div>
+      </div>
+      <div class="inv-row">
+        <span class="inv-key">By words</span>
+        <div class="inv-bar">
+          <span class="inv-seg inv-think" style="flex-grow:11.7;">12%</span>
+          <span class="inv-seg inv-write" style="flex-grow:88.3;">88%&nbsp;·&nbsp;writing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-mark" style="color:var(--cream);opacity:0.55;" data-om-id="db684539:240">
+      <span data-om-id="db684539:241">8 prompts over a thousand words hold 39% of everything I wrote.</span>
+      <span data-om-id="db684539:242">14 / 15</span>
+    </div>
+  </section>
+
+
+  <!-- ─────────── 13 · RTW WITH TOOLS ─────────── -->
+  
+
+
+  <!-- ─────────── 11 · CAN I GET CREDIT? ─────────── -->
+  
+
+
+  <!-- ─────────── 15 · END / Q&A ─────────── -->
+  <section data-label="15 End" class="slide s-end ink" data-om-id="db684539:278" data-screen-label="15 15 End" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="14" data-deck-last-visible="">
+    <div class="meta" style="color:var(--cream);opacity:0.7;" data-om-id="db684539:279">
+      <span data-om-id="db684539:280"><span class="num" style="color:var(--rust);" data-om-id="db684539:281">10</span> &nbsp;·&nbsp; Thank you</span>
+      <span data-om-id="db684539:282">Q &amp; A</span>
+    </div>
+
+    <div class="end-grid">
+      <div class="end-title-col">
+        <h1>Questions <span class="amp">&amp;</span><br/>conversation.</h1>
+        <p class="end-prompt">
+          Scan or visit the repo. Read the transcripts. Run them<br/>through your own model. Bring the results back.
+        </p>
+      </div>
+
+      <div class="end-qr-col">
+        <div class="qr-box">
+          <img src="images/qr-placeholder.svg" alt="QR code linking to the GitHub repository"/>
+        </div>
+        <a class="end-qr-url" href="https://github.com/morrisville-talk" target="_blank" rel="noopener">github.com/morrisville-talk</a>
+      </div>
+    </div>
+
+    <div class="end-foot">
+      <span>Steven M. Schneider · SUNY Poly · AIX Center</span>
+      <span class="right">Every prompt. Every correction.<br/>Every version of the deck.</span>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+<script src="image-slot.js"></script>
+
+<!-- Tweaks panel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<div id="tweaks-root"></div>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": "cream-rust",
+  "accentBlock": "navy",
+  "displayWeight": 700
+}/*EDITMODE-END*/;
+
+const PALETTES = {
+  "cream-rust": { cream:'#F0EBDD', ink:'#0E0E12', rust:'#D9421E', navy:'#1A2B40', muted:'#8A8276' },
+  "newsprint":  { cream:'#EFE9DC', ink:'#161512', rust:'#A8341B', navy:'#2A2A26', muted:'#7A7468' },
+  "studio":     { cream:'#F4F1EA', ink:'#0F1A2B', rust:'#1A6FA8', navy:'#0F1A2B', muted:'#5E6F86' },
+  "fieldwork":  { cream:'#E9E4D2', ink:'#1A1F18', rust:'#3D6B3A', navy:'#1A1F18', muted:'#6E7464' },
+  "midnight":   { cream:'#E8E2D1', ink:'#0A0A0E', rust:'#E8A33C', navy:'#0A0A0E', muted:'#6A6660' }
+};
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => {
+    const p = PALETTES[t.palette] || PALETTES["cream-rust"];
+    const root = document.documentElement;
+    root.style.setProperty('--cream', p.cream);
+    root.style.setProperty('--ink',   p.ink);
+    root.style.setProperty('--rust',  p.rust);
+    root.style.setProperty('--navy',  p.navy);
+    root.style.setProperty('--muted', p.muted);
+  }, [t.palette]);
+
+  return (
+    <TweaksPanel title="Tweaks">
+      <TweakSection title="Palette">
+        <TweakSelect
+          tweak="palette"
+          label="Palette"
+          value={t.palette}
+          onChange={(v) => setTweak('palette', v)}
+          options={[
+            { value:'cream-rust', label:'Cream + Rust (default)' },
+            { value:'newsprint',  label:'Newsprint' },
+            { value:'studio',     label:'Studio Blue' },
+            { value:'fieldwork',  label:'Fieldwork Green' },
+            { value:'midnight',   label:'Midnight + Amber' }
+          ]}
+        />
+      </TweakSection>
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+AI LITERACY IN APPLIED CONTEXTS
+A Talk for SUNY Morrisville Faculty
+May 19, 2026
+Draft v4 — Factual tightenings applied
+
+Changes from v3:
+- "AI decides when a cow needs a vet visit" softened to "flags animals for attention"
+- "millions of repair records" claim softened; PredictaFix/MechanicIQ framing hedged
+- "Aviation discovered seven failure modes" replaced with "Human-factors researchers have documented..."
+- "Previous systems failed predictably" replaced with "Many earlier automation failures were more mechanically legible"
+- Key sentence added: "The question is not whether students can use AI. It is whether they can maintain
+  an independent model of the situation while AI is already organizing what they see."
+
+
+OPENING
+
+I want to start with a simple observation.
+
+When most people in higher education talk about AI literacy, they mean something like this: a student prompts a model, gets text back, and makes decisions about what to do with that output. The evidence of their thinking is in the conversation. The product is a document, an argument, a piece of writing.
+
+That is the compositional case. And almost all of the AI literacy pedagogy being developed right now — the frameworks, the rubrics, the course guidelines — was built for that case.
+
+I want to walk you around campus for a few minutes, because I don't think that describes your students.
+
+
+STOP ONE: THE DAIRY FARM
+
+Your students working in automated dairy operations are going to encounter a milking parlor that looks like this.
+
+Robotic milking systems handle the milking. The cows come and go on their own schedule. The AI monitors each animal: milk yield, conductivity, milking frequency, body weight, reproductive status. The system makes feeding recommendations. It flags animals for attention. It surfaces patterns that suggest a cow needs follow-up.
+
+Your student's job is not to milk the cow. It's to read the dashboard, evaluate the flag, and decide whether to act on it.
+
+The system has already shaped the field of attention. Your student arrives after the dashboard has decided what looks important.
+
+Under what circumstances should they override it? That's not a technical question. That's a literacy question.
+
+
+STOP TWO: THE AUTO SHOP
+
+Your automotive technology students are going to work in shops where the first thing that happens when a vehicle comes in is someone plugs in an OBD-II scanner.
+
+The scanner reads the diagnostic trouble codes. AI-assisted diagnostic platforms cross-reference those codes against repair records for similar vehicles, group related codes, prioritize probable causes, and present a recommended repair sequence with confidence scores.
+
+Your student sees the recommendation on a tablet.
+
+They might run additional tests. They might catch something the scanner missed. But the workflow is: recommendation first, verification second — if at all.
+
+What does it take to recognize when the recommendation is wrong? That's not a scanning skill. That's a judgment skill.
+
+
+STOP THREE: THE GREENHOUSE
+
+Your horticulture students are going to manage crops in environments where AI is already making autonomous decisions.
+
+Irrigation systems adjust water delivery based on soil moisture sensors and weather data — without asking anyone. Climate control systems set temperature, humidity, and CO2 levels. Camera systems scan for disease and pest presence, flag anomalies, and recommend treatments.
+
+The grower — your student — receives a report. An alert. A dashboard.
+
+The system has often already acted before they see it.
+
+Under what circumstances would they override the irrigation schedule? What would they need to notice in the plants themselves to recognize that the system got it wrong? What does fixation look like when the disease alert fires and attention goes to the flagged plant while the actual outbreak is two rows over?
+
+
+THE COGNITIVE CHALLENGE
+
+Human-factors researchers have documented recurring failure modes when operators work alongside automated systems. You see them in aviation, in clinical decision support, in process control:
+
+Manual skill atrophy. Plan continuation bias. Vigilance decrement. Omission errors. Commission errors. Confirmation bias. Expectation-driven processing.
+
+Aviation addressed several of these through mandatory manual flying and scenario-based training under realistic conditions. The FAA can mandate that because the stakes are existential — plane crashes kill people.
+
+Your students at Morrisville are not pilots. The stakes at the dairy farm are not the same as the stakes at 35,000 feet. We do not need to train your students to do everything manually as a backup.
+
+But we do need to train them to recognize when to be cautious. When the AI recommendation warrants a pause. When their own observation of the cow, the car, or the plant contradicts what the system is telling them — and what to do with that contradiction.
+
+That is different from instruction about AI. That's a practiced habit of judgment.
+
+
+WHAT MAKES THIS ROUND DIFFERENT
+
+Many earlier automation failures were more mechanically legible. The pump breaks. The sensor malfunctions. You can see it. You can trace it.
+
+This round of AI-assisted automation is different in three ways.
+
+First, the logic is opaque. The system makes a recommendation based on patterns it learned from large amounts of data. You cannot always ask it why and get a clear answer.
+
+Second, it fails by being confidently wrong. AI can produce a plausible-looking recommendation that happens to be incorrect for your specific cow, your specific vehicle, your specific crop — and nothing in the interface signals that.
+
+Third — and this is the part nobody is talking about — introducing AI into automation may actually increase the cognitive demand on the human operator. The milking robot reduced physical labor. The AI-assisted milking system requires your student to constantly evaluate recommendations from a system they cannot fully see into, at scale, every day.
+
+The question is not whether students can use AI. It is whether they can maintain an independent model of the situation while AI is already organizing what they see.
+
+AI literacy at Morrisville isn't simpler than AI literacy at a liberal arts college. It may be harder.
+
+
+WHAT AI LITERACY MEANS HERE
+
+Not: teach students to use the tools.
+
+Not: teach students about automation bias.
+
+This: design courses where students practice the moment of judgment before compliance. Where the AI recommendation is sometimes wrong by design. Where they have to articulate why they're pausing. Where following the system blindly costs them something in simulation before it costs them something in the field.
+
+The literacy emerges from the practice, not from the instruction.
+
+Your dairy students should encounter scenarios where the feeding algorithm has miscalculated and they have to catch it by reading the herd.
+
+Your auto students should encounter vehicles where the scanner recommendation is wrong and their hands-on inspection is the only thing that catches it.
+
+Your horticulture students should encounter disease alerts that are false positives — and silent outbreaks the system missed.
+
+That's not a new course. That's a design principle you can embed in the courses you're already teaching.
+
+That is what AI literacy looks like at SUNY Morrisville.

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Literacy in Applied Contexts — SUNY Morrisville, May 19, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:     #1a2744;
+  --crimson:  #9b1c2e;
+  --gold:     #c8973a;
+  --cream:    #f5f0e8;
+  --ink:      #1c1c1e;
+  --muted:    #5a5a6a;
+  --border:   #d4cbbe;
+  --white:    #ffffff;
+  --display:  'DM Serif Display', serif;
+  --sans:     'DM Sans', system-ui, sans-serif;
+  --mono:     'JetBrains Mono', monospace;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.deck-header {
+  background: var(--navy);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--crimson);
+  flex-shrink: 0;
+}
+.deck-header-left {
+  font-family: var(--display);
+  font-size: 1rem;
+  color: #fff;
+}
+.deck-header-right {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
+/* ── SLIDE STAGE ── */
+.stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px 16px;
+  min-height: 0;
+}
+
+.slide-card {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 24px -8px rgba(26,39,68,0.18), 0 1px 4px rgba(0,0,0,0.06);
+  width: 100%;
+  max-width: 860px;
+  min-height: 340px;
+  padding: 44px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 4px solid var(--crimson);
+  position: relative;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slide-card { animation: fadeSlide 0.35s ease both; }
+
+@keyframes staggerIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.stagger { animation: staggerIn 0.3s ease both; }
+
+/* ── TITLE SLIDE ── */
+.sl-meta {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+.sl-main-title {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+.sl-subtitle {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--crimson);
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+.sl-byline {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+/* ── SECTION TITLE ── */
+.sl-title {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  font-weight: normal;
+}
+
+/* ── BULLETS ── */
+.sl-bullet-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.sl-bullet-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+.sl-bullet-marker {
+  width: 6px; height: 6px;
+  background: var(--crimson);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.55rem;
+}
+.sl-bullet-text { color: var(--ink); }
+
+/* ── STOP SLIDE ── */
+.stop-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+}
+.sl-stop-body {
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+.sl-dashboard {
+  background: #eef2ff;
+  border: 1px solid #c0ccee;
+  border-left: 3px solid var(--navy);
+  border-radius: 4px;
+  padding: 0.65rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--navy);
+  margin-bottom: 0.9rem;
+  line-height: 1.5;
+}
+.sl-stop-role {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+.sl-stop-question {
+  font-family: var(--display);
+  font-size: 1rem;
+  color: var(--crimson);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* ── TABLE ── */
+.sl-table-wrap { overflow-x: auto; margin-top: 0.25rem; }
+.sl-table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+.sl-table-wrap th {
+  background: var(--navy);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  text-align: left;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+.sl-table-wrap td {
+  padding: 0.5rem 0.9rem;
+  border-bottom: 1px solid #ede5d4;
+  vertical-align: top;
+  line-height: 1.55;
+}
+.sl-table-wrap tr:last-child td { border-bottom: none; }
+.sl-table-wrap tr:nth-child(even) td { background: #faf7f2; }
+.sl-table-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.sl-table-mode { font-weight: 500; color: var(--navy); }
+.sl-table-desc { color: var(--muted); }
+
+/* ── SPLIT ── */
+.sl-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.25rem; }
+.sl-split-col { display: flex; flex-direction: column; gap: 0.5rem; }
+.sl-split-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.sl-split-points { display: flex; flex-direction: column; gap: 0.5rem; }
+.sl-split-point { display: flex; gap: 0.6rem; align-items: baseline; }
+.sl-split-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem; }
+.sl-split-text { font-size: 0.88rem; line-height: 1.6; color: var(--ink); }
+
+/* ── ARCHITECTURE (layers) ── */
+.sl-layer-stack { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem; }
+.sl-layer-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border-left: 3px solid transparent;
+}
+.sl-layer-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  min-width: 70px;
+}
+.sl-layer-desc { font-size: 0.88rem; line-height: 1.62; color: var(--ink); }
+
+/* ── CAPSTONE (scenario cards) ── */
+.sl-cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.5rem; }
+.sl-cap-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--crimson);
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+}
+.sl-cap-title {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  font-weight: normal;
+}
+.sl-cap-desc { font-size: 0.82rem; line-height: 1.62; color: var(--muted); }
+
+/* ── KEY SENTENCE ── */
+.sl-key {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 5px;
+  padding: 1.1rem 1.4rem;
+  font-family: var(--display);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* ── CLOSING ── */
+.sl-closing-title {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  color: var(--crimson);
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+}
+.sl-closing-body {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--muted);
+  border-left: 3px solid var(--border);
+  padding-left: 1.2rem;
+}
+
+/* ── CONTROLS ── */
+.controls {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 24px;
+  gap: 1rem;
+}
+.progress-bar { display: flex; gap: 5px; flex: 1; flex-wrap: wrap; align-items: center; }
+.pip {
+  width: 20px; height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+  flex-shrink: 0;
+}
+.pip.active { background: var(--crimson); }
+.pip.visited { background: var(--navy); opacity: 0.4; }
+.pip:hover { transform: scaleY(2); }
+
+.nav-cluster { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+.nav-btn {
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  width: 36px; height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, opacity 0.15s;
+}
+.nav-btn:hover { background: var(--crimson); }
+.nav-btn:disabled { opacity: 0.25; cursor: default; }
+.nav-btn:disabled:hover { background: var(--navy); }
+
+.counter {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  min-width: 52px;
+  text-align: center;
+}
+.timing {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  background: var(--navy);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .slide-card { padding: 28px 24px; min-height: 280px; }
+  .sl-split-grid { grid-template-columns: 1fr; }
+  .stage { padding: 16px 12px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck-header">
+  <div class="deck-header-left">AI Literacy in Applied Contexts</div>
+  <div class="deck-header-right">SUNY Morrisville · May 19, 2026</div>
+</div>
+
+<div class="stage">
+  <div class="slide-card" id="slideContent" tabindex="0"></div>
+  <div class="controls">
+    <div class="progress-bar" id="progress"></div>
+    <div class="nav-cluster">
+      <span class="timing" id="timing"></span>
+      <span class="counter" id="counter"></span>
+      <button class="nav-btn" id="prevBtn" onclick="go(-1)" aria-label="Previous">&#8592;</button>
+      <button class="nav-btn" id="nextBtn" onclick="go(1)"  aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const slides = [
+  {
+    type: 'title',
+    title: 'AI Literacy in Applied Contexts',
+    subtitle: 'When the AI Tells You What to Do',
+    meta: 'SUNY Morrisville Faculty Development · May 19, 2026',
+    byline: 'Steven M. Schneider · SUNY Polytechnic Institute · AIX Center',
+    note: '30 sec'
+  },
+  {
+    type: 'bullets',
+    title: 'Before We Start',
+    note: '45 sec',
+    body: [
+      'One hundred percent of this content is AI-generated — except my prompts.',
+      'I had background knowledge of Morrisville and AI literacy before I started.',
+      'I learned the details — the aviation literature, the failure modes, the greenhouse systems — through sustained conversation with a language model.',
+      'I\'ll come back to that at the end.'
+    ]
+  },
+  {
+    type: 'bullets',
+    title: 'Most AI Literacy Was Built for the Wrong Student',
+    note: '60 sec',
+    body: [
+      'When higher education talks about AI literacy, it means this: student prompts model, gets text, makes decisions about the output.',
+      'The evidence of their thinking is in the conversation. The product is a document.',
+      'That is the compositional case.',
+      'Almost all AI literacy pedagogy being developed right now — the frameworks, the rubrics, the guidelines — was built for that case.',
+      'I want to walk you around campus. I don\'t think that describes your students.'
+    ]
+  },
+  {
+    type: 'stop',
+    label: 'Stop One',
+    title: 'The Dairy Farm',
+    note: '90 sec',
+    body: 'Robotic milking systems handle the milking. The AI monitors each animal: milk yield, conductivity, milking frequency, body weight, reproductive status. It makes feeding recommendations. It flags animals for attention.',
+    dashboard: '▸ Animal #47 — yield ↓ 12% — flag: possible mastitis — recommended action: isolate + veterinary review',
+    role: 'Your student\'s job is not to milk the cow. It\'s to read the dashboard, evaluate the flag, and decide whether to act on it. The system has already shaped the field of attention.',
+    question: 'Under what circumstances should they override it? That\'s not a technical question. That\'s a literacy question.'
+  },
+  {
+    type: 'bullets',
+    title: 'The Dashboard Is Not the Situation',
+    note: '60 sec',
+    body: [
+      'That word — attention — is not accidental.',
+      'The architecture underneath many modern AI systems is literally called a transformer, built around an attention mechanism.',
+      'An attention mechanism weights which signals matter most in a given context.',
+      'Humans do something similar — through training, instinct, experience, and judgment.',
+      'But now another attention system enters the workflow before the human operator begins evaluating.',
+      'The dashboard is not the situation. It is the model\'s interpretation of the situation.'
+    ]
+  },
+  {
+    type: 'stop',
+    label: 'Stop Two',
+    title: 'The Auto Shop',
+    note: '60 sec',
+    body: 'AI-assisted diagnostic platforms cross-reference OBD-II trouble codes against repair records for similar vehicles, group related codes, prioritize probable causes, and present a recommended repair sequence with confidence scores.',
+    dashboard: '▸ P0300 — Random Misfire — probable cause: ignition coil pack (confidence: 87%) — recommended: replace coil pack, cylinders 2 and 4',
+    role: 'Your student sees the recommendation on a tablet. The AI has already organized what looks important. Attention is directed before hands-on inspection begins.',
+    question: 'What does it take to recognize when the recommendation is wrong? That\'s not a scanning skill. That\'s a judgment skill.'
+  },
+  {
+    type: 'stop',
+    label: 'Stop Three',
+    title: 'The Greenhouse',
+    note: '60 sec',
+    body: 'Irrigation, climate control, and camera systems make autonomous decisions — without asking anyone. Your student receives a report. An alert. A dashboard. The system has often already acted before they see it.',
+    dashboard: '▸ Bay 3 — botrytis risk: HIGH — confidence: 94% — recommended: fungicide application within 24 hours',
+    role: 'In each of these three cases, the cognitive challenge is the same: the AI system increasingly organizes what the operator notices first.',
+    question: 'What does fixation look like when the disease alert fires and attention goes to the flagged plant while the actual outbreak is two rows over?'
+  },
+  {
+    type: 'table',
+    title: 'Seven Failure Modes',
+    note: '75 sec',
+    headers: ['#', 'Failure Mode', 'What Happens'],
+    rows: [
+      ['01', 'Manual skill atrophy', 'Procedural skills degrade from disuse'],
+      ['02', 'Plan continuation bias', 'Cognitive commitment to AI-established course despite new cues'],
+      ['03', 'Vigilance decrement', 'Attention drifts from primary indicators during automation'],
+      ['04', 'Omission errors', 'Failing to notice when the system misses something'],
+      ['05', 'Commission errors', 'Acting on recommendations without independent verification'],
+      ['06', 'Confirmation bias', 'Misinterpreting information to confirm the original plan'],
+      ['07', 'Expectation-driven processing', 'Seeing what the AI predicted, not what is actually there']
+    ]
+  },
+  {
+    type: 'split',
+    title: 'What Makes This Round Different',
+    note: '60 sec',
+    left: {
+      label: 'Previous Automation',
+      accent: '#5a5a6a',
+      points: [
+        'Mechanically legible — pump breaks, sensor malfunctions, you can see it and trace it',
+        'Failed predictably — visible, traceable failure modes',
+        'Reduced labor without adding interpretive demand on the operator'
+      ]
+    },
+    right: {
+      label: 'This Round',
+      accent: '#9b1c2e',
+      points: [
+        'Logic is opaque — recommendation from patterns you cannot interrogate',
+        'Fails by being confidently wrong — plausible-looking, nothing in the interface signals the error',
+        'May increase cognitive demand — constant evaluation of an opaque system, at scale, every day'
+      ]
+    }
+  },
+  {
+    type: 'architecture',
+    title: 'What AI Literacy Means Here',
+    note: '75 sec',
+    layers: [
+      { label: 'Not this', desc: 'Teach students to use the tools.', accent: '#5a5a6a', bg: 'rgba(90,90,106,0.06)' },
+      { label: 'Not this', desc: 'Teach students about automation bias.', accent: '#5a5a6a', bg: 'rgba(90,90,106,0.06)' },
+      { label: 'This', desc: 'Design courses where students practice the moment of judgment before compliance. Where the AI recommendation is sometimes wrong by design. Where following the system blindly costs them something in simulation before it costs them something in the field.', accent: '#9b1c2e', bg: 'rgba(155,28,46,0.06)' },
+      { label: 'The principle', desc: 'That\'s not a new course. That\'s a design principle you can embed in the courses you\'re already teaching.', accent: '#1a2744', bg: 'rgba(26,39,68,0.06)' }
+    ]
+  },
+  {
+    type: 'capstone',
+    title: 'Three Scenario Designs',
+    note: '45 sec',
+    projects: [
+      { title: 'Dairy', desc: 'Students encounter scenarios where the feeding algorithm has miscalculated. They have to catch it by reading the herd — not the dashboard.' },
+      { title: 'Auto Shop', desc: 'Vehicles where the scanner recommendation is wrong and hands-on inspection is the only thing that catches it.' },
+      { title: 'Greenhouse', desc: 'Disease alerts that are false positives — and silent outbreaks the system missed entirely.' }
+    ]
+  },
+  {
+    type: 'closing',
+    title: 'Can I Get Credit for This Assignment?',
+    body: 'AI literacy in applied fields is not primarily about producing content with AI. It is about preserving independent professional judgment while AI systems increasingly organize what appears important before humans even begin to think. The question is not whether students can use AI. It is whether they can maintain an independent model of the situation while AI is already organizing what they see.',
+    note: '30 sec'
+  }
+];
+
+let cur = 0;
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function pad(n) { return String(n).padStart(2,'0'); }
+
+function renderProgress() {
+  const el = document.getElementById('progress');
+  el.innerHTML = slides.map((_, i) => {
+    const cls = i === cur ? 'active' : i < cur ? 'visited' : '';
+    return '<div class="pip ' + cls + '" onclick="goTo(' + i + ')" title="Slide ' + (i+1) + '"></div>';
+  }).join('');
+}
+
+function renderSlide() {
+  const s = slides[cur];
+  document.getElementById('counter').textContent = pad(cur+1) + ' / ' + pad(slides.length);
+  document.getElementById('timing').textContent = '⏱ ' + s.note;
+
+  const c = document.getElementById('slideContent');
+  c.style.animation = 'none';
+  c.offsetHeight;
+  c.style.animation = 'fadeSlide 0.35s ease both';
+
+  let h = '';
+
+  if (s.type === 'title') {
+    h = '<div class="sl-meta">' + esc(s.meta) + '</div>'
+      + '<h1 class="sl-main-title">' + esc(s.title) + '</h1>'
+      + '<p class="sl-subtitle">' + esc(s.subtitle) + '</p>'
+      + '<p class="sl-byline">' + esc(s.byline) + '</p>';
+  }
+  else if (s.type === 'bullets') {
+    h = '<h2 class="sl-title">' + esc(s.title) + '</h2>'
+      + '<div class="sl-bullet-list">';
+    s.body.forEach((item, i) => {
+      h += '<div class="sl-bullet-item stagger" style="animation-delay:' + (i*60) + 'ms">'
+         + '<div class="sl-bullet-marker"></div>'
+         + '<span class="sl-bullet-text">' + esc(item) + '</span>'
+         + '</div>';
+    });
+    h += '</div>';
+  }
+  else if (s.type === 'stop') {
+    h = '<div class="stop-badge">' + esc(s.label) + ' · ' + esc(s.title) + '</div>'
+      + '<p class="sl-stop-body stagger" style="animation-delay:60ms">' + esc(s.body) + '</p>'
+      + '<div class="sl-dashboard stagger" style="animation-delay:120ms">' + esc(s.dashboard) + '</div>'
+      + '<p class="sl-stop-role stagger" style="animation-delay:180ms">' + esc(s.role) + '</p>'
+      + '<p class="sl-stop-question stagger" style="animation-delay:240ms">' + esc(s.question) + '</p>';
+  }
+  else if (s.type === 'table') {
+    h = '<h2 class="sl-title">' + esc(s.title) + '</h2>'
+      + '<div class="sl-table-wrap"><table><thead><tr>';
+    s.headers.forEach(hd => { h += '<th>' + esc(hd) + '</th>'; });
+    h += '</tr></thead><tbody>';
+    s.rows.forEach((row, i) => {
+      h += '<tr class="stagger" style="animation-delay:' + (i*55) + 'ms">'
+         + '<td><span class="sl-table-num">' + esc(row[0]) + '</span></td>'
+         + '<td class="sl-table-mode">' + esc(row[1]) + '</td>'
+         + '<td class="sl-table-desc">' + esc(row[2]) + '</td>'
+         + '</tr>';
+    });
+    h += '</tbody></table></div>';
+  }
+  else if (s.type === 'split') {
+    h = '<h2 class="sl-title">' + esc(s.title) + '</h2>'
+      + '<div class="sl-split-grid">';
+    [s.left, s.right].forEach((col, ci) => {
+      h += '<div class="sl-split-col stagger" style="animation-delay:' + (ci*80) + 'ms">'
+         + '<div class="sl-split-label" style="color:' + col.accent + '">' + esc(col.label) + '</div>'
+         + '<div class="sl-split-points">';
+      col.points.forEach(p => {
+        h += '<div class="sl-split-point">'
+           + '<div class="sl-split-dot" style="background:' + col.accent + '"></div>'
+           + '<span class="sl-split-text">' + esc(p) + '</span>'
+           + '</div>';
+      });
+      h += '</div></div>';
+    });
+    h += '</div>';
+  }
+  else if (s.type === 'architecture') {
+    h = '<h2 class="sl-title">' + esc(s.title) + '</h2>'
+      + '<div class="sl-layer-stack">';
+    s.layers.forEach((l, i) => {
+      h += '<div class="sl-layer-row stagger" style="border-left-color:' + l.accent + ';background:' + l.bg + ';animation-delay:' + (i*70) + 'ms">'
+         + '<span class="sl-layer-label" style="color:' + l.accent + '">' + esc(l.label) + '</span>'
+         + '<p class="sl-layer-desc">' + esc(l.desc) + '</p>'
+         + '</div>';
+    });
+    h += '</div>';
+  }
+  else if (s.type === 'capstone') {
+    h = '<h2 class="sl-title">' + esc(s.title) + '</h2>'
+      + '<div class="sl-cap-grid">';
+    s.projects.forEach((p, i) => {
+      h += '<div class="sl-cap-card stagger" style="animation-delay:' + (i*70) + 'ms">'
+         + '<div class="sl-cap-title">' + esc(p.title) + '</div>'
+         + '<p class="sl-cap-desc">' + esc(p.desc) + '</p>'
+         + '</div>';
+    });
+    h += '</div>';
+  }
+  else if (s.type === 'closing') {
+    h = '<h2 class="sl-closing-title">' + esc(s.title) + '</h2>'
+      + '<p class="sl-closing-body stagger" style="animation-delay:100ms">' + esc(s.body) + '</p>'
+      + '<div class="sl-key stagger" style="animation-delay:200ms">The question is not whether students can use AI. It is whether they can maintain an independent model of the situation while AI is already organizing what they see.</div>';
+  }
+
+  c.innerHTML = h;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === slides.length - 1;
+  renderProgress();
+}
+
+function go(dir) { const n = cur + dir; if (n >= 0 && n < slides.length) { cur = n; renderSlide(); } }
+function goTo(i) { cur = i; renderSlide(); }
+
+document.getElementById('slideContent').addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === ' ') {
+    if (document.activeElement.tagName !== 'INPUT') {
+      e.preventDefault();
+      go(e.key === 'ArrowLeft' ? -1 : 1);
+    }
+  }
+});
+
+renderSlide();
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+TITLE
+
+AI Literacy in Applied Contexts: When the AI Tells You What to Do
+
+
+DESCRIPTION (100 words)
+
+Most AI literacy frameworks assume people are writing with AI: prompting, revising, evaluating generated text. That is the compositional case. It is not the environment most healthcare information professionals work in. In practice, AI often appears as embedded infrastructure that recommends a code, flags a discrepancy, or prioritizes a risk. The cognitive demand is not composition but judgment under deployment conditions. The dominant failure modes change accordingly: automation bias, anchoring, fixation, and overtrust. This session introduces a framework for directive AI contexts and argues that AI literacy in these settings emerges less from instruction than from repeated practice under realistic conditions.
+
+
+25-WORD DRAFT
+
+AI literacy was built for the wrong context. When AI recommends action, prompting skills don't protect you. The critical skill is judgment under pressure.
+
+
+100-WORD DRAFT
+
+Most AI literacy frameworks assume you're writing with AI — prompting, revising, arguing. That's not what HIMA professionals do. You encounter AI as embedded infrastructure that recommends a code, flags a record, surfaces a risk. The cognitive demand isn't revision. It's judgment under deployment conditions. The AI literacy literature has not developed pedagogy for this. The adjacent fields — aviation automation, clinical decision support, human factors — have studied the failure modes. But the pedagogical frameworks for healthcare AI literacy are built for the compositional case. This session argues for a different approach, grounded in the contexts where the decision actually occurs.
+
+
+CORE TABLE
+
+Context          Human Role                  Primary Risk       Literacy Requirement
+Compositional    Author / editor             Delegation         Revision and critical evaluation of text
+Directive        Decision-maker / operator   Automation bias    Situated judgment before action
+
+Extended:
+
+Context          Human Role                  Primary Risk       Literacy Requirement      Training Environment         Assessment
+Compositional    Author / editor             Delegation         Revision and evaluation   Transcript review / rubric   Artifact + conversation
+Directive        Decision-maker / operator   Automation bias    Situated judgment         Scenario simulation          Decision log / debrief
+
+
+400-WORD DRAFT
+
+That is the compositional case. It doesn't describe your work.
+
+Most AI literacy in higher education was built for one scenario. A student prompts a model. The model returns text. The student shapes it — revises, argues, edits. The transcript of that conversation is evidence of thinking. The document at the end is evidence the work concluded.
+
+That framework is appropriate for a lot of what happens in academic settings. It is insufficient for healthcare information management.
+
+What HIMA professionals encounter is different. The AI is embedded in the workflow before you sit down. It has already recommended a code, flagged a discrepancy, suggested a DRG. You arrive at the output, not the conversation. And the cognitive demand isn't revision — it's a judgment call in the space between what the system said and what you sign.
+
+That distinction matters because the failure modes change. In compositional contexts — academic writing, legal drafting, analysis — the main cognitive risk is delegation: you stop revising and accept the first draft. The cost is a weaker document. In directive contexts — coding, nursing, manufacturing — the risks are different. Automation bias: defaulting to the AI recommendation over your own clinical read. Fixation: attention locked on the AI-flagged code while a complication two lines up goes unread. Anchoring: the first recommendation distorts every subsequent check even when you think you're verifying independently. And what aviation researchers call plan continuation bias: staying on the AI-established course even when emerging cues in the record are telling you to reconsider.
+
+The automation bias literature is well-developed. Aviation, clinical decision support, human factors — decades of research on these failure modes. What is not well-developed is the pedagogy. The AI literacy frameworks in use today assume the compositional case. They teach prompting, critical evaluation of generated text, revision strategies. These are real skills. They do not address the moment a coder pauses before accepting a suggested code, or doesn't.
+
+That moment — the gap between AI recommendation and human decision — is where literacy in directive contexts lives. And it develops through practice, not instruction. Through repeated exposure to realistic scenarios where the decision has stakes. Through debriefs that name what fixation and plan continuation feel like from the inside.
+
+That is what this session is about.
+
+
+LIVE TALK OPENING (NYHIMA only — QR code required)
+
+I want to start with two questions. First: how transformative do you think AI will be — for healthcare, for the world? Second: how concerned are you about the long-term risks? Scan the QR code and place yourself on both scales.
+
+Here's what we're seeing. Four positions are emerging. Optimists: high transformation, manageable risk. The anxious: high transformation, high concern. Skeptics: limited transformation, limited risk. The cautious: real risk, uncertain upside.
+
+What's interesting is that all four positions are partly right. And all four groups are going to experience AI differently in healthcare — because this is no longer abstract. It's your workflows, your documentation, your records, your patients.
+
+Here's where most AI literacy guidance stops. It acknowledges those positions and moves to general principles. What I want to do instead is identify the specific cognitive demand that is distinctive to your work — and what it would mean to actually prepare for it.
+
+That is the compositional case. It doesn't describe your work.
+
+[Continue with 400-word draft above.]
