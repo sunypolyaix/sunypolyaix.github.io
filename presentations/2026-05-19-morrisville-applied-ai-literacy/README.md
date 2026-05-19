@@ -25,11 +25,13 @@ The pedagogical response is not instruction about bias. It is repeated, realisti
 | Path | Contents |
 |------|----------|
 | `index.html` | The presentation — open in a browser |
+| `morrisville-explore.html` | Interactive corpus explorer — query this talk's source material via the Claude API |
+| `lp.html` | AI Literacy — Learner's Permit |
+| `cdl.html` | AI Literacy — Commercial License |
 | `conversations/` | Source conversation transcripts |
 | `drafts/` | Version history of the talk text |
 | `drafts/feedback/` | Critique documents that shaped each revision |
 | `query/how-to-query.md` | How to upload this repo to a model and what to ask |
-| `make-me-public.md` | Instructions for publishing this folder to the public AIX repo |
 
 ---
 
@@ -45,13 +47,7 @@ The corpus totals approximately 45,000 words. The finished talk is approximately
 
 The ratio is not waste. It is the evidence of composition.
 
-To explore the corpus: see `query/how-to-query.md`.
-
----
-
-## Publishing
-
-This folder is currently in the private AIX working repository. See [`make-me-public.md`](make-me-public.md) for instructions on copying it to the public AIX repo when ready.
+To explore the corpus interactively: open [`morrisville-explore.html`](morrisville-explore.html). To query it manually via a model: see [`query/how-to-query.md`](query/how-to-query.md).
 
 ---
 

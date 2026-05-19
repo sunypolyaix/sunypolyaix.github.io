@@ -1,0 +1,351 @@
+UPLOAD THIS FILE TO CHATGPT, CLAUDE, OR ANY PAID AI MODEL.
+Then ask it anything about AI literacy, your students, your courses, or the ideas in the talk you just heard.
+
+Suggested opening prompts:
+  "My students are in [your program]. What does this mean for how I teach?"
+  "I'm skeptical this applies to my discipline. Push back on that."
+  "Help me design a scenario for my course where the AI recommendation is wrong."
+  "What's the difference between teaching about AI bias and what this talk is describing?"
+  "I only have one course. Where do I start?"
+
+------------------------------------------------------------
+CONTEXT: WHO MADE THIS AND WHY
+------------------------------------------------------------
+
+Steven M. Schneider
+Professor, Information Design & Technology
+Co-Director, AIX Center
+SUNY Polytechnic Institute
+steve@sunypoly.edu
+
+Talk delivered at SUNY Morrisville Faculty Development, May 19, 2026.
+Title: AI Literacy in Applied Contexts: When the AI Tells You What to Do.
+
+This document synthesizes the talk, the underlying curriculum framework, and two
+course scaffolds. It is designed to give a language model enough context to serve
+as a thinking partner for faculty exploring what AI literacy means in their own
+disciplines and courses.
+
+------------------------------------------------------------
+PART 1: THE TALK
+------------------------------------------------------------
+
+DISCLOSURE
+
+One hundred percent of the talk's content is AI-generated -- except the prompts.
+Prior knowledge of Morrisville and AI literacy informed the prompts. The details --
+the aviation literature, the failure modes, the greenhouse systems -- were developed
+through sustained conversation with a language model. The source transcripts are in
+the repository shared at the session. The full corpus is approximately 45,000 words.
+The finished talk is approximately 900 words. The ratio is not waste. It is the
+evidence of composition.
+
+SECTION 1: MOST AI LITERACY WAS BUILT FOR THE WRONG STUDENT
+
+When most people in higher education talk about AI literacy, they mean this: a student
+prompts a model, gets text back, and makes decisions about what to do with that output.
+The evidence of their thinking is in the conversation. The product is a document, an
+argument, a piece of writing.
+
+That is the compositional case. Almost all of the AI literacy pedagogy being developed
+right now -- the frameworks, the rubrics, the course guidelines -- was built for that case.
+
+It does not describe what nurses, automotive technicians, dairy farmers, or greenhouse
+managers encounter. For these practitioners, AI is embedded infrastructure that recommends
+an action before the human has formed an independent assessment. The cognitive demand is
+not revision. It is judgment at the moment of deployment.
+
+SECTION 2: STOP ONE -- THE DAIRY FARM
+
+Students working in automated dairy operations encounter a milking parlor where robotic
+systems handle the milking. The AI monitors each animal: milk yield, conductivity, milking
+frequency, body weight, reproductive status. The system makes feeding recommendations. It
+flags animals for attention. It surfaces patterns that suggest a cow needs follow-up.
+
+The student's job is not to milk the cow. It is to read the dashboard, evaluate the flag,
+and decide whether to act on it.
+
+The system has already shaped the field of attention. The student arrives after the
+dashboard has decided what looks important.
+
+The architecture underneath many modern AI systems is literally called a transformer, built
+around what computer scientists call an attention mechanism: a way of weighting which signals
+matter most in a given context. Humans do something similar. But now another attention system
+is entering the workflow before the human operator begins evaluating the situation.
+
+The dashboard is not the situation. It is the model's interpretation of the situation.
+
+Under what circumstances should a student override it? That is not a technical question.
+That is a literacy question.
+
+SECTION 3: STOP TWO -- THE AUTO SHOP
+
+Automotive technology students will work in shops where the first thing that happens when
+a vehicle comes in is someone plugs in an OBD-II scanner. AI-assisted diagnostic platforms
+cross-reference trouble codes against repair records for similar vehicles, group related codes,
+prioritize probable causes, and present a recommended repair sequence with confidence scores.
+
+The student sees the recommendation on a tablet. The AI has already organized what looks
+important before hands-on inspection begins. The workflow is: recommendation first,
+verification second -- if at all.
+
+What does it take to recognize when the recommendation is wrong? That is not a scanning
+skill. That is a judgment skill.
+
+SECTION 4: STOP THREE -- THE GREENHOUSE
+
+Horticulture students will manage crops in environments where AI is already making autonomous
+decisions. Irrigation systems adjust water delivery without asking anyone. Climate control
+systems set temperature, humidity, and CO2 levels. Camera systems scan for disease and pest
+presence, flag anomalies, and recommend treatments.
+
+The grower receives a report. An alert. A dashboard. The system has often already acted
+before they see it.
+
+What does fixation look like when the disease alert fires and attention goes to the flagged
+plant while the actual outbreak is two rows over? What does it cost when the dashboard
+declares the field healthy and the student stops looking?
+
+In each of the three cases, the cognitive challenge is the same: the AI system increasingly
+organizes what the operator notices first.
+
+SECTION 5: THE COGNITIVE CHALLENGE
+
+Human-factors researchers have documented recurring failure modes when operators work
+alongside automated systems. These appear in aviation, clinical decision support, and
+process control:
+
+1. Manual skill atrophy -- procedural skills degrade from disuse.
+2. Plan continuation bias -- cognitive commitment to the AI-established course despite new cues.
+3. Vigilance decrement -- attention drifts from primary indicators during automation.
+4. Omission errors -- failing to notice when the automation misses something.
+5. Commission errors -- acting on automated recommendations without independent verification.
+6. Confirmation bias -- misinterpreting ambiguous information to confirm the original plan.
+7. Expectation-driven processing -- seeing what the AI predicted, not what is actually there.
+
+What these have in common is not complexity. They are all failures of attention. The
+operator's attention has been pre-organized by the system, and independent judgment has been
+displaced by cue-following.
+
+Aviation addressed several of these through mandatory manual flying and scenario-based
+training under realistic conditions. The FAA can mandate that because the stakes are
+existential -- plane crashes kill people.
+
+Students at Morrisville are not pilots. The claim is not that they need to train for
+manual backup. The claim is narrower: they need to maintain an independent model of the
+situation -- to recognize when their own observation of the cow, the car, or the plant
+contradicts what the system is telling them, and to know what to do with that contradiction.
+
+That is a practiced habit of judgment. It does not emerge from instruction about AI.
+
+SECTION 6: WHAT MAKES THIS ROUND DIFFERENT
+
+Many earlier automation failures were mechanically legible. The pump breaks. The sensor
+malfunctions. You can see it. You can trace it.
+
+This round of AI-assisted automation is different in three ways.
+
+First, the logic is opaque. The system makes a recommendation based on patterns learned
+from large amounts of data. You cannot always ask it why and get a clear answer.
+
+Second, it fails by being confidently wrong. AI can produce a plausible-looking
+recommendation that is incorrect for a specific cow, vehicle, or crop -- and nothing in
+the interface signals that.
+
+Third, introducing AI into automation may actually increase the cognitive demand on the
+human operator. The milking robot reduced physical labor. The AI-assisted milking system
+requires constantly evaluating recommendations from a system the operator cannot fully see
+into, at scale, every day.
+
+The issue is not simply that AI produces recommendations. The issue is that AI systems
+increasingly organize what the operator notices first -- before the operator has had a
+chance to form an independent assessment.
+
+SECTION 7: WHAT AI LITERACY MEANS HERE
+
+Not: teach students to use the tools.
+Not: teach students about automation bias.
+
+This: design courses where students practice the moment of judgment before compliance.
+Where the AI recommendation is sometimes wrong by design. Where they have to articulate
+why they are pausing. Where following the system blindly costs them something in
+simulation before it costs them something in the field.
+
+Students need to learn to recognize the dashboard as model-generated rather than
+reality-generated. That is a different habit than spotting hallucinations in a text.
+It is the habit of maintaining epistemic separation between what the model surfaced
+and what is actually happening in the barn, the shop, or the greenhouse.
+
+Dairy students should encounter scenarios where the feeding algorithm has miscalculated
+and they have to catch it by reading the herd. Auto students should encounter vehicles
+where the scanner recommendation is wrong and hands-on inspection is the only thing that
+catches it. Horticulture students should encounter disease alerts that are false positives --
+and silent outbreaks the system missed.
+
+That is not a new course. That is a design principle that can be embedded in courses
+already being taught.
+
+AI literacy in applied fields is not primarily about producing content with AI. It is
+about preserving independent professional judgment while AI systems increasingly organize
+what appears important before humans even begin to think.
+
+The question is not whether students can use AI. It is whether they can maintain an
+independent model of the situation while AI is already organizing what they see.
+
+------------------------------------------------------------
+PART 2: THE FRAMEWORK -- RTW
+------------------------------------------------------------
+
+RTW (Reading, Thinking, Writing) is the analytical spine of this AI literacy work.
+
+AI literacy is reading, thinking, and writing using tools, techniques, and technological
+systems consistent with one's peers. This is a descriptive-analytical definition, not a
+normative one. It treats AI as cognitive infrastructure, not as a special object requiring
+critical competency development separate from the discipline.
+
+The key distinction: compositional AI use versus directive AI use.
+
+Compositional AI use: the student issues a prompt, receives text, revises, iterates.
+The student is the author. The conversation is the work. The artifact is evidence the
+work concluded.
+
+Directive AI use: an embedded autonomous system makes recommendations or takes actions
+that the human then evaluates and executes. The student is an operator, not a composer.
+The literacy challenge is different: it is not about shaping output but about maintaining
+independent situational judgment while the system has already organized the field of attention.
+
+Current AI literacy pedagogy -- including most frameworks now circulating in higher education --
+was built for the compositional case. It fails applied-program students who encounter AI as
+autonomous infrastructure.
+
+The transcript is the work. Grading only the artifact is invalid -- it captures only that
+the work concluded, not how it was conducted. The transcript captures the full arc of
+authorship: the prompts, the pushback, the iteration, the judgment exercised at each step.
+
+------------------------------------------------------------
+PART 3: THE LEARNER'S PERMIT (LP)
+------------------------------------------------------------
+
+The Learner's Permit is a 15-exercise content-neutral scaffold for AI literacy.
+It runs in any discipline. The instructor replaces [TOPIC] with a specific subject.
+
+Three phases:
+  Phase I -- Learning to Drive (Exercises 1-5): first conversations, compression,
+             pushback, trust audit, sustained conversation.
+  Phase II -- Building Skill (Exercises 6-10): multi-model work, audience analysis,
+              reading with AI, source comparison, workbench organization.
+  Phase III -- Independent Operation (Exercises 11-15): self-directed learning,
+               synthesis document, self-quiz, public-facing writing, exam.
+
+Exercise 15 is the exam. There is no separate examination event. A General AI License
+is awarded when Exercise 15 is accepted by an instructor.
+
+Core practices (RTW in the LP context):
+  Read -- read what the model generates with attention. Reading is bidirectional.
+  Think -- evaluate, push back, extend. Thinking happens in the conversation.
+  Write -- prompting is writing. A prompt causes the model to generate toward an outcome.
+
+The workbench: students build a folder structure (transcripts, artifacts, synthesis,
+author, zip) that persists across courses. The /author folder contains only documents
+written without a model open. The workbench is portable and model-agnostic.
+
+The artifact is the model's final response, shaped by the student's prompting. The
+transcript is the full conversation. Both are the work. Both are submitted.
+
+Key LP moves:
+  Exercise 3: Push Back -- find a claim to challenge. Note whether the model defends
+              its position or concedes because of social pressure. Agreeable is not
+              the same as accurate.
+  Exercise 4: Trust Audit -- ask the model where not to trust it. Evaluate whether
+              its self-assessment matches the skepticism developed in earlier exercises.
+  Exercise 12: Synthesis Document -- a portable compressed overview of what has been
+               learned, designed to be uploaded to any model as opening context.
+  Exercise 13: Did You Learn Your Own Slop? -- take a quiz generated from your own
+               artifacts. Test whether you learned what you generated, or generated
+               without learning.
+
+Prerequisite for CDL enrollment: General AI License plus a portfolio of workbench
+evidence from at least one additional course beyond the LP course.
+
+------------------------------------------------------------
+PART 4: THE COMMERCIAL LICENSE (CDL)
+------------------------------------------------------------
+
+The Commercial License certifies supervised agentic operation in controlled environments.
+It is the next credential after the General AI License.
+
+Credential progression:
+  1. Learner's Permit (Exercises 1-14)
+  2. General AI License (pass Exercise 15 of the LP)
+  3. CDL Permit (enroll in CDL course -- requires portfolio review)
+  4. Commercial License (pass Exercise 15 of the CDL course)
+
+The CDL distinction: the LP trains compositional AI use -- prompt, receive, revise.
+The CDL trains agentic operation -- the student directs an AI agent (Claude Code) that
+reads files, writes code, runs commands, and acts across multiple steps without
+step-by-step instruction.
+
+RTW upgraded for agentic contexts:
+  Read -- read the agent's action trace, not just its output. What did it do step by step?
+          What did it decide without being asked?
+  Think -- evaluate the agent's decisions, not just its results. A good result from a bad
+           process is still a bad process.
+  Write -- writing now means the task brief: a scoped document specifying what the agent
+           may do, what it may not do, and what success looks like. Written before any
+           run begins.
+
+Three deliverables per CDL exercise: artifact, trace (execution log), transcript. All three
+are the work.
+
+The Failure Classification Template: every failure -- crash, silent error, spec mismatch,
+scope violation -- is documented before briefing the agent to fix it. Silent errors are
+always High severity. A silent error looks correct and is not. It is more dangerous than
+a crash because it is invisible.
+
+The project: all CDL exercises build toward a single deliverable -- a syllabus management
+app that ingests course syllabi, extracts deadlines, and generates cross-course reminders.
+
+The Pre-Trip Inspection Protocol: a checklist completed before every agent session. No run
+starts without it. Built in Exercise 4 and used from Exercise 5 forward.
+
+------------------------------------------------------------
+PART 5: KEY CLAIMS AND THEIR LIMITS
+------------------------------------------------------------
+
+What this framework asserts:
+
+1. Most AI literacy pedagogy fails applied-program students because it was designed for
+   the compositional case. Students who will encounter AI as directive infrastructure --
+   systems that recommend action before the human has formed an independent view -- need
+   different preparation.
+
+2. The relevant failure modes are documented in human-factors research (aviation, clinical
+   decision support, process control). They are not speculative.
+
+3. The pedagogical response is scenario-based practice with consequential stakes in
+   simulation -- not instruction about bias, not tool tutorials.
+
+4. The transcript is assessment evidence. Grading only the artifact misses the authorship.
+
+5. AI literacy is not a separate competency to be developed in an AI course. It is a
+   dimension of disciplinary practice.
+
+What this framework does not assert:
+
+1. Students in applied programs need to be able to perform AI functions manually as backup.
+   The aviation analogy supports maintaining independent situational judgment, not mandatory
+   manual skill maintenance. The stakes are categorically different from aviation.
+
+2. AI systems are generally unreliable. The claim is specific: AI fails confidently and
+   opaquely, and the failure mode differs from mechanical failure in ways that require
+   deliberate preparation.
+
+3. This framework is complete. The CDL addresses agentic use cases that the LP does not.
+   Neither addresses every applied context.
+
+------------------------------------------------------------
+END OF CONTEXT DOCUMENT
+
+Steven M. Schneider | SUNY Polytechnic Institute | AIX Center
+steve@sunypoly.edu | May 2026
+------------------------------------------------------------
