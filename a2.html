@@ -1,357 +1,483 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer 2026 — Hilltop A2 Research Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --blue: #002C73;
-    --gold: #EDA900;
-    --white: #ffffff;
-    --off-white: #f7f5f0;
-    --gray: #e8e4dc;
-    --gray-light: #f2f0eb;
-    --text-dark: #1a1a2e;
-    --text-mid: #4a4a6a;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  @media print {
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: white; padding: 0; }
-    .page { box-shadow: none; }
-  }
-  body {
-    background: var(--gray);
-    font-family: 'Source Sans 3', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 2rem;
-  }
-  .page {
-    width: 8.5in;
-    min-height: 11in;
-    background: var(--white);
-    box-shadow: 0 8px 40px rgba(0,44,115,0.18);
-    display: flex;
-    flex-direction: column;
-  }
-  .top-bar { height: 6px; background: var(--gold); }
-  header {
-    background: var(--blue);
-    padding: 1.8rem 2.5rem 1.6rem;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  .header-label { font-size:.62rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); opacity:.9; margin-bottom:.3rem; }
-  .header-title { font-family:'Libre Baskerville',serif; font-size:1.9rem; font-weight:700; color:var(--white); line-height:1.1; }
-  .header-subtitle { font-size:.8rem; font-weight:300; color:rgba(255,255,255,.6); margin-top:.3rem; letter-spacing:.04em; }
-  .header-right { text-align:right; }
-  .institution-name { font-weight:700; font-size:.68rem; text-transform:uppercase; letter-spacing:.18em; color:var(--gold); line-height:1.7; }
-  .institution-sub { font-size:.6rem; font-weight:300; letter-spacing:.1em; color:rgba(255,255,255,.45); text-transform:uppercase; margin-top:.1rem; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hilltop A2 Research Hub — Summer 2026 Roster</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
-  .legend {
-    background: var(--gray-light);
-    border-bottom: 1px solid var(--gray);
-    padding: .5rem 2.5rem;
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-  }
-  .legend-label { font-size:.6rem; text-transform:uppercase; letter-spacing:.12em; color:var(--text-mid); font-weight:600; margin-right:.25rem; }
-  .legend-item { display:flex; align-items:center; gap:.35rem; font-size:.65rem; color:var(--text-mid); }
-  .pip { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
-  .pip.new { background:#f0b429; }
+    :root {
+      --blue: #002C73;
+      --gold: #EDA900;
+      --white: #ffffff;
+      --off-white: #f7f5f0;
+      --light-gray: #e8e4dc;
+      --new-bg: #fffbef;
+      --new-pill-bg: #fde68a;
+      --new-pill-text: #78350f;
+    }
 
-  main { padding: 1.8rem 2.5rem 1.5rem; flex: 1; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  .affiliation-section { margin-bottom: 1.5rem; }
-  .affiliation-header { display:flex; align-items:center; gap:.75rem; margin-bottom:.7rem; }
-  .affiliation-badge { color:var(--white); font-weight:700; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; padding:.28rem .7rem; border-radius:2px; }
-  .aix   { background:#002C73; }
-  .tdac  { background:#1a4a8a; }
-  .deib  { background:#2a5298; }
-  .wings { background:#0a3060; }
-  .dream { background:#003878; }
-  .chihe { background:#00245a; }
-  .cnie  { background:#001a45; }
-  .dsa   { background:#1e3a6e; }
-  .affiliation-rule { flex:1; height:1px; background:linear-gradient(to right,rgba(0,44,115,.25),transparent); }
-  .count { background:var(--gold); color:var(--blue); font-weight:700; font-size:.58rem; padding:.12rem .42rem; border-radius:10px; letter-spacing:.04em; }
+    @page {
+      size: landscape;
+      margin: 0;
+    }
 
-  .roster-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem; }
-  .roster-grid.cols3 { grid-template-columns:repeat(3,1fr); }
-  .roster-grid.cols2 { grid-template-columns:repeat(2,1fr); }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: #555; /* Dark background for web view */
+      display: flex;
+      justify-content: center;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
 
-  .roster-card {
-    border: 1px solid var(--gray);
-    padding: .65rem .8rem .55rem;
-    position: relative;
-    background: var(--white);
-  }
-  .roster-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); opacity:.65; }
-  .roster-card.is-new  { background:#fffbef; }
+    .page {
+      width: 11in;
+      height: 8.5in;
+      background-color: var(--off-white);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-top: 4px solid var(--gold);
+      border-bottom: 4px solid var(--gold);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
 
-  .card-sitnet { position:absolute; top:.4rem; right:.5rem; font-size:.53rem; color:rgba(0,44,115,.32); letter-spacing:.03em; }
-  .card-name { font-family:'Libre Baskerville',serif; font-size:.8rem; font-weight:700; color:var(--blue); line-height:1.2; }
-  .card-meta { font-size:.65rem; color:var(--text-mid); margin-top:.18rem; display:flex; flex-direction:column; gap:.08rem; }
-  .card-meta .office { font-weight:600; color:var(--text-dark); }
-  .card-meta .prev { color:#999; font-size:.58rem; }
-  .card-meta .access { font-size:.58rem; color:#888; font-style:italic; }
+    @media print {
+      body { background-color: white; }
+      .page { box-shadow: none; }
+    }
 
-  .tag { display:inline-block; font-size:.5rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.1rem .3rem; border-radius:2px; margin-top:.18rem; }
-  .tag.new    { background:#fde68a; color:#78350f; }
+    /* HEADER */
+    header {
+      background-color: var(--blue);
+      color: var(--white);
+      height: 0.75in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      flex-shrink: 0;
+    }
 
-  .side-by-side { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .header-left .sup-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
 
-  footer { background:var(--off-white); border-top:1px solid var(--gray); padding:.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center; }
-  .footer-left { font-size:.6rem; color:var(--text-mid); letter-spacing:.04em; }
-  .footer-right { font-family:'Libre Baskerville',serif; font-style:italic; font-size:.68rem; color:var(--blue); opacity:.55; }
-  .gold-bottom { height:4px; background:var(--gold); }
-</style>
+    .header-left h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1px;
+    }
+
+    .header-left .sub-label {
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .header-right {
+      text-align: right;
+    }
+
+    .header-right .inst-name {
+      color: var(--gold);
+      font-variant: small-caps;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .header-right .dept-name {
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* MAIN CONTENT */
+    main {
+      padding: 0.8rem 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header .badge {
+      color: var(--white);
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-right: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .section-header .rule {
+      flex-grow: 1;
+      height: 1px;
+      margin-left: 0.5rem;
+      background: linear-gradient(to right, rgba(0,44,115,0.2), transparent);
+    }
+
+    /* SPECIFIC BADGE COLORS */
+    .bg-aix { background-color: #002C73; }
+    .bg-tdac { background-color: #1a4a8a; }
+    .bg-deib { background-color: #2a5298; }
+    .bg-wings { background-color: #0a3060; }
+    .bg-dream { background-color: #003878; }
+    .bg-chihe { background-color: #00245a; }
+    .bg-cnie { background-color: #001a45; }
+
+    /* GRIDS */
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+    
+    .multi-col-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .multi-col-row .grid-1 { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+
+    /* CARDS */
+    .card {
+      background-color: var(--white);
+      border-left: 3px solid var(--gold);
+      padding: 0.5rem 0.7rem;
+      position: relative;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      min-height: 3.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card.is-new {
+      background-color: var(--new-bg);
+    }
+
+    .card-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 2px;
+      padding-right: 2.2rem; /* Make room for SitNet ID */
+    }
+
+    .card-office {
+      font-size: 0.65rem;
+      color: #444;
+    }
+
+    .card-office strong {
+      font-weight: 700;
+      color: #222;
+    }
+
+    .card-sitnet {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 0.55rem;
+      color: rgba(0, 44, 115, 0.5);
+      font-weight: 600;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 4px;
+    }
+
+    .new-pill {
+      background-color: var(--new-pill-bg);
+      color: var(--new-pill-text);
+      font-size: 0.55rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 8px;
+      text-transform: uppercase;
+    }
+
+    .extra-access {
+      font-size: 0.55rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--off-white);
+      border-top: 1px solid var(--light-gray);
+      padding: 0.3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.6rem;
+      color: #666;
+      flex-shrink: 0;
+    }
+
+    footer .right {
+      font-style: italic;
+    }
+
+  </style>
 </head>
 <body>
-<div class="page">
-  <div class="top-bar"></div>
 
-  <header>
-    <div>
-      <div class="header-label">Summer 2026 Personnel</div>
-      <div class="header-title">Hilltop A2 Research Hub</div>
-      <div class="header-subtitle">Office Assignments by Affiliation &nbsp;&middot;&nbsp; Access &amp; SitNet Reference</div>
-    </div>
-    <div class="header-right">
-      <div class="institution-name">SUNY Polytechnic<br>Institute</div>
-      <div class="institution-sub">Office of Research</div>
-    </div>
-  </header>
+  <div class="page">
+    
+    <header>
+      <div class="header-left">
+        <div class="sup-label">Summer 2026 Personnel</div>
+        <h1>Hilltop A2 Research Hub</h1>
+        <div class="sub-label">Office Assignments by Affiliation &middot; Access &amp; SitNet Reference</div>
+      </div>
+      <div class="header-right">
+        <div class="inst-name">SUNY Polytechnic Institute</div>
+        <div class="dept-name">Office of Research</div>
+      </div>
+    </header>
 
-  <div class="legend">
-    <span class="legend-label">Key:</span>
-    <div class="legend-item"><div class="pip new"></div> New to space</div>
-    <div class="legend-item">SitNet ID shown top-right of each card</div>
-    <div class="legend-item">* Shared office</div>
+    <main>
+      <!-- AIX SECTION -->
+      <section>
+        <div class="section-header">
+          <span class="badge bg-aix">AIX</span>
+          <h2>Artificial Intelligence Exploration Center</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="grid-4">
+          <div class="card">
+            <div class="card-name">Steve Schneider</div>
+            <div class="card-office">Office: <strong>A246</strong></div>
+            <div class="card-sitnet">steve</div>
+          </div>
+          <div class="card">
+            <div class="card-name">Bill Thistleton</div>
+            <div class="card-office">Office: <strong>A258</strong></div>
+            <div class="card-sitnet">thistlet</div>
+          </div>
+          <div class="card">
+            <div class="card-name">Asela Abeya</div>
+            <div class="card-office">Office: <strong>A255</strong></div>
+            <div class="card-sitnet">abeyaa</div>
+          </div>
+          <div class="card">
+            <div class="card-name">Nick LeJeune</div>
+            <div class="card-office">Office: <strong>A249</strong></div>
+            <div class="card-sitnet">lejeunc</div>
+          </div>
+          <div class="card">
+            <div class="card-name">Trusting Inekwe</div>
+            <div class="card-office">Office: <strong>A257</strong></div>
+            <div class="card-sitnet">inekwet</div>
+          </div>
+          <div class="card is-new">
+            <div class="card-name">Shrabani Ghosh</div>
+            <div class="card-office">Office: <strong>A256</strong></div>
+            <div class="card-sitnet">ghoshs</div>
+            <div class="card-footer"><span class="new-pill">New</span></div>
+          </div>
+          <div class="card">
+            <div class="card-name">Daniel Romero</div>
+            <div class="card-office">Office: <strong>A260</strong></div>
+            <div class="card-sitnet">romerod2</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TDAC SECTION -->
+      <section>
+        <div class="section-header">
+          <span class="badge bg-tdac">TDAC</span>
+          <h2>Poly Contract for US Army Transformation Decision Analysis Center</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="grid-5">
+          <div class="card is-new">
+            <div class="card-name">Abdel Yazizi</div>
+            <div class="card-office">Office: <strong>A257</strong></div>
+            <div class="card-sitnet">yazizia</div>
+            <div class="card-footer">
+              <span class="new-pill">New</span>
+              <span class="extra-access">+ access A259</span>
+            </div>
+          </div>
+          <div class="card is-new">
+            <div class="card-name">Kshitija Taywade</div>
+            <div class="card-office">Office: <strong>A256</strong></div>
+            <div class="card-sitnet">taywadk</div>
+            <div class="card-footer"><span class="new-pill">New</span></div>
+          </div>
+          <div class="card is-new">
+            <div class="card-name">Gabriel Gabriel</div>
+            <div class="card-office">Office: <strong>A254*</strong></div>
+            <div class="card-sitnet">nobody</div>
+            <div class="card-footer">
+              <span class="new-pill">New</span>
+              <span class="extra-access">SitNet pending</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-name">Amit Sangwan</div>
+            <div class="card-office">Office: <strong>A259</strong></div>
+            <div class="card-sitnet">sangwaa</div>
+          </div>
+          <div class="card is-new">
+            <div class="card-name">Wye Wye</div>
+            <div class="card-office">Office: <strong>A261</strong></div>
+            <div class="card-sitnet">nobody</div>
+            <div class="card-footer">
+              <span class="new-pill">New</span>
+              <span class="extra-access">SitNet pending</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM ROW 1 -->
+      <div class="multi-col-row">
+        <section>
+          <div class="section-header">
+            <span class="badge bg-deib">DEIB</span>
+            <h2>Diversity, Equity, Inclusion, &amp; Belonging</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="grid-1">
+            <div class="card">
+              <div class="card-name">Kathryn Stam</div>
+              <div class="card-office">Office: <strong>A254*</strong></div>
+              <div class="card-sitnet">stamk</div>
+            </div>
+            <div class="card">
+              <div class="card-name">Don Oh</div>
+              <div class="card-office">Office: <strong>A240, A241, A243</strong></div>
+              <div class="card-sitnet">ohb</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <span class="badge bg-wings">WINGS</span>
+            <h2>Wireless &amp; Intelligent Next Gen Systems</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="grid-1">
+            <div class="card">
+              <div class="card-name">Arjun Singh</div>
+              <div class="card-office">Office: <strong>A262, A263</strong></div>
+              <div class="card-sitnet">singha8</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <span class="badge bg-dream">DREAM</span>
+            <h2>Center for Design, Research, Engineering, Art &amp; Media</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="grid-1">
+            <div class="card">
+              <div class="card-name">Ana Jofre</div>
+              <div class="card-office">Office: <strong>A247</strong></div>
+              <div class="card-sitnet">jofrea</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- BOTTOM ROW 2 -->
+      <div class="multi-col-row">
+        <section>
+          <div class="section-header">
+            <span class="badge bg-chihe">CHIHE</span>
+            <h2>Center for Healthcare Innovation &amp; Hum. Engineering</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="grid-1">
+            <div class="card">
+              <div class="card-name">Kristina Boylan</div>
+              <div class="card-office">Office: <strong>A242</strong></div>
+              <div class="card-sitnet">boylank</div>
+            </div>
+            <div class="card">
+              <div class="card-name">Winnie Mkandawire</div>
+              <div class="card-office">Office: <strong>A244</strong></div>
+              <div class="card-sitnet">mkandaw</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-header">
+            <span class="badge bg-cnie">CNIE</span>
+            <h2>Center for Nature Inspired Engineering</h2>
+            <div class="rule"></div>
+          </div>
+          <div class="grid-1">
+            <div class="card">
+              <div class="card-name">Niu</div>
+              <div class="card-office">Office: <strong>A245</strong></div>
+              <div class="card-sitnet">niux</div>
+            </div>
+            <div class="card">
+              <div class="card-name">Niu</div>
+              <div class="card-office">Office: <strong>A245</strong></div>
+              <div class="card-sitnet">niux</div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Empty 3rd Column -->
+        <div></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="left">SUNY Polytechnic Institute &middot; Hilltop A2 Research Hub &middot; Summer 2026 &middot; Shared office &middot; SitNet 'nobody' = ID pending</div>
+      <div class="right">sunypoly.edu</div>
+    </footer>
+
   </div>
 
-  <main>
-
-    <!-- AIX -->
-    <div class="affiliation-section">
-      <div class="affiliation-header">
-        <div class="affiliation-badge aix">AIX</div>
-        <div class="affiliation-rule"></div>
-        <span class="count">6</span>
-      </div>
-      <div class="roster-grid">
-        <div class="roster-card">
-          <div class="card-sitnet">steve</div>
-          <div class="card-name">Steve Schneider</div>
-          <div class="card-meta">
-            <span>Office <span class="office">A246</span></span>
-          </div>
-        </div>
-        <div class="roster-card">
-          <div class="card-sitnet">thistlet</div>
-          <div class="card-name">Bill Thistleton</div>
-          <div class="card-meta"><span>Office <span class="office">A258</span></span></div>
-        </div>
-        <div class="roster-card">
-          <div class="card-sitnet">abeyaa</div>
-          <div class="card-name">Asela Abeya</div>
-          <div class="card-meta"><span>Office <span class="office">A255</span></span></div>
-        </div>
-        <div class="roster-card">
-          <div class="card-sitnet">lejeunc</div>
-          <div class="card-name">Nick LeJeune</div>
-          <div class="card-meta"><span>Office <span class="office">A249</span></span></div>
-        </div>
-        <div class="roster-card">
-          <div class="card-sitnet">inekwet</div>
-          <div class="card-name">Trusting Inekwe</div>
-          <div class="card-meta"><span>Office <span class="office">A257</span></span></div>
-        </div>
-        <div class="roster-card is-new">
-          <div class="card-sitnet">ghoshs</div>
-          <div class="card-name">Shrabani Ghosh</div>
-          <div class="card-meta"><span>Office <span class="office">A256</span></span></div>
-          <span class="tag new">New</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- TDAC -->
-    <div class="affiliation-section">
-      <div class="affiliation-header">
-        <div class="affiliation-badge tdac">TDAC</div>
-        <div class="affiliation-rule"></div>
-        <span class="count">5</span>
-      </div>
-      <div class="roster-grid">
-        <div class="roster-card is-new">
-          <div class="card-sitnet">yazizia</div>
-          <div class="card-name">Abdel Yazizi</div>
-          <div class="card-meta">
-            <span>Office <span class="office">A257</span></span>
-            <span class="access">+ access: A259</span>
-          </div>
-          <span class="tag new">New</span>
-        </div>
-        <div class="roster-card is-new">
-          <div class="card-sitnet">taywadk</div>
-          <div class="card-name">Kshitija Taywade</div>
-          <div class="card-meta"><span>Office <span class="office">A256</span></span></div>
-          <span class="tag new">New</span>
-        </div>
-        <div class="roster-card is-new">
-          <div class="card-sitnet">nobody</div>
-          <div class="card-name">Gabriel Gabriel</div>
-          <div class="card-meta"><span>Office <span class="office">A254*</span></span></div>
-          <span class="tag new">New</span>
-        </div>
-        <div class="roster-card">
-          <div class="card-sitnet">sangwaa</div>
-          <div class="card-name">Amit Sangwan</div>
-          <div class="card-meta"><span>Office <span class="office">A259</span></span></div>
-        </div>
-        <div class="roster-card is-new">
-          <div class="card-sitnet">nobody</div>
-          <div class="card-name">Wye Wye</div>
-          <div class="card-meta"><span>Office <span class="office">A261</span></span></div>
-          <span class="tag new">New</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- DEIB + WINGS/DSA side by side -->
-    <div class="side-by-side" style="margin-bottom:1.5rem;">
-
-      <div class="affiliation-section" style="margin-bottom:0">
-        <div class="affiliation-header">
-          <div class="affiliation-badge deib">DEIB</div>
-          <div class="affiliation-rule"></div>
-          <span class="count">2</span>
-        </div>
-        <div class="roster-grid cols2">
-          <div class="roster-card">
-            <div class="card-sitnet">stamk</div>
-            <div class="card-name">Kathryn Stam</div>
-            <div class="card-meta"><span>Office <span class="office">A254*</span></span></div>
-          </div>
-          <div class="roster-card">
-            <div class="card-sitnet">ohb</div>
-            <div class="card-name">Don Oh</div>
-            <div class="card-meta"><span>Offices <span class="office">A240, A241, A243</span></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:1rem;">
-        <div class="affiliation-section" style="margin-bottom:0">
-          <div class="affiliation-header">
-            <div class="affiliation-badge wings">WINGS</div>
-            <div class="affiliation-rule"></div>
-            <span class="count">1</span>
-          </div>
-          <div class="roster-grid cols2">
-            <div class="roster-card">
-              <div class="card-sitnet">singha8</div>
-              <div class="card-name">Arjun Singh</div>
-              <div class="card-meta"><span>Offices <span class="office">A262, A263</span></span></div>
-            </div>
-          </div>
-        </div>
-        <div class="affiliation-section" style="margin-bottom:0">
-          <div class="affiliation-header">
-            <div class="affiliation-badge dsa">DSA</div>
-            <div class="affiliation-rule"></div>
-            <span class="count">1</span>
-          </div>
-          <div class="roster-grid cols2">
-            <div class="roster-card">
-              <div class="card-sitnet">romerod2</div>
-              <div class="card-name">Daniel Romero</div>
-              <div class="card-meta"><span>Office <span class="office">A260</span></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- DREAM + CHIHE/CNIE side by side -->
-    <div class="side-by-side">
-
-      <div class="affiliation-section" style="margin-bottom:0">
-        <div class="affiliation-header">
-          <div class="affiliation-badge dream">DREAM</div>
-          <div class="affiliation-rule"></div>
-          <span class="count">1</span>
-        </div>
-        <div class="roster-grid cols2">
-          <div class="roster-card">
-            <div class="card-sitnet">jofrea</div>
-            <div class="card-name">Ana Jofre</div>
-            <div class="card-meta"><span>Office <span class="office">A247</span></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:1rem;">
-        <div class="affiliation-section" style="margin-bottom:0">
-          <div class="affiliation-header">
-            <div class="affiliation-badge chihe">CHIHE</div>
-            <div class="affiliation-rule"></div>
-            <span class="count">2</span>
-          </div>
-          <div class="roster-grid cols2">
-            <div class="roster-card">
-              <div class="card-sitnet">boylank</div>
-              <div class="card-name">Kristina Boylan</div>
-              <div class="card-meta"><span>Office <span class="office">A242</span></span></div>
-            </div>
-            <div class="roster-card">
-              <div class="card-sitnet">mkandaw</div>
-              <div class="card-name">Winnie Mkandawire</div>
-              <div class="card-meta"><span>Office <span class="office">A244</span></span></div>
-            </div>
-          </div>
-        </div>
-        <div class="affiliation-section" style="margin-bottom:0">
-          <div class="affiliation-header">
-            <div class="affiliation-badge cnie">CNIE</div>
-            <div class="affiliation-rule"></div>
-            <span class="count">2</span>
-          </div>
-          <div class="roster-grid cols2">
-            <div class="roster-card">
-              <div class="card-sitnet">niux</div>
-              <div class="card-name">Niu</div>
-              <div class="card-meta"><span>Office <span class="office">A245</span> &nbsp;&middot;&nbsp; PostDoc</span></div>
-            </div>
-            <div class="roster-card">
-              <div class="card-sitnet">niux</div>
-              <div class="card-name">Niu</div>
-              <div class="card-meta"><span>Office <span class="office">A245</span> &nbsp;&middot;&nbsp; Asst. Prof.</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <footer>
-    <div class="footer-left">
-      SUNY Polytechnic Institute &nbsp;&middot;&nbsp; Hilltop A2 Research Hub &nbsp;&middot;&nbsp; Summer 2026
-      &nbsp;&nbsp;&nbsp;<em>* Shared office &nbsp;&middot;&nbsp; SitNet "nobody" = ID pending</em>
-    </div>
-    <div class="footer-right">sunypoly.edu</div>
-  </footer>
-  <div class="gold-bottom"></div>
-</div>
 </body>
 </html>
