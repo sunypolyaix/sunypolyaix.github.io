@@ -12,22 +12,11 @@
     --white: #ffffff;
     --offwhite: #f7f5f0;
     --lightgray: #e8e4dc;
-    --pale-yellow: #fffbef;
-    --badge-aix: #002C73;
-    --badge-tdac: #1a4a8a;
-    --badge-deib: #2a5298;
-    --badge-wings: #0a3060;
-    --badge-dream: #003878;
-    --badge-chihe: #00245a;
-    --badge-cnie: #001a45;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  @page {
-    size: 11in 8.5in landscape;
-    margin: 0;
-  }
+  @page { size: 11in 8.5in landscape; margin: 0; }
 
   body {
     font-family: 'Source Sans 3', sans-serif;
@@ -39,132 +28,130 @@
     flex-direction: column;
   }
 
-  .bar-top { height: 3px; background: var(--gold); flex-shrink: 0; }
-  .bar-bottom { height: 3px; background: var(--gold); flex-shrink: 0; }
+  .bar-top  { height: 4px; background: var(--gold); flex-shrink: 0; }
+  .bar-bottom { height: 4px; background: var(--gold); flex-shrink: 0; }
 
   header {
     background: var(--blue);
-    padding: 0.38rem 2rem;
+    padding: 0.45rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
   }
   .header-left .label {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.52rem; font-weight: 700;
-    color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.2;
+    font-size: 0.55rem; font-weight: 700;
+    color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em;
   }
   .header-left .hub-name {
     font-family: 'Libre Baskerville', serif;
-    font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.2;
+    font-size: 1.2rem; font-weight: 700; color: var(--white); line-height: 1.2;
   }
   .header-left .subtitle {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.6rem; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.3;
+    font-size: 0.62rem; font-weight: 300; color: rgba(255,255,255,0.65);
   }
   .header-right { text-align: right; }
   .header-right .inst-name {
     font-family: 'Libre Baskerville', serif;
-    font-size: 0.7rem; font-weight: 700; color: var(--gold);
-    font-variant: small-caps; letter-spacing: 0.05em; line-height: 1.3;
+    font-size: 0.75rem; font-weight: 700; color: var(--gold);
+    font-variant: small-caps; letter-spacing: 0.05em;
   }
   .header-right .dept {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.58rem; color: rgba(255,255,255,0.55); line-height: 1.3;
+    font-size: 0.6rem; color: rgba(255,255,255,0.5);
   }
 
   main {
     flex: 1;
-    padding: 0.55rem 2rem 0.4rem;
+    padding: 0.7rem 2rem 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
-    overflow: hidden;
+    justify-content: space-between;
   }
 
-  .section-header {
-    display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;
+  .section-row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .section-label {
+    flex-shrink: 0;
+    width: 2.3in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
   }
   .badge {
-    display: inline-block; padding: 0.15rem 0.45rem; border-radius: 3px;
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.55rem; font-weight: 700;
+    display: inline-block;
+    padding: 0.18rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.58rem; font-weight: 700;
     color: var(--white); text-transform: uppercase; letter-spacing: 0.1em;
-    white-space: nowrap; flex-shrink: 0;
+    align-self: flex-start;
   }
   .center-name {
-    font-family: 'Libre Baskerville', serif; font-size: 0.7rem; font-weight: 700;
-    color: var(--blue); white-space: nowrap; flex-shrink: 0;
-  }
-  .rule {
-    flex: 1; height: 1px;
-    background: linear-gradient(to right, rgba(0,44,115,0.25), rgba(0,44,115,0.0));
-    margin-left: 0.3rem;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.68rem; font-weight: 700;
+    color: var(--blue); line-height: 1.3;
   }
 
-  .card-grid { display: grid; gap: 0.42rem; }
-  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .section-divider {
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, rgba(0,44,115,0.3), rgba(0,44,115,0.05));
+    flex-shrink: 0;
+  }
+
+  .cards-area {
+    flex: 1;
+  }
+  .card-grid {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .grid-7 { grid-template-columns: repeat(7, 1fr); }
   .grid-5 { grid-template-columns: repeat(5, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .grid-1 { grid-template-columns: 1fr; }
+  .grid-1 { grid-template-columns: minmax(0, 1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); }
 
+  /* All cards identical height */
   .card {
     background: var(--white);
     border-left: 3px solid var(--gold);
-    padding: 0.42rem 0.6rem 0.38rem;
-    position: relative;
-    border-radius: 0 2px 2px 0;
-  }
-  .card.new-person { background: var(--pale-yellow); }
-  .card .sitnet {
-    position: absolute; top: 0.28rem; right: 0.42rem;
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.52rem;
-    color: rgba(0,44,115,0.4); letter-spacing: 0.02em;
+    padding: 0.52rem 0.65rem;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    height: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .card .person-name {
-    font-family: 'Libre Baskerville', serif; font-size: 0.76rem; font-weight: 700;
-    color: var(--blue); line-height: 1.2; padding-right: 2.2rem;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.8rem; font-weight: 700;
+    color: var(--blue); line-height: 1.2;
   }
-  .card .office {
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.6rem;
-    color: #444; margin-top: 0.1rem; line-height: 1.3;
-  }
-  .card .office .office-num { font-weight: 700; }
-  .card .extra-access {
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.55rem;
-    color: #666; font-style: italic; margin-top: 0.08rem; line-height: 1.3;
-  }
-  .card .also-dream {
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.52rem;
-    color: var(--badge-dream); font-style: italic; margin-top: 0.06rem; line-height: 1.3;
-    opacity: 0.85;
-  }
-  .card .new-tag {
-    display: inline-block; background: #fde68a; color: #78350f;
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.48rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    padding: 0.08rem 0.32rem; border-radius: 20px; margin-top: 0.18rem;
-  }
-
-  .three-col-row {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem;
+  .card .office-num {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.65rem; font-weight: 700;
+    color: #555; margin-top: 0.1rem;
   }
 
   footer {
     background: var(--offwhite);
-    padding: 0.3rem 2rem;
+    padding: 0.32rem 2rem;
     display: flex; justify-content: space-between; align-items: center;
     flex-shrink: 0; border-top: 1px solid var(--lightgray);
   }
   .footer-left {
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.55rem; color: #666; line-height: 1.5;
+    font-size: 0.56rem; color: #666;
   }
-  .footer-left em { color: #888; }
+  .footer-left em { color: #999; }
   .footer-right {
-    font-family: 'Libre Baskerville', serif; font-size: 0.58rem; font-style: italic; color: #888;
+    font-family: 'Libre Baskerville', serif; font-size: 0.6rem; font-style: italic; color: #999;
   }
-
-  .section { flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -185,215 +172,125 @@
 
 <main>
 
-  <!-- AIX -->
-  <div class="section">
-    <div class="section-header">
-      <span class="badge" style="background:var(--badge-aix);">AIX</span>
+  <!-- AIX — 7 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:var(--badge-aix, #002C73);">AIX</span>
       <span class="center-name">Artificial Intelligence Exploration Center</span>
-      <div class="rule"></div>
     </div>
-    <div class="card-grid grid-4">
-      <div class="card">
-        <span class="sitnet">steve</span>
-        <div class="person-name">Steve Schneider</div>
-        <div class="office">Office <span class="office-num">A246</span></div>
-      </div>
-      <div class="card">
-        <span class="sitnet">thistlet</span>
-        <div class="person-name">Bill Thistleton</div>
-        <div class="office">Office <span class="office-num">A258</span></div>
-      </div>
-      <div class="card">
-        <span class="sitnet">abeyaa</span>
-        <div class="person-name">Asela Abeya</div>
-        <div class="office">Office <span class="office-num">A255</span></div>
-      </div>
-      <div class="card">
-        <span class="sitnet">lejeunc</span>
-        <div class="person-name">Nick LeJeune</div>
-        <div class="office">Office <span class="office-num">A249</span></div>
-        <div class="also-dream">also DREAM center</div>
-      </div>
-      <div class="card">
-        <span class="sitnet">inekwet</span>
-        <div class="person-name">Trusting Inekwe</div>
-        <div class="office">Office <span class="office-num">A257</span></div>
-      </div>
-      <div class="card new-person">
-        <span class="sitnet">ghoshs</span>
-        <div class="person-name">Shrabani Ghosh</div>
-        <div class="office">Office <span class="office-num">A256</span></div>
-        <div class="new-tag">New</div>
-      </div>
-      <div class="card">
-        <span class="sitnet">romerod2</span>
-        <div class="person-name">Daniel Romero</div>
-        <div class="office">Office <span class="office-num">A260</span></div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
+      <div class="card-grid grid-7">
+        <div class="card"><div class="person-name">Steve Schneider</div><div class="office-num">A246</div></div>
+        <div class="card"><div class="person-name">Bill Thistleton</div><div class="office-num">A258</div></div>
+        <div class="card"><div class="person-name">Asela Abeya</div><div class="office-num">A255</div></div>
+        <div class="card"><div class="person-name">Nick LeJeune</div><div class="office-num">A249</div></div>
+        <div class="card"><div class="person-name">Trusting Inekwe</div><div class="office-num">A257</div></div>
+        <div class="card"><div class="person-name">Shrabani Ghosh</div><div class="office-num">A256</div></div>
+        <div class="card"><div class="person-name">Daniel Romero</div><div class="office-num">A260</div></div>
       </div>
     </div>
   </div>
 
-  <!-- TDAC -->
-  <div class="section">
-    <div class="section-header">
-      <span class="badge" style="background:var(--badge-tdac);">TDAC</span>
+  <!-- TDAC — 5 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:#1a4a8a;">TDAC</span>
       <span class="center-name">Poly Contract for US Army Transformation Decision Analysis Center</span>
-      <div class="rule"></div>
     </div>
-    <div class="card-grid grid-5">
-      <div class="card new-person">
-        <span class="sitnet">yazizia</span>
-        <div class="person-name">Abdel Yazizi</div>
-        <div class="office">Office <span class="office-num">A257</span></div>
-        <div class="extra-access">+ access A259</div>
-        <div class="new-tag">New</div>
-      </div>
-      <div class="card new-person">
-        <span class="sitnet">taywadk</span>
-        <div class="person-name">Kshitija Taywade</div>
-        <div class="office">Office <span class="office-num">A256</span></div>
-        <div class="new-tag">New</div>
-      </div>
-      <div class="card new-person">
-        <span class="sitnet">nobody</span>
-        <div class="person-name">Gabriel Pinochet Soto</div>
-        <div class="office">Office <span class="office-num">A254*</span></div>
-        <div class="extra-access">SitNet pending</div>
-        <div class="new-tag">New</div>
-      </div>
-      <div class="card">
-        <span class="sitnet">sangwaa</span>
-        <div class="person-name">Amit Sangwan</div>
-        <div class="office">Office <span class="office-num">A259</span></div>
-      </div>
-      <div class="card new-person">
-        <span class="sitnet">nobody</span>
-        <div class="person-name">Wye Wye</div>
-        <div class="office">Office <span class="office-num">A261</span></div>
-        <div class="extra-access">SitNet pending</div>
-        <div class="new-tag">New</div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
+      <div class="card-grid grid-5">
+        <div class="card"><div class="person-name">Abdel Yazizi</div><div class="office-num">A257</div></div>
+        <div class="card"><div class="person-name">Kshitija Taywade</div><div class="office-num">A256</div></div>
+        <div class="card"><div class="person-name">Gabriel Pinochet Soto</div><div class="office-num">A254*</div></div>
+        <div class="card"><div class="person-name">Amit Sangwan</div><div class="office-num">A259</div></div>
+        <div class="card"><div class="person-name">Wye Wye</div><div class="office-num">A261</div></div>
       </div>
     </div>
   </div>
 
-  <!-- MIDDLE ROW: DEIB, WINGS, DREAM -->
-  <div class="three-col-row">
-
-    <div>
-      <div class="section-header">
-        <span class="badge" style="background:var(--badge-deib);">DEIB</span>
-        <span class="center-name">Diversity, Equity, Inclusion, and Belonging Research Center</span>
-        <div class="rule"></div>
-      </div>
-      <div class="card-grid grid-2">
-        <div class="card">
-          <span class="sitnet">stamk</span>
-          <div class="person-name">Kathryn Stam</div>
-          <div class="office">Office <span class="office-num">A254*</span></div>
-        </div>
-        <div class="card">
-          <span class="sitnet">ohb</span>
-          <div class="person-name">Don Oh</div>
-          <div class="office">Offices <span class="office-num">A240, A241, A243</span></div>
-        </div>
+  <!-- DREAM — 3 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:#003878;">DREAM</span>
+      <span class="center-name">DREAM center</span>
+    </div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
+      <div class="card-grid grid-3">
+        <div class="card"><div class="person-name">Ana Jofre</div><div class="office-num">A247</div></div>
+        <div class="card"><div class="person-name">Nick LeJeune</div><div class="office-num">A249</div></div>
+        <div class="card"><div class="person-name">Kristina Boylan</div><div class="office-num">A242</div></div>
       </div>
     </div>
+  </div>
 
-    <div>
-      <div class="section-header">
-        <span class="badge" style="background:var(--badge-wings);">WINGS</span>
-        <span class="center-name">Wireless and Intelligent Next Generation Systems</span>
-        <div class="rule"></div>
+  <!-- DEIB — 2 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:#2a5298;">DEIB</span>
+      <span class="center-name">Diversity, Equity, Inclusion, and Belonging Research Center</span>
+    </div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
+      <div class="card-grid grid-2">
+        <div class="card"><div class="person-name">Kathryn Stam</div><div class="office-num">A254*</div></div>
+        <div class="card"><div class="person-name">Don Oh</div><div class="office-num">A240, A241, A243</div></div>
       </div>
+    </div>
+  </div>
+
+  <!-- CHIHE — 2 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:#00245a;">CHIHE</span>
+      <span class="center-name">Center for Healthcare Innovation and Humanitarian Engineering</span>
+    </div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
+      <div class="card-grid grid-2">
+        <div class="card"><div class="person-name">Kristina Boylan</div><div class="office-num">A242</div></div>
+        <div class="card"><div class="person-name">Winnie Mkandawire</div><div class="office-num">A244</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CNIE — 2 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:#001a45;">CNIE</span>
+      <span class="center-name">Center for Nature Inspired Engineering</span>
+    </div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
+      <div class="card-grid grid-2">
+        <div class="card"><div class="person-name">Precious Etinosa</div><div class="office-num">A245</div></div>
+        <div class="card"><div class="person-name">Fan Liu</div><div class="office-num">A245</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINGS — 1 -->
+  <div class="section-row">
+    <div class="section-label">
+      <span class="badge" style="background:#0a3060;">WINGS</span>
+      <span class="center-name">Wireless and Intelligent Next Generation Systems</span>
+    </div>
+    <div class="section-divider"></div>
+    <div class="cards-area">
       <div class="card-grid grid-1">
-        <div class="card">
-          <span class="sitnet">singha8</span>
-          <div class="person-name">Arjun Singh</div>
-          <div class="office">Offices <span class="office-num">A261, A262, A263</span></div>
-        </div>
+        <div class="card"><div class="person-name">Arjun Singh</div><div class="office-num">A261, A262, A263</div></div>
       </div>
     </div>
-
-    <div>
-      <div class="section-header">
-        <span class="badge" style="background:var(--badge-dream);">DREAM</span>
-        <span class="center-name">DREAM center</span>
-        <div class="rule"></div>
-      </div>
-      <div class="card-grid grid-2">
-        <div class="card">
-          <span class="sitnet">jofrea</span>
-          <div class="person-name">Ana Jofre</div>
-          <div class="office">Office <span class="office-num">A247</span></div>
-        </div>
-        <div class="card">
-          <span class="sitnet">lejeunc</span>
-          <div class="person-name">Nick LeJeune</div>
-          <div class="office">Office <span class="office-num">A249</span></div>
-        </div>
-        <div class="card">
-          <span class="sitnet">boylank</span>
-          <div class="person-name">Kristina Boylan</div>
-          <div class="office">Office <span class="office-num">A242</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- BOTTOM ROW: CHIHE, CNIE, empty -->
-  <div class="three-col-row">
-
-    <div>
-      <div class="section-header">
-        <span class="badge" style="background:var(--badge-chihe);">CHIHE</span>
-        <span class="center-name">Center for Healthcare Innovation and Humanitarian Engineering</span>
-        <div class="rule"></div>
-      </div>
-      <div class="card-grid grid-2">
-        <div class="card">
-          <span class="sitnet">boylank</span>
-          <div class="person-name">Kristina Boylan</div>
-          <div class="office">Office <span class="office-num">A242</span></div>
-          <div class="also-dream">also DREAM center</div>
-        </div>
-        <div class="card">
-          <span class="sitnet">mkandaw</span>
-          <div class="person-name">Winnie Mkandawire</div>
-          <div class="office">Office <span class="office-num">A244</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="section-header">
-        <span class="badge" style="background:var(--badge-cnie);">CNIE</span>
-        <span class="center-name">Center for Nature Inspired Engineering</span>
-        <div class="rule"></div>
-      </div>
-      <div class="card-grid grid-2">
-        <div class="card">
-          <span class="sitnet">etinosp</span>
-          <div class="person-name">Precious Etinosa</div>
-          <div class="office">Office <span class="office-num">A245</span></div>
-        </div>
-        <div class="card">
-          <span class="sitnet">liuf1</span>
-          <div class="person-name">Fan Liu</div>
-          <div class="office">Office <span class="office-num">A245</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div><!-- empty --></div>
-
   </div>
 
 </main>
 
 <footer>
   <div class="footer-left">
-    SUNY Polytechnic Institute · Hilltop A2 Research Hub · Summer 2026 &nbsp;·&nbsp; <em>* Shared office · SitNet 'nobody' = ID pending</em>
+    SUNY Polytechnic Institute · Hilltop A2 Research Hub · Summer 2026 &nbsp;·&nbsp;
+    <em>* Shared office</em>
   </div>
   <div class="footer-right">sunypoly.edu</div>
 </footer>
