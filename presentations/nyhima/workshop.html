@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading and Writing with AI — NYHIMA Workshop · AIX Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --poly-navy: #002C73;
+    --poly-gold: #EDA900;
+    --aix-ink: #0D1B2A;
+    --aix-signal: #00B4D8;
+    --cream: #FAF8F3;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-meta: #888;
+    --border: #e0ddd6;
+    --font-display: 'IBM Plex Serif', serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-primary);
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--poly-navy);
+    padding: 2.5rem 2rem 2rem;
+  }
+  .header-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--poly-gold);
+    margin-bottom: 1rem;
+  }
+  .header-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.6rem;
+  }
+  .header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 640px;
+  }
+  .header-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 2vw, 17px);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin-top: 0.5rem;
+    max-width: 560px;
+    line-height: 1.4;
+  }
+  .header-meta {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .pill-gold   { background: var(--poly-gold); color: var(--poly-navy); }
+  .pill-outline { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.35); }
+  .pill-mono   { background: transparent; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); font-family: var(--font-mono); font-weight: 400; }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── Nav breadcrumb ── */
+  .breadcrumb {
+    padding: 0.9rem 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--text-meta);
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb a { color: var(--poly-navy); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* ── Section headings ── */
+  .section {
+    margin-top: 2.5rem;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-meta);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Overview prose ── */
+  .overview p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+  .overview p + p { margin-top: 0.9rem; }
+
+  /* ── Three verbs ── */
+  .verbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1.25rem;
+  }
+  .verb-card {
+    background: var(--cream);
+    padding: 1.25rem 1.5rem;
+  }
+  .verb-number {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--text-meta);
+    margin-bottom: 0.3rem;
+  }
+  .verb-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--poly-navy);
+    line-height: 1.1;
+  }
+  .verb-sub {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-meta);
+    margin-top: 0.2rem;
+  }
+  .verb-desc {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-top: 0.6rem;
+    line-height: 1.5;
+  }
+
+  /* ── Run of show ── */
+  .schedule {
+    margin-top: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-time {
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-meta);
+    background: var(--cream);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .schedule-item {
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+  .schedule-item strong {
+    font-weight: 500;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+  .schedule-item em {
+    font-size: 11px;
+    font-style: normal;
+    color: var(--text-meta);
+    font-family: var(--font-mono);
+  }
+
+  /* ── Materials ── */
+  .materials-grid {
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .material-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .material-card-bar {
+    height: 3px;
+  }
+  .material-card-body {
+    padding: 1rem 1.25rem;
+  }
+  .material-card-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .material-card-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--poly-navy);
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+  }
+  .material-card-desc {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .material-card-link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--poly-navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--poly-gold);
+    padding-bottom: 1px;
+  }
+  .material-card-link:hover { color: var(--aix-signal); border-color: var(--aix-signal); }
+
+  /* color slots for material cards */
+  .bar-data    { background: #4CC9F0; }
+  .bar-policy  { background: #FFE380; }
+  .bar-judge   { background: #FF7096; }
+  .bar-system  { background: var(--poly-gold); }
+  .label-data  { color: #0A5C73; }
+  .label-policy { color: #5C4200; }
+  .label-judge  { color: #5C0020; }
+  .label-system { color: #5C3800; }
+
+  /* ── Quote block ── */
+  .provocation {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--poly-navy);
+    border-radius: 8px;
+  }
+  .provocation-rule {
+    width: 28px;
+    height: 2px;
+    background: var(--poly-gold);
+    margin-bottom: 0.9rem;
+  }
+  .provocation p {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 2.5vw, 17px);
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+    max-width: 560px;
+  }
+  .provocation-attr {
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  /* ── Infrastructure block ── */
+  .infra {
+    margin-top: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .infra-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .infra-row:last-child { border-bottom: none; }
+  .infra-key {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-meta);
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+  .infra-val {
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+  .infra-val a { color: var(--poly-navy); }
+
+  /* ── Footer ── */
+  .page-footer {
+    margin-top: 4rem;
+    padding: 1.25rem 0 2rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-meta);
+    letter-spacing: 0.05em;
+  }
+  .page-footer a { color: var(--text-meta); text-decoration: none; }
+  .page-footer a:hover { color: var(--poly-navy); }
+  .page-footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  @media (max-width: 480px) {
+    .header { padding: 1.75rem 1.25rem 1.5rem; }
+    .schedule-row { grid-template-columns: 70px 1fr; }
+    .verbs { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="container">
+    <div class="header-rule"></div>
+    <div class="header-eyebrow">NYHIMA Annual Conference · Pre-Conference Workshop</div>
+    <h1>Reading and Writing with AI: Using Large Language Models in Professional Practice</h1>
+    <p class="header-subtitle">Interrogate the data. Interpret the text. Iterate to refine.</p>
+    <div class="header-meta">
+      <span class="pill pill-gold">Workshop · June 7, 2026</span>
+      <span class="pill pill-outline">1:00–4:00 PM · Verona, NY</span>
+      <span class="pill pill-mono">3 CEUs · NYHIMA</span>
+    </div>
+  </div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../../index.html">AIX Center</a>
+    &nbsp;/&nbsp;
+    <a href="index.html">NYHIMA 2026</a>
+    &nbsp;/&nbsp;
+    Workshop
+  </div>
+</div>
+
+<!-- Overview -->
+<div class="container">
+  <div class="section overview">
+    <div class="section-label">Overview</div>
+    <p>A three-hour hands-on workshop for health information management professionals. Participants worked directly with large language models on real HIM material: hospital data from CMS, dense regulatory documents, and their own professional writing. No installation required. No prior AI experience assumed.</p>
+    <p>The workshop is built around three cognitive operations — Interrogate, Interpret, Iterate — each applied to a different artifact type. Inside every round, participants read, think, and write. The round name marks the dominant move.</p>
+  </div>
+
+  <!-- Three verbs -->
+  <div class="section">
+    <div class="section-label">Three Operations</div>
+    <div class="verbs">
+      <div class="verb-card">
+        <div class="verb-number">Round 1</div>
+        <div class="verb-name">Interrogate</div>
+        <div class="verb-sub">Working with data</div>
+        <div class="verb-desc">CMS hospital dataset filtered to New York. Ask questions. Surface patterns. The questions are yours — the model helps you see the numbers.</div>
+      </div>
+      <div class="verb-card">
+        <div class="verb-number">Round 2</div>
+        <div class="verb-name">Interpret</div>
+        <div class="verb-sub">Working with text</div>
+        <div class="verb-desc">A dense HIM regulatory document. One model reads it and produces an artifact. A second reads the artifact. You decide what each one missed.</div>
+      </div>
+      <div class="verb-card">
+        <div class="verb-number">Round 3</div>
+        <div class="verb-name">Iterate</div>
+        <div class="verb-sub">Working with your own draft</div>
+        <div class="verb-desc">Take your best work from Rounds 1 and 2. Hand it to a fresh model. Push back, refine, again — until it sounds like you wrote it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Provocation -->
+  <div class="provocation">
+    <div class="provocation-rule"></div>
+    <p>Before we do anything else — think about the last time AI showed up in your work. Not something you went looking for. A suggested code. A flagged record. A pre-populated field. Who prompted that?</p>
+    <div class="provocation-attr">Opening — NYHIMA Workshop, June 7, 2026</div>
+  </div>
+
+  <!-- Run of show -->
+  <div class="section">
+    <div class="section-label">Run of Show</div>
+    <div class="schedule">
+      <div class="schedule-row">
+        <div class="schedule-time">1:00 pm</div>
+        <div class="schedule-item"><strong>Opening</strong> <em>10 min</em> Who prompted that? Two kinds of AI.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">1:10</div>
+        <div class="schedule-item"><strong>Icebreaker + Infrastructure</strong> <em>20 min</em> Gemini free. tiny.cc/nyhima. Numbered card → your row in the shared doc.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">1:30</div>
+        <div class="schedule-item"><strong>Lightning Round</strong> <em>30 min</em> Guided demo: Steve runs the full arc once — data, text, iteration — compressed.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">2:00</div>
+        <div class="schedule-item"><strong>Round 1 — Interrogate</strong> <em>30 min</em> CMS hospital data, New York. Read → think → write. Workbench prompt at the end.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">2:30</div>
+        <div class="schedule-item"><strong>Round 2 — Interpret</strong> <em>30 min</em> Dense HIM document from the library. One model produces, a second reads it. Compare.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">3:00</div>
+        <div class="schedule-item"><strong>Round 3 — Iterate</strong> <em>30 min</em> Your Round 1 or 2 artifact. Fresh model. Push back. Refine. Own it.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">3:30</div>
+        <div class="schedule-item"><strong>Wrap</strong> <em>15 min</em> The meta-moment. "It is worth exactly what you put into it."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Materials -->
+  <div class="section">
+    <div class="section-label">Workshop Materials</div>
+    <div class="materials-grid">
+
+      <div class="material-card">
+        <div class="material-card-bar bar-data"></div>
+        <div class="material-card-body">
+          <div class="material-card-label label-data">Data · Round 1</div>
+          <div class="material-card-title">CMS Hospital Dataset</div>
+          <div class="material-card-desc">Complications and Deaths — New York State. Filtered from the CMS Provider Data Catalog. Uploaded to Gemini free for interrogation.</div>
+          <a class="material-card-link" href="https://data.cms.gov/provider-data/dataset/xubh-q36u">CMS source ↗</a>
+        </div>
+      </div>
+
+      <div class="material-card">
+        <div class="material-card-bar bar-policy"></div>
+        <div class="material-card-body">
+          <div class="material-card-label label-policy">Text · Round 2</div>
+          <div class="material-card-title">HIM Document Library</div>
+          <div class="material-card-desc">Seven dense regulatory and policy documents: HIPAA minimum necessary, information blocking, breach notification, vendor BAA, Joint Commission RC, CMS CoP medical records, ROI policy.</div>
+          <a class="material-card-link" href="https://drive.google.com/drive/folders/tiny.cc/nyhima">Workshop folder ↗</a>
+        </div>
+      </div>
+
+      <div class="material-card">
+        <div class="material-card-bar bar-system"></div>
+        <div class="material-card-body">
+          <div class="material-card-label label-system">Reference · All Rounds</div>
+          <div class="material-card-title">System Prompt Library</div>
+          <div class="material-card-desc">Six prompts that change how the model behaves before you ask your question: Skeptical Reviewer, Plain Language Translator, Devil's Advocate, Executive Communicator, Patient Advocate, Neutral Summarizer.</div>
+          <a class="material-card-link" href="https://tiny.cc/nyhima">tiny.cc/nyhima ↗</a>
+        </div>
+      </div>
+
+      <div class="material-card">
+        <div class="material-card-bar bar-judge"></div>
+        <div class="material-card-body">
+          <div class="material-card-label label-judge">Key Prompt · All Rounds</div>
+          <div class="material-card-title">The Workbench Prompt</div>
+          <div class="material-card-desc">Used at the end of every round. Generates a markdown summary of the full session — questions asked, path taken, final artifact verbatim. The move that turns a conversation into a workbench.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Infrastructure -->
+  <div class="section">
+    <div class="section-label">Infrastructure</div>
+    <div class="infra">
+      <div class="infra-row">
+        <span class="infra-key">Model</span>
+        <span class="infra-val">Gemini free (primary — all rounds); Claude free (Round 3 validation)</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Materials</span>
+        <span class="infra-val"><a href="https://tiny.cc/nyhima">tiny.cc/nyhima</a> — Google Drive folder, all documents and prompts</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Setup</span>
+        <span class="infra-val">Browser only. No installation. Free-tier accounts. Laptop or tablet required.</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Artifacts</span>
+        <span class="infra-val">Shared Google Doc — participants paste Gemini conversation links to a numbered row</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Presenter</span>
+        <span class="infra-val">Steve Schneider · SUNY Poly AIX Center · <a href="mailto:steve@sunypoly.edu">steve@sunypoly.edu</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing line -->
+  <div class="provocation" style="margin-top:2.5rem;">
+    <div class="provocation-rule"></div>
+    <p>It is worth exactly what you put into it. A vague prompt gets a vague answer. A document you didn't read gets a summary you can't trust. A real question, real expertise, and the patience to iterate — that gets you something you can use.</p>
+    <div class="provocation-attr">Wrap — NYHIMA Workshop, June 7, 2026</div>
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="page-footer-links">
+      <a href="../../index.html">AIX Center</a>
+      <a href="talk.html">Talk — June 9 ↗</a>
+      <a href="https://tiny.cc/nyhima">Workshop materials ↗</a>
+      <a href="https://github.com/sunypolyaix/aix">GitHub ↗</a>
+    </div>
+    <div style="margin-top:0.6rem;">SUNY Polytechnic Institute · Utica, NY · sunypolyaix.github.io</div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

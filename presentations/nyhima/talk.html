@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Universal AI Literacy Matters for Health Information Professionals — NYHIMA · AIX Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --aix-ink:      #0D1B2A;
+    --aix-signal:   #00B4D8;
+    --poly-navy:    #002C73;
+    --poly-gold:    #EDA900;
+    --cream:        #FAF8F3;
+    --text-primary: #1a1a1a;
+    --text-sec:     #555;
+    --text-meta:    #888;
+    --border:       #e0ddd6;
+    --font-display: 'IBM Plex Serif', serif;
+    --font-body:    'IBM Plex Sans', sans-serif;
+    --font-mono:    'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--text-primary);
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  /* ── Header — Talk identity: Ink bg, Signal rule ── */
+  .header {
+    background: var(--aix-ink);
+    padding: 2.5rem 2rem 2rem;
+  }
+  .header-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--aix-signal);
+    margin-bottom: 1rem;
+  }
+  .header-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.6rem;
+  }
+  .header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 640px;
+  }
+  .header-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(13px, 2vw, 16px);
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.5rem;
+    max-width: 540px;
+    line-height: 1.45;
+  }
+  .header-meta {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .pill-signal  { background: var(--aix-signal); color: var(--aix-ink); }
+  .pill-outline { background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.3); }
+  .pill-mono    { background: transparent; color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.18); font-family: var(--font-mono); font-weight: 400; }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── Breadcrumb ── */
+  .breadcrumb {
+    padding: 0.9rem 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--text-meta);
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb a { color: var(--poly-navy); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* ── Section headings ── */
+  .section { margin-top: 2.5rem; }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-meta);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Prose ── */
+  .prose p {
+    font-size: 0.95rem;
+    color: var(--text-sec);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+  .prose p + p { margin-top: 0.9rem; }
+
+  /* ── Two-kind distinction ── */
+  .two-kinds {
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .kind-card { background: var(--cream); padding: 1.25rem 1.5rem; }
+  .kind-card.dark { background: var(--aix-ink); }
+  .kind-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .kind-card .kind-label   { color: var(--text-meta); }
+  .kind-card.dark .kind-label { color: rgba(255,255,255,0.4); }
+  .kind-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  .kind-card .kind-name    { color: var(--poly-navy); }
+  .kind-card.dark .kind-name { color: #fff; }
+  .kind-def {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.55;
+  }
+  .kind-card .kind-def    { color: var(--text-sec); }
+  .kind-card.dark .kind-def { color: rgba(255,255,255,0.65); }
+  .kind-examples {
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1.7;
+  }
+  .kind-card .kind-examples    { color: var(--text-meta); }
+  .kind-card.dark .kind-examples { color: rgba(255,255,255,0.35); }
+
+  /* ── Credential levels ── */
+  .cred-table {
+    margin-top: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .cred-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .cred-row:last-child { border-bottom: none; }
+  .cred-level {
+    padding: 0.85rem 1rem;
+    background: var(--cream);
+    border-right: 1px solid var(--border);
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--poly-navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cred-level span {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 400;
+    color: var(--text-meta);
+    margin-top: 0.15rem;
+    letter-spacing: 0.06em;
+  }
+  .cred-desc {
+    padding: 0.85rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--text-sec);
+    line-height: 1.55;
+  }
+  .cred-desc strong { font-weight: 500; color: var(--text-primary); }
+
+  /* ── Matrix ── */
+  .matrix-wrap {
+    margin-top: 1.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .matrix {
+    min-width: 520px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* header row */
+  .matrix-header {
+    display: grid;
+    grid-template-columns: 90px repeat(3, 1fr);
+    background: var(--aix-ink);
+  }
+  .matrix-corner {
+    padding: 0.6rem 0.75rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .matrix-col-head {
+    padding: 0.65rem 0.75rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .matrix-col-head:last-child { border-right: none; }
+  .col-verb {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+  }
+  .col-sub {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* data rows */
+  .matrix-row {
+    display: grid;
+    grid-template-columns: 90px repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+  }
+  .matrix-row-head {
+    padding: 0 0.75rem;
+    background: var(--aix-ink);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90px;
+  }
+  .row-domain {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .row-sub {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* cells */
+  .matrix-cell {
+    position: relative;
+    padding: 0.75rem;
+    border-right: 1px solid var(--border);
+    cursor: pointer;
+    background: #fff;
+    transition: background 0.15s;
+    min-height: 90px;
+    overflow: hidden;
+  }
+  .matrix-cell:last-child { border-right: none; }
+  .matrix-cell:hover { background: var(--cream); }
+  .matrix-cell:hover .cell-tooltip { opacity: 1; pointer-events: auto; }
+
+  .cell-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-bottom: 0.45rem;
+    flex-shrink: 0;
+  }
+  .cell-failure {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .cell-example {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-sec);
+    line-height: 1.45;
+  }
+
+  /* tooltip on hover — full detail panel */
+  .cell-tooltip {
+    position: absolute;
+    inset: 0;
+    background: var(--aix-ink);
+    padding: 0.85rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .tooltip-failure {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .tooltip-scenario {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  .tooltip-detail {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* failure-mode color coding */
+  .fm-automation  { color: #4CC9F0; }
+  .fm-anchoring   { color: #7BF1A8; }
+  .fm-fixation    { color: #FFE380; }
+  .fm-overtrust   { color: #FFB347; }
+  .fm-deskilling  { color: #FF7096; }
+  .fm-delegation  { color: #c084fc; }
+
+  .dot-automation { background: #4CC9F0; }
+  .dot-anchoring  { background: #7BF1A8; }
+  .dot-fixation   { background: #FFE380; }
+  .dot-overtrust  { background: #FFB347; }
+  .dot-deskilling { background: #FF7096; }
+  .dot-delegation { background: #c084fc; }
+
+  /* ── Failure mode legend ── */
+  .legend {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-meta);
+  }
+  .legend-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Provocation ── */
+  .provocation {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: var(--aix-ink);
+    border-radius: 8px;
+  }
+  .provocation-rule {
+    width: 28px;
+    height: 2px;
+    background: var(--aix-signal);
+    margin-bottom: 0.9rem;
+  }
+  .provocation p {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 2.5vw, 17px);
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+    max-width: 560px;
+  }
+  .provocation-attr {
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+  }
+
+  /* ── Logistics ── */
+  .infra {
+    margin-top: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .infra-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+  }
+  .infra-row:last-child { border-bottom: none; }
+  .infra-key {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-meta);
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+  .infra-val { color: var(--text-sec); font-weight: 300; }
+  .infra-val a { color: var(--poly-navy); }
+
+  /* ── Footer ── */
+  .page-footer {
+    margin-top: 4rem;
+    padding: 1.25rem 0 2rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-meta);
+    letter-spacing: 0.05em;
+  }
+  .page-footer a { color: var(--text-meta); text-decoration: none; }
+  .page-footer a:hover { color: var(--poly-navy); }
+  .page-footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  @media (max-width: 540px) {
+    .two-kinds { grid-template-columns: 1fr; }
+    .cred-row  { grid-template-columns: 1fr; }
+    .cred-level { border-right: none; border-bottom: 1px solid var(--border); min-height: unset; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="header">
+  <div class="container">
+    <div class="header-rule"></div>
+    <div class="header-eyebrow">NYHIMA Annual Conference · Breakout Session · Emerging Trends</div>
+    <h1>Reading and Writing with AI: Why Universal AI Literacy Matters for Health Information Professionals</h1>
+    <p class="header-subtitle">AI is already in your workflows — and it isn't asking for your prompt.</p>
+    <div class="header-meta">
+      <span class="pill pill-signal">Talk · June 9, 2026</span>
+      <span class="pill pill-outline">2:15–3:15 PM · Verona, NY</span>
+      <span class="pill pill-mono">Emerging Trends Track</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Breadcrumb ── -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../../index.html">AIX Center</a>
+    &nbsp;/&nbsp;
+    <a href="index.html">NYHIMA 2026</a>
+    &nbsp;/&nbsp;
+    Talk
+  </div>
+</div>
+
+<!-- ── Overview ── -->
+<div class="container">
+  <div class="section prose">
+    <div class="section-label">Overview</div>
+    <p>Most AI literacy training assumes you're the one prompting. You type, it responds, you decide what to do with the output. That's one kind of AI — compositional — and the training around it is well-developed. But it's not the only kind in your workflows, and for many HIM professionals it may not be the dominant kind.</p>
+    <p>Directive AI is different: the system has already acted before you engage. A suggested code. A flagged record. A risk score surfaced in your queue. No one asked you to prompt anything. The failure modes that matter here — automation bias, anchoring, fixation, overtrust — are different from the ones compositional training addresses. And the literacy required to govern them is different too.</p>
+    <p>This talk maps those two kinds of AI across the domains of HIM practice, argues that the relevant literacy requirement scales with credential level, and makes the case that for supervisors and leaders, compositional literacy is not optional — it's the prerequisite for governing the directive AI already in your organization.</p>
+  </div>
+
+  <!-- ── Two kinds ── -->
+  <div class="section">
+    <div class="section-label">Two Kinds of AI</div>
+    <div class="two-kinds">
+      <div class="kind-card">
+        <div class="kind-label">Compositional</div>
+        <div class="kind-name">You ask it</div>
+        <div class="kind-def">You initiate. You prompt. The model responds and you work with the output — reading, revising, deciding. Your judgment forms before the AI acts.</div>
+        <div class="kind-examples">→ Drafting a policy memo<br>→ Summarizing a dense document<br>→ Generating coding rationale</div>
+      </div>
+      <div class="kind-card dark">
+        <div class="kind-label">Directive</div>
+        <div class="kind-name">It prompts you</div>
+        <div class="kind-def">The AI has already acted. A recommendation surfaces before you've formed an independent view. The model's output arrives first — then you respond to it.</div>
+        <div class="kind-examples">→ Suggested ICD code in the workflow<br>→ Flagged record in your queue<br>→ Risk score on a patient record</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Credential levels ── -->
+  <div class="section">
+    <div class="section-label">Literacy by Credential Level</div>
+    <div class="cred-table">
+      <div class="cred-row">
+        <div class="cred-level">Associate<span>Individual contributor</span></div>
+        <div class="cred-desc">Works primarily with <strong>directive AI</strong> embedded in clinical and administrative workflows. Needs to recognize AI-assisted outputs, flag anomalies, and know when to escalate — not to prompt from scratch.</div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-level">Bachelor<span>Supervisory</span></div>
+        <div class="cred-desc">Needs <strong>compositional literacy</strong> to audit what the directive AI in their unit is producing, train staff on appropriate use, and write policy around AI-assisted workflows. Cannot govern what they cannot interrogate.</div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-level">Master<span>Organizational leadership</span></div>
+        <div class="cred-desc">Must have compositional literacy. Makes institutional decisions about AI deployment, vendor evaluation, and governance. <strong>If you want to lead in HIM, you have to have felt what the model can and can't do.</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Matrix ── -->
+  <div class="section">
+    <div class="section-label">The Framework — Domain × Cognitive Operation</div>
+    <p style="font-size:0.875rem; color:var(--text-sec); font-weight:300; max-width:620px; margin-bottom:0.5rem; line-height:1.6;">Three HIM practice domains (Data, Policy, Judgment) × three cognitive operations (Read, Think, Write). Each cell contains a failure mode and a HIM-specific example. <strong style="font-weight:500;">Hover any cell</strong> to see the full detail.</p>
+
+    <div class="matrix-wrap">
+      <div class="matrix">
+
+        <!-- header row -->
+        <div class="matrix-header">
+          <div class="matrix-corner"></div>
+          <div class="matrix-col-head">
+            <span class="col-verb">Read</span>
+            <span class="col-sub">Interrogate</span>
+          </div>
+          <div class="matrix-col-head">
+            <span class="col-verb">Think</span>
+            <span class="col-sub">Interpret</span>
+          </div>
+          <div class="matrix-col-head">
+            <span class="col-verb">Write</span>
+            <span class="col-sub">Iterate</span>
+          </div>
+        </div>
+
+        <!-- Row: Data -->
+        <div class="matrix-row">
+          <div class="matrix-row-head">
+            <span class="row-domain">Data</span>
+            <span class="row-sub">D · Domain I/II</span>
+          </div>
+
+          <!-- D × Read -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-automation"></div>
+            <div class="cell-failure fm-automation">Automation bias</div>
+            <div class="cell-example">Model reads confident pattern; clinician stops checking</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-automation">Automation bias</div>
+              <div class="tooltip-scenario">The Coding Accuracy Audit</div>
+              <div class="tooltip-detail">The model pattern-recognizes confidently across a discharge dataset but misses a clinical context flag that changes the principal diagnosis. The coder accepts the suggestion without reviewing the underlying documentation. Confidence without calibration.</div>
+            </div>
+          </div>
+
+          <!-- D × Think -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-anchoring"></div>
+            <div class="cell-failure fm-anchoring">Anchoring</div>
+            <div class="cell-example">Model's first framing forecloses the analysis</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-anchoring">Anchoring</div>
+              <div class="tooltip-scenario">The Discharge Data</div>
+              <div class="tooltip-detail">The model surfaces a regional comparison and frames it as the story. The analyst builds from that frame rather than asking whether it's the right question. The model's first interpretation becomes the ceiling of the analysis, not the floor.</div>
+            </div>
+          </div>
+
+          <!-- D × Write -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-delegation"></div>
+            <div class="cell-failure fm-delegation">Delegation</div>
+            <div class="cell-example">Memo reflects model's structure, not analyst's judgment</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-delegation">Delegation</div>
+              <div class="tooltip-scenario">The Quality Report Memo</div>
+              <div class="tooltip-detail">The analyst hands the model a dataset and asks for a memo to leadership. The model produces something that reads well but foregrounds findings the analyst would not have prioritized. The analyst submits it without restructuring. The output is technically accurate and intellectually not theirs.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: Policy -->
+        <div class="matrix-row">
+          <div class="matrix-row-head">
+            <span class="row-domain">Policy</span>
+            <span class="row-sub">P · Domain IV/V</span>
+          </div>
+
+          <!-- P × Read -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-fixation"></div>
+            <div class="cell-failure fm-fixation">Fixation</div>
+            <div class="cell-example">Model reads the federal standard; misses state variation</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-fixation">Fixation</div>
+              <div class="tooltip-scenario">The Retention Policy Gap</div>
+              <div class="tooltip-detail">The model reads the HIPAA retention standard accurately and confidently — but New York State imposes a longer requirement. The model fixates on the federal floor and never surfaces the state override. The professional reads the model's output and stops there.</div>
+            </div>
+          </div>
+
+          <!-- P × Think -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-anchoring"></div>
+            <div class="cell-failure fm-anchoring">Anchoring</div>
+            <div class="cell-example">Model's legal interpretation becomes the working assumption</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-anchoring">Anchoring</div>
+              <div class="tooltip-scenario">The Information Blocking Rule</div>
+              <div class="tooltip-detail">The model interprets an information blocking exception as clearly applicable. The HIM professional anchors on that interpretation and drafts the policy response around it without consulting counsel. The model's reading of an ambiguous regulatory passage hardens into organizational policy.</div>
+            </div>
+          </div>
+
+          <!-- P × Write -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-deskilling"></div>
+            <div class="cell-failure fm-deskilling">Deskilling</div>
+            <div class="cell-example">Policy language becomes model-generated boilerplate</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-deskilling">Deskilling</div>
+              <div class="tooltip-scenario">The Breach Notification Policy</div>
+              <div class="tooltip-detail">The department has used the model to draft every policy update for two years. The staff who used to write from scratch no longer can. When a novel situation arises that the model handles poorly, no one in the department has the muscle to recognize it or correct it. The model didn't degrade the policy — it degraded the team.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: Judgment -->
+        <div class="matrix-row">
+          <div class="matrix-row-head">
+            <span class="row-domain">Judgment</span>
+            <span class="row-sub">J · Domain VII</span>
+          </div>
+
+          <!-- J × Read -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-overtrust"></div>
+            <div class="cell-failure fm-overtrust">Overtrust</div>
+            <div class="cell-example">Model summarizes a complex case; nuance disappears</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-overtrust">Overtrust</div>
+              <div class="tooltip-scenario">The AI Note in the Chart</div>
+              <div class="tooltip-detail">An AI-generated clinical note summarizes the patient's visit accurately in aggregate but softens a detail that matters for the coding decision. The HIM professional reads the note as authoritative and does not cross-reference the underlying documentation. The model's summary displaces the record.</div>
+            </div>
+          </div>
+
+          <!-- J × Think -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-automation"></div>
+            <div class="cell-failure fm-automation">Automation bias</div>
+            <div class="cell-example">Model hedges; professional defers rather than decides</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-automation">Automation bias</div>
+              <div class="tooltip-scenario">The Physician Who Won't Document</div>
+              <div class="tooltip-detail">The model, asked what to do about a physician who consistently fails to complete records, produces a balanced summary of options. The supervisor presents the model's analysis to leadership as a recommendation. The model didn't make a decision — and neither did the supervisor. Automation bias as abdication.</div>
+            </div>
+          </div>
+
+          <!-- J × Write -->
+          <div class="matrix-cell">
+            <div class="cell-dot dot-delegation"></div>
+            <div class="cell-failure fm-delegation">Delegation</div>
+            <div class="cell-example">Model drafts the response; professional signs it</div>
+            <div class="cell-tooltip">
+              <div class="tooltip-failure fm-delegation">Delegation</div>
+              <div class="tooltip-scenario">The Record Request That Worries You</div>
+              <div class="tooltip-detail">A sensitive ROI request arrives. The HIM professional is uncertain and asks the model to draft a response. The model produces a technically sound letter. The professional sends it. The judgment that should have happened — whether this request is legitimate, whether counsel should be involved — was never made. The model wrote around the decision point.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /matrix -->
+    </div><!-- /matrix-wrap -->
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot dot-automation"></div>Automation bias</div>
+      <div class="legend-item"><div class="legend-dot dot-anchoring"></div>Anchoring</div>
+      <div class="legend-item"><div class="legend-dot dot-fixation"></div>Fixation</div>
+      <div class="legend-item"><div class="legend-dot dot-overtrust"></div>Overtrust</div>
+      <div class="legend-item"><div class="legend-dot dot-deskilling"></div>Deskilling</div>
+      <div class="legend-item"><div class="legend-dot dot-delegation"></div>Delegation</div>
+    </div>
+  </div>
+
+  <!-- ── Provocation ── -->
+  <div class="provocation">
+    <div class="provocation-rule"></div>
+    <p>AHIMA places AI under Domain VIII — Evolving Topics. But directive AI is already operating across Domains I, II, IV, V, and VII. The institutional taxonomy hasn't caught up to the practice. That gap is where the governance failures are happening.</p>
+    <div class="provocation-attr">Talk argument · NYHIMA, June 9, 2026</div>
+  </div>
+
+  <!-- ── Logistics ── -->
+  <div class="section">
+    <div class="section-label">Session Details</div>
+    <div class="infra">
+      <div class="infra-row">
+        <span class="infra-key">Session</span>
+        <span class="infra-val">Breakout — Emerging Trends track · Tuesday, June 9, 2026 · 2:15–3:15 PM</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Conference</span>
+        <span class="infra-val">NYHIMA Annual Conference · Turning Stone Resort · Verona, NY</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Workshop</span>
+        <span class="infra-val">This talk follows the <a href="workshop.html">Sunday workshop</a> — participants who attended both worked with compositional AI on Sunday and are hearing the governance argument on Tuesday.</span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">Presenter</span>
+        <span class="infra-val">Steve Schneider · SUNY Poly AIX Center · <a href="mailto:steve@sunypoly.edu">steve@sunypoly.edu</a></span>
+      </div>
+      <div class="infra-row">
+        <span class="infra-key">AIX Center</span>
+        <span class="infra-val"><a href="https://sunypolyaix.github.io">sunypolyaix.github.io</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="page-footer">
+    <div class="page-footer-links">
+      <a href="../../index.html">AIX Center</a>
+      <a href="workshop.html">Workshop — June 7 ↗</a>
+      <a href="https://tiny.cc/nyhima">Workshop materials ↗</a>
+      <a href="https://github.com/sunypolyaix/aix">GitHub ↗</a>
+    </div>
+    <div style="margin-top:0.6rem;">SUNY Polytechnic Institute · Utica, NY · sunypolyaix.github.io</div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>
