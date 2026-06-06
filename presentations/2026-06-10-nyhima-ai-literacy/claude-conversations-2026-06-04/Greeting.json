@@ -1,0 +1,627 @@
+{
+  "uuid": "52b005c4-b59c-4f7e-a604-af3881ffc4e9",
+  "name": "Greeting",
+  "summary": "**Conversation Overview**\n\nSteve Zucker (Professor at SUNY Poly, Co-Director of the AIX Center, SUNY AI for the Public Good Fellow) initiated a session using the `/hello` skill, confirmed his identity, and uploaded his personal registry file (v2.1, dated 2026-05-25). The registry established his active project keys: AIX Projects (herkimer, tdac, ai-africa), Courses (sts188, com216, idt555, fys111), and Personal (ai-rtw, mica, zettel). Session context noted he was in Yaoundé, Cameroon (University of Yaoundé I, final stop of an Africa trip covering Abuja, Minna, and Buea) with return to New York by June 1.\n\nThe main task was rewriting the registry to incorporate two new entries: a NYHIMA talk on June 7 and a NYHIMA workshop on June 6, plus a Herkimer workshop on June 10. Steve provided the NYHIMA URLs (https://www.nyhima.org/about and https://www.nyhima.org/) for context. Claude fetched the site and identified NYHIMA as the New York Health Information Management Association (AHIMA's New York component), serving health information management professionals. Claude proposed categorizing `nyhima` under AIX Projects as a deliverable-bound external engagement and was awaiting Steve's confirmation before writing the updated registry file.\n\n**Tool Knowledge**\n\nThe `/hello` skill drives session initialization by loading identity and registry context. The registry file is searched in Google Drive using `name contains 'steves-registry'` and a fallback query with `name contains 'registry' and fullText contains 'steve'`; when not found via Drive search, the uploaded file approach succeeded. Web fetching NYHIMA used `html_extraction_method: markdown` with a token limit of 800, which returned sufficient organizational context from the about page.",
+  "model": "claude-sonnet-4-6",
+  "created_at": "2026-05-28T15:45:52.106949Z",
+  "updated_at": "2026-05-28T15:49:42.014636Z",
+  "settings": {
+    "enabled_bananagrams": true,
+    "enabled_web_search": true,
+    "enabled_mcp_tools": {
+      "local:Filesystem:read_file": true,
+      "local:Filesystem:search_files": true,
+      "local:Filesystem:get_file_info": true,
+      "local:Filesystem:directory_tree": true,
+      "local:Filesystem:list_directory": true,
+      "local:Filesystem:read_text_file": true,
+      "local:Filesystem:read_multiple_files": true,
+      "local:Filesystem:list_allowed_directories": true,
+      "local:Filesystem:list_directory_with_sizes": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:copy_file": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:create_file": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:search_files": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:get_file_metadata": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:list_recent_files": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_search": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:chat_message_search": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:get_file_permissions": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:download_file_content": true,
+      "local:Filesystem:edit_file-c6a271f0331164be5513cbb4a691ed43": true,
+      "local:Filesystem:move_file-b00b5023812e2142e62c5a6e3f9219bc": true,
+      "local:Filesystem:read_file-a64a04fdb932bd7d09313e707c3e1374": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_calendar_search": true,
+      "local:Filesystem:write_file-670c57603eef7f7e0ba436b5a6b3d9d2": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_folder_search": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:find_meeting_availability": true,
+      "local:Filesystem:search_files-4a215056e1a9170626315f61863a5f31": true,
+      "local:Filesystem:get_file_info-b9ae43299738ab8caba7a1cb3fa62071": true,
+      "local:Filesystem:directory_tree-0e98634b9031b43460b626d5140a9b48": true,
+      "local:Filesystem:list_directory-5979c57d53c8f6e2a294c58db9f9157a": true,
+      "local:Filesystem:read_text_file-ef740e8abe0cdd34c236f291bb166b14": true,
+      "local:Filesystem:create_directory-0319454ed64030bd32f1bbed555ed0ee": true,
+      "local:Filesystem:read_multiple_files-9b5a75409ca98d8a57a70f421b177661": true,
+      "local:Filesystem:copy_file_user_to_claude-5a34771c1a18d3bf012d7730e351920f": true,
+      "local:Filesystem:list_allowed_directories-bb006105edb10bc92468491cb2cffe83": true,
+      "local:Filesystem:list_directory_with_sizes-ab2f3f00c34287a51ea064c9d77c103f": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:search_files-64fa30bd1029bfae9f0f52372f3b8f99": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:search_files-ee4008afe9ecc3539b5ef1e40bb41568": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-4eb3409660102f1cce2194e10475645c": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-55d614ede2c1ac5acf37842b9a59cc0e": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-9e194a0115a1c5a093191f62eab80048": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-a4a57cc221f638e6afbb71f882ee1d7f": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content-10d2927f23712176483b063d5ac6b025": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content-98a41b02d2b2393413b8eae8f97ae5a4": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content-d43b2a75fd443116af80ed921053b9af": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_search-1b7214c941c85f33a96ee711a77823f7": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:chat_message_search-a88f39c2ddb291646bd669d741754d5a": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:chat_message_search-bae2688218e815cd6ec3fdcdc45844b3": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search-2fccaaaaa79d31bae03e8c3e34eb446f": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search-afc19b9dce47fb12a807b1e6aa8a07ae": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search-debd79db8c85bced25e98180512e8936": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_calendar_search-e394b966a67e06b8696b841117c320f4": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_calendar_search-ece8c37d3867850896da32a6bdb037bc": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_folder_search-6edf15debc92b90eba25811f50cca54b": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_folder_search-ddd2ce420aeac61aed64419f1d83dfe4": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:find_meeting_availability-36887f8227c1aaba98b61e6e25ee2fea": true
+    },
+    "enabled_monkeys_in_a_barrel": true,
+    "enabled_saffron": true,
+    "tool_search_mode": "auto",
+    "preview_feature_uses_artifacts": true,
+    "enabled_artifacts_attachments": false,
+    "enabled_turmeric": true
+  },
+  "is_starred": false,
+  "is_temporary": false,
+  "platform": "CLAUDE_AI",
+  "current_leaf_message_uuid": "019e6f46-bb61-7017-85db-653439c2c7d6",
+  "chat_messages": [
+    {
+      "uuid": "019e6f43-71b1-740e-ad9a-0cebfe196d82",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:45:52.434876Z",
+          "stop_timestamp": "2026-05-28T15:45:52.434876Z",
+          "type": "text",
+          "text": "/hello",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 0,
+      "created_at": "2026-05-28T15:45:52.434991Z",
+      "updated_at": "2026-05-28T15:45:52.434991Z",
+      "truncated": false,
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019e6f43-71b1-7aef-be7b-1aa04f6410de",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:45:54.123374Z",
+          "stop_timestamp": "2026-05-28T15:45:54.515077Z",
+          "type": "tool_use",
+          "id": "toolu_01PUPGXV8TB1HzEAxmFPKVVf",
+          "name": "view",
+          "input": {
+            "path": "/mnt/skills/user/hello/SKILL.md",
+            "description": "Loading hello skill"
+          },
+          "message": "Loading hello skill",
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "Loading hello skill"
+          }
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PUPGXV8TB1HzEAxmFPKVVf",
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "     1\t---\n     2\tname: hello\n     3\tversion: 2.2\n     4\ttrigger: \"//hello\"\n     5\tdescription: Session initialization skill. Run once at the start of every session. Asks who is running the session, loads their registry file, confirms active context and available keys. Sets contributor identity for all subsequent //zet, //convo, //artifact, //podshare, and //goodbye outputs.\n     6\t---\n     7\t\n     8\t# hello skill\n     9\t\n    10\tWhen I type `//hello`, initialize the session in three steps.\n    11\t\n    12\t## Step 1 — Identify contributor\n    13\t\n    14\tPresent options without preamble:\n    15\t\n    16\t```\n    17\t--- //hello ---\n    18\tWho is running this session?\n    19\t\n    20\t  [1] Steve\n    21\t  [2] Someone else\n    22\t```\n    23\t\n    24\tWait for selection before proceeding.\n    25\t\n    26\t- If [1]: load registry from `aix-private/people/steve/steves-registry.md`. Set contributor = Steve.\n    27\t- If [2]: ask \"What's your name and what's the context for this session?\" Attempt to load a registry at `aix-private/people/[name]/[name]-registry.md`. If not found, run without key validation and flag all outputs: `[guest session — no registry found]`\n    28\t\n    29\t## Step 2 — Load registry\n    30\t\n    31\tRead the registry file for the identified contributor. Extract: identity confirmed, all valid keys by category.\n    32\t\n    33\tThe registry is the **contract** — canonical key spellings and tone registers. Claude's memory is the **context** — richer narrative behind each key. When they conflict, registry wins.\n    34\t\n    35\tIf registry missing: output `[registry not found — key validation unavailable this session]` and continue.\n    36\t\n    37\t## Step 3 — Assess /mnt/user-data/outputs/\n    38\t\n    39\tCheck what's currently in `/mnt/user-data/outputs/`.\n    40\t\n    41\t**If empty or missing subdirectories:** create the full structure silently:\n    42\t```\n    43\t/mnt/user-data/outputs/\n    44\t├── notes/\n    45\t├── conversations/\n    46\t├── projects/\n    47\t├── skills/\n    48\t└── scripts/\n    49\t```\n    50\t\n    51\t**If files already exist:** list them and ask:\n    52\t\"There are files here from a previous session. What would you like to do?\n    53\t(a) Keep them and add to them this session\n    54\t(b) Zip and clear them first\n    55\t(c) Ignore them and continue\"\n    56\t\n    57\tWait for response before proceeding.\n    58\t\n    59\t## Confirm readiness\n    60\t\n    61\t```\n    62\t--- session ready ---\n    63\tidentity:   [name and role from registry]\n    64\tdate:       [YYYY-MM-DD]\n    65\tregistry:   loaded from [registry path]\n    66\tkeys:       [comma-separated list of all valid keys]\n    67\tactive:     [2–3 sentences on what's most live right now, from memory]\n    68\tskills:     [list of .md files in tools/skills/]\n    69\t---\n    70\t```\n    71\t\n    72\t## Rules\n    73\t\n    74\t- Always ask identity — never assume\n    75\t- Registry keys prime //podshare and //zet for this session — both inherit the loaded identity\n    76\t- No files written to /mnt/user-data/outputs/ by //hello itself\n    77\t- Once identity is set, //hello need not re-run unless identity changes mid-session\n    78\t",
+              "uuid": "9c0f7c3c-3136-49cd-b3c2-8b85d51f534a"
+            }
+          ],
+          "is_error": false,
+          "meta": {
+            "output_format_category": "md"
+          },
+          "icon_name": "file"
+        },
+        {
+          "start_timestamp": "2026-05-28T15:46:00.162935Z",
+          "stop_timestamp": "2026-05-28T15:46:00.490980Z",
+          "type": "text",
+          "text": "--- //hello ---\nWho is running this session?\n\n**[1] Steve**\n**[2] Someone else**",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 1,
+      "created_at": "2026-05-28T15:46:00.512888Z",
+      "updated_at": "2026-05-28T15:46:00.512888Z",
+      "truncated": false,
+      "stop_reason": "stop_sequence",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f43-71b1-740e-ad9a-0cebfe196d82"
+    },
+    {
+      "uuid": "019e6f43-a048-7dfa-a0ba-1ff6f271c843",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:46:04.086664Z",
+          "stop_timestamp": "2026-05-28T15:46:04.086664Z",
+          "type": "text",
+          "text": "1",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 2,
+      "created_at": "2026-05-28T15:46:04.086755Z",
+      "updated_at": "2026-05-28T15:46:04.086755Z",
+      "truncated": false,
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f43-71b1-7aef-be7b-1aa04f6410de"
+    },
+    {
+      "uuid": "019e6f43-a048-7ad6-8eec-e0a15308d6ac",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:46:05.811301Z",
+          "stop_timestamp": "2026-05-28T15:46:06.494943Z",
+          "type": "tool_use",
+          "id": "toolu_0179MaxpryTna3pJThDp98jv",
+          "name": "google_drive_search",
+          "input": {
+            "api_query": "name contains 'steves-registry'",
+            "semantic_query": "Steve's registry file with keys and context"
+          },
+          "message": "Searching Google Drive",
+          "integration_name": "Google Drive",
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp"
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_0179MaxpryTna3pJThDp98jv",
+          "name": "google_drive_search",
+          "content": [],
+          "is_error": false,
+          "message": "Searched for “Steve's registry file with keys and context”",
+          "integration_name": "Google Drive",
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp",
+          "display_content": {
+            "type": "rich_content",
+            "content": []
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:46:08.986925Z",
+          "stop_timestamp": "2026-05-28T15:46:09.181154Z",
+          "type": "tool_use",
+          "id": "toolu_01PwojuU98ZKJcc1gKHQpqsV",
+          "name": "google_drive_search",
+          "input": {
+            "api_query": "name contains 'registry' and fullText contains 'steve'",
+            "semantic_query": "contributor registry keys AIX"
+          },
+          "message": "Searching Google Drive",
+          "integration_name": "Google Drive",
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp"
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PwojuU98ZKJcc1gKHQpqsV",
+          "name": "google_drive_search",
+          "content": [],
+          "is_error": false,
+          "message": "Searched for “contributor registry keys AIX”",
+          "integration_name": "Google Drive",
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp",
+          "display_content": {
+            "type": "rich_content",
+            "content": []
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:46:11.761310Z",
+          "stop_timestamp": "2026-05-28T15:46:12.569324Z",
+          "type": "tool_use",
+          "id": "toolu_01QhktHyiAaSnMVEftemvZMX",
+          "name": "bash_tool",
+          "input": {
+            "command": "ls /mnt/user-data/outputs/ 2>/dev/null && echo \"EXISTS\" || echo \"EMPTY\"",
+            "description": "Check outputs directory and create structure if needed"
+          },
+          "message": "Check outputs directory and create structure if needed",
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"ls /mnt/user-data/outputs/ 2>/dev/null && echo \\\"EXISTS\\\" || echo \\\"EMPTY\\\"\"}"
+          }
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QhktHyiAaSnMVEftemvZMX",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"EXISTS\\n\",\"stderr\":\"\"}",
+              "uuid": "d526758b-0902-4ff3-ac36-c8a2593e25a0"
+            }
+          ],
+          "is_error": false,
+          "meta": {
+            "output_format_category": "none"
+          },
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"EXISTS\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:46:14.872810Z",
+          "stop_timestamp": "2026-05-28T15:46:15.200029Z",
+          "type": "tool_use",
+          "id": "toolu_01F2nKRHgafw9TrcBzmvz1ow",
+          "name": "bash_tool",
+          "input": {
+            "command": "find /mnt/user-data/outputs/ -maxdepth 3 | sort",
+            "description": "Check outputs contents"
+          },
+          "message": "Check outputs contents",
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"find /mnt/user-data/outputs/ -maxdepth 3 | sort\"}"
+          }
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01F2nKRHgafw9TrcBzmvz1ow",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"/mnt/user-data/outputs/\\n\",\"stderr\":\"\"}",
+              "uuid": "0b005fbe-e86c-460e-b61b-64500d1ecc1c"
+            }
+          ],
+          "is_error": false,
+          "meta": {
+            "output_format_category": "none"
+          },
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"/mnt/user-data/outputs/\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:46:17.422356Z",
+          "stop_timestamp": "2026-05-28T15:46:17.629004Z",
+          "type": "tool_use",
+          "id": "toolu_01S3B4JhV2cbn6ETqxGe5xGa",
+          "name": "bash_tool",
+          "input": {
+            "command": "mkdir -p /mnt/user-data/outputs/{notes,conversations,projects,skills,scripts}",
+            "description": "Create standard output directory structure"
+          },
+          "message": "Create standard output directory structure",
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"mkdir -p /mnt/user-data/outputs/{notes,conversations,projects,skills,scripts}\"}"
+          }
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01S3B4JhV2cbn6ETqxGe5xGa",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}",
+              "uuid": "3a2cc233-9f63-4af6-955d-42c8ec4cdadd"
+            }
+          ],
+          "is_error": false,
+          "meta": {
+            "output_format_category": "none"
+          },
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:46:19.535887Z",
+          "stop_timestamp": "2026-05-28T15:46:26.593123Z",
+          "type": "text",
+          "text": "Registry not found in Drive — key validation unavailable this session. Proceeding on memory context.\n\n```\n--- session ready ---\nidentity:   Steve Zucker — Professor, SUNY Poly; Co-Director AIX Center;\n            SUNY AI for the Public Good Fellow\ndate:       2026-05-28\nregistry:   not found — key validation unavailable this session\nkeys:       unavailable (registry missing); memory context active\nactive:     Today is May 28 — you are in Yaoundé for your final Africa stop\n            (University of Yaoundé I, Edwin Mbinkar, May 28–29), returning\n            to NY by June 1. The Africa trip has covered Abuja, Minna, and\n            Buea. Back home: AIXZ pipeline, AIX Center ops, and summer\n            curriculum work await.\nskills:     hello, goodbye, zet, convo, podshare, webzet, fill-travel-request,\n            plain-text-export, skill-creator (+ public: docx, pdf, pptx,\n            xlsx, frontend-design, file-reading, pdf-reading,\n            product-self-knowledge)\noutputs:    /mnt/user-data/outputs/ initialized (empty, fresh session)\n---\n```\n\nWhat are we working on today?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 3,
+      "created_at": "2026-05-28T15:46:26.615991Z",
+      "updated_at": "2026-05-28T15:46:26.615991Z",
+      "truncated": false,
+      "stop_reason": "stop_sequence",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f43-a048-7dfa-a0ba-1ff6f271c843"
+    },
+    {
+      "uuid": "019e6f44-600f-75a8-a233-7b763c72f7df",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:46:53.500245Z",
+          "stop_timestamp": "2026-05-28T15:46:53.500245Z",
+          "type": "text",
+          "text": "",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 4,
+      "created_at": "2026-05-28T15:46:53.633965Z",
+      "updated_at": "2026-05-28T15:46:53.633965Z",
+      "truncated": false,
+      "attachments": [
+        {
+          "id": "6d7b8696-2b85-4ddf-8dd9-d9b8d67566b1",
+          "file_name": "steves-registry.md",
+          "file_size": 3809,
+          "file_type": "text/markdown",
+          "extracted_content": "---\nname: steves-registry\nversion: 2.1\ndate: 2026-05-25\ndescription: Canonical key registry for Steve's session skills. Used by //hello (loads at session start) and //podshare, //zet (validate dynamic pair keys). Lean by design — only actively generating captures. Everything else recedes into deep context.\n---\n\n# Steve's Key Registry\n\n## Design principle\n\nThe registry is the **contract** — it defines what keys are valid, their canonical spelling, and what tone register to use when writing a dynamic pair value. Claude's memory is the **context** — it carries the richer narrative behind each key (collaborators, history, status, theoretical grounding). They are complementary, not redundant. When registry and memory conflict on a key name or category, **registry wins**.\n\nThe registry is lean by design. Projects, courses, and frameworks that are real but not currently generating active captures (Delmas, AIXZ, FellowWork, BRIDGE, LLM-DUN, 21Q2, Phronesis, CDL) recede into memory/deep context. They are not validated keys. If an episode or conversation genuinely touches one of them, flag it as a key candidate rather than using it silently.\n\n---\n\n## AIX Projects\n*Specific, deliverable-bound, collaborators attached. Dynamic pair values should be **concrete**: implications for a deliverable, a collaborator, a next step.*\n\n| Key | Full Name | Notes |\n|-----|-----------|-------|\n| herkimer | Herkimer Initiative | Herkimer County AI Training and Policy Initiative; co-lead |\n| tdac | T-DAC | DAC-AC renamed; West Point geopolitical analysis; LLM-DUN dimensions; Rick Wolfel, Richmond, Grazaitis |\n| ai-africa | AI Africa | Nigeria (Abuja/Minna) + Cameroon (Buea/Yaoundé) partnerships; SUNY AI institutional work |\n\n## Courses\n*Use only when a genuine teaching hook exists for that specific course. IDT555 is Fall 2026 — hooks are forward-looking.*\n\n| Key | Course | Notes |\n|-----|--------|-------|\n| sts188 | STS 188 / AI 188 | First Year Seminar AI course; AI & Society framing |\n| com216 | COM 216 | History of information through AI lens; may rename COM 116 |\n| idt555 | IDT 555 | Legal and ethical issues in the information age; Fall 2026 |\n| fys111 | FYS 111 | First Year Seminar; entry-level students |\n\n## Personal Projects\n*Broad thematic frames or deep methodological stances. Dynamic pair values should be **interpretive**: how the episode or idea touches the framework, what it opens or complicates.*\n\n| Key | Full Name | Notes |\n|-----|-----------|-------|\n| ai-rtw | AI-RTW | RTW as thematic frame; Reading-Thinking-Writing; literacy as cognitive operations with tools |\n| mica | MICA | Monadic Inference Cycle Analysis; Leibniz/Tarde/Latour + LLM inference; research method |\n| zettel | Zettel | Digital philosophy; knowledge management architecture; hypertext theory; long-game infrastructure |\n\n## Identities\n\n| Key | Name | Role |\n|-----|------|------|\n| Steve | Steve Zucker | Professor, SUNY Poly; AIX Co-Director; SUNY AI Fellow. Full key access. |\n\n---\n\n## Key Validation Rules (all skills)\n\n1. Keys MUST appear in this registry, OR be a guest/host name directly relevant to the episode/conversation.\n2. Use closest registered key if implied but not exact — note the mapping inline.\n3. Do not invent keys. Flag new candidates: `[NEW KEY CANDIDATE: X]` and stop for Steve to decide.\n4. Course keys only if a genuine teaching hook exists for that specific course.\n5. AIX project pairs: **concrete** tone — deliverable, collaborator, next step implied.\n6. Personal project pairs: **interpretive** tone — framework contact, what it opens or complicates.\n7. Maximum 6 dynamic pairs per record. Fewer strong pairs beat more weak ones.\n8. Memory provides depth behind each key. Registry provides the valid spelling and tone register. When they conflict, registry wins.\n",
+          "created_at": "2026-05-28T15:46:53.532994Z"
+        }
+      ],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f43-a048-7ad6-8eec-e0a15308d6ac"
+    },
+    {
+      "uuid": "019e6f44-600f-7ea6-aa7e-7b0ba094530e",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:46:54.544466Z",
+          "stop_timestamp": "2026-05-28T15:46:57.792505Z",
+          "type": "text",
+          "text": " Registry loaded.\n\n```\n--- session ready (updated) ---\nidentity:   Steve Zucker — Professor, SUNY Poly; AIX Co-Director;\n            SUNY AI for the Public Good Fellow\ndate:       2026-05-28\nregistry:   loaded from upload (v2.1, 2026-05-25)\nkeys:\n  AIX Projects:     herkimer, tdac, ai-africa\n  Courses:          sts188, com216, idt555, fys111\n  Personal:         ai-rtw, mica, zettel\n  Identities:       Steve\nactive:     Yaoundé day 1 (University of Yaoundé I, Edwin Mbinkar).\n            Final Africa leg before return by June 1. ai-africa is\n            the live project key for everything this trip generates.\noutputs:    /mnt/user-data/outputs/ initialized, fresh session\n---\n```\n\nWhat are we working on?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 5,
+      "created_at": "2026-05-28T15:46:57.873156Z",
+      "updated_at": "2026-05-28T15:46:57.873156Z",
+      "truncated": false,
+      "stop_reason": "stop_sequence",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f44-600f-75a8-a233-7b763c72f7df"
+    },
+    {
+      "uuid": "019e6f45-9a69-7437-8f24-9dce64687e2e",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:48:13.710954Z",
+          "stop_timestamp": "2026-05-28T15:48:13.710954Z",
+          "type": "text",
+          "text": "rewrite registry. active: NYHIMA talk June 7 and NYHIMA workshop June 6. Herkimer workshop June 10. find a place for nyhima stuff (ask).",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 6,
+      "created_at": "2026-05-28T15:48:13.711036Z",
+      "updated_at": "2026-05-28T15:48:13.711036Z",
+      "truncated": false,
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f44-600f-7ea6-aa7e-7b0ba094530e"
+    },
+    {
+      "uuid": "019e6f45-9a69-7d76-8f86-0c12bb4b2246",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:48:14.923970Z",
+          "stop_timestamp": "2026-05-28T15:48:18.195827Z",
+          "type": "text",
+          "text": " A few questions before I rewrite:\n\n**1. What key name for NYHIMA work?**\n- `nyhima` (straight abbreviation)\n- `hima` (shorter)\n- something else?\n\n**2. What category does it belong in?**\n- AIX Projects (deliverable-bound, external partner)\n- a new category (e.g., \"Outreach\" or \"Public Engagement\")\n- alongside `herkimer` since both are training/workshop work\n\n**3. Scope note for the registry — which of these fits?**\n- NY Health Information Management Association; AI literacy talk + workshop\n- something more specific you want captured",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 7,
+      "created_at": "2026-05-28T15:48:18.224852Z",
+      "updated_at": "2026-05-28T15:48:18.224852Z",
+      "truncated": false,
+      "stop_reason": "stop_sequence",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f45-9a69-7437-8f24-9dce64687e2e"
+    },
+    {
+      "uuid": "019e6f46-bb61-714c-98b3-9cf25c227eca",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:49:27.536744Z",
+          "stop_timestamp": "2026-05-28T15:49:27.536744Z",
+          "type": "text",
+          "text": "nyhima https://www.nyhima.org/about https://www.nyhima.org/",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 8,
+      "created_at": "2026-05-28T15:49:27.580857Z",
+      "updated_at": "2026-05-28T15:49:27.580857Z",
+      "truncated": false,
+      "attachments": [],
+      "files": [
+        {
+          "success": true,
+          "path": "/mnt/user-data/uploads/140217",
+          "file_kind": "blob",
+          "file_uuid": "1eeca260-08d1-41b1-97c2-1c0a5535786b",
+          "file_name": "140217",
+          "created_at": "2026-05-28T15:49:19.147063Z",
+          "size_bytes": 5523328,
+          "uuid": "1eeca260-08d1-41b1-97c2-1c0a5535786b"
+        }
+      ],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f45-9a69-7d76-8f86-0c12bb4b2246"
+    },
+    {
+      "uuid": "019e6f46-bb61-7017-85db-653439c2c7d6",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-28T15:49:29.028663Z",
+          "stop_timestamp": "2026-05-28T15:49:29.403977Z",
+          "type": "tool_use",
+          "id": "toolu_01WEC35JKPX2A5DXHcyEGSUT",
+          "name": "view",
+          "input": {
+            "description": "Check uploaded file",
+            "path": "/mnt/user-data/uploads/140217"
+          },
+          "message": "Check uploaded file",
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "Check uploaded file"
+          }
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01WEC35JKPX2A5DXHcyEGSUT",
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "     1\t%PDF-1.4\n     2\t%\\xd3\\xeb\\xe9\\xe1\n     3\t1 0 obj\n     4\t<</Title (Home)\n     5\t/Creator (Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/148.0.0.0 Safari/537.36)\n     6\t/Producer (Skia/PDF m148)\n     7\t/CreationDate (D:20260528154857+00'00')\n     8\t/ModDate (D:20260528154857+00'00')>>\n     9\tendobj\n    10\t3 0 obj\n    11\t<</ca 1\n    12\t/BM /Normal>>\n    13\tendobj\n    14\t5 0 obj\n    15\t<</N 3\n    16\t/Filter /FlateDecode\n    17\t/Length 293>> stream\n    18\tx\\x9c}\\x90\\xbdJ\\xc3\u0014\\x85\\xbfԂ(\\x8a\\x83\u000e\u001d    19\t\u001c    20\t28\\xb8h\\x93\\xa6iRpi\"\u0016\\xd7V\\xa1\\xa9S\\x92\\xa6A\\xecOHS\\xf4\u0001tspu+.\\xbe\\x80\\xe8c(\b\u000e\\xe2\\xe0#\\x88\\xa0\\xb3\\xa4AR\\x90x\\xe0\\xc2\\xc7\\xe1\\xc0\\xbd\\xf7@\\xae\\x90\\x97\\xa0?\\x88\\xc2F\\xdd\u0010[V[\\x9cG@`*\\xdb\u001d    21\t\u0005dK\\x80\\xef\\x97$\\xfb\\xbc\\xf5O.K\u000b    22\t\u001d    23\to\\xe4\u0002\u001f@\u0014\\xb6\\xac6\b\u001d    24\t`\\xcdO\\xf8,f'\\xe1˘O\\xa3 \u0002a\u0012sx\\xd00A\\xb8\u00036\\xfd\u0019vf\\xd8\r    25\t\\xc28\\xff\u0006\\xec\\xf4{c7\\xbd\\x9b%op\\xd8\u0004Z\\xc0:u\\x86\f    26\t\\xf1\\xe9\\xe1Q\\xa4\\xc9\t\\xc7\\xd8\u0014\\xd10Q٣F\t\u0019\u0015\u0019\\x85*\u001a\\xe5\\xe9Ԑ(\\xa3S\\xc1\\xc0\\xc0\\xc4DGACAa\u0017\\x95j\\xdcg\\xb2rx\u0003\\xfa\u0017\\xcc]\\xa5\\x9es\r    27\t\u000f\u0017PxM\\xbd\\x8d\t\\xac\\x9c\\xc3\\xfdc\\xea\\xa5\u001d    28\t\u0007vhO\\xad<\\x90\\xebv\\xe1\\xf3\u0016\\x96-X}\\x82ţ\\xdfb3~\u0015\\xff\\xfc*\\xb2\\xcf\\x97mDJH\\xc8T~\\x85\\xcdK\\xbd\n    29\tendstream\n    30\tendobj\n    31\t4 0 obj\n    32\t<</Type /XObject\n    33\t/Subtype /Image\n    34\t/Width 234\n    35\t/Height 140\n    36\t/ColorSpace [/ICCBased 5 0 R]\n    37\t/SMask 6 0 R\n    38\t/BitsPerComponent 8\n    39\t/Filter /FlateDecode\n    40\t/Length 36358>> stream\n    41\tx\\x9c\\xec\\xbd\u0005tUG\\xfe\\xc0!\\xee\\x81\\xe0\\xd2RJe\\xebnX\\xfc\\xe5i\u001c    42\tw\u0002\u0004I \\xee\\xee\u0006\\xc1]\\xdaRZjP\u0001\\xdaR\\xa1B\\xa1E\\x8ak<\\xcf\\xfd\\xfa\\xfd\\xfe\\xff3\\xf7\\xbd\\x94\\xfewa\\xffݳ\\xfb\\xa3{N\\xee\\x99\\xd3\u0013\\x9a\\x97\\xfb\\xee\\x9d\\xf9\\xcc\\xccׇ z\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xea\\xbdz\\xafޫ\\xf7\\xfa\u001f\\xbe\\x80\\xd5\u0001\\xab\u00138\\x8b\\xc0\\xd3\u0002j\u0002#\\xf06\\xe0\\xcc\u0014m12\\xe4-\\x96\\xb9\u0004p\u0016\\xb7Km\\xc0\u001b\u0005\\x86\u0012hF`\u0018\\x8ec9\\x9e\\xe3x\\x9e\u0003\\x96A\\x8d\\xe3\\x80\\xe1\\x81\u0012\\xc0\\xccr\u0016\\x8e\\xd3QT+˜c\\x99S\\xe7\u0001\\xba\\x80'\\x81\\xd5\\xf3\\xecu\\x9e?\\xc1\\xc3O\\xbf\\xb0\\xd4u\\x96T\\xb3\\xa4\u0016\\x84.\\x8e\\xd3r\\x9c\\x99\\xe3\u0018\u00018\\x81\u0017x\u0016x\\x96\u0017xJ\u000b    43\t\\x80\\x91\u0007+\\xc5\\xd0v\u000b    44\to\\xe8s\u0017c5t\\xf2\\xfco'~\u0005\\xb8\n    45\t\\xd0\u000e\\xa0\u0015@'@\\x97m7pk\u0011@#\bV\\x8e\\xe2x\u001bÙ\u0019\\x81b\u0004\\x96\u0017\u0004^\u00108\u00018\\xe0y\\x81\u0003\\x81\u0001\\x81a\u0004\\xd6 \\xf0W~\u0001\\xf4`\\xbf\u0001tg\u0017(\\xe0,\\xa8\\xf16\u0010(\\x8e\\xa3i\\x96\\xb3\\xb2|\u0007\t'԰\\xf7\\x94\\xa5\\xf9[ӎ_Lߩ\\xf9\\xeb\\xa4`b\u0018\\x92\\xb1q\\x8c\\x8ec5\f    46\t\\xab\\xb3\\xb3&\u000b    47\tk반\\xcf\\xdb\\xc8/\\x8c\\xd4G\u00168h\\x86\\xa36\\xf8\\xca\u0002\\x9f\u001b\\xe0\\x88\t\\xceZ\\xad\u0006F\\xc31\u001a\\x86\\xb7S4\u000b    48\t\\xc0\u000b    49\t \b\u0002\b<\b\u001c    50\t\\xf0\\xac\\xc03\u0002O\\xf3<\\xc3\u000b    51\t,\\xfa7n<\\xf0j\u001bs\\xd1\\xc2~i`\u000f\\xdb\\xe1\u0013\u001b\u001c    52\t\\xb1\\xc0q#\\x9c궵\u0018,F\\xb3\\x91gI\\x9e\\xb5\u000b    53\t<\u0005\u0002\r    54\t<\r    55\t\u001c    56\t\\xcd\\xf3,+\\xf0ί\\xb0\u000b    57\t\\xbc\u001e    58\t\\xf8\u000e\u0010:I0\\xa8\\x81\\xba\b\\xf0\u0013\u0003\\xc7\\xcc\\xf0\\xa5\u0016\u000ek\\xe0\\x90\u0016\\xbe\\xb5\\xc0u\\x8a\\xa79\u0012X\\xb3ݦ3\\x93V\u001d    59\tE\\x9bl 0\u0002\u0003\\xbc\u00158\\x83\\xc0[x\\x81\\xe613w\\xba\\xfeo\\xe8E\\x8b\\xe8\\x8a\u000fÙP\u0013\\xecj\\x8b\\xb9\u0013\\xe0\f    60\t\\xc09<\\xa0g\u0010\\xbd@\u0001k\\xe3l,\\xb0\u0002I1\\xe8\\xf3\u000204j\\x80\\x90+\u0007\u0014\\x80\\xd6N\\x92\\xed6\\xf3)\\xcc\\xc3\u0019D/0\\xcc\\xcf4\\x9c\u00068\u000e\\xf0#\\xc0M\\xab\\xc6\f    61\t\\xbc\u000e\\xd1\u0002\u001d    62\tv;\\x8d\\xee\u000f\\x82\\xc03\\xa8\t\\xa8Í\\xb8\\x99i`Lf\\xa0\\xd4\\xd0v\u001e    63\tXƌ\\xef\\xf0=~\\xb6\\xf3\u001a\\x83\b0\\xc0M\\xdcD\\x80\\xbb8`\\x81g\u0018=\\x80\u0015?6\\xf0\\xe2m\\xf1\\xcf,\b\\xac\b\\xb0\u0011\\xfek\\x80S\\x98\\xe16\\xf4[;B\\x975\\xa3\u001f\u0004\n    64\t\u0004\\x96\\xa2\u0018;\u0007z\\x80SZ\\xd8{\u000er\\xf7_\\xdbz\\x92\\xfe\\xc1\\x8a\\xbe\\xbd\\xdb¡a\u0015Lv[+\\x80\\x81\u0005{\\xb7UO\u0002\\xaeS\\xf3)\r    65\t\\xef\\x9b\\xe0\u0003\u0013|i\\x87\u001fh\\xf8L\r    66\t\\xef\\xaa\\xd1W\\x80\\xed\u00060m\u0014~e\u001aP׉\\x9d\\x89\\x9e\\x90\\xe7\\xf1\\x83!\\xe8\u0010\\xc0\\xc0\t\b]\\xa0\\x81\u0007ܾ\\xbee\\xfb\\x81\\x86\\x8f\\xad\\xf0\t\tGl\\xf0\\xb5\u000e\\xce\u0019\\xe0\\xb7\u001b\\xb7X\\x9e\\xb6s\\xb4U\\xecj\\xe0H\\xe0\u0018\\xe0\\xd0\\xe0\\x88\\xf4\\xe2\\xdbw\\xa0\\x86\\xba\\\\xdd\u0005p\u0011\u000f\\xd0Q3|\\xd1\t\\xdfj\\xe1\u0003\u0003\\xbc\\xabA\\xef\\x88\u001e    67\t\\x80\\xd6\u0002gh\\xd3\\xea\\xad\\xceQ\\xc0\\xcff\u0001N\u0007\\x9c\\x8e\\xc3\\xcf|\\x97\\xeb\\xbfO\\xaf\\xe1N\\xf4\\xb6_?\\xbf*7G\\x9a\\x9c\\xff¼\\xd2\u0017\\x97\\xad}ja턕\\x8d˛޴\bv\u0016X\\x91^\u0001/\u0017\bZ\u00165\\x91^q8\\xcc\u001c    68\t\\xb1\\xadeUI\\xe1\\xd8\u0005%/d\\xac\\xfb\\xfb\\x9c\\xacy\\x85\\x8d:u\\xbb\\xa6\\xabu\\xf1\\xfa\\xcf\\xc6\\xce.}:m\\xe3#\\xcb\u001a\\xa7\\xadX8'-\\xf9d\\x87Z\u0007`\\xc6=|'zi\\xf4`<ػ\\x80R\\xf3\u0006\\xfd\\xb6\\xf7\\xbeya\\xd5\\xfe'\\x96\\xee~*\\xa9J\\x9aQ\u0017:cޑ_\\xcev\\xd2\\xec\\xdeO?\u000f^V\\xf0¬\\xb4\u0017fg\u0006//\\xaf\\xdd\\xf9\\xb6\\xc1f\u0002\\xb0\u0002X\\xed\\xbc\\x9d\\xc1\\x8f\\xfcO\\xe9=qC\\x9d\\x98\\xbf\\xf1\\xd1\\xc5\\xeb&\u0017\u001d    69\txee󜢍ׯ\\x9fC@\\x82\u001d    70\t\\xc0.\\xd0\u0016\\xf4I;\u0007\u00174\\xb0\\xfb뮢\u000fZ\\xaa?\\xd7T|\\xdaV\\xe4\\xd6/]\\x9c\\x85\u0007\\xc49\\xa9\\xc6\\xd3\b\\xd1k\u0005\\xda\\xc0ٖ\\xe4\u0015\r    71\tKDm䴢\\x91\\xaa̱\\xb1i\u000fƬ\\xfeی\\xaa\\xccOZ\\xc1x\\xf9n\\xf4rh\\xd9DK\\xa6\\xc0\b\\xa8\\x9b\u0011\\xbd\f    72\t\b,K\\x9f<y\"d~\\xe6\\xdfg\u0016\f    73\tK\\xa8\f    74\t\\x90捌)xX\\x95\\xfa\\xbcbΊ\\xac\\x9cnu;~#\u001a5\u0007\\xc0w\\xa0\\x97\\xb9\t\\xa0V\u0003\\xfĉ\\xact\\xff\\xa8\\xe8\\xbc'\u0013ʟ\\x99Z72\\xb1r\\xcc\\xec\\x86ݟ/0$P\u001a\\xe0\f    75\t\u0016\\x96\\xff\\xab\\xd2k\u0002\\xce\n    76\t\\x9c\\x95rRG9WH\\x93\\x9d\u000e\\x9b\\xb9\\xdc\\xef\\xb5\u0019\\xae\\x93\\x96\\xb9G\\xe6\u0011\\xaf\\xaft\\x9f\\xb2\\xfc\\xe1\\x84\\xcc\\xef\\xae]\\xb3bҬ\\x98Uޱ\u00188\u001a\\xcb\\xf2V\\x92#1.\\xa7n\\xb6\\xbc\\xa8\\x88!^]\\xe8/\\xcfv}m\\xee\\xabsK(\u000b    77\t)\\xd0|ӻǽ_\\x9a\u0019 \\xcb\\xf4\n    78\tO} l\\xea\\xa0W\\xa4\\xe5\u001f\\x9f\\xbe\\x86oH\\xda9\\xe7,\\xe2qC_!\\x92\\xc61h\u0011\\xb5\\xe8\\xd5 0-fxef\\xbe\\xaf\\xb4\\xb4\\xcf\\xe4,\\x9f\\xd7\\xe7\u000e\\x9b<U2o\\xd9E#\\xa3\u0001(\\xdb\\xf1\\xbe\\xcf\u001b\\xb3\\xfd\\xa7,\\xf6\u000fM\\xf6\\x99\\xb2xi\\xfd.3\\xead\\x96\u0003\\xd6\\xc2Ѥ\\xf3A\\x9d=/~\u000b    79\tb\\xf8\\xc4-\\xc3}Sf\u0013/.\\xf2\\x97\\xe5\u0013/\\xcc|P\\xba\\xf0j\\xcbu\u0001\\x92G+!\\xc7#\\xa1\u0006\\x8c\u0014|\\xf4\\xfd\\x8d\\x9a\\xfd'\n    80\t޿\\xbe\\xfe{[\\xc5\\xe7\\xed\\xb9\u0007.\\xef\\xfd\\xa1U\\x8f\u001f\\x92\\xb4[y\\xc6\\xc6R\u0016\\x92\\xa3h\u0012`jr6\\xf1J\\x8a\\xb7\\xb4\\xb4t\\x85_X\\xd6\\xc0\\xb0\u0015åi.\\xa1y!\\xd5߈3\\x94C_\\xc1\\x8b|:F]\\\u0010\u0018V\\xe0zz\\x96\u0015\\x80\\xe1\u0005\\x8a\u0017(3\\xc0\\xbaC'\\x82&\\xcc\\xf1\n    81\tNqWV\u0011\\xe1\\x85>\\x8a\\xd2A\\xd2\\xec~/\\xc5\\xccJ\\xaf4q\\xe2,\\xe0\\xed\\x94\\xcdΰ\\xe8\u001d    82\tѮA\\x89#˂x35jt'\u0007\\x96V\\x80\\xc3\u0006\u0018\u001e    83\t_H\\xbc<wXx\\xba߫\\x8b\\xdd%EĤ\\x8c\\xd4u\\xef\"\u0012\u00183\bhC40x\\xfe\\x8bw\\xe3\\xad\\xc0\\x9b\\x807\\x893\\xe2^\\xd2\\xcb\\xd9\\xefBo䜔\\xe1\\x91K\\x83\u0014\\xb9\\xfd㪂\\xe2\\xab\u0007E\\xe7\\xf7\\x9b8\\xbbh\\xd3&-+\\xd8\\xd0\\xea* \u00068\\xe1wz\u0019N\u0010\\xc0N\u000b    84\tf\u001e    85\t\\xbd\\xe9-\\x8b-d\\xe6\\xdc\\xc1\t%\\x81\\xcaܡʌ\\x88\\x95M\\xea\\xf6n\\x8ed\\xaf\\xdaaR\\xca\u0006\\xef\\x88U\\xc3\u0012K\u001e    86\t\\x92\\xcc\u001c    87\t\u001b9\\xe3\\xf5\\xc5\\xe5\\xa7\u0018\\xb0`\\x94\\xeeD/\\xfa\\x9f\f    88\t\\xc9\\xda\\xcd\\xc0\\xd3\\xef\u001c    89\t\\xfei\\xc4\u001b3\u0007'4\u0004\\xc5ԌM\\xc8\u001b21\\xe1\\x93_.\\xe9\\xb0\\xfc\\x90\\xb9f\\xd7\u0010ɲ\\xb1ӊ\u001e    90\t\\x98V\\xe4\u0017\\xb2T\\xa4\\x97\u0001\\x9a\\xe4\\xec\\xce\\xde\\xfe\\xe7\\xf4\\xfe\\xdcb\u001c    91\t/O\u001e    92\t\u0010S:8\\xbe\\xc2/t\\xf9\\x93\\x89\\xa9j\\xa3\\xd6N\\xd9X\u0010x<E\u0005\u001e    93\tm7j3\\xec\\xf9\\xec\\xf4\\xbaC\\xbf\\xd5}\\xa1-=\\xd8Zy\\xb8\\xa3\\xfe\\x98\\xb6x\\xef\\xb1\\xf3\\xdd\u0014\u000b    94\t\\xd0r\\xeb\\x86٠F\u001d    95\t\\x81F\u0017\\xcd\\xe2\\xa4\\xecJ\\x8fȢ!\\xd3\\xd6\\xf8J\\x8b\\xfaG\\xe5\u000f\n    96\t_9&.\\xdf[Z:|\\xe6\\xba\\xf6k\\x97\\xedz͝\\xe8un\\x84\\xe8\\xaby\\x81\\xe6x\\x8a\\xe3I\u0001\\xe8\u001bFfjV}\\xe0k3\u0007\\xc8s}\\xe2\\xea\\xbdc\\xeb|\\x95e\\xfd#\\xd2\\xc7H\u0016-\\xcck\\xe8\\xb2\\xd0\u001c    97\t\\xfaz\\x9a\\xe1h\\xc7;މ^Aˀ\\xe9\n    98\t\r    99\t\\x95_\\x9c\u001f\\xa4\\xca\u0019\u0016W\\xf0HbŐ\\xd0Ճ\\xa65\\xf5\r   100\tˋ\\VҦ7r6\\x9d@\u001a\\xc4i\\xf8W\\xa4\u0017\\xc9\\xf6hߴ!\\x99\\xdc\\xf1\\x84\\xe2S]6\\xf2\\xcf\\xcd\\xce\\xf3\\x92\u0015\u0013\\xd2*\"\\xaa\\x96\\x88[\\xef?m\\xad\\xfb\\xe4\\xa5\\xcf\\xcfM\\xfb\\xea\\x9aN\\xed\\xdc\\xe8\\xf1\\xaaF\u0001C\u0002m\u0001\\xb3\u0016\\x89j\\x80\\xf4,\u001d   101\t\\xc0y=\\xf5\\xf2\\xf4\u0015\\xde\\xcar\"8\\xcb5$\\xfb\\xb9E\\xdbu\u001d   102\tzގ>\\xd1\\xf0\\xce\\xf1\\x80\\xc9\\xc9\u0001\\xd2\u001c   103\t/Yu\\xc4K\\xab\\x92?6\\xd88ܷhB\\xd9Şw\\xf4?o\\xc1\\xbb\\x95\u0005\u0004J\u0007p\u001d   104\t\\xe0\\x89\\xf9\\x95\u0003\\xe2\\xca\\xfaF\u0015\\xba+J\\xef\\x97,\\x93.\\xce\\xef\\xe0@\u000b   105\tp\\x95\\x86\\xd4M\\x9f{\\xcb\n   106\t\\xfa\\x84\u0017x*\\xab\\x89\\x89Ys\u001b?\\xd2XX\\xb4\\xfb\\xe2\\xb9\\xc69\\xe4I\\x87\\xba\\xf1\\xfb\\xb6q\\xf4\\xa2\\xe6\\xf1\\xc4\\xec\\xc0\\xf8\\xda>\\xe1y\\xbe\\xd2\\xecǦ\u0015\\\\xd5\u001bM\f   107\t\u001a8Z\\xfc(\\x9aL`4R\\xef|\\xfa\\xe3\\xe6\\x8fOm\\xf8\\xb2\\xa3\\xfc\\xe0\\xf5\\xd2On6~\\xa3\\xad\\xfe\\xe8\\xcci\u001d   108\t\\x92\\xb1:{٨\\xb3\u0002\\x9e\\x83\f   109\t\\x85\u0014ع\\xe9\\xf5\\xc4\\xc4R\"\\xa4\\xcaK\\xb9fh\\xe2\\xba~SR\\x87E\\xe5\\xf8&n%\\xa4\\x8d;\\x8fݤE\\xe9\u001a5\n   110\t/\\xb0|\u000f\\xb6=\\xaf/\b\u001c   111\t\\x8f$\u0001R\\xfc\\xe4\\x91n\\xb8/\\xaet\\x80\\xaa0(\\xa1\\x91\b\\xafr\\x8d\\xdf\\xd8'\\xba\\xc9;\\xa61 4E\\x9e\\xbe\\xf6\\x82\\x8e\\xa1\\x9cwp\\x88a`\u0017\\xc0Nb\u00029,+\u0001mB\\x8d2\\x93X\u0013\\x9f\\x92\\xb7\\xdb-l\\xb5\\x9f<\\xd7ʒ\\xa0\\xf0\u0015\\x84\\xa4\\x92\b/\u001b)Y\\xf1\\xd67籬\u0002\\x94 \\xb0\\xbfK\u001d   112\tV,\\xde\\xdb\u0001\u001c   113\t\\xcc\\xdcSz\\x99;\\xd1\\xdb\\xc9ë\\x8bJ\u0003b*}\\xa6m b\\xd7\u0011\\x8aF\\x9f\\x84ơ\\xb1\\xf9#çվs\\xb8\u0003Ӌy\u0013\u0010\\xbd\\x94\r   114\tQg\\xd5\u0003K\t\\xf8V:\\x80\\xd3ݖ\u0017\u0012\\x93]\"\u000b   115\t\u0006No\\xf2\\x89*z|\\xd6zq<X\u0001\\xaeS\u0010\\x92\\xbd\\xd772\\xd3?\\xba((\\xbe\\x9ax#뱔\\xf7Z\\xba\\xb9\\xbb\\xd0\\xcb[5\u0002m1\u0002l9v\\xc9g¼a\\xd3k<U\\xe5\\xee\\x8aґ\u0011K\\x8f^ҫ\u0001)\u001a\\xdd\\xa5\\xef\\xfe\\xec\\xaf*\\xf1VV\\xfa\\xc4\\xd4\\xf5\\x89,Y\\xba\\xe9\\x88\\xc69p\u001c   116\t\\x80\\xddn\\xbf\u0013\\xbd\\xdfݴ<5#\\xdfCV\\xd2'<o@l\\xf1\\xb8\\xb8\\xecӭ\\xed\u000e\\xa1\u0014\\x99\u0002\\xd0.#\\xa0;\b\\x9f\u001d   117\t\\xbfи\\xefۊ\u0003\\xe7\\xd7\\xa7\\xcfy\\xefB\\xd6\\xfe\\xdf>\\xb8H^\\xa3\\xe1T\\x8b\\x979\u001aDz\\x81G݈\\xe8\r   118\t\\xaf\\xf5\\x89\\xdb\\xec.k\u0018\\x9a\\xb8n@h\\x9a\\xff\\xc4\u0015\\xee\\xd1\\xeb\\x89)\\xe5\u000b   119\t\\xcb\\xf6ޝ^F\n   120\tYu\u0018\\xcc\u000e%~\\xb2\\xf0\\xc0)\\xe2\\xc5\u0005\\xfd\u0015\\xf9>\\x8aJ\"\\xac\\xb2o\\xeczBQ\\xef\\x9f\\xd0<@\\x92>\\xbddg\\x97\\xb4\\xf3\u000e\\xe8\u000f\\x84A\\xefq\u0003\\x8c\\x8c\\xcd\\xf6\\x93\\xe7\u0006(\\xf3}'%\\xdd\u0017\\x9d\\xed\\xaaj\\xf0\\x9b\\xb6qD\\xe4\\xf2\\x9c\\xf5\\xef\\x88\\xd0\\xdaX\\x96\\xf9\\xcbҋ\u001b턖v\\xeeԗ\\xad\\xf0\\xd4\\xdc\n   121\tBQ\\xeb2u+1u\u0007!i$\"\\xf3\\xfbIӃ\\xa4)\\xaf/\\xaf\\xff\\xac\\x95C\\xfa\\x89\\xa8i\\xd0&$?\\xb3\u0006`\\xf4@\\x99H\\x8a\\xb1\\xe0M\\xfc\\xac\u0011^\\x9a_@\\x84\\xe7\u0005\\xcd\\xde䩪\u001d   122\t:m\\xa3\\xddh\\xe5\\xec\\x8cEo\u0006\u001e   123\t\\x9a??\\xd7_\\x96AD\u0015\u0013\\xaaf\"v\u000b   124\t\u0011\\xbfmׁ\\xef0d\\x88\\xde\u001e   125\t]\u0006]l\u0017j\\x82\\x81\u00048\\xc9\\xc2\\xd8\\xe5[\\x88\\xe8J\"\\xba\\xd25\\xae\\xccW\\x9e9#\\xa3\\xd2\n   126\t\\xa0'\\xd1\\xe7;9X\\xb5\\xfdk\"\\xb8\\xc0/q\u0013!o$\\x82\\xcbf\\xd4}\\xd2&\\xc9a\r   127\t\\x9a\\xa7\\xf0^C\u0001\\xff\\xff\\xa5\\x97\u00038\\xdeB\\x8eK\\xc8#\\xa4\\x95\\x9eqM>\\xaa\\xb2Q\\xb1\\xf9\\xdf\\xde\\xd4[\u001c   128\t\\xcb\u0017\\xb0\\x8cݡ߱d[\\xb7\\xe1\\xfd\\xaf~i|\\xff\\x87-\\xc7Z+>\\xbePu\\xe8\\xd2wj\\xf8\\xea\\xb2\\xe9\\xa3\\xe3\\xe7.\\xdc\\xec\u0016\\xf0lF\\x96>\u0016\\xccv\\x98\\xb6\\xac\\x84\\x88\\\\xe3\u0012\\xbb\\x8d\b\\xab\\xf2W\\xd5=1\\xab\\xe2>i\u001a\u0011\\xd3\\xec:u\\xf3\\x93K֟\\xd0\\xfd\u0013zŉ\\x86\\xa4h\u000eH\\xbck\\xe0\\xa7e9\\x9e\\xb4\\x93\\xa6\\x97\u000b   129\t\u000e\\xfa*J\u0003\\x95e\u0003b\\xab\\xfe\\xb6\\xe2m\\xefč\\x84\\xa4\\x96P4\u0011S2\u0014\\xf9\\xbbo\\x91\\xe8oi\\xab\\x9e\\xa7\\xcc\\xe28\\xd2`\\xa7\\x9d\\xf4b\\xe9\u000e\\x80\\xa6P\\xe3\\x91\u0016Vt\\xf0\\xa2gX\\x8a\\xb7\\xaa\\xc0K\\x99\\xff\\xd0\\xf4\\x9cg\\x97T\u0011\\xb2\\xfa\\xbe1\\xcd^a\u0019/-\\xac\\xfc\\xb1\\x8b\\xb7\\x89\\xa3\\x80V_;\\xf0v\u0007\\xbdHmw\\xca\u0012\\xf7Vr\\xb83\\xbd//m쫪'\u0014k\\x88\\xc4\\xedD\\xc26\\x9fتA\\xaa\\x9c\\xe1\\xb1Y\\x81\u0013f\\xad;v\u0019-wℤ\\x8c\\x88^k\u0017\u0002\\x98\\xb7\\xb3\\x9c`\\xc5\\xf4\\x9eT3O\\xcf\\xc8\\xf4\\x88\\xad&\\xa4垪ڇ\\x97\\xee\\xb3bn\\x91\r   130\t\\x8b\\xe2.\\xf1\\xf0\\\\xea\u0016B^\\xe66};\u0011\\xbf\\x8d\\x88l\\x8c\\x9b\\x9bi\\xd4\u0018\\xeeH/\\xd5M\u0002\\xac?~\\x8d\bO\\xeb\\x93X\\xef1\\xab\\x99\\x88\\xc8\u001c   131\t\\x98P\\xf4\\xc9\\xe9\u0016\\xabSb\\xffU\\xa7\\xac\\xbd?\u0010\\xc1\u0005\\xae\\x8aF\\xaf\\x84MDT\\xdd\\xdc5GԢ\\xbcǐ`7\u0001k\\xbf\u0013\\xbd\\xdf޴\\x8d\\x89\\xc9ꫨ񝺎\b\\xcexxf\\xc5o&0\t`\\xe5\\xc5O\\xa2\u0015\\x9b#-\\xc0\\x92\\xa8s\\xd4\\xf4\\x97\\xd7l{~\\xd4||\u0003NRp\u0019\\xe0\\xcdc\u0017\\xbf8}C4\\x98\\xd0v^\\xbc\\xb1\\x95\\x82EY\r   132\t\b\\xdd\\xc85\\xbeӶ\r   133\t\\x9d\\xb1Q\\x92\\xbbw\\|\u0001\u0011\\\\xea9s\\xfb@Y\\xf6\\xee\\xe37\\xeeB/ڵ\u001d   134\tZ\u0018\\xa2\\xd7b\\xd5wv\\xb5\u0004\\xc6T\\x8e\\x9c\\xb3\\x8ex#\\xd5[R\\xf0F\\xdd\\xf7\\xfdf\\xef \\xa2\\x9b\\xdd\u00126\\xb9K\n   135\t\\xe2J\\xf7\\xb5\\xb3\\xe2nE\\x82\\x80\\xe4pZ\\xb8#\\xbd<ɶ\\x91 /\\xda\\xeb+Is\\x97\\xe5\\xf8\\xc6\u0014M_\\xfbq\\xfa\\x81S\\x84j\r   136\t\\xa1l\u001a\\xa0*~(:\\xed\\xc3\\xd3\u001d   137\tZ\u001aSa3\\xff%\\xe9\\xedy\u001e   138\t\\xdc\\xddX\\x8a\u0010\\xb5\\xb6\\xebVxia\\xa5[l\u0013!\\xab&T\\xf5\u0003\u0016\\xee~xz\\xfe\u0010ɲ e\\x81{p\\xea\\xeb+\\x9a[\\x89\\x9avd\u000e\\xb0\u0001kq\\xac\\xbd\\xbc\\x9d\u0017@\\xa4\\xf7W\u001d   139\t<=;\\xb7Ot\\x91klE\u001feɃɻ\f   140\tz-\\xfaFZ\u0007\\xbcI\u0003\\xd0\\xf4\\xcd%/E\n   141\t\u0011[EĬ#\\xa6o\u001b\u00179{\\xe3\\xee\\xf7\\x80\\xa6YqW\\xc2\u0002'\u0003L7\\xf0Z\u0001\\x98K4<\\xb6r3\\xa1,!b\\xaa\\x88\\xb8\u001a\"4yV\\xc3[\\xc8\u0002\\xcf\"iV\\xa0\u0011\\xf3y;\\x8ez\\x86\\xe5y+j\\xbc\\xa2\\x9b\\xfaH\\xaa\u00164\u001e   142\tԊK\u0007kE\\x8f\\x87\\xe7\u0017\\xb6A\\xddN/\u001a\\xf1\\xef\\xda\\xe8\u0007\\xe3\\xf3\\xfb\\xaa\\xea\\xfb\\xaa\\xea\\xdd\\xe4%\\xf7M-\\xf9I\\x87\\x9e\u0001MPڎ\\xf6J\\xce\\xce[\\xd4\\xc0[E\\xc1^\u0003p]\\x80\u0016\\x80\\xf3,\\xacy\\xff\\xbb\u001f.uې)\\xdfA\u001d   143\t\\xfa<ocyfNZ!!k\"\\xe26\\xb9O]\\xe7#\\xcd\\xdes\\xaa\\xe5\\x99i+<\\xa75\u0011\\x92\"\\xcf肩M\u001f\"K\n   144\tG#\\xe3\\x86\\xc0\n   145\t\\x82`\\xb3\\xa1ݘ\\xe3\u0004\\x8aF$\\x8b+\\x89\\x85w\\xc8\r   146\t\\x9b\\xdf|\\xdbS^\\xee.-\u001d   147\t\u0018\\xbe\\xf2\\xf19U\r   148\t?\\xd9\u0006ǖ\\xb9Ŭu\\x8bY\\xeb\u0011U\u001c   149\t\\x9e\\xbd\u0003\\xd9iY\u000b   150\tpZԐ\\x80\\xc4\\xd2`\\xa2\\xd14\\xba\\x8d^;\\x87\\x98\\xe6\\xe0x\u0007\\xf4\\x8f)\u001a\\x94P\\xe6-\\xcfq\\x8dH;pQ\\xfb\\xe1\u0015\\x83ol}@B\\x93[D\\x9e\\xf7\\x94\u0015+\\xb6\u001d   151\tk\u0015\\xc5\u0003\\x9e\u001655\\xfc\\xea\f   152\t\\x87\u0017\u0016ǌ\\xb8\\x97\\xf4\\xda\\xeeD\\xef\r   153\t\u001b\\xbc\\x92TM\\xc8k\u0010\\xc0\\x8a\\xdaAI{\\xe7n8<B\\x9e\u0012\\xa4,\b\\x90\\xe6\\xdc/_\\xbd\\xfb\\x87\u0016\\xa3C\\x8d\\xb5c\\xe1\\xe1O\\xd3\\xfb3\u0007\\xcf\\xe5mG\\xf4\\xc6o$\"k\u001e   154\t\\x96\\xccI\\x98\\x9b\\xac\\xd5\\xea{\\xe8Eە\\xcd\b\\xbc\u0016\\xac\\xad\u00020\\xd5\\xfb\u000f\u000f\\x88/\\xea\u001b]FD\u0015y\\xceY\\xef\u0013\\x9f\\xf7\\xce\u0015\\xf3\\x8a\\xdeo[\\xa9\u001e   155\tz\\xdd\u0015\\xa5\\xf7M-\\xf9Q\\x8b\\x9e\\x81䀱\\x99Ez\\x811\\xddN\\xef5\u001e   156\t\\x8ek\\xe0͟;\\xf7\u001d   157\t\\xbf\\xd2fCs\\xed.\\xf4\\xba%6\u0007\\xaa\n   158\t>\\xb8\\xacWf\\xd7\u0013\\xaaJBQ\\xee\\xae\\xcc{aYm\\x97^-`\\x80y\\xbcj\"\\xc9ܩ!\"\\x85\\xd8I\\xaf\u001d   159\t/t\\xab\\xf2\u000b   160\t\\xbd\\x95\\x95\u001e   161\t\\xb2\\xb2\\x81\\xe1+\\x95\\xe5\\xefo:\u0007\\xc3\u0012*\\xddb\\xd6\\xf6U6މ^\u0016,\"\\xbdT\u000f\\xbd$\\x92\\xc8m,4\u001f\\xfa\\xc5K\\x92\\xe9\u001d   162\t\\x95\\xe5)\\xcd\u001a9\\xb7\\xfeg\u001b\\xp\\xf9\\xdb\\xee\\xf2J?e\\x99_hjDƦ\\xcbvL/r\\xb1\\xfd\u0005\\xe9\u0015\\xbdH\\x94\\xa8\\xcb8\u001d   163\t\\xa3\\xa8\\xb5\\xd8`BR9\u0011Y\\xec\\x9f\\xd8\\xe4.-~p\\xc1\\xba\\xa3\\x97\\xb5\u0011\u000b   164\t3=\\xa3\n   165\t\u0007$Ժ\\xbd\\xb6(:\\xfb5\u001au)\\xeat\u0006O\u0001\u000eɉ➢\u00078\\xa3e_\\x98\\x99I\\xc4\u0014\\xf5\\x8d/\\xed\\xab\\xcct\\xc9F\\x83\\xa1\u0013\\xfd\\x925X\f   166\t\\x80̳[\\xbe\\xfa\\xf6\\x81\\xa9\\xcb\tU\u0019\\xa1(\u0019\u001a\\x9d9|\\xf2\\xcc\\xc6\u000f\\x8e\u001b\\xb1\\xc5\u001fk\u0004<I\"\\xd5\\xd0\\xc8q\\xbfQ\\xf0\\xdc\\xe2\u001a\"2\\xc7'\\xbe\\xd2K\\x91\\xd7_\\xb6JU\\xbc^#v\u0013C\\xa2o\\xa7\f   167\t\u0002@ɶC\\xfe\\xa1\\xe9\u0001\\xb2R?U\\xb5[dqRÇ\u0006\\x91^\\xce\n   168\t\\xac\u001e   169\t8L/\\xcf\\xffS\\xb9\\xf7\\xa1\\xf8\\\u0017e\\xad\\x8b\\xb2\\xd6S^<*\\xb1脖u\\x8c\u000e\\xc7\\xf2\\x94\u0015п\u0018@\u0013\u001e   170\tm:\\xa7\\xec\\xf0\\x8d\u001aj\u000e\\x9d\\x99^\\xb6\\xeb\\xc8\\xd9v\\x9b\\xf8-<#\\x9a\u0006@\\xd0\u0001\\xaf\\xe5yӼ\\xb4\f   171\tB\\xde@\\xc4op\\x8d\\xaf\u001b\u0014\\x93y\\xb2\\xbd{\\xcd\\xfe\\xf7]%\\xe9\\xfe\\xb1\\x85\\xbe\\xd1\\xf9^\\x8a\\x9c\u000f~>k\u0005\\xe8\\xa6x\\xd1a\\xc1\\x92v,7\\xa3e\\x84'I\\xc1)\u0011u\n   172\tpZC=\u001d   173\t\\xbb\\xd4OU\\xe9\u0011U<6|\\xee\\xfa#\\xe7\u000f]\\xb1?\u0011\\x9f橪u\\x95UzD\u0015N\\xce\\xd9gB\\xbda\u0004\\xb6\u00035\\xc7\\xdbYy0ӂ\\xc3\\&*:\\xc0#\\xd7gl\\xf1.Wy^_i\\x8e\\xa7$M^\\xf6\\x8e\u001e   174\tk\\xe2\\x8b6}\\xe5\u0013\\xbajPB\\x95\\x8f4\\x80<\\xe7\\xc0e\\xce\\xf8\u0007z\\xd1$豿\\xdd\\xc5M\\xfc@/\\x8f\u0016\\xdbN\\xefM\u000b   175\t\\xbc\\xbe\\xb0\\xd4EV\\xee\u0013W\\xef.-\u001e   176\t3\\xbf\\xf9:\u000b   177\te\\xbb\u000f\\xb9\\x86\\xe7\u0006\\xc5\\xd7\u0004\\x84\\xa6<\\xacJ\\xdds켥Ǩ\\xf8'\\xe9\\xc5]\\x8cvި\\xb2MDd^\\xe0\\xfc\r   178\t\u0003d\\xabF\\x85\\xcd\u000b   179\t\\x9e\\x97\\xa9\u0005\\xe8f\\xc1\\xcc;\\xe8ҙ\\x8c$\\xc0\\xba\\xcfO\\x8d\\x90\\xa7\\xb8\\xc8\u000b\t< truncated lines 180-138768 >\n138769\t0005369896 00000 n \n138770\t0005370238 00000 n \n138771\t0005370889 00000 n \n138772\t0005370992 00000 n \n138773\t0005371332 00000 n \n138774\t0005372898 00000 n \n138775\t0005373459 00000 n \n138776\t0005373533 00000 n \n138777\t0005376246 00000 n \n138778\t0005377914 00000 n \n138779\t0005378377 00000 n \n138780\t0005378490 00000 n \n138781\t0005382479 00000 n \n138782\t0005386135 00000 n \n138783\t0005388751 00000 n \n138784\t0005391816 00000 n \n138785\t0005394567 00000 n \n138786\t0005398617 00000 n \n138787\t0005399381 00000 n \n138788\t0005402477 00000 n \n138789\t0005404137 00000 n \n138790\t0005406766 00000 n \n138791\t0005409837 00000 n \n138792\t0005411284 00000 n \n138793\t0005412489 00000 n \n138794\t0005413974 00000 n \n138795\t0005414352 00000 n \n138796\t0005415870 00000 n \n138797\t0005416083 00000 n \n138798\t0005416254 00000 n \n138799\t0005416893 00000 n \n138800\t0005417325 00000 n \n138801\t0005418145 00000 n \n138802\t0005418472 00000 n \n138803\t0005418842 00000 n \n138804\t0005419180 00000 n \n138805\t0005420357 00000 n \n138806\t0005420570 00000 n \n138807\t0005420638 00000 n \n138808\t0005420878 00000 n \n138809\t0005421694 00000 n \n138810\t0005421850 00000 n \n138811\t0005422380 00000 n \n138812\t0005423234 00000 n \n138813\t0005423584 00000 n \n138814\t0005423782 00000 n \n138815\t0005424174 00000 n \n138816\t0005425042 00000 n \n138817\t0005425797 00000 n \n138818\t0005426497 00000 n \n138819\t0005427169 00000 n \n138820\t0005428039 00000 n \n138821\t0005428385 00000 n \n138822\t0005428764 00000 n \n138823\t0005429143 00000 n \n138824\t0005430500 00000 n \n138825\t0005430713 00000 n \n138826\t0005430787 00000 n \n138827\t0005431015 00000 n \n138828\t0005431928 00000 n \n138829\t0005432158 00000 n \n138830\t0005432270 00000 n \n138831\t0005432752 00000 n \n138832\t0005432933 00000 n \n138833\t0005433845 00000 n \n138834\t0005435201 00000 n \n138835\t0005435403 00000 n \n138836\t0005435706 00000 n \n138837\t0005436065 00000 n \n138838\t0005437190 00000 n \n138839\t0005437403 00000 n \n138840\t0005437476 00000 n \n138841\t0005437769 00000 n \n138842\t0005438935 00000 n \n138843\t0005439119 00000 n \n138844\t0005440375 00000 n \n138845\t0005440610 00000 n \n138846\t0005441537 00000 n \n138847\t0005442467 00000 n \n138848\t0005442672 00000 n \n138849\t0005442789 00000 n \n138850\t0005443276 00000 n \n138851\t0005443520 00000 n \n138852\t0005443700 00000 n \n138853\t0005443945 00000 n \n138854\t0005444131 00000 n \n138855\t0005444605 00000 n \n138856\t0005445154 00000 n \n138857\t0005446514 00000 n \n138858\t0005446820 00000 n \n138859\t0005447008 00000 n \n138860\t0005448249 00000 n \n138861\t0005449273 00000 n \n138862\t0005450177 00000 n \n138863\t0005451195 00000 n \n138864\t0005452152 00000 n \n138865\t0005452611 00000 n \n138866\t0005453947 00000 n \n138867\t0005454556 00000 n \n138868\t0005454883 00000 n \n138869\t0005455138 00000 n \n138870\t0005455251 00000 n \n138871\t0005456308 00000 n \n138872\t0005456904 00000 n \n138873\t0005457759 00000 n \n138874\t0005458815 00000 n \n138875\t0005459343 00000 n \n138876\t0005460539 00000 n \n138877\t0005460997 00000 n \n138878\t0005461595 00000 n \n138879\t0005461890 00000 n \n138880\t0005462404 00000 n \n138881\t0005462535 00000 n \n138882\t0005462837 00000 n \n138883\t0005463252 00000 n \n138884\t0005465724 00000 n \n138885\t0005465937 00000 n \n138886\t0005466005 00000 n \n138887\t0005466437 00000 n \n138888\t0005466865 00000 n \n138889\t0005467101 00000 n \n138890\t0005467199 00000 n \n138891\t0005467448 00000 n \n138892\t0005468218 00000 n \n138893\t0005468371 00000 n \n138894\t0005468859 00000 n \n138895\t0005469698 00000 n \n138896\t0005469875 00000 n \n138897\t0005470499 00000 n \n138898\t0005471414 00000 n \n138899\t0005471783 00000 n \n138900\t0005473337 00000 n \n138901\t0005473524 00000 n \n138902\t0005474163 00000 n \n138903\t0005474354 00000 n \n138904\t0005474528 00000 n \n138905\t0005474628 00000 n \n138906\t0005474821 00000 n \n138907\t0005474981 00000 n \n138908\t0005475329 00000 n \n138909\t0005475549 00000 n \n138910\t0005475707 00000 n \n138911\t0005476522 00000 n \n138912\t0005477237 00000 n \n138913\t0005477863 00000 n \n138914\t0005478502 00000 n \n138915\t0005478844 00000 n \n138916\t0005479739 00000 n \n138917\t0005480167 00000 n \n138918\t0005480435 00000 n \n138919\t0005480633 00000 n \n138920\t0005480733 00000 n \n138921\t0005481445 00000 n \n138922\t0005481877 00000 n \n138923\t0005482528 00000 n \n138924\t0005483249 00000 n \n138925\t0005483628 00000 n \n138926\t0005484448 00000 n \n138927\t0005484775 00000 n \n138928\t0005484941 00000 n \n138929\t0005485166 00000 n \n138930\t0005485336 00000 n \n138931\t0005485706 00000 n \n138932\t0005485808 00000 n \n138933\t0005486736 00000 n \n138934\t0005487282 00000 n \n138935\t0005487350 00000 n \n138936\t0005487807 00000 n \n138937\t0005490405 00000 n \n138938\t0005492442 00000 n \n138939\t0005492650 00000 n \n138940\t0005492882 00000 n \n138941\ttrailer\n138942\t<</Size 1494\n138943\t/Root 898 0 R\n138944\t/Info 1 0 R>>\n138945\tstartxref\n138946\t5493363\n138947\t%%EOF\n138948\t",
+              "uuid": "605055cd-a2f7-4cec-9377-1e6dc8335954"
+            }
+          ],
+          "is_error": false,
+          "meta": {
+            "output_format_category": "other"
+          },
+          "icon_name": "file",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"plaintext\", \"code\": \"%PDF-1.4\\n%\\\\xd3\\\\xeb\\\\xe9\\\\xe1\\n1 0 obj\\n<</Title (Home)\\n/Creator (Mozilla/5.0 \\\\(Macintosh; Intel Mac OS X 10_15_7\\\\) AppleWebKit/537.36 \\\\(KHTML, like Gecko\\\\) Chrome/148.0.0.0 Safari/537.36)\\n/Producer (Skia/PDF m148)\\n/CreationDate (D:20260528154857+00'00')\\n/ModDate (D:20260528154857+00'00')>>\\nendobj\\n3 0 obj\\n<</ca 1\\n/BM /Normal>>\\nendobj\\n5 0 obj\\n<</N 3\\n/Filter /FlateDecode\\n/Length 293>> stream\\nx\\\\x9c}\\\\x90\\\\xbdJ\\\\xc3\\u0000\\u0014\\\\x85\\\\xbf\\u0502(\\\\x8a\\\\x83\\u000e\\u001d\\u001c28\\\\xb8h\\\\x93\\\\xa6iRpi\\\"\\u0016\\\\xd7V\\\\xa1\\\\xa9S\\\\x92\\\\xa6A\\\\xecOHS\\\\xf4\\u0001tspu+.\\\\xbe\\\\x80\\\\xe8c(\\b\\u000e\\\\xe2\\\\xe0#\\\\x88\\\\xa0\\\\xb3\\\\xa4AR\\\\x90x\\\\xe0\\\\xc2\\\\xc7\\\\xe1\\\\xc0\\\\xbd\\\\xf7@\\\\xae\\u0000\\\\x90\\\\x97\\\\xa0?\\\\x88\\\\xc2F\\\\xdd\\u0010[V[\\\\x9c\\u007fG@`*\\\\xdb\\u001d\\u0005dK\\\\x80\\\\xef\\\\x97$\\\\xfb\\\\xbc\\\\xf5O.K\\u000b\\u001do\\\\xe4\\u0002\\u001f@\\u0014\\\\xb6\\\\xac6\\b\\u001d`\\\\xcdO\\\\xf8,f'\\\\xe1\\u02d8O\\\\xa3 \\u0002a\\u0012sx\\\\xd00A\\\\xb8\\u00036\\\\xfd\\u0019vf\\\\xd8\\r\\\\xc28\\\\xff\\u0006\\\\xec\\\\xf4{c7\\\\xbd\\\\x9b%op\\\\xd8\\u0004Z\\\\xc0:u\\\\x86\\f\\\\xf1\\\\xe9\\\\xe1Q\\\\xa4\\\\xc9\\t\\\\xc7\\\\xd8\\u0014\\\\xd10Q\\u0663F\\t\\u0019\\u0015\\u0019\\\\x85*\\u001a\\\\xe5\\\\xe9\\u0510(\\\\xa3S\\\\xc1\\\\xc0\\\\xc0\\\\xc4DGACAa\\u0017\\\\x95j\\\\xdcg\\\\xb2rx\\u0003\\\\xfa\\u0017\\\\xcc]\\\\xa5\\\\x9es\\r\\u000f\\u0017PxM\\\\xbd\\\\x8d\\t\\\\xac\\\\x9c\\\\xc3\\\\xfdc\\\\xea\\\\xa5\\u001d\\u0007vhO\\\\xad<\\\\x90\\\\xebv\\\\xe1\\\\xf3\\u0016\\\\x96-X}\\\\x82\\u0163\\\\xdfb3~\\u0015\\\\xff\\\\xfc*\\\\xb2\\\\xcf\\u0000\\\\x97mDJH\\\\xc8T~\\u0000\\\\x85\\\\xcdK\\\\xbd\\nendstream\\nendobj\\n4 0 obj\\n<</Type /XObject\\n/Subtype /Image\\n/Width 234\\n/Height 140\\n/ColorSpace [/ICCBased 5 0 R]\\n/SMask 6 0 R\\n/BitsPerComponent 8\\n/Filter /FlateDecode\\n/Length 36358>> stream\\nx\\\\x9c\\\\xec\\\\xbd\\u0005tUG\\\\xfe\\\\xc0\\u007f!\\\\xee\\\\x81\\\\xe0\\\\xd2\\u0096RJe\\\\xebnX\\\\xfc\\\\xe5i\\u001cw\\u0002\\u0004I \\\\xee\\\\xee\\u0006\\\\xc1]\\\\xdaRZjP\\u0001\\\\xdaR\\\\xa1B\\\\xa1E\\\\x8ak<\\\\xcf\\\\xfd\\\\xfa\\\\xfd\\\\xfe\\\\xff3\\\\xf7\\\\xbd\\\\x94\\\\xfewa\\\\xff\\u0773\\\\xfb\\\\xa3{N\\\\xee\\\\x99\\\\xd3\\u0013\\\\x9a\\\\x97\\\\xfb\\\\xee\\\\x9d\\\\xf9\\\\xcc\\\\xcc\\u05c7 z\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xea\\\\xbdz\\\\xaf\\u07ab\\\\xf7\\\\xfa\\u001f\\\\xbe\\\\x80\\\\xd5\\u0001\\\\xab\\u00138\\\\x8b\\\\xc0\\\\xd3\\u0002\\u0000j\\u0002#\\\\xf06\\\\xe0\\\\xcc\\u0014m12\\\\xe4-\\\\x96\\\\xb9\\u0004p\\u0016\\\\xb7K\\u0000m\\\\xc0\\u001b\\u0005\\\\x86\\u0012hF`\\u0018\\\\x8ec9\\\\x9e\\\\xe3x\\\\x9e\\u0003\\\\x96A\\\\x8d\\\\xe3\\\\x80\\\\xe1\\\\x81\\u0012\\\\xc0\\\\xccr\\u0016\\\\x8e\\\\xd3QT+\\u02dcc\\\\x99S\\u0000\\\\xe7\\u0001\\\\xba\\\\x80'\\\\x81\\\\xd5\\\\xf3\\\\xecu\\\\x9e?\\\\xc1\\\\xc3O\\u0000\\\\xbf\\\\xb0\\\\xd4u\\\\x96T\\\\xb3\\\\xa4\\u0016\\\\x84.\\\\x8e\\\\xd3r\\\\x9c\\\\x99\\\\xe3\\u0018\\u00018\\\\x81\\u0017x\\u0016x\\\\x96\\u0017xJ\\u0000\\u000b\\\\x80\\\\x91\\u0007+\\\\xc5\\\\xd0v\\u000bo\\\\xe8\\u0000s\\u0017c5t\\\\xf2\\\\xfco\\u0000'\\u0000~\\u0005\\\\xb8\\n\\\\xd0\\u000e\\\\xa0\\u0015@'@\\\\x97\\u0000m\\u00007pk\\u0011@#\\bV\\\\x8e\\\\xe2x\\u001b\\u00d9\\u0019\\\\x81b\\u0004\\\\x96\\u0017\\u0004^\\u00108\\u00018\\\\xe0y\\\\x81\\u0003\\\\x81\\u0001\\\\x81a\\u0004\\\\xd6 \\\\xf0W\\u0000~\\u0001\\\\xf4`\\\\xbf\\u0001t\\u0000g\\u0017(\\\\xe0,\\\\xa8\\\\xf16\\u0010(\\\\x8e\\\\xa3i\\\\x96\\\\xb3\\\\xb2|\\u0007\\t'\\u0530\\\\xf7\\\\x94\\\\xa5\\\\xf9[\\u04ce_L\\u07e9\\\\xf9\\\\xeb\\\\xa4`b\\u0018\\\\x92\\\\xb1q\\\\x8c\\\\x8ec5\\f\\\\xab\\\\xb3\\\\xb3&\\u000bk\\ubc18\\\\xcf\\\\xdb\\\\xc8/\\\\x8c\\\\xd4G\\u00168h\\\\x86\\\\xa36\\\\xf8\\\\xca\\u0002\\\\x9f\\u001b\\\\xe0\\\\x88\\t\\\\xceZ\\\\xad\\u0006F\\\\xc31\\u001a\\\\x86\\\\xb7S\\u00004\\u0000\\u000b\\\\xc0\\u000b \\b\\u0002\\b<\\b\\u001c\\\\xf0\\\\xac\\\\xc03\\u0002O\\\\xf3<\\\\xc3\\u000b,\\\\xfa7n<\\\\xf0j\\u001bs\\\\xd1\\\\xc2~i`\\u000f\\\\xdb\\\\xe1\\u0013\\u001b\\u001c\\\\xb1\\\\xc0q#\\\\x9c\\uadb5\\u0018,F\\\\xb3\\\\x91gI\\\\x9e\\\\xb5\\u000b<\\u0005\\u0002\\r<\\r\\u001c\\\\xcd\\\\xf3,+\\\\xf0\\u03af\\\\xb0\\u000b\\\\xbc\\u001e\\\\xf8\\u000e\\u0010:I0\\\\xa8\\\\x81\\\\xba\\b\\\\xf0\\u0013\\u0003\\\\xc7\\\\xcc\\\\xf0\\\\xa5\\u0016\\u000ek\\\\xe0\\\\x90\\u0016\\\\xbe\\\\xb5\\\\xc0u\\\\x8a\\\\xa79\\u0012X\\\\xb3\\u07663\\\\x93V\\u001dE\\\\x9b\\u0000l 0\\u0002\\u0003\\\\xbc\\u00158\\\\x83\\\\xc0[x\\\\x81\\\\xe613w\\\\xba\\\\xfeo\\\\xe8E\\u0000\\\\x8b\\\\xe8\\\\x8a\\u000f\\u00d9P\\u0013\\\\xecj\\\\x8b\\\\xb9\\u0013\\\\xe0\\f\\\\xc09<\\\\xa0g\\u0010\\\\xbd@\\u0001k\\\\xe3l,\\\\xb0\\u0002\\u0000I1\\\\xe8\\\\xf3\\u000204j\\\\x80\\\\x90\\u0000+\\u0007\\u0014\\\\x80\\\\xd6N\\\\x92\\u0000\\\\xed6\\\\xf3)\\\\xcc\\\\xc3\\u0019D/\\u00000\\u0000\\\\xcc\\\\xcf4\\\\x9c\\u00068\\u000e\\\\xf0#\\\\xc0M\\\\xab\\\\xc6\\f\\\\xbc\\u000e\\\\xd1\\u0002\\u001dv;\\\\x8d\\\\xee\\u000f\\\\x82\\u0000\\\\xc03\\\\xa8\\t\\\\xa8\\u00cd\\\\xb8\\\\x99i`Lf\\\\xa0\\\\xd4\\\\xd0v\\u001eX\\u018c\\\\xef\\\\xf0=~\\\\xb6\\\\xf3\\u0000\\u001a\\u0000\\\\x83\\b0\\\\xc0M\\\\xdcD\\\\x80\\\\xbb8`\\\\x81g\\u0018=\\\\x80\\u0015?6\\u0000\\\\xf0\\\\xe2m\\\\xf1\\\\xcf,\\b\\\\xac\\b\\\\xb0\\u0011\\u007f\\\\xfek\\\\x80S\\\\x98\\\\xe16\\\\xf4[;B\\\\x975\\\\xa3\\u001f\\u0004\\n\\u0004\\\\x96\\\\xa2\\u0018;\\u0007z\\\\x80SZ\\\\xd8{\\u000er\\\\xf7_\\\\xdbz\\\\x92\\\\xfe\\\\xc1\\\\x8a\\\\xbe\\\\xbd\\\\xdb\\u00a1a\\u0015Lv[+\\\\x80\\\\x81\\u0005{\\\\xb7UO\\u0002\\u007f\\\\xaeS\\\\xf3)\\r\\\\xef\\\\x9b\\\\xe0\\u0003\\u0013|i\\\\x87\\u001fh\\\\xf8L\\r\\\\xef\\\\xaa\\\\xd1W\\\\x80\\\\xed\\u00060m\\u0014~e\\u001aP\\u05c9\\\\x9d\\\\x89\\\\x9e\\\\x90\\\\xe7\\\\xf1\\\\x83!\\\\xe8\\u0010\\\\xc0\\\\xc0\\t\\b]\\\\xa0\\\\x81\\u0007\\u073e\\\\xbee\\\\xfb\\\\x81\\\\x86\\\\x8f\\\\xad\\\\xf0\\t\\tGl\\\\xf0\\\\xb5\\u000e\\\\xce\\u0019\\\\xe0\\\\xb7\\u001b\\\\xb7\\u0000X\\\\x9e\\\\xb6s\\\\xb4U\\\\xecj\\\\xe0H\\\\xe0\\u0018\\\\xe0\\\\xd0\\\\xe0\\\\x88\\\\xf4\\\\xe2\\\\xdbw\\\\xa0\\\\x86\\\\xba\\\\\\\\xdd\\u0005p\\u0011\\u000f\\\\xd0Q3|\\\\xd1\\t\\\\xdfj\\\\xe1\\u0003\\u0003\\\\xbc\\\\xabA\\\\xef\\\\x88\\u001e\\\\x80\\\\xd6\\u0002gh\\\\xd3\\\\xea\\\\xad\\\\xceQ\\\\xc0\\\\xcff\\u0001N\\u0007\\\\x9c\\\\x8e\\\\xc3\\\\xcf|\\\\x97\\\\xeb\\\\xbfO\\\\xaf\\\\xe1N\\\\xf4\\\\xb6_?\\\\xbf*7G\\\\x9a\\\\x9c\\\\xff\\u00bc\\\\xd2\\u0017\\\\x97\\\\xad}ja\\ud115\\\\x8d\\u02db\\u07b4\\bv\\u0016X\\\\x91^\\u0001/\\u0017\\bZ\\u00165\\\\x91^q8\\\\xcc\\u001c\\u007f\\\\xb1\\\\xadeUI\\\\xe1\\\\xd8\\u0005%/d\\\\xac\\\\xfb\\\\xfb\\\\x9c\\\\xacy\\\\x85\\\\x8d:u\\\\xbb\\\\xa6\\\\xabu\\\\xf1\\\\xfa\\\\xcf\\\\xc6\\\\xce.}:m\\\\xe3#\\\\xcb\\u001a\\\\xa7\\\\xadX8'-\\\\xf9d\\\\x87Z\\u0007`\\\\xc6=|'zi\\\\xf4`<\\u063b\\\\x80R\\\\xf3\\u0006\\\\xfd\\\\xb6\\\\xf7\\\\xbeya\\\\xd5\\\\xfe'\\\\x96\\\\xee~*\\\\xa9J\\\\x9aQ\\u0017:c\\u0791_\\\\xcev\\\\xd2\\\\xec\\\\xdeO?\\u000f^V\\\\xf0\\u00ac\\\\xb4\\u0017fg\\u0006//\\\\xaf\\\\xdd\\\\xf9\\\\xb6\\\\xc1f\\u0002\\\\xb0\\u0002X\\\\xed\\\\xbc\\\\x9d\\\\xc1\\\\x8f\\\\xfcO\\\\xe9=qC\\\\x9d\\\\x98\\\\xbf\\\\xf1\\\\xd1\\\\xc5\\\\xeb&\\u0017\\u001dxee\\udb32\\udc8d\\u05ef\\\\x9fC@\\\\x82\\u001d\\\\xc0.\\\\xd0\\u0016\\\\xf4I\\u0000;\\u0007\\u00174\\\\xb0\\\\xfb\\ubba2\\u000fZ\\\\xaa?\\\\xd7T|\\\\xdaV\\u007f\\\\xe4\\\\xd6/]\\\\x9c\\\\x85\\u0007\\\\xc49\\\\xa9\\\\xc6\\\\xd3\\b\\\\xd1k\\u0005\\\\xda\\\\xc0\\u0656\\\\xe4\\u0015\\rKDm\\u4d22\\\\x91\\\\xaa\\u0331\\\\xb1i\\u000f\\u01ac\\\\xfe\\u06cc\\\\xaa\\\\xccOZ\\\\xc1x\\\\xf9n\\\\xf4rh\\\\xd9DK\\\\xa6\\\\xc0\\b\\\\xa8\\\\x9b\\u0011\\\\xbd\\f\\b,K\\\\x9f<y\\\"d~\\\\xe6\\\\xdfg\\u0016\\fK\\\\xa8\\f\\\\x90\\u634c)xX\\\\x95\\\\xfa\\\\xbcb\\u038a\\\\xac\\\\x9cnu;~#\\u001a5\\u0007\\\\xc0w\\\\xa0\\\\x97\\\\xb9\\t\\\\xa0V\\u0003\\\\xfc\\u0302\\\\xact\\\\xff\\\\xa8\\\\xe8\\\\xbc'\\u0013\\u029f\\\\x99Z72\\\\xb1r\\\\xcc\\\\xec\\\\x86\\u075f\\u007f/0$P\\u001a\\\\xe0\\f\\u0016\\\\x96\\\\xff\\\\xab\\\\xd2k\\u0002\\\\xce\\n\\\\x9c\\\\x95rRG9WH\\\\x93\\\\x9d\\u000e\\\\x9b\\\\xb9\\\\xdc\\\\xef\\\\xb5\\u0019\\\\xae\\\\x93\\\\x96\\\\xb9G\\\\xe6\\u0011\\\\xaf\\\\xaft\\\\x9f\\\\xb2\\\\xfc\\\\xe1\\\\x84\\\\xcc\\\\xef\\\\xae]\\\\xb3b\\u04ac\\\\x98U\\u07b1\\u00188\\u001a\\\\xcb\\\\xf2V\\\\x92#1.\\\\xa7n\\\\xb6\\\\xbc\\\\xa8\\\\x88!^]\\\\xe8/\\\\xcfv}m\\\\xee\\\\xabsK(\\u000b)\\\\xd0|\\u04fb\\u01fd_\\\\x9a\\u0019 \\\\xcb\\\\xf4\\nO} l\\\\xea\\\\xa0W\\\\xa4\\\\xe5\\u001f\\\\x9f\\\\xbe\\\\x86oH\\\\xda9\\\\xe7,\\\\xe2qC_!\\\\x92\\\\xc61h\\u0011\\\\xb5\\\\xe8\\\\xd5 0-fxef\\\\xbe\\\\xaf\\\\xb4\\\\xb4\\\\xcf\\\\xe4,\\\\x9f\\\\xd7\\\\xe7\\u000e\\\\x9b<U2o\\\\xd9E#\\\\xa3\\u0001(\\\\xdb\\\\xf1\\\\xbe\\\\xcf\\u001b\\\\xb3\\\\xfd\\\\xa7,\\\\xf6\\u000fM\\\\xf6\\\\x99\\\\xb2xi\\\\xfd.3\\\\xead\\\\x96\\u0003\\\\xd6\\\\xc2\\u0464\\\\xf3A\\\\x9d=/~\\u000bb\\\\xf8\\\\xc4-\\\\xc3}Sf\\u0013/.\\\\xf2\\\\x97\\\\xe5\\u0013/\\\\xcc|P\\\\xba\\\\xf0j\\\\xcbu\\u0001\\u007f\\\\x92G+!\\\\xc7#\\\\xa1\\u0006\\\\x8c\\u0014|\\\\xf4\\\\xfd\\\\x8d\\\\x9a\\\\xfd'\\n\\u07bf\\\\xbe\\\\xfe{[\\\\xc5\\\\xe7\\\\xed\\\\xb9\\u0007.\\\\xef\\\\xfd\\\\xa1U\\\\x8f\\u001f\\\\x92\\\\xb4[y\\\\xc6\\\\xc6R\\u0016\\\\x92\\\\xa3h\\u0000\\u0012`jr6\\\\xf1J\\\\x8a\\\\xb7\\\\xb4\\\\xb4\\u007ft\\\\x85_X\\\\xd6\\\\xc0\\\\xb0\\u0015\\u00e5i.\\\\xa1y!\\\\xd5\\u07c83\\\\x94C_\\\\xc1\\\\x8b|:F]\\\\\\u0010\\u0018V\\\\xe0zz\\\\x96\\u0015\\\\x80\\\\xe1\\u0005\\\\x8a\\u0017(3\\\\xc0\\\\xbaC'\\\\x82&\\\\xcc\\\\xf1\\nNqWV\\u0011\\\\xe1\\\\x85>\\\\x8a\\\\xd2A\\\\xd2\\\\xec~/\\\\xc5\\\\xccJ\\\\xaf4q\\\\xe2,\\\\xe0\\\\xed\\\\x94\\\\xcd\\u03b0\\\\xe8\\u001d\\u046eA\\\\x89#\\u02c2x35jt'\\u0007\\\\x96V\\\\x80\\\\xc3\\u0006\\u0018\\u001e_H\\\\xbc<wXx\\\\xba\\u07eb\\\\x8b\\\\xdd%E\\u0124\\\\x8c\\\\xd4u\\\\xef\\\"\\u0012\\u00183\\bhC40x\\\\xfe\\\\x8bw\\\\xe3\\\\xad\\\\xc0\\\\x9b\\\\x807\\\\x893\\\\xe2^\\\\xd2\\\\xcb\\\\xd9\\\\xefBo\\u4714\\\\xe1\\\\x91K\\\\x83\\u0014\\\\xb9\\\\xfd\\u3a82\\\\xe2\\\\xab\\u0007E\\\\xe7\\\\xf7\\\\x9b8\\\\xbbh\\\\xd3&-+\\\\xd8\\\\xd0\\\\xea* \\u00068\\\\xe1wz\\u0019N\\u0010\\\\xc0N\\u000bf\\u001e\\\\xbd\\\\xe9-\\\\x8b-d\\\\xe6\\\\xdc\\\\xc1\\t%\\\\x81\\\\xca\\u0721\\u028c\\\\x88\\\\x95M\\\\xea\\\\xf6n\\\\x8ed\\\\xaf\\\\xdaaR\\\\xca\\u0006\\\\xef\\\\x88U\\\\xc3\\u0012K\\u001e\\\\x92\\\\xcc\\u001c\\u001b9\\\\xe3\\\\xf5\\\\xc5\\\\xe5\\\\xa7\\u0018\\\\xb0`\\\\x94\\\\xeeD/\\\\xfa\\\\x9f\\f\\\\xc9\\\\xda\\\\xcd\\\\xc0\\\\xd3\\\\xef\\u001c\\\\xfei\\\\xc4\\u001b3\\u0007'4\\u0004\\\\xc5\\u050cM\\\\xc8\\u001b21\\\\xe1\\\\x93_.\\\\xe9\\\\xb0\\\\xfc\\\\x90\\\\xb9f\\\\xd7\\u0010\\u0272\\\\xb1\\u04ca\\u001e\\\\x98V\\\\xe4\\u0017\\\\xb2T\\\\xa4\\\\x97\\u0001\\\\x9a\\\\xe4\\\\xec\\\\xce\\\\xde\\\\xfe\\\\xe7\\\\xf4\\\\xfe\\\\xdcb\\u001c/O\\u001e\\u0010S:8\\\\xbe\\\\xc2/t\\\\xf9\\\\x93\\\\x89\\\\xa9j\\\\xa3\\\\xd6N\\\\xd9X\\u0010x<E\\u0005\\u001em7j3\\\\xec\\\\xf9\\\\xec\\\\xf4\\\\xbaC\\\\xbf\\\\xd5}\\\\xa1-=\\\\xd8Zy\\\\xb8\\\\xa3\\\\xfe\\\\x98\\\\xb6x\\\\xef\\\\xb1\\\\xf3\\\\xdd\\u0014\\u000b\\\\xd0r\\\\xeb\\\\x86\\u0660F\\u001d\\\\x81F\\u0017\\\\xcd\\\\xe2\\\\xa4\\\\xecJ\\\\x8f\\u0222!\\\\xd3\\\\xd6\\\\xf8J\\\\x8b\\\\xfaG\\\\xe5\\u000f\\n_9&.\\\\xdf[Z:|\\\\xe6\\\\xba\\\\xf6k\\\\x97\\\\xedz\\u035d\\\\xe8un\\\\x84\\\\xe8\\\\xaby\\\\x81\\\\xe6x\\\\x8a\\\\xe3I\\u0001\\\\xe8\\u001bFfjV}\\\\xe0k3\\u0007\\\\xc8s}\\\\xe2\\\\xea\\\\xbdc\\\\xeb|\\\\x95e\\\\xfd#\\\\xd2\\\\xc7H\\u0016-\\\\xcck\\\\xe8\\\\xb2\\\\xd0\\u001c\\\\xfaz\\\\x9a\\\\xe1h\\\\xc7;\\u0789^A\\u02c0\\\\xe9\\n\\r\\\\x95_\\\\x9c\\u001f\\\\xa4\\\\xca\\u0019\\u0016W\\\\xf0Hb\\u0150\\\\xd0\\u0543\\\\xa65\\\\xf5\\r\\u02cb\\\\V\\u04a67r6\\\\x9d@\\u001a\\\\xc4i\\\\xf8W\\\\xa4\\u0017\\\\xc9\\\\xf6h\\u07f4!\\\\x99\\\\xdc\\\\xf1\\\\x84\\\\xe2S]6\\\\xf2\\\\xcf\\\\xcd\\\\xce\\\\xf3\\\\x92\\u0015\\u0013\\\\xd2*\\\"\\\\xaa\\\\x96\\\\x88[\\\\xef?m\\\\xad\\\\xfb\\\\xe4\\\\xa5\\\\xcf\\\\xcfM\\\\xfb\\\\xea\\\\x9aN\\\\xed\\\\xdc\\\\xe8\\\\xf1\\\\xaaF\\u0001C\\u0002m\\u0001\\\\xb3\\u0016\\\\x89j\\\\x80\\\\xf4,\\u001d\\\\xc0y=\\\\xf5\\\\xf2\\\\xf4\\u0015\\\\xde\\\\xcar\\\"8\\\\xcb5$\\\\xfb\\\\xb9E\\\\xdbu\\u001dz\\u078e>\\\\xd1\\\\xf0\\\\xce\\\\xf1\\\\x80\\\\xc9\\\\xc9\\u0001\\\\xd2\\u001c/Y\\ue829u\\\\xc4K\\\\xab\\\\x92?6\\\\xd88\\u0737hB\\\\xd9\\u015ew\\\\xf4?o\\\\xc1\\\\xbb\\\\x95\\u0005\\u0004J\\u0007p\\u001d\\\\xe0\\\\x89\\\\xf9\\\\x95\\u0003\\\\xe2\\\\xca\\\\xfaF\\u0015\\\\xba+J\\\\xef\\\\x97,\\\\x93.\\\\xce\\\\xef\\\\xe0@\\u000bp\\\\x95\\\\x86\\\\xd4M\\\\x9f{\\\\xcb\\n\\\\xfa\\\\x84\\u0017x*\\\\xab\\\\x89\\\\x89Ys\\u001b?\\\\xd2\\u0000XX\\\\xb4\\\\xfb\\\\xe2\\\\xb9\\\\xc69\\\\xe4I\\\\x87\\\\xba\\\\xf1\\\\xfb\\\\xb6q\\\\xf4\\\\xa2\\\\xe6\\\\xf1\\\\xc4\\\\xec\\\\xc0\\\\xf8\\\\xda>\\\\xe1y\\\\xbe\\\\xd2\\\\xec\\u01e6\\u0015\\\\\\\\xd5\\u001bM\\f\\u001a8Z\\\\xfc(\\\\x9aL`4R\\\\xef|\\\\xfa\\\\xe3\\\\xe6\\\\x8fOm\\\\xf8\\\\xb2\\\\xa3\\\\xfc\\\\xe0\\\\xf5\\\\xd2On6~\\\\xa3\\\\xad\\\\xfe\\\\xe8\\\\xcci\\u001d\\\\x92\\\\xb1\\u007f:{\\u0668\\\\xb3\\u0002\\\\x9e\\\\x83\\f\\\\x85\\u0014\\u0639\\\\xe9\\\\xf5\\\\xc4\\\\xc4R\\\"\\\\xa4\\\\xcaK\\\\xb9fh\\\\xe2\\\\xba~SR\\\\x87E\\\\xe5\\\\xf8&n%\\\\xa4\\\\x8d;\\\\x8f\\u0764E\\\\xe9\\u001a5\\n/\\\\xb0|\\u000f\\\\xb6=\\\\xaf/\\b\\u001c\\\\x8f$\\u0001R\\\\xfc\\\\xe4\\\\x91n\\\\xb8/\\\\xaet\\\\x80\\\\xaa0(\\\\xa1\\\\x91\\b\\\\xafr\\\\x8d\\\\xdf\\\\xd8'\\\\xba\\\\xc9;\\\\xa61 4E\\\\x9e\\\\xbe\\\\xf6\\\\x82\\\\x8e\\\\xa1\\\\x9cwp\\\\x88a`\\u0017\\\\xc0Nb\\u00029,+\\u0001mB\\\\x8d2\\\\x93X\\u0013\\\\x9f\\\\x92\\\\xb7\\\\xdb-l\\\\xb5\\\\x9f<\\\\xd7\\u007f\\u0292\\\\xa0\\\\xf0\\u0015\\\\x84\\\\xa4\\\\x92\\b/\\u001b)Y\\\\xf1\\\\xd67\\u7c6c\\u0002\\\\x94 \\\\xb0\\\\xbfK\\u001dV,\\\\xde\\\\xdb\\u0001\\u001c\\\\xcc\\\\xdcSz\\\\x99;\\\\xd1\\\\xdb\\\\xc9\\u00eb\\\\x8bJ\\u0003b*}\\\\xa6m b\\\\xd7\\u0011\\\\x8aF\\\\x9f\\\\x84\\u01a1\\\\xb1\\\\xf9#\\u00e7\\u057es\\\\xb8\\u0003\\u04cby\\u0013\\u0010\\\\xbd\\\\x94\\rQg\\\\xd5\\u0003K\\t\\\\xf8V:\\\\x80\\\\xd3\\u0756\\u0017\\u0012\\\\x93]\\\"\\u000b\\u0006No\\\\xf2\\\\x89*z|\\\\xd6zq<X\\u0001\\\\xaeS\\u0010\\\\x92\\\\xbd\\\\xd772\\\\xd3?\\\\xba((\\\\xbe\\\\x9ax#\\ubc54\\\\xf7Z\\\\xba\\\\xb9\\\\xbb\\\\xd0\\\\xcb[5\\u0002m1\\u0002l9v\\\\xc9g\\u00bca\\\\xd3k<U\\\\xe5\\\\xee\\\\x8a\\u0491\\u0011K\\\\x8f^\\u04ab\\u0001)\\u001a\\\\xdd\\u0000\\\\xa5\\\\xef\\\\xfe\\\\xec\\\\xaf*\\\\xf1VV\\\\xfa\\\\xc4\\\\xd4\\\\xf5\\\\x89,Y\\\\xba\\\\xe9\\\\x88\\\\xc69p\\u001c\\\\x80\\\\xddn\\\\xbf\\u0013\\\\xbd\\\\xdf\\u0774<5#\\\\xdfCV\\\\xd2'<o@l\\\\xf1\\\\xb8\\\\xb8\\\\xec\\u04ed\\\\xed\\u000e\\\\xa1\\u0014\\\\x99\\u0002\\\\xd0.#\\\\xa0;\\b\\\\x9f\\u001d\\\\xbf\\u0438\\\\xef\\u06ca\\u0003\\\\xe7\\\\xd7\\u007f\\\\xa7\\\\xcfy\\\\xefB\\\\xd6\\\\xfe\\\\xdf>\\\\xb8H^\\\\xa3\\\\xe1T\\\\x8b\\ue9f3\\\\x979\\u001aDz\\\\x81G\\u0748\\\\xe8\\r\\\\xaf\\\\xf5\\\\x89\\\\xdb\\\\xec.k\\u0018\\\\x9a\\\\xb8n@h\\\\x9a\\\\xff\\\\xc4\\u0015\\\\xee\\\\xd1\\\\xeb\\\\x89)\\\\xe5\\u000b\\\\xcb\\\\xf6\\u079d^F\\u0000\\nYu\\u0018\\\\xcc\\u000e%~\\\\xb2\\\\xf0\\\\xc0)\\\\xe2\\\\xc5\\u0005\\\\xfd\\u0015\\\\xf9>\\\\x8aJ\\\"\\\\xac\\\\xb2o\\\\xeczBQ\\\\xef\\\\x9f\\\\xd0<@\\\\x92>\\\\xbddg\\\\x97\\u0000\\\\xb4\\\\xf3\\u000e\\\\xe8\\u000f\\\\x84\\u007fA\\\\xefq\\u0003\\\\x8c\\\\x8c\\\\xcd\\\\xf6\\\\x93\\\\xe7\\u0006(\\\\xf3}'%\\\\xdd\\u0017\\\\x9d\\\\xed\\\\xaaj\\\\xf0\\\\x9b\\\\xb6qD\\\\xe4\\\\xf2\\\\x9c\\\\xf5\\\\xef\\\\x88\\\\xd0\\\\xdaX\\\\x96\\\\xf9\\\\xcb\\u048b\\u001b\\ud116v\\\\xee\\u0517\\\\xad\\\\xf0\\\\xd4\\\\xdc\\nBQ\\\\xeb2u+1u\\u0007!i$\\\"\\\\xf3\\\\xfbI\\u04c3\\\\xa4)\\\\xaf/\\\\xaf\\\\xff\\\\xac\\\\x95C\\\\xfa\\\\x89\\\\xa8i\\\\xd0&$?\\\\xb3\\u0006`\\\\xf4@\\\\x99H\\\\x8a\\\\xb1\\\\xe0M\\\\xfc\\\\xac\\u0011^\\\\x9a_@\\\\x84\\\\xe7\\u0005\\\\xcd\\\\xde\\u4a6a\\u001d:m\\\\xa3\\\\xddh\\\\xe5\\\\xec\\\\x8cEo\\u0006\\u001e\\\\x9a??\\\\xd7_\\\\x96AD\\u0015\\u0013\\\\xaaf\\\"v\\u000b\\u0011\\\\xbfm\\u05c1\\\\xef0d\\\\x88\\\\xde\\u001e]\\u0006]l\\u0017j\\\\x82\\\\x81\\u00048\\\\xc9\\\\xc2\\\\xd8\\\\xe5[\\\\x88\\\\xe8J\\\"\\\\xba\\\\xd25\\\\xae\\\\xccW\\\\x9e9#\\\\xa3\\\\xd2\\n\\\\xa0'\\\\xd1\\\\xe7;9X\\\\xb5\\\\xfdk\\\"\\\\xb8\\\\xc0/q\\u0013!o$\\\\x82\\\\xcbf\\\\xd4}\\\\xd2&\\u0000\\\\xc9a\\r\\\\x9a\\\\xa7\\\\xf0^C\\u0001\\\\xff\\\\xff\\\\xa5\\\\x97\\u00038\\\\xdeB\\\\x8eK\\\\xc8#\\\\xa4\\\\x95\\\\x9eqM>\\\\xaa\\\\xb2Q\\\\xb1\\\\xf9\\\\xdf\\\\xde\\\\xd4[\\u001c\\\\xcb\\u0017\\\\xb0\\\\x8c\\u0761\\u07f1d[\\\\xb7\\\\xe1\\\\xfd\\\\xaf~i|\\\\xff\\\\x87-\\\\xc7Z+>\\\\xbePu\\\\xe8\\\\xd2wj\\\\xf8\\\\xea\\\\xb2\\\\xe9\\\\xa3\\\\xe3\\\\xe7.\\\\xdc\\\\xec\\u0016\\\\xf0lF\\\\x96>\\u0016\\\\xccv\\\\x98\\\\xb6\\\\xac\\\\x84\\\\x88\\\\\\\\xe3\\u0012\\\\xbb\\\\x8d\\b\\\\xab\\\\xf2W\\\\xd5=1\\\\xab\\\\xe2>i\\u001a\\u0011\\\\xd3\\\\xec:u\\\\xf3\\\\x93K\\u059f\\\\xd0\\\\xfd\\u0013z\\u0149\\\\x86\\\\xa4h\\u000eH\\\\xbck\\\\xe0\\\\xa7e9\\\\x9e\\\\xb4\\\\x93\\\\xa6\\\\x97\\u000b\\u000e\\\\xfa*J\\u0003\\\\x95e\\u0003b\\\\xab\\\\xfe\\\\xb6\\\\xe2m\\\\xef\\u010d\\\\x84\\\\xa4\\\\x96P4\\u0011S2\\u0014\\\\xf9\\\\xbbo\\\\x91\\\\xe8oi\\\\xab\\\\x9e\\\\xa7\\\\xcc\\\\xe28\\\\xd2`\\\\xa7\\\\x9d\\\\xf4b\\\\xe9\\u000e\\\\x80\\\\xa6P\\\\xe3\\\\x91\\u0016Vt\\\\xf0\\\\xa2gX\\\\x8a\\\\xb7\\\\xaa\\\\xc0K\\\\x99\\\\xff\\\\xd0\\\\xf4\\\\x9cg\\\\x97T\\u0011\\\\xb2\\\\xfa\\\\xbe1\\\\xcd^a\\u0019/-\\\\xac\\\\xfc\\\\xb1\\\\x8b\\\\xb7\\\\x89\\\\xa3\\\\x80V_;\\\\xf0v\\u0007\\\\xbdHmw\\\\xca\\u0012\\\\xf7Vr\\\\xb83\\\\xbd//m\\ucaea'\\u0014k\\\\x88\\\\xc4\\\\xedD\\\\xc26\\\\x9f\\u062aA\\\\xaa\\\\x9c\\\\xe1\\\\xb1Y\\\\x81\\u0013f\\\\xad;v\\u0019-w\\u2124\\\\x8c\\\\x88^k\\u0017\\u0002\\\\x98\\\\xb7\\\\xb3\\\\x9c`\\\\xc5\\\\xf4\\\\x9eT3O\\\\xcf\\\\xc8\\\\xf4\\\\x88\\\\xad&\\\\xa4\\u57aa\\u0687\\\\x97\\\\xee\\\\xb3bn\\\\x91\\r\\\\x8b\\\\xe2.\\\\xf1\\\\xf0\\\\\\\\xea\\u0016B^\\\\xe66};\\u0011\\\\xbf\\\\x8d\\\\x88l\\\\x8c\\\\x9b\\\\x9bi\\\\xd4\\u0018\\\\xeeH/\\\\xd5M\\u0002\\\\xac?~\\\\x8d\\bO\\\\xeb\\\\x93X\\\\xef1\\\\xab\\\\x99\\\\x88\\\\xc8\\u001c\\\\x98P\\\\xf4\\\\xc9\\\\xe9\\u0016\\\\xabSb\\\\xff\\u007fU\\\\xa7\\\\xac\\\\xbd?\\u0010\\\\xc1\\u0005\\\\xae\\\\x8aF\\\\xaf\\\\x84MDT\\\\xdd\\\\xdc5G\\u0522\\\\xbc\\u01d0`7\\u0001k\\\\xbf\\u0013\\\\xbd\\\\xdf\\u07b4\\\\x8d\\\\x89\\\\xc9\\uaae8\\ud937\\ude8e\\b\\\\xcexxf\\\\xc5o&0\\t`\\\\xe5\\\\xc5O\\\\xa2\\u0015\\\\x9b#-\\\\xc0\\\\x92\\\\xa8s\\\\xd4\\\\xf4\\\\x97\\\\xd7l{~\\\\xd4||\\u0003NRp\\u0019\\\\xe0\\\\xcdc\\u0017\\\\xbf8}C4\\\\x98\\\\xd0v^\\\\xbc\\\\xb1\\\\x95\\\\x82EY\\r\\b\\\\xdd\\\\xc85\\\\xbe\\u04f6\\r\\\\x9d\\\\xb1Q\\\\x92\\\\xbbw\\\\|\\u0001\\u0011\\\\\\\\xea9s\\\\xfb@Y\\\\xf6\\\\xee\\\\xe37\\\\xeeB/\\u06b5\\u001dZ\\u0018\\\\xa2\\\\xd7b\\\\xd5wv\\\\xb5\\u0004\\\\xc6T\\\\x8e\\\\x9c\\\\xb3\\\\x8ex#\\\\xd5[R\\\\xf0F\\\\xdd\\\\xf7\\\\xfdf\\\\xef \\\\xa2\\\\x9b\\\\xdd\\u00126\\\\xb9K\\n\\\\xe2J\\\\xf7\\\\xb5\\\\xb3\\\\xe2nE\\\\x82\\\\x80\\\\xe4pZ\\\\xb8#\\\\xbd<\\u0276\\\\x91 /\\\\xda\\\\xeb+Is\\\\x97\\\\xe5\\\\xf8\\\\xc6\\u0014M_\\\\xfbq\\\\xfa\\\\x81S\\\\x84j\\r\\\\xa1l\\u001a\\\\xa0*~(:\\\\xed\\\\xc3\\\\xd3\\u001dZ\\u001aSa3\\\\xff%\\\\xe9\\\\xedy\\u001e\\\\xdc\\\\xddX\\\\x8a\\u0010\\\\xb5\\\\xb6\\\\xebVxia\\\\xa5[l\\u0013!\\\\xab&T\\\\xf5\\u0003\\u0016\\\\xee~xz\\\\xfe\\u0010\\u0272 e\\\\x81{p\\\\xea\\\\xeb+\\\\x9a[\\u0000\\\\x89\\\\x9avd\\u000e\\\\xb0\\u0001kq\\\\xac\\\\xbd\\\\xbc\\\\x9d\\u0017@\\\\xa4\\\\xf7W\\u001d<=;\\\\xb7Ot\\\\x91klE\\u001fe\\u0243\\u027b\\fz-\\\\xfaFZ\\u0007\\\\xbcI\\u0003\\\\xd0\\\\xf4\\\\xcd%/E\\n\\u0011[E\\u012c#\\\\xa6o\\u001b\\u00179{\\\\xe3\\\\xee\\\\xf7\\u0000\\\\x80\\\\xa6YqW\\\\xc2\\u0002'\\u0003L7\\\\xf0Z\\u0001\\\\x98K4<\\\\xb6r3\\\\xa1,!b\\\\xaa\\\\x88\\\\xb8\\u001a\\\"4yV\\\\xc3[\\\\xc8\\u0002\\\\xcf\\\"iV\\\\xa0\\u0011\\\\xf3y;\\\\x8ez\\\\x86\\\\xe5y+j\\\\xbc\\\\xa2\\\\x9b\\\\xfaH\\\\xaa\\u00164\\u001e\\u050aK\\u0007kE\\\\x8f\\\\x87\\\\xe7\\u0017\\\\xb6A\\\\xddN/\\u001a\\\\xf1\\\\xef\\\\xda\\\\xe8\\u0007\\\\xe3\\\\xf3\\\\xfb\\\\xaa\\\\xea\\\\xfb\\\\xaa\\\\xea\\\\xdd\\\\xe4%\\\\xf7M-\\\\xf9I\\\\x87\\\\x9e\\u0001MP\\u068e\\\\xf6J\\\\xce\\\\xce[\\\\xd4\\\\xc0[E\\\\xc1^\\u0003p]\\\\x80\\u0016\\\\x80\\\\xf3,\\\\xacy\\\\xff\\\\xbb\\u001f.u\\u06d0)\\\\xdfA\\u001d\\\\xfa<ocyfNZ!!k\\\"\\\\xe26\\\\xb9O]\\\\xe7#\\\\xcd\\\\xdes\\\\xaa\\\\xe5\\\\x99i+<\\\\xa75\\u0011\\\\x92\\\"\\\\xcf\\u80a9M\\u001f\\\"K\\nG#\\\\xe3\\\\x86\\\\xc0\\n\\\\x82`\\\\xb3\\\\xa1\\u0758\\\\xe3\\u0004\\\\x8aF$\\\\x8b+\\\\x89\\\\x85w\\\\xc8\\r\\\\x9b\\\\xdf|\\\\xdbS^\\\\xee.-\\u001d\\u0018\\\\xbe\\\\xf2\\\\xf19U\\r?\\\\xd9\\u0006\\u01d6\\\\xb9\\u016cu\\\\x8bY\\\\xeb\\u0011U\\u001c\\\\x9e\\\\xbd\\u0003\\\\xd9iY\\u000bpZ\\u0510\\\\x80\\\\xc4\\\\xd2`\\\\xa2\\\\xd14\\\\xba\\\\x8d^;\\\\x87\\\\x98\\\\xe6\\\\xe0x\\u0007\\\\xf4\\\\x8f)\\u001a\\\\x94P\\\\xe6-\\\\xcfq\\\\x8dH;pQ\\\\xfb\\\\xe1\\u0015\\\\x83ol}@B\\\\x93[D\\\\x9e\\\\xf7\\\\x94\\u0015+\\\\xb6\\u001dk\\u0015\\\\xc5\\u0003\\\\x9e\\u001655\\\\xfc\\\\xea\\f\\\\x87\\u0017\\u0016\\u01cc\\\\xb8\\\\x97\\\\xf4\\\\xda\\\\xeeD\\\\xef\\r\\u001b\\\\xbc\\\\x92TM\\\\xc8k\\u0010\\\\xc0\\\\x8a\\\\xdaAI{\\\\xe7n8<B\\\\x9e\\u0012\\\\xa4,\\b\\\\x90\\\\xe6\\\\xdc/_\\\\xbd\\\\xfb\\\\x87\\u0016\\\\xa3C\\\\x8d\\\\xb5c\\\\xe1\\\\xe1O\\\\xd3\\\\xfb3\\u0007\\\\xcf\\\\xe5mG\\\\xf4\\\\xc6o$\\\"k\\u001e\\\\x96\\\\xccI\\\\x98\\\\x9b\\\\xac\\\\xd5\\\\xea{\\\\xe8E\\u06d5\\\\xcd\\b\\\\xbc\\u0016\\\\xac\\\\xad\\u00020\\\\xd5\\\\xfb\\u000f\\u000f\\\\x88/\\\\xea\\u001b]FD\\u0015y\\\\xceY\\\\xef\\u0013\\\\x9f\\\\xf7\\\\xce\\u0015\\\\xf3\\u007f\\\\x8a\\\\xdeo[\\\\xa9\\u001ez\\\\xdd\\u0015\\\\xa5\\\\xf7M-\\\\xf9Q\\\\x8b\\\\x9e\\\\x81\\u4031\\\\x99Ez\\\\x811\\\\xddN\\\\xef5\\u001e\\\\x8ek\\\\xe0\\u035f;\\\\xf7\\u001d\\\\xbf\\\\xd2fCs\\\\xed.\\\\xf4\\\\xba%6\\u0007\\\\xaa\\n>\\\\xb8\\\\xacWf\\\\xd7\\u0013\\\\xaaJBQ\\\\xee\\\\xae\\\\xcc{aYm\\\\x97^-`\\\\x80y\\\\xbcj\\\"\\\\xc9\\u0729!\\\"\\\\x85\\\\xd8I\\\\xaf\\u001d/t\\\\xab\\\\xf2\\u000b\\\\xbd\\\\x95\\\\x95\\u001e\\\\xb2\\\\xb2\\\\x81\\\\xe1+\\\\x95\\\\xe5\\\\xefo:\\u0007\\\\xc3\\u0012*\\\\xddb\\\\xd6\\\\xf6U6\\u0789^\\u0016,\\\"\\\\xbdT\\u000f\\\\xbd$\\\\x92\\\\xc8m,4\\u001f\\\\xfa\\\\xc5K\\\\x92\\\\xe9\\u001d\\\\x95\\\\xe5)\\\\xcd\\u001a9\\\\xb7\\\\xfeg\\u001b\\\\\\u0000xp\\\\xf9\\\\xdb\\\\xee\\\\xf2J?e\\\\x99_hjD\\u01a6\\\\xcbvL/r\\\\xb1\\\\xfd\\u0005\\\\xe9\\u0015\\\\xbdH\\\\x94\\\\xa8\\\\xcb8\\u001d\\\\xa3\\\\xa8\\\\xb5\\\\xd8`BR9\\u0011Y\\\\xec\\\\x9f\\\\xd8\\\\xe4.-~p\\\\xc1\\\\xba\\\\xa3\\\\x97\\\\xb5\\u0011\\u000b3=\\\\xa3\\n\\u0007$\\u053a\\\\xbd\\\\xb6(:\\u007f\\\\xfb5\\u001au)\\\\xeat\\u0006O\\u0001\\u000e\\u0249\\u27a2\\u00078\\\\xa3e_\\\\x98\\\\x99I\\\\xc4\\u0014\\\\xf5\\\\x8d/\\\\xed\\\\xab\\\\xcc\\u007ft\\\\xc9F\\\\x83\\\\xa1\\u0013\\\\xfd\\\\x925\\u0000X\\f\\\\x80\\u0333[\\\\xbe\\\\xfa\\\\xf6\\\\x81\\\\xa9\\\\xcb\\tU\\u0019\\\\xa1(\\u0019\\u001a\\\\x9d9|\\\\xf2\\\\xcc\\\\xc6\\u000f\\\\x8e\\u001b\\\\xb1\\\\xc5\\u001fk\\u0004<I\\\"\\\\xd5\\\\xd0\\\\xc8q\\\\xbfQ\\\\xf0\\\\xdc\\\\xe2\\u001a\\\"2\\\\xc7'\\\\xbe\\\\xd2K\\\\x91\\\\xd7_\\\\xb6JU\\\\xbc^#v\\u0013C\\\\xa2o\\\\xa7\\f\\u0002@\\u0276C\\\\xfe\\\\xa1\\\\xe9\\u0001\\\\xb2R?U\\\\xb5[dqR\\u00c7\\u0006\\\\x91^\\\\xce\\n\\\\xac\\u001e8L/\\\\xcf\\\\xffS\\\\xb9\\\\xf7\\\\xa1\\\\xf8\\\\\\u0017e\\\\xad\\\\x8b\\\\xb2\\\\xd6S^<*\\\\xb1\\u8116u\\\\x8c\\u000e\\\\xc7\\\\xf2\\\\x94\\u0015\\u043f\\u0018@\\u0013\\u001em:\\\\xa7\\\\xec\\\\xf0\\\\x8d\\u001aj\\u000e\\\\x9d\\\\x99^\\\\xb6\\\\xeb\\\\xc8\\\\xd9v\\\\x9b\\\\xf8-<#\\\\x9a\\u0006@\\\\xd0\\u0001\\\\xaf\\\\xe5y\\u04fc\\\\xb4\\fB\\\\xde@\\\\xc4op\\\\x8d\\\\xaf\\u001b\\u0014\\\\x93y\\\\xb2\\\\xbd{\\\\xcd\\\\xfe\\\\xf7]%\\\\xe9\\\\xfe\\\\xb1\\\\x85\\\\xbe\\\\xd1\\\\xf9^\\\\x8a\\\\x9c\\u000f~>k\\u0005\\\\xe8\\\\xa6x\\\\xd1a\\\\xc1\\\\x92v,7\\\\xa3e\\\\x84'I\\\\xc1)\\u0011u\\npZC=\\u001d\\\\xbb\\\\xd4OU\\\\xe9\\u0011U<6|\\\\xee\\\\xfa#\\\\xe7\\u000f]\\\\xb1?\\u0011\\\\x9f\\u6a6au\\\\x95UzD\\u0015N\\\\xce\\\\xd9gB\\\\xbda\\u0004\\\\xb6\\u00035\\\\xc7\\\\xdbYy0\\u04c2\\\\xc3\\\\&*:\\\\xc0#\\\\xd7gl\\\\xf1.Wy^_i\\\\x8e\\\\xa7$M^\\\\xf6\\\\x8e\\u001ek\\\\xe2\\\\x8b6}\\\\xe5\\u0013\\\\xbajPB\\\\x95\\\\x8f4\\u007f\\\\x80<\\\\xe7\\\\xc0e\\\\xce\\\\xf8\\u0007z\\\\xd1$\\u8c7f\\\\xdd\\\\xc5M\\\\xfc\\u007f@/\\\\x8f\\u0016\\\\xdb\\u007fN\\\\xefM\\u000b\\\\xbc\\\\xbe\\\\xb0\\\\xd4EV\\\\xee\\u0013W\\\\xef.-\\u001e3\\\\xbf\\\\xf9:\\u000be\\\\xbb\\u000f\\\\xb9\\\\x86\\\\xe7\\u0006\\\\xc5\\\\xd7\\u0004\\\\x84\\\\xa6<\\\\xacJ\\\\xdds\\ucf25\\u01e8\\\\xf8'\\\\xe9\\\\xc5]\\\\x8cv\\u07a8\\\\xb2MDd^\\\\xe0\\\\xfc\\r\\u0003d\\\\xabF\\\\x85\\\\xcd\\u000b\\\\x9e\\\\x97\\\\xa9\\u0005\\\\xe8f\\\\xc1\\\\xcc;\\\\xe8\\u0499\\\\x8c$\\\\xc0\\\\xba\\\\xcfO\\\\x8d\\\\x90\\\\xa7\\\\xb8\\\\xc8\\u000b< truncated lines 180-138768 >\\n0005369896 00000 n \\n0005370238 00000 n \\n0005370889 00000 n \\n0005370992 00000 n \\n0005371332 00000 n \\n0005372898 00000 n \\n0005373459 00000 n \\n0005373533 00000 n \\n0005376246 00000 n \\n0005377914 00000 n \\n0005378377 00000 n \\n0005378490 00000 n \\n0005382479 00000 n \\n0005386135 00000 n \\n0005388751 00000 n \\n0005391816 00000 n \\n0005394567 00000 n \\n0005398617 00000 n \\n0005399381 00000 n \\n0005402477 00000 n \\n0005404137 00000 n \\n0005406766 00000 n \\n0005409837 00000 n \\n0005411284 00000 n \\n0005412489 00000 n \\n0005413974 00000 n \\n0005414352 00000 n \\n0005415870 00000 n \\n0005416083 00000 n \\n0005416254 00000 n \\n0005416893 00000 n \\n0005417325 00000 n \\n0005418145 00000 n \\n0005418472 00000 n \\n0005418842 00000 n \\n0005419180 00000 n \\n0005420357 00000 n \\n0005420570 00000 n \\n0005420638 00000 n \\n0005420878 00000 n \\n0005421694 00000 n \\n0005421850 00000 n \\n0005422380 00000 n \\n0005423234 00000 n \\n0005423584 00000 n \\n0005423782 00000 n \\n0005424174 00000 n \\n0005425042 00000 n \\n0005425797 00000 n \\n0005426497 00000 n \\n0005427169 00000 n \\n0005428039 00000 n \\n0005428385 00000 n \\n0005428764 00000 n \\n0005429143 00000 n \\n0005430500 00000 n \\n0005430713 00000 n \\n0005430787 00000 n \\n0005431015 00000 n \\n0005431928 00000 n \\n0005432158 00000 n \\n0005432270 00000 n \\n0005432752 00000 n \\n0005432933 00000 n \\n0005433845 00000 n \\n0005435201 00000 n \\n0005435403 00000 n \\n0005435706 00000 n \\n0005436065 00000 n \\n0005437190 00000 n \\n0005437403 00000 n \\n0005437476 00000 n \\n0005437769 00000 n \\n0005438935 00000 n \\n0005439119 00000 n \\n0005440375 00000 n \\n0005440610 00000 n \\n0005441537 00000 n \\n0005442467 00000 n \\n0005442672 00000 n \\n0005442789 00000 n \\n0005443276 00000 n \\n0005443520 00000 n \\n0005443700 00000 n \\n0005443945 00000 n \\n0005444131 00000 n \\n0005444605 00000 n \\n0005445154 00000 n \\n0005446514 00000 n \\n0005446820 00000 n \\n0005447008 00000 n \\n0005448249 00000 n \\n0005449273 00000 n \\n0005450177 00000 n \\n0005451195 00000 n \\n0005452152 00000 n \\n0005452611 00000 n \\n0005453947 00000 n \\n0005454556 00000 n \\n0005454883 00000 n \\n0005455138 00000 n \\n0005455251 00000 n \\n0005456308 00000 n \\n0005456904 00000 n \\n0005457759 00000 n \\n0005458815 00000 n \\n0005459343 00000 n \\n0005460539 00000 n \\n0005460997 00000 n \\n0005461595 00000 n \\n0005461890 00000 n \\n0005462404 00000 n \\n0005462535 00000 n \\n0005462837 00000 n \\n0005463252 00000 n \\n0005465724 00000 n \\n0005465937 00000 n \\n0005466005 00000 n \\n0005466437 00000 n \\n0005466865 00000 n \\n0005467101 00000 n \\n0005467199 00000 n \\n0005467448 00000 n \\n0005468218 00000 n \\n0005468371 00000 n \\n0005468859 00000 n \\n0005469698 00000 n \\n0005469875 00000 n \\n0005470499 00000 n \\n0005471414 00000 n \\n0005471783 00000 n \\n0005473337 00000 n \\n0005473524 00000 n \\n0005474163 00000 n \\n0005474354 00000 n \\n0005474528 00000 n \\n0005474628 00000 n \\n0005474821 00000 n \\n0005474981 00000 n \\n0005475329 00000 n \\n0005475549 00000 n \\n0005475707 00000 n \\n0005476522 00000 n \\n0005477237 00000 n \\n0005477863 00000 n \\n0005478502 00000 n \\n0005478844 00000 n \\n0005479739 00000 n \\n0005480167 00000 n \\n0005480435 00000 n \\n0005480633 00000 n \\n0005480733 00000 n \\n0005481445 00000 n \\n0005481877 00000 n \\n0005482528 00000 n \\n0005483249 00000 n \\n0005483628 00000 n \\n0005484448 00000 n \\n0005484775 00000 n \\n0005484941 00000 n \\n0005485166 00000 n \\n0005485336 00000 n \\n0005485706 00000 n \\n0005485808 00000 n \\n0005486736 00000 n \\n0005487282 00000 n \\n0005487350 00000 n \\n0005487807 00000 n \\n0005490405 00000 n \\n0005492442 00000 n \\n0005492650 00000 n \\n0005492882 00000 n \\ntrailer\\n<</Size 1494\\n/Root 898 0 R\\n/Info 1 0 R>>\\nstartxref\\n5493363\\n%%EOF\\n\", \"filename\": \"/mnt/user-data/uploads/140217\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:49:32.952850Z",
+          "stop_timestamp": "2026-05-28T15:49:34.208849Z",
+          "type": "text",
+          "text": "That's a binary PDF of the NYHIMA website — not extractable as text here. Let me fetch the site directly.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-05-28T15:49:34.208849Z",
+          "stop_timestamp": "2026-05-28T15:49:35.168270Z",
+          "type": "tool_use",
+          "id": "toolu_01686cEFf4XXZrAA5qNZLYFJ",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://www.nyhima.org/about",
+            "html_extraction_method": "markdown",
+            "text_content_token_limit": 800
+          },
+          "message": "Fetching: https://www.nyhima.org/about",
+          "integration_name": "Web Fetch",
+          "icon_name": "globe"
+        },
+        {
+          "type": "tool_result",
+          "tool_use_id": "toolu_01686cEFf4XXZrAA5qNZLYFJ",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "About",
+              "url": "https://www.nyhima.org/about",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "nyhima.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=nyhima.org",
+                "site_name": "nyhima"
+              },
+              "is_missing": false
+            }
+          ],
+          "is_error": false,
+          "message": "Fetched: About",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=nyhima.org",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "About",
+              "url": "https://www.nyhima.org/about",
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=nyhima.org",
+              "source": "nyhima"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-05-28T15:49:38.210590Z",
+          "stop_timestamp": "2026-05-28T15:49:41.977781Z",
+          "type": "text",
+          "text": "Good enough. NYHIMA = New York Health Information Management Association — the NY component of AHIMA, focused on health information management professionals. Now I have what I need.\n\nHere's my proposed registry entry, then I'll write the full updated file:\n\n**Key:** `nyhima`\n**Category:** AIX Projects (it's deliverable-bound — a talk and a workshop with an external professional org)\n**Notes:** New York Health Information Management Association (AHIMA component); AI literacy talk June 7 + workshop June 6; public engagement / professional development audience\n\nDoes that work, or do you want to adjust category or notes before I write the file?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 9,
+      "created_at": "2026-05-28T15:49:42.014636Z",
+      "updated_at": "2026-05-28T15:49:42.014636Z",
+      "truncated": false,
+      "stop_reason": "stop_sequence",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e6f46-bb61-714c-98b3-9cf25c227eca"
+    }
+  ]
+}

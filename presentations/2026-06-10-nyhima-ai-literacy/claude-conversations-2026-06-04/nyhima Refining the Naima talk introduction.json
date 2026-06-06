@@ -1,0 +1,196 @@
+{
+  "uuid": "7e9d3574-625e-4e25-8b9d-ea3020dc8092",
+  "name": "nyhima Refining the Naima talk introduction",
+  "summary": "",
+  "model": "claude-sonnet-4-6",
+  "created_at": "2026-05-29T15:54:14.460705Z",
+  "updated_at": "2026-06-04T23:08:07.591053Z",
+  "settings": {
+    "enabled_bananagrams": true,
+    "enabled_web_search": true,
+    "enabled_mcp_tools": {
+      "local:Filesystem:read_file": true,
+      "local:Filesystem:search_files": true,
+      "local:Filesystem:get_file_info": true,
+      "local:Filesystem:directory_tree": true,
+      "local:Filesystem:list_directory": true,
+      "local:Filesystem:read_text_file": true,
+      "local:Filesystem:read_multiple_files": true,
+      "local:Filesystem:list_allowed_directories": true,
+      "local:Filesystem:list_directory_with_sizes": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:copy_file": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:create_file": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:search_files": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:get_file_metadata": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:list_recent_files": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_search": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:chat_message_search": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:get_file_permissions": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:download_file_content": true,
+      "local:Filesystem:edit_file-c6a271f0331164be5513cbb4a691ed43": true,
+      "local:Filesystem:move_file-b00b5023812e2142e62c5a6e3f9219bc": true,
+      "local:Filesystem:read_file-a64a04fdb932bd7d09313e707c3e1374": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_calendar_search": true,
+      "local:Filesystem:write_file-670c57603eef7f7e0ba436b5a6b3d9d2": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_folder_search": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:find_meeting_availability": true,
+      "local:Filesystem:search_files-4a215056e1a9170626315f61863a5f31": true,
+      "local:Filesystem:get_file_info-b9ae43299738ab8caba7a1cb3fa62071": true,
+      "local:Filesystem:directory_tree-0e98634b9031b43460b626d5140a9b48": true,
+      "local:Filesystem:list_directory-5979c57d53c8f6e2a294c58db9f9157a": true,
+      "local:Filesystem:read_text_file-ef740e8abe0cdd34c236f291bb166b14": true,
+      "local:Filesystem:create_directory-0319454ed64030bd32f1bbed555ed0ee": true,
+      "local:Filesystem:read_multiple_files-9b5a75409ca98d8a57a70f421b177661": true,
+      "local:Filesystem:copy_file_user_to_claude-5a34771c1a18d3bf012d7730e351920f": true,
+      "local:Filesystem:list_allowed_directories-bb006105edb10bc92468491cb2cffe83": true,
+      "local:Filesystem:list_directory_with_sizes-ab2f3f00c34287a51ea064c9d77c103f": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:search_files-64fa30bd1029bfae9f0f52372f3b8f99": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:search_files-ee4008afe9ecc3539b5ef1e40bb41568": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-4eb3409660102f1cce2194e10475645c": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-55d614ede2c1ac5acf37842b9a59cc0e": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-9e194a0115a1c5a093191f62eab80048": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:read_resource-a4a57cc221f638e6afbb71f882ee1d7f": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content-10d2927f23712176483b063d5ac6b025": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content-98a41b02d2b2393413b8eae8f97ae5a4": true,
+      "0f7ea4f4-ef6a-431c-ab2a-9a0ea6d2316a:read_file_content-d43b2a75fd443116af80ed921053b9af": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_search-1b7214c941c85f33a96ee711a77823f7": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:chat_message_search-a88f39c2ddb291646bd669d741754d5a": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:chat_message_search-bae2688218e815cd6ec3fdcdc45844b3": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search-2fccaaaaa79d31bae03e8c3e34eb446f": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search-afc19b9dce47fb12a807b1e6aa8a07ae": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_email_search-debd79db8c85bced25e98180512e8936": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_calendar_search-e394b966a67e06b8696b841117c320f4": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:outlook_calendar_search-ece8c37d3867850896da32a6bdb037bc": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_folder_search-6edf15debc92b90eba25811f50cca54b": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:sharepoint_folder_search-ddd2ce420aeac61aed64419f1d83dfe4": true,
+      "9ed00bb8-f452-4cf6-bb15-5ca59c2b7ca8:find_meeting_availability-36887f8227c1aaba98b61e6e25ee2fea": true
+    },
+    "enabled_monkeys_in_a_barrel": true,
+    "enabled_saffron": true,
+    "tool_search_mode": "auto",
+    "preview_feature_uses_artifacts": true,
+    "enabled_artifacts_attachments": false,
+    "enabled_turmeric": true
+  },
+  "is_starred": false,
+  "is_temporary": false,
+  "project_uuid": "019e6f83-d7ae-70d0-a156-5b47753b53c8",
+  "platform": "VOICE",
+  "current_leaf_message_uuid": "019e7472-6b33-7421-87b6-9a92f04d2e37",
+  "chat_messages": [
+    {
+      "uuid": "019e7471-9935-73e3-aaaa-9067e01b00db",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-29T15:54:23.925532Z",
+          "stop_timestamp": "2026-05-29T15:54:23.925532Z",
+          "type": "text",
+          "text": "Give me the best intro to the Naima talk that I've come up with so far.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 0,
+      "created_at": "2026-05-29T15:54:23.930824Z",
+      "updated_at": "2026-05-29T15:54:23.930824Z",
+      "input_mode": "voice",
+      "truncated": false,
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019e7471-9f34-7760-a812-68ca9d367aa5",
+      "text": "",
+      "content": [
+        {
+          "type": "text",
+          "text": "I don't have access to previous versions of your NYHIMA talk introduction, Steve. The project knowledge I have shows the synopsis and framework, but not your drafted intros.\n\nDo you want me to help you draft a fresh opening based on your framework—or would you prefer to share what you've already written so I can help you refine it?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 1,
+      "created_at": "2026-05-29T15:54:35.061399Z",
+      "updated_at": "2026-05-29T15:54:35.061399Z",
+      "input_mode": "voice",
+      "truncated": false,
+      "stop_reason": "end_turn",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e7471-9935-73e3-aaaa-9067e01b00db"
+    },
+    {
+      "uuid": "019e7472-1029-771b-ae7f-53a2e4cbcf30",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-05-29T15:54:54.333816Z",
+          "stop_timestamp": "2026-05-29T15:54:54.333816Z",
+          "type": "text",
+          "text": "I thought you could see into the other conversations in this project.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 2,
+      "created_at": "2026-05-29T15:54:54.341616Z",
+      "updated_at": "2026-05-29T15:54:54.341616Z",
+      "input_mode": "voice",
+      "truncated": false,
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e7471-9f34-7760-a812-68ca9d367aa5"
+    },
+    {
+      "uuid": "019e7472-15fc-702b-bbb9-e7b97fd8afec",
+      "text": "",
+      "content": [
+        {
+          "type": "text",
+          "text": "You're right—I should be able to access those. Let me be honest: I'm not seeing earlier conversation records where you drafted intro language for the NYHIMA talk. It's possible the memory system hasn't synced those yet, or they're stored in a way I'm not currently pulling from.\n\nDo you remember roughly when you drafted those intros? Or would it help if you pasted one here so we can work from what you've got?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "index": 3,
+      "created_at": "2026-05-29T15:55:07.231235Z",
+      "updated_at": "2026-05-29T15:55:07.231235Z",
+      "input_mode": "voice",
+      "truncated": false,
+      "stop_reason": "end_turn",
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e7472-1029-771b-ae7f-53a2e4cbcf30"
+    },
+    {
+      "uuid": "019e7472-6b33-7421-87b6-9a92f04d2e37",
+      "text": "",
+      "content": [
+        {
+          "type": "text",
+          "text": "I'll fix it.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "index": 4,
+      "created_at": "2026-05-29T15:55:16.149349Z",
+      "updated_at": "2026-05-29T15:55:16.149349Z",
+      "input_mode": "voice",
+      "truncated": false,
+      "attachments": [],
+      "files": [],
+      "sync_sources": [],
+      "parent_message_uuid": "019e7472-15fc-702b-bbb9-e7b97fd8afec"
+    }
+  ]
+}

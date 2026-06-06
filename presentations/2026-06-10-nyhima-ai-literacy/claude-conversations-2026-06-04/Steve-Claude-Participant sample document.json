@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "title": "Participant sample document",
+    "user": {
+      "name": "Steve"
+    },
+    "dates": {
+      "created": "6/4/2026 15:07:22",
+      "updated": "6/4/2026 15:09:00",
+      "exported": "6/4/2026 19:06:01"
+    },
+    "link": "https://claude.ai/chat/848a80fc-b5bc-43a0-9ed9-05134eebc1c8",
+    "powered_by": "Claude Exporter (https://www.ai-chat-exporter.net)"
+  },
+  "messages": [
+    {
+      "role": "human",
+      "time": "6/4/2026 15:07:24",
+      "say": "Google Drive: Generate a markdown summary of what we did here,...\n\nhttps://docs.google.com/document/d/1gJ3oOuOFFRxqsAkhvVfHXPRLVwvQp8v9Xnash8NXM_A/edit?usp=sharing is a participant sample"
+    },
+    {
+      "role": "assistant",
+      "time": "6/4/2026 15:07:35",
+      "say": "That's a strong participant artifact. The workbench prompt did exactly what it was supposed to — clean provenance, the final table intact, executive conclusions that actually conclude something.\n\nA few things worth noting for your debrief use:\n\nWhat worked: The participant pushed past the initial summary (\"tell me about this file\") through a real analytical sequence — unit of analysis, filtering, regional hypothesis, aggregation. The regional engineering step (inferring geography from hospital name keywords) is exactly the kind of judgment move that models don't initiate on their own. The participant drove that.\n\nUseful friction for debrief: The geography inference is also the methodological weak spot — any hospital with an ambiguous name got assigned somewhere, possibly wrong. A skeptical second model running SP-01 would catch this immediately. \"Capital / Albany\" based on name-matching is a heuristic, not a verified region list. That's a productive tension: the output looks authoritative (it's a table with dollar signs), but the regional assignment logic is invisible in the final artifact.\n\nThe reflection question this earns: Did the model flag the name-matching limitation — or did it produce the table as if the regions were ground truth? That's the post-discharge finding story: $14,614 vs $11,155 is a real signal, if the hospitals are correctly bucketed.\n\nThis is a clean demo case for why the workbench prompt matters — you can actually trace back to where the regional hypothesis came from and interrogate it. Without that provenance, the table just looks like data.\n\nWant to use this as a worked example in the Round 1 debrief script?"
+    },
+    {
+      "role": "human",
+      "time": "6/4/2026 15:08:52",
+      "say": "it works pretty well for a lightning round, or too slow and involved?"
+    },
+    {
+      "role": "assistant",
+      "time": "6/4/2026 15:09:00",
+      "say": "For a lightning round, too slow — the regional engineering step requires someone who's already comfortable enough to say \"group these by geography based on name keywords,\" which is a non-obvious prompt move. Most participants won't get there in 25 minutes, especially if they're also learning to filter a CSV.\n\nThe value of this artifact is actually as a demo, not a participant exercise. You show it at the Round 1 debrief: here's what this can produce when someone pushes past the first answer. Then the debrief question writes itself — \"did you get here? why not? what would you have needed to ask differently?\"\n\nThat reframes Round 1 as a floor, not a ceiling. Participants leave with something real, and they also leave knowing there's a next level.\n\nThe lightning round use case probably wants a tighter data scenario — smaller file, one obvious analytical question, one push. D1 (discharge completion rates) or D3 (ROI volume trend) are better fits: the numbers are already in the scenario, no upload required, and the writing prompt is answerable in one good pass."
+    }
+  ]
+}
