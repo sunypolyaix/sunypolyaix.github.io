@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!-- @dsCard group="UI Kit — Slides" name="Facilitator Deck v6 — Presentation Mode (Light)" subtitle="v6 workshop: Interrogate / Interpret / Iterate — eggshell blue, WCAG AAA" viewport="1280x720" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading and Writing with AI — Facilitator Deck v6 — Presentation (Light)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="../../colors_and_type.css" rel="stylesheet">
+<link href="slides.css?v=9" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #C8D4DC; }
+
+  :root {
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --font-mono:    'DM Mono', 'Courier New', monospace;
+    --ink:          #0D1B2A;
+    --ink-mid:      rgba(13,27,42,0.72);
+    --blue-bg:      #E8F0F5;
+    --navy:         #002C73;
+    --gold:         #EDA900;
+  }
+
+  *, *::before, *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+  }
+
+  deck-stage { will-change: transform; transform: translateZ(0); }
+
+  /* ── Light surface override ── */
+  .slide.s-light { background: var(--blue-bg); color: var(--ink); }
+  .s-light .rule { background: var(--gold); }
+  .s-light .eyebrow { color: var(--ink); }
+  .s-light .h1 { color: var(--ink); }
+  .s-light .h2 { color: var(--ink); }
+  .s-light .bigquote { color: var(--ink); }
+  .s-light .bigquote .lead { color: var(--navy); font-style: normal; font-weight: 700; }
+  .s-light .quote { color: var(--ink-mid); }
+  .s-light .body { color: var(--ink); }
+  .s-light .body strong { color: var(--ink); font-weight: 700; }
+  .s-light .afterline { color: var(--ink); }
+  .s-light .afterline b { color: var(--ink); font-weight: 700; }
+  .s-light .checklist li { color: var(--ink); }
+  .s-light .checklist li::before { color: var(--navy); }
+  .s-light .checklist b { color: var(--ink); font-weight: 700; }
+  .s-light .foot { color: var(--ink-mid); }
+  .s-light .link { color: var(--navy); text-decoration: underline;
+    text-decoration-color: var(--gold); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .s-light .promptcard { background: #fff; border-color: #C8D4DC; border-left-color: var(--gold); }
+  .s-light .promptcard p { color: var(--ink); }
+  .s-light .workbench { background: #FFF8E6; border-color: #E0D4A8; border-left-color: var(--gold); }
+  .s-light .workbench p { color: var(--ink); }
+  .s-light .rtw .lab { color: var(--navy); font-weight: 700; }
+  .s-light .rtw .pr { color: var(--ink); }
+
+  /* ── Facilitator-only slide (10b) ── */
+  .slide.s-fac { background: #001840; color: rgba(255,255,255,0.9); }
+  .s-fac .rule { background: #EDA900; }
+  .s-fac .eyebrow { color: rgba(255,255,255,0.5); }
+  .s-fac .h1 { color: #fff; font-size: 52px; }
+  .s-fac .fac-tag {
+    display: inline-block; font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: #EDA900;
+    border: 1px solid #EDA900; border-radius: 4px; padding: 3px 10px; margin-bottom: 16px;
+  }
+
+  /* ── Deck table (slides 3, 5, 8, 10) ── */
+  .deck-table {
+    width: 100%; border-collapse: collapse; margin-top: 20px;
+  }
+  .deck-table thead th {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--navy); padding: 8px 14px 8px 0;
+    border-bottom: 2px solid rgba(13,27,42,0.18); text-align: left;
+  }
+  .deck-table tbody td {
+    padding: 10px 14px 10px 0; vertical-align: top; line-height: 1.4;
+    font-family: var(--font-body); font-size: 18px; color: var(--ink);
+    border-bottom: 1px solid rgba(13,27,42,0.1);
+  }
+  .deck-table tbody td strong { font-weight: 700; }
+  .deck-table tbody td em { font-style: italic; color: var(--ink-mid); }
+  .deck-table tbody td:first-child { font-weight: 700; min-width: 180px; }
+
+  /* Compact table variant for infrastructure / debrief tables */
+  .deck-table.sm tbody td { font-size: 22px; padding: 10px 18px 10px 0; }
+  .deck-table.sm thead th { font-size: 15px; }
+
+  /* ── Step code blocks (how-it-works slides) ── */
+  .stepcode {
+    margin-top: 22px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .stepcode-row {
+    display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline;
+  }
+  .stepcode-row .lbl {
+    font-family: var(--font-mono); font-size: 18px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--navy); white-space: nowrap;
+  }
+  .stepcode-row .txt {
+    font-family: var(--font-body); font-size: 24px; line-height: 1.45; color: var(--ink);
+  }
+  .stepcode-row .txt strong { font-weight: 700; }
+  .stepcode-row .txt em { font-style: italic; color: var(--ink-mid); }
+
+  /* ── Path blocks (Round 3 two-paths slide) ── */
+  .paths { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px; }
+  .path-block { background: rgba(255,255,255,0.6); border-radius: 10px; padding: 22px 24px;
+    border-top: 4px solid var(--navy); }
+  .path-block .path-head {
+    font-family: var(--font-mono); font-size: 16px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--navy); margin-bottom: 14px;
+  }
+  .path-block .path-step {
+    font-family: var(--font-body); font-size: 20px; line-height: 1.5; color: var(--ink);
+    display: grid; grid-template-columns: 80px 1fr; gap: 10px; margin-bottom: 10px;
+  }
+  .path-block .path-step .ps-lbl {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--navy); padding-top: 3px;
+  }
+  .path-block .path-step .ps-txt strong { font-weight: 700; }
+  .path-block .path-step .ps-txt em { font-style: italic; }
+
+  /* ── Fac-only step list ── */
+  .fac-steps { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 12px; }
+  .fac-steps li { display: grid; grid-template-columns: 32px 1fr; gap: 16px;
+    font-family: var(--font-body); font-size: 20px; line-height: 1.5; color: rgba(255,255,255,0.88); }
+  .fac-steps li .fnum { font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+    color: #EDA900; padding-top: 3px; }
+  .fac-steps li strong { font-weight: 700; color: #fff; }
+
+  /* ── Debrief frame table ── */
+  .frame-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  .frame-table td {
+    padding: 12px 16px 12px 0; vertical-align: top; line-height: 1.45;
+    font-family: var(--font-body); font-size: 22px; color: var(--ink);
+    border-bottom: 1px solid rgba(13,27,42,0.12);
+  }
+  .frame-table td:first-child { font-style: italic; color: var(--ink-mid); max-width: 40ch; padding-right: 24px; }
+  .frame-table td:last-child { font-weight: 500; color: var(--navy); }
+
+  /* ── Closing contact ── */
+  .close-contact {
+    margin-top: 36px; padding-top: 24px;
+    border-top: 2px solid rgba(13,27,42,0.15);
+    font-family: var(--font-body); font-size: 24px; color: var(--ink-mid);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .close-contact strong { color: var(--ink); font-weight: 700; }
+  .close-contact .link { color: var(--navy); }
+</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 1 — TITLE / HOLDING                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="01 Title">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">SUNY Poly AIX Center · NYHIMA · June 7, 2026</p>
+      <h1 class="h1">Reading and Writing<br>with AI</h1>
+      <h2 class="h2">Using large language models in professional practice</h2>
+      <div class="spacer"></div>
+      <p class="body" style="margin-top:0; font-size:28px">
+        <strong>Steve Schneider</strong> · SUNY Poly AIX Center · NYHIMA · June 7, 2026
+      </p>
+      <p class="body" style="margin-top:10px; font-size:26px">
+        Everything lives at <span class="link">tiny.cc/nyhima</span><br>
+        Take a numbered card on your way in — that's your row in the shared doc.
+      </p>
+      <div class="foot">
+        <span>1:00–4:00 PM</span>
+        <span class="link">tiny.cc/nyhima</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 2 — OPENING                                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="02 Opening">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Opening · 10 min · start without slides — just talk</p>
+      <p class="bigquote"><span class="lead">Who prompted</span> that?</p>
+      <p class="body" style="max-width:44ch">
+        Think about the last time AI showed up in your work. Not something you went looking for.
+        Something already there. A suggested code. A flagged record. A pre-populated field.
+      </p>
+      <p class="quote" style="margin-top:24px">Today we work with the kind <em>you</em> ask.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 3 — ICEBREAKER + INFRASTRUCTURE                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="03 Icebreaker + Infrastructure">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Icebreaker + Infrastructure · 20 min</p>
+      <h1 class="h1" style="font-size:64px">Open <span class="link">tiny.cc/nyhima</span></h1>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px; align-items:start">
+        <div>
+          <div class="promptcard sm">
+            <p>I am a health information management professional. Define HIM for someone who has never heard the term.</p>
+          </div>
+          <p class="afterline" style="font-size:22px; margin-top:16px"><strong>"I am"</strong> — not "you are." You're telling the model who's asking. Compare what a few of you got.</p>
+        </div>
+        <div>
+          <table class="deck-table sm" style="margin-top:0">
+            <thead><tr><th>What</th><th>Where</th></tr></thead>
+            <tbody>
+              <tr><td>Everything</td><td>tiny.cc/nyhima</td></tr>
+              <tr><td>Primary model</td><td>Gemini free — uploads, math, charts</td></tr>
+              <tr><td>Second model</td><td>Claude or ChatGPT — tables ahead</td></tr>
+              <tr><td>Your work</td><td>Gemini link → your row in shared doc</td></tr>
+              <tr><td>Your number</td><td>the card you took at the door</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 4 — WHY THIS, WHY NOW                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="04 Why this, why now">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Stakes · brief · no lecturing</p>
+      <h1 class="h1">The AI in your workflow<br>didn't wait for your prompt.</h1>
+      <p class="body" style="margin-top:28px; max-width:50ch">
+        A coding suggestion in the EHR. A readmission risk score. A quality alert on a dashboard.
+        Each arrived <em>before</em> you formed a view.
+      </p>
+      <p class="body" style="margin-top:16px; max-width:50ch">
+        You can't evaluate what you can't read. <strong>That's the whole point of the next three hours.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 5 — THE THREE MOVES                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="05 The Three Moves">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">The spine of the day</p>
+      <h1 class="h1" style="font-size:64px">Interrogate → Interpret → Iterate</h1>
+      <table class="deck-table" style="margin-top:24px">
+        <thead>
+          <tr><th>Move</th><th>You work with</th><th>The real work</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Interrogate</strong></td>
+            <td>Data</td>
+            <td>Ask it questions. Surface patterns. <em>The questions are yours.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Interpret</strong></td>
+            <td>Dense text</td>
+            <td>Carry your finding into the document. Catch what's soft, missing, or wrong. <em>Your expertise decides what the story means.</em></td>
+          </tr>
+          <tr>
+            <td><strong>Iterate</strong></td>
+            <td>Your linked story</td>
+            <td>Push back, refine, again. <em>Until it reads like something you'll put your name on.</em></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="afterline" style="margin-top:20px; font-size:22px">One chain, not three errands. Inside each move: <strong>read, think, and write.</strong></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 6 — THE WORKBENCH PROMPT                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="06 Workbench Prompt">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Run this at the end of <em>every</em> round</p>
+      <h1 class="h1" style="font-size:56px">The most important prompt of the day.</h1>
+      <div class="workbench" style="margin-top:24px; max-width:58ch">
+        <p>Generate a markdown summary of what we did here, starting with my first prompt. Identify the questions I asked and how we arrived at the final product. Include the final artifact verbatim. I want to share this with colleagues.</p>
+      </div>
+      <p class="afterline" style="margin-top:20px">
+        <strong>Share your Gemini conversation link into your row in the shared doc.</strong>
+        One step. The link holds everything.
+      </p>
+      <p class="quote" style="margin-top:16px">This is the move that turns a chat you'll lose into a workbench you keep.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 7 — LIGHTNING ROUND                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="07 Lightning Round">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Lightning Round · 25 min · I drive — you watch</p>
+      <h1 class="h1">Watch me build the whole chain.<br>Once. Fast.</h1>
+      <div class="rtw" style="margin-top:28px">
+        <div class="step">
+          <span class="lab" style="color:#0A5C73">Interrogate</span>
+          <p class="pr">Upload a data file. Ask. Chase one question until I have a finding worth keeping.</p>
+        </div>
+        <div class="step">
+          <span class="lab" style="color:#5C3600">Interpret</span>
+          <p class="pr">Take that finding into a document. Ask what it <em>means</em> in light of the document.</p>
+        </div>
+        <div class="step">
+          <span class="lab" style="color:#5C0020">Iterate</span>
+          <p class="pr">Hand it back. Sharpen it once until it sounds like a decision, not a hedge.</p>
+        </div>
+      </div>
+      <p class="afterline" style="margin-top:20px">Keep it fast and a little messy. Showing a dead end is more honest than a clean demo.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 8 — ROUND 1: INTERROGATE                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="08 Round 1: Interrogate">
+    <div class="slide s-light" style="padding-top:56px; padding-bottom:48px">
+      <div class="rule"></div>
+      <p class="eyebrow">Round 1 · 30 min · self-directed · Gemini free</p>
+      <h1 class="h1" style="font-size:56px">Interrogate the data — pick one file</h1>
+      <table class="deck-table" style="margin-top:16px">
+        <thead>
+          <tr><th>File</th><th>What's in it</th><th>Pick this if you want…</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Complications &amp; Deaths</strong></td>
+            <td>30-day mortality, hip/knee, pressure ulcers, PSI-90 — 20 measures</td>
+            <td>…the richest storytelling. One NY surgical-mortality number lands at 240. First question: "what's the denominator?"</td>
+          </tr>
+          <tr>
+            <td><strong>Hospital Readmissions (HRRP)</strong></td>
+            <td>Excess Readmission Ratio for six conditions. ERR &gt; 1.0 = Medicare penalty exposure</td>
+            <td>…a clean memo in fifteen minutes. Sort descending, write the penalty-risk memo. Do you push back on what the ERR actually measures?</td>
+          </tr>
+          <tr>
+            <td><strong>Patient Safety (PSI-6)</strong></td>
+            <td>AHRQ adverse-event rates at six-decimal precision — iatrogenic pneumothorax, PSI-90 composite</td>
+            <td>…to see precision masquerade as meaning. PSI-06 doesn't adjust for procedure volume. PSI-90 is eleven measures bundled into one.</td>
+          </tr>
+          <tr>
+            <td><strong>Healthcare-Associated Infections</strong></td>
+            <td>Standardized Infection Ratios — CLABSI, CAUTI, MRSA, C. diff — 36 measures</td>
+            <td>…to learn what <em>missing</em> data teaches. 43% of NY rows read "Not Available." That's not zero infections.</td>
+          </tr>
+          <tr>
+            <td><strong>Maternal Health</strong></td>
+            <td>Cesarean rates, severe maternal morbidity, SM-7: does the hospital screen for maternal depression?</td>
+            <td>…the case where one row is the whole story. SM-7 is yes/no. In NY: 101 yes, 1 no. The model will report "66% yes." The one "no" is the finding.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 9 — ROUND 1: HOW IT WORKS                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="09 Round 1: How It Works">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Leave on screen · Round 1</p>
+      <h1 class="h1" style="font-size:60px">Interrogate — read, think, write with data</h1>
+      <div class="stepcode">
+        <div class="stepcode-row">
+          <span class="lbl">READ</span>
+          <span class="txt">Upload your file. <strong>"Summarize the structure. What's in here?"</strong> Try: "Show me only the New York hospitals." <em>Did it actually filter? Check.</em></span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">THINK</span>
+          <span class="txt">Pick a story it could tell. <strong>"I want to compare ___ to ___."</strong></span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">WRITE</span>
+          <span class="txt"><strong>"Make a one-page memo with a chart that tells that story to leadership."</strong></span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">KEEP</span>
+          <span class="txt">Note your one finding — the number or pattern you're carrying to Round 2.</span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">SAVE</span>
+          <span class="txt">Run the workbench prompt. Share your Gemini link in your row.</span>
+        </div>
+      </div>
+      <p class="afterline" style="margin-top:20px; font-size:22px"><em>Hit a wall? Start a fresh conversation. Ahead of the room? Ask it something it would get wrong — and catch it.</em></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 10 — ROUND 1: DEBRIEF                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="10 Round 1: Debrief">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Round 1 debrief — read the room first</p>
+      <h1 class="h1" style="font-size:56px">What did the data tell you — and who found it?</h1>
+      <ul class="checklist" style="margin-top:16px">
+        <li>Which question opened it up? Which one was a dead end?</li>
+        <li>Where did <em>you</em> have to know something the model didn't?</li>
+      </ul>
+      <table class="frame-table" style="margin-top:16px">
+        <tbody>
+          <tr>
+            <td>Participants found what they expected — confirmed a hunch, felt smart</td>
+            <td>"Ask without a thesis. See what the data says back."</td>
+          </tr>
+          <tr>
+            <td>The model surfaced something they weren't looking for</td>
+            <td>"The model doesn't know what matters. Neither did you yet — and that was the right starting point."</td>
+          </tr>
+          <tr>
+            <td>Debate about what a finding means, or who produced it</td>
+            <td>"You brought the question. The model brought a pattern. What you do with that is the work."</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="quote" style="margin-top:16px">Going in without a fixed answer is the method, not a failure of it.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 10b — FACILITATOR PREP (not on screen)               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="10b Facilitator Prep">
+    <div class="slide s-fac">
+      <div class="rule"></div>
+      <p class="eyebrow">Facilitator only — not on screen</p>
+      <span class="fac-tag">Read this before the workshop — debrief ammunition</span>
+      <h1 class="h1">Five things the model will get wrong</h1>
+      <ul class="fac-steps">
+        <li><span class="fnum">1</span><span><strong>ERR volatility on small N (HRRP).</strong> Mount Sinai West — ERR 1.26 on 27 cases. Wide confidence interval. Model reports "high-readmission hospital." Won't flag unless pushed.</span></li>
+        <li><span class="fnum">2</span><span><strong>Missing data is not random (HAI).</strong> 43% of NY rows "Not Available." Smaller, rural, safety-net hospitals disproportionately missing. Model analyzes the 57% that reported.</span></li>
+        <li><span class="fnum">3</span><span><strong>PSI-90 is a composite (PSI file).</strong> Weighted average of 11 indicators. One PSI can drive the whole score. Model won't decompose unless asked.</span></li>
+        <li><span class="fnum">4</span><span><strong>The denominator problem (PSI-06).</strong> Pneumothorax doesn't adjust for procedure volume. High rate at a high-volume academic center means something different from a community hospital.</span></li>
+        <li><span class="fnum">5</span><span><strong>One answer is the finding (Maternal Health).</strong> SM-7: 101 said yes, 1 said no. Model summarizes "66% yes." The 1 is the story. Model won't say that unprompted.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 11 — ROUND 2: INTERPRET                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="11 Round 2: Interpret">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Round 2 · 30 min · self-directed · Gemini free</p>
+      <h1 class="h1" style="font-size:60px">Interpret — carry your finding into the document</h1>
+      <p class="body" style="margin-top:20px; max-width:52ch">
+        Take what you found in Round 1. One finding — something that surprised you, something you now have a question about.
+        Choose the document at <span class="link">tiny.cc/nyhima → documents</span> that speaks to it. Tell the model your story.
+      </p>
+      <div class="workbench" style="margin-top:20px; max-width:56ch">
+        <p>"Here's the data story I found in Round 1. Tell me what this story means in the context of this document."</p>
+      </div>
+      <p class="afterline" style="margin-top:20px">
+        You're not asking it to summarize the document. You're asking it to <strong>apply</strong> the document to what you found.
+        Then you judge whether the answer is professionally adequate.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 12 — ROUND 2: HOW IT WORKS                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="12 Round 2: How It Works">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Leave on screen · Round 2</p>
+      <h1 class="h1" style="font-size:60px">Interpret — read, think, write with text</h1>
+      <div class="stepcode">
+        <div class="stepcode-row">
+          <span class="lbl">FIND</span>
+          <span class="txt">Take your Round 1 finding. One story. One number that surprised you.</span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">CHOOSE</span>
+          <span class="txt">Pick the document from the library that speaks to it.</span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">TELL</span>
+          <span class="txt"><strong>"Here's what I found. What does this mean in the context of this document?"</strong></span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">EVALUATE</span>
+          <span class="txt">Read the output as a professional. Where is the model right? Where does it need your expertise to complete?</span>
+        </div>
+        <div class="stepcode-row">
+          <span class="lbl">SAVE</span>
+          <span class="txt">Run the workbench prompt. Share your Gemini link in your row.</span>
+        </div>
+      </div>
+      <p class="afterline" style="margin-top:20px; font-size:22px"><em>Ahead of the room? Open a second model. Paste the same finding and document. Ask: "A colleague interpreted this for me. What did they miss?"</em></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 13 — ROUND 2: DEBRIEF                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="13 Round 2: Debrief">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Round 2 debrief</p>
+      <h1 class="h1" style="font-size:58px">A model that sounds authoritative about the law is a specific kind of dangerous.</h1>
+      <ul class="checklist" style="margin-top:24px">
+        <li>If you didn't already know this regulation, how would you know it got it wrong?</li>
+        <li>Would you hand the model's version to a colleague without editing it?</li>
+      </ul>
+      <p class="quote" style="margin-top:24px">The model applied the framework correctly and reached the wrong conclusion. Why? That's the question. And you're the only one in this room who can answer it.</p>
+      <p class="afterline" style="margin-top:20px"><strong>What did the model explain correctly — and what did it need your expertise to complete?</strong></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 14 — ROUND 3: ITERATE                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="14 Round 3: Iterate">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Round 3 · 25 min · self-directed</p>
+      <h1 class="h1">Iterate until it's yours</h1>
+      <p class="body" style="margin-top:24px; max-width:52ch">
+        Look at what you have now. Not one thing — a chain. A finding from the data, and an interpretation of what it means against a real regulation.
+        Round 3 is where you make it one piece, and make it yours.
+      </p>
+      <p class="body" style="margin-top:16px; max-width:52ch">
+        We're not fixing facts. We're fixing <em>voice</em> and <em>shape</em>.
+        Does this read like you made a call, or like you're hedging?
+        Push back. Run it again. Stop when it reads like something <strong>you'll put your name on.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 15 — ROUND 3: HOW IT WORKS                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="15 Round 3: How It Works">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">Leave on screen · Round 3</p>
+      <h1 class="h1" style="font-size:56px">Iterate — two paths, pick one</h1>
+      <div class="paths">
+        <div class="path-block">
+          <div class="path-head">Path A — Iterate the chain you built</div>
+          <div class="path-step">
+            <span class="ps-lbl">BRING</span>
+            <span class="ps-txt">Paste both pieces back in — your Round 1 finding <strong>AND</strong> your Round 2 interpretation. They're one story now.</span>
+          </div>
+          <div class="path-step">
+            <span class="ps-lbl">THINK</span>
+            <span class="ps-txt"><em>"Does this read like a decision or a hedge? Does the finding actually connect to what the document says?"</em></span>
+          </div>
+          <div class="path-step">
+            <span class="ps-lbl">WRITE</span>
+            <span class="ps-txt"><strong>"Make the connection explicit. Make it sound like I own this."</strong> Run it. Push back. Again. One pass is not iteration.</span>
+          </div>
+          <div class="path-step">
+            <span class="ps-lbl">SAVE</span>
+            <span class="ps-txt">Run the workbench prompt. Share your Gemini link in your row.</span>
+          </div>
+        </div>
+        <div class="path-block">
+          <div class="path-head">Path B — Re-run the whole loop</div>
+          <div class="path-step" style="grid-template-columns:1fr">
+            <span class="ps-txt">
+              Your chain didn't hold? Go back to Round 1. Pick a different finding or a different document.
+              <strong>Interrogate → Interpret → Iterate</strong>, faster this time.
+              You know the moves now. Land on a story that holds — then run Path A on it.
+            </span>
+          </div>
+          <div style="margin-top:20px; font-family:var(--font-body); font-size:20px; color:var(--ink-mid); font-style:italic; line-height:1.5">
+            The back-and-forth is the point. A finding and an interpretation that don't talk to each other aren't a story yet — iteration is what connects them.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 16 — ROUND 3: DEBRIEF                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="16 Round 3: Debrief">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Round 3 debrief</p>
+      <h1 class="h1" style="font-size:64px">Would you put your name on the final version?</h1>
+      <ul class="checklist" style="margin-top:28px">
+        <li>Where did pushing back actually change the voice — or tighten the connection between the finding and the document?</li>
+        <li>Where did the model just agree with you?</li>
+        <li>Did anyone abandon their first chain and rebuild? What made the second one hold?</li>
+      </ul>
+      <p class="quote" style="margin-top:24px">That's the move that makes a finding-plus-interpretation into one piece of work that's yours.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 17 — IF YOU'RE AHEAD: TWO ENCORES                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="17 Encores">
+    <div class="slide s-light">
+      <div class="rule"></div>
+      <p class="eyebrow">For tables that finish early — not required</p>
+      <h1 class="h1" style="font-size:56px">If you're ahead: two encores</h1>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px">
+        <div>
+          <p class="afterline" style="margin-top:0; font-size:26px; font-weight:700; color:var(--navy)">Encore A — Judgment</p>
+          <p class="body" style="margin-top:12px; font-size:24px">
+            Pick a scenario at <span class="link">tiny.cc/nyhima → judgment</span> (J1–J4).
+            <em>Write your position first — what should happen and why — before you open the model.</em>
+            Then make the model argue against you. Watch it perform balance when you needed a call.
+          </p>
+        </div>
+        <div>
+          <p class="afterline" style="margin-top:0; font-size:26px; font-weight:700; color:var(--navy)">Encore B — The Documentation Gap</p>
+          <p class="body" style="margin-top:12px; font-size:24px">
+            Bring <strong>both</strong> a data file and a document together from the start.
+            Interrogate (where are we failing?) → Interpret (what does it require?) →
+            Iterate toward a one-page memo to your CEO naming the gap and three actions.
+          </p>
+        </div>
+      </div>
+      <p class="quote" style="margin-top:28px">Real work is never just data or just text. It's both — and it takes all three moves to get to something worth acting on.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 18 — WRAP: THE META-MOMENT                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="18 Wrap: Meta-Moment">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="eyebrow">Wrap · 15 min</p>
+      <h1 class="h1">AI just read everything<br>you produced today.</h1>
+      <p class="body" style="margin-top:24px; max-width:50ch">
+        Here's what thirty of you made in three hours. Same five files, different stories.
+        Same documents, different reads. I just used AI to read all of your AI work — in about thirty seconds.
+      </p>
+      <p class="quote" style="margin-top:28px"><em>So — who gets credit for this?</em></p>
+      <p class="afterline" style="margin-top:20px; max-width:50ch">
+        The model interrogated, interpreted, helped you iterate.
+        <strong>You</strong> decided which questions mattered, what the document actually meant, and when the chain held together.
+        The model did none of that. You did.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SLIDE 19 — CLOSE                                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section data-label="19 Close">
+    <div class="slide s-light" style="justify-content:center">
+      <div class="rule"></div>
+      <p class="bigquote"><span class="lead">It is worth exactly</span> what you put into it.</p>
+      <p class="body" style="margin-top:24px; max-width:50ch">
+        A vague prompt gets a vague answer. A real question, real expertise, and the patience to iterate — that gets you something you can use.
+        You proved it today. You built one connected thing — yours, from end to end.
+      </p>
+      <p class="body" style="margin-top:16px; max-width:50ch">
+        You know what to ask. You know <em>"the AI said so"</em> isn't an answer.
+        That's not getting used to it. <strong>That's having agency over it.</strong>
+      </p>
+      <div class="close-contact">
+        <span>Folder stays live — <span class="link">tiny.cc/nyhima</span></span>
+        <span>SUNY Poly AIX Center — <span class="link">sunypolyaix.github.io</span></span>
+        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d3e39283b280d3e3823343d22213463282938">[email&#160;protected]</a></span>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="deck-stage.js"></script>
+</body>
+</html>
