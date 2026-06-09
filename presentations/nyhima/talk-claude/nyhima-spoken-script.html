@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reading and Writing with AI — spoken script (v3)</title>
+<title>Reading and Writing with AI — spoken script (v3.23)</title>
 <style>
   :root{
     --ink:#141414;
@@ -13,9 +13,9 @@
     --sec:#9a9a9a;
     --body: ui-serif, Georgia, "Times New Roman", serif;
     --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-    --reading: 2.05rem;     /* large, for reading aloud */
+    --reading: 2.05rem;
     --leading: 1.5;
-    --measure: 100%;        /* fill the screen width */
+    --measure: 90%;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);}
@@ -25,8 +25,6 @@
     line-height:var(--leading);
     -webkit-font-smoothing:antialiased;
   }
-
-  /* control bar */
   #bar{
     position:sticky;top:0;z-index:30;
     display:flex;align-items:center;gap:1rem;
@@ -43,14 +41,11 @@
   }
   #bar button:hover{background:var(--ink);color:var(--paper);}
   #bar .sz{display:flex;gap:.3rem;}
-
   main{
     max-width:var(--measure);
     margin:0 auto;
     padding:3rem 1.5rem 10rem;
   }
-
-  /* section divider */
   .sec{
     font-family:var(--mono);
     font-size:.8rem;
@@ -63,27 +58,21 @@
   }
   .sec:first-of-type{margin-top:1rem;}
   .sec .n{color:#c4c4c4;margin-right:.5rem;}
-
-  /* spoken chunk — a breath group */
-  .chunk{
-    margin:0 0 1.5rem;
-  }
+  .chunk{margin:0 0 1.5rem;}
   .chunk em{font-style:italic;}
-
-  /* inline slide cue — recedes, never read aloud */
   .cue{
     font-family:var(--mono);
-    font-size:.74rem;
-    line-height:1.4;
-    letter-spacing:.03em;
-    color:var(--cue);
+    font-size:1.05rem;
+    line-height:1.5;
+    letter-spacing:.02em;
+    color:#1a1a1a;
+    background:#d6edd6;
     margin:0 0 1.5rem;
-    padding-left:.1rem;
+    padding:.45rem .7rem;
+    border-radius:3px;
   }
-  .cue::before{content:"▸ ";color:var(--cue-bracket);}
-  .cue .k{color:#777;}
-
-  /* title block */
+  .cue::before{content:"▸ ";color:#5a9a5a;}
+  .cue .k{color:#1a1a1a;}
   .title{
     font-family:var(--mono);
     font-size:.78rem;
@@ -96,12 +85,11 @@
   }
   .title strong{color:var(--ink);font-size:.92rem;display:block;margin-bottom:.4rem;
     font-family:var(--body);font-weight:700;letter-spacing:0;}
-
   @media print{
     #bar{display:none;}
     main{max-width:100%;padding:0;}
     body{font-size:13pt;line-height:1.5;}
-    .cue{font-size:8pt;}
+    .cue{font-size:9pt;background:#e8f4e8;padding:.3rem .5rem;}
     .sec{margin-top:1.5rem;}
     .chunk{margin-bottom:.7rem;}
   }
@@ -110,7 +98,7 @@
 <body>
 
 <div id="bar">
-  <span>nyhima · spoken script · v3</span>
+  <span>nyhima · spoken script · v3.23</span>
   <span class="spacer"></span>
   <span class="sz">
     <button data-sz="1.7">A−</button>
@@ -141,55 +129,59 @@
 
   <div class="chunk">And suddenly a thought can travel — voice, to ear, to another mind. That's the first container thought ever lived in. And for most of human history, it's the only one. Your knowledge lived in you, and in the people close enough to hear you, and nowhere else.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 1: spoken language</span></div>
+  <div class="cue"><span class="k">slide 2 — timeline build · mark 1: spoken language · ~50,000 years</span></div>
 
   <div class="chunk">Then look what happens. About ten thousand years ago, clay tokens. People press shapes into clay to keep track of things — so many sheep, so many measures of grain. It sounds almost too small to mention.</div>
 
   <div class="chunk">But look at what it actually is: for the first time, a piece of human thinking lives <em>outside</em> a human being. In matter. Where it doesn't depend on anyone remembering it. Many scholars think this is the seed writing grows from. A thought, set down in the world.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 2: clay tokens</span></div>
+  <div class="cue"><span class="k">slide 3 — timeline build · mark 2: clay tokens · ~10,000 years</span></div>
 
   <div class="chunk">Then writing itself, around five thousand years ago — in Mesopotamia, in Egypt, more or less independently. And now it's not just counts. Now it's language.</div>
 
   <div class="chunk">Thought moves from voice and ear to hand and eye. What used to live only in the air, in the moment of speaking, can be set down and still be there when the speaker is gone.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 3: writing</span></div>
+  <div class="cue"><span class="k">slide 4 — timeline build · mark 3: writing · ~5,000 years</span></div>
 
   <div class="chunk">Then the alphabet, roughly thirty-five hundred years ago. A small set of reusable pieces — letters — and out of them, anything.</div>
 
   <div class="chunk">Now, other great writing systems did fine without one; this isn't the only road. But the alphabet made writing easier to learn and easier to spread. You don't need thousands of symbols anymore. You need a couple dozen, and the knack of putting them together.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 4: alphabet</span></div>
+  <div class="cue"><span class="k">slide 5 — timeline build · mark 4: alphabet · ~3,500 years</span></div>
 
   <div class="chunk">And then, much later — about five hundred and eighty years ago — Gutenberg. The printing press. And the press does for <em>copies</em> what the alphabet did for <em>composing</em>: it breaks text into pieces you can set and reset and reuse, and it makes any text, in any number, anywhere.</div>
 
   <div class="chunk">Thought that used to be rare and expensive and locked away comes pouring out into whole populations.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 5: printing press</span></div>
+  <div class="cue"><span class="k">slide 6 — timeline build · mark 5: printing press · ~580 years</span></div>
 
   <div class="chunk">Then, in the nineteenth and twentieth centuries, electronics — telegraph, telephone, radio, television — and the speed of thought jumps again, until what once took weeks to cross a continent moves at the speed of light.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 6: electronic</span></div>
+  <div class="cue"><span class="k">slide 7 — timeline build · mark 6: electronic · ~150 years</span></div>
 
   <div class="chunk">Then digital, and computing breaks language down into smaller and smaller pieces — characters into bits, bits into the smallest things we can store — so we can find them faster and faster, sort them, and string them back together, but only ever rearranging what we already made, never regenerating it.</div>
 
-  <div class="cue"><span class="k">slide — timeline build · mark 7: digital</span></div>
+  <div class="cue"><span class="k">slide 8 — timeline build · mark 7: digital · ~70 years · then mark 8: pre-transformer AI · ~65 years</span></div>
 
   <div class="chunk">Now here's what I want you to notice — because once you see it, you can't unsee it. Look at what every one of those steps has in common. Every single one is a human being, taking human thought, and putting it into the world so it can be kept and shared.</div>
 
   <div class="chunk">Tokens, writing, alphabet, print — each one reaches a little further than the last. But in every case, from the clay token to the printed book, the human is the one making the thought. The technology carries it. Multiplies it. Holds it. It never makes it. We make it. And that holds for ten thousand years.</div>
 
-  <div class="cue"><span class="k">slide — full line held · "the human makes it"</span></div>
+  <div class="cue"><span class="k">slide 9 — timeline · full line held</span></div>
 
   <div class="chunk">Now — there's a version of this story that's too clean, so let me complicate it. People had been teaching machines to produce language for decades before any of us noticed. Back in the nineteen-sixties, a program called ELIZA could hold a kind of conversation. There were translation systems.</div>
 
   <div class="chunk">The technology that would become ChatGPT was generating text in labs for years before we saw it. So a machine didn't make its first sentence in 2022.</div>
 
+  <div class="cue"><span class="k">slide 10 — timeline build · mark 9: transformer · LLM · 2017</span></div>
+
   <div class="chunk">What I am going to tell you is this. For ten thousand years, the making stayed ours — in practice, in daily life, the creating was something humans did, and the machines, however clever, carried what we made.</div>
+
+  <div class="cue"><span class="k">slide 11 — ~50,000 years of talking · ~10,000 years of coins · ~3,500 years of the alphabet · language has escaped its human container</span></div>
 
   <div class="chunk">And then that walks out of the lab, and into every hand on Earth, on November 30th, 2022.</div>
 
-  <div class="cue"><span class="k">slide — the hinge · November 30, 2022</span></div>
+  <div class="cue"><span class="k">slide 12 — the hinge · November 30, 2022</span></div>
 
   <!-- ================= SECTION 2 ================= -->
   <div class="sec"><span class="n">2</span>The break</div>
@@ -202,7 +194,7 @@
 
   <div class="chunk">You put a question to it, in plain language, on any subject you like, and it writes you something that wasn't there before. That's the part no earlier augmentation could do. And within five days, a million people were doing it.</div>
 
-  <div class="cue"><span class="k">slide — not faster — different</span></div>
+  <div class="cue"><span class="k">slide 13 — LLMs are not just faster, they are different</span></div>
 
   <div class="chunk">Now, that first version — by today's standards, it wasn't much. It got things wrong. It made things up. It wouldn't have fooled you for long. And none of that is the point.</div>
 
@@ -212,7 +204,7 @@
 
   <div class="chunk">Now, I'm not telling you that's a settled fact — nobody can tell you that yet, and people who know far more than I do are arguing about it right now. But I'll tell you why I find the framing useful: it keeps me from the two easy mistakes. It is not a person. And it is not a calculator with a vocabulary. It's a new kind of thing, and we don't have good instincts for it yet, because we've never had one before.</div>
 
-  <div class="cue"><span class="k">slide — a different kind of mind</span></div>
+  <div class="cue"><span class="k">slide 14 — a different kind of mind · exotic artificial entity · immigrant species · neither a person nor a tool · a different kind of thing</span></div>
 
   <div class="chunk">That's where we actually are. Ten thousand years of carrying human thought — and now, suddenly, something that doesn't just carry it but produces it.</div>
 
@@ -225,7 +217,9 @@
 
   <div class="chunk">Before we can talk about how to live with something, we should probably know what it is. And the good news is it's a lot less mysterious than it looks — a fair amount of the mystery is manufactured, and I don't think it serves any of us.</div>
 
-  <div class="chunk">So let me get specific. We keep saying "AI." What we're really talking about is a Large Language Model — an LLM — and the systems you've heard of are built on it. ChatGPT. Claude. Gemini. Copilot, which is probably the one that turned up in your software at work. Perplexity. Different companies; the same kind of thing underneath.</div>
+  <div class="chunk">So let me get specific. We keep saying "AI." The foundational invention — the technical breakthrough, published in 2017 — is called transformer architecture. Think of it the way you think about the alphabet: a small set of principles that made a whole world of things possible. Built on top of it is a class of systems called Large Language Models — LLMs. And the ones you've heard of are all built on those: ChatGPT. Claude. Gemini. Copilot, which is probably the one that turned up in your software at work. Perplexity. Different companies; the same architecture underneath.</div>
+
+  <div class="cue"><span class="k">slide 15 — transformer architecture · Large Language Model · LLM · ChatGPT · Claude · Copilot</span></div>
 
   <div class="chunk">And here's how it comes to be. You take an enormous amount of written text — a huge slice of everything humanity has digitized and put within reach. Not all of it. Not close to all of it — and that matters, because whatever gets left out, stays out. But a vast amount.</div>
 
@@ -233,7 +227,7 @@
 
   <div class="chunk">And from that map of patterns, it produces new text that fits. You ask it what fear is, what the French Revolution was about, how to phrase a hard paragraph — and it builds you an answer by predicting, piece by piece, what should plausibly come next.</div>
 
-  <div class="cue"><span class="k">slide — patterns, not facts</span></div>
+  <div class="cue"><span class="k">slide 16 — patterns, not facts · the whole machine is built to produce a response · fluent and wrong in the same voice</span></div>
 
   <div class="chunk">That's worth sitting with for a second, because it explains both what these things are wonderful at and where they fall down. They're pattern-completion machines of staggering range. They'll speak fluently on almost anything you put to them.</div>
 
@@ -245,7 +239,7 @@
 
   <div class="chunk">You send it a question; it wakes up, generates a response, and goes back to sleep. Question in, generation out, then nothing. That single round-trip is the whole event. There's no continuous mind on the other side, watching, waiting. There's a system that switches on when you ask, and is otherwise still.</div>
 
-  <div class="cue"><span class="k">slide — asleep between questions</span></div>
+  <div class="cue"><span class="k">slide 17 — asleep between questions · inference cycle · context window · system prompts</span></div>
 
   <div class="chunk">This is why I keep saying it isn't your grandfather's AI. If you're twenty-five, your grandfather's AI was the expert system. Some of those were genuinely powerful inside a narrow lane — but they ran on rules people wrote out by hand. <em>If this, then that.</em></div>
 
@@ -258,7 +252,7 @@
 
   <div class="chunk">There's a part of this I find genuinely hard to hold in my head, because it's so at odds with how the thing feels to use. The screen is so clean. The answer just appears. And underneath that clean surface is one of the heaviest physical objects we've ever made.</div>
 
-  <div class="cue"><span class="k">slide — the weight underneath —</span></div>
+  <div class="cue"><span class="k">slide 18 — What AI is made of · water · minerals · chips · human labor · The benefits must outweigh the costs.</span></div>
 
   <div class="chunk">Kate Crawford has traced this more carefully than most, and what she follows is the whole physical body of it. The electricity — these models run in data centers, buildings full of specialized machines, going up right now at a pace that rivals almost anything in the history of construction. The water that cools them.</div>
 
@@ -274,7 +268,7 @@
 
   <div class="chunk">Whether what these systems do turns out to be a new kind of thinking, or only a very convincing imitation of one — that's the kind of question this profession, and this whole culture, gets to actually argue about. We don't have to inherit the answer. We get to work it out.</div>
 
-  <div class="cue"><span class="k">slide — or maybe —</span></div>
+  <div class="cue"><span class="k">slide 19 — the question of what it is · how do we live with it?</span></div>
 
   <div class="chunk">So the cost is real, and the doubt is real, and I want to keep both of them in view. And even with both of them in view, here's where I come down — and why I don't think the answer is to back away.</div>
 
@@ -291,7 +285,7 @@
 
   <div class="chunk">The augmentation didn't hollow us out. It enlarged us. It made us capable of things we couldn't have reached without it.</div>
 
-  <div class="cue"><span class="k">slide — the same fear, every time —</span></div>
+  <div class="cue"><span class="k">slide 20 — the same fear, every time · new ways of augmenting our thoughts will take our humanity away · Human Augmentation · Augmenting Human Intellect</span></div>
 
   <div class="chunk">Now, let me be careful here, because there's a sloppy version of this that's just false. I am <em>not</em> telling you every fear about every technology has been wrong. Plenty were right. Nuclear weapons earned their fear. So did leaded gasoline. So did the surveillance machine, and some of what the last twenty years of screens have done to us.</div>
 
@@ -301,7 +295,7 @@
 
   <div class="chunk">That fear is ancient. It comes back with every single augmentation of thought. And so far, every time, the augmentation has <em>enlarged</em> what a human being can do, not shrunk it.</div>
 
-  <div class="cue"><span class="k">slide — and every time, more</span></div>
+  <div class="cue"><span class="k">slide 21 — AI augments human intellect · not a tool · not a person · an exotic artificial entity</span></div>
 
   <div class="chunk">And that's the fear in this room right now, about AI. I can feel it; I think you can too. And what I want to offer is just this: weigh it against a very long losing streak.</div>
 
@@ -317,7 +311,7 @@
 
   <div class="chunk">And the gap between what it <em>is</em> and how it <em>feels to use</em> is one of the central things we're going to have to learn to live inside. It is — to borrow the idea I keep returning to — a genuinely exotic kind of mind. Not human. Not pretending to be human. But able to do something no augmentation ever could: meet us in language, and generate.</div>
 
-  <div class="cue"><span class="k">slide — a someone, and not —</span></div>
+  <div class="cue"><span class="k">slide 22 — a genuinely exotic kind of mind · not human · not pretending to be human · meet us in language, and generate</span></div>
 
   <div class="chunk">So here's the posture I've landed on. Not defense. Not backing away. Not pretending it isn't here — and not handing ourselves over to it completely, either.</div>
 
@@ -325,7 +319,7 @@
 
   <div class="chunk">The people who came through every earlier one of these shifts intact weren't the ones who refused the new thing, and they weren't the ones who let it run them. They were the ones who picked it up on purpose, learned what it actually was, and decided — for themselves — how they'd use it. That choice is sitting right in front of you. It's really the only thing being asked of you.</div>
 
-  <div class="cue"><span class="k">slide — with</span></div>
+  <div class="cue"><span class="k">slide 23 — Living with AI · I could have used AI [link]</span></div>
 
   <!-- ================= SECTION 6 ================= -->
   <div class="sec"><span class="n">6</span>How I live with it</div>
@@ -338,7 +332,7 @@
 
   <div class="chunk">That was the dream. And in a strange, partial, complicated way, it's arrived. We have, now, a thing we can genuinely think alongside. The dream came true — and, like most dreams that come true, it came true sideways, with costs and doubts attached. That doesn't make it less of an arrival.</div>
 
-  <div class="cue"><span class="k">slide — freer —</span></div>
+  <div class="cue"><span class="k">slide 24 — ▶ play V8 clip · youtube.com/watch?v=qYo0lVVH2wU</span></div>
 
   <div class="chunk">So here's what it looks like for me. I'm aiming for a place — I'm mostly there already — where I open my laptop in the morning and I say, <em>hello, Claude</em> — my model of the week — or just, <em>hello, language model. What's on the agenda today?</em></div>
 
@@ -348,13 +342,13 @@
 
   <div class="chunk">I'm still doing my work. The same work I've always done — the reading, the thinking, the deciding what's worth saying. But wherever I can, I put the model into the loop. Not to do the thinking for me. To think <em>with</em>. To draft what I'll revise, to bring me more than I could have gathered alone, to argue with, to push against, while the judgment about what matters stays mine.</div>
 
-  <div class="cue"><span class="k">slide — model in the loop</span></div>
+  <div class="cue"><span class="k">slide 25 — model in the loop · I'm still doing my work · not to do the thinking for me — to think with.</span></div>
 
   <div class="chunk">That's the whole of it, really. That's what living with AI looks like from where I stand. Not a tool I pick up and put down. A new kind of mind I've folded into the loop of my own thinking — and I'm more capable for it, not less.</div>
 
   <div class="chunk">And that's what I'd leave you with. Not a worry. Not a warning. An invitation — the same one every generation got when its great augmentation arrived, and answered well. Pick it up. Pay attention. Decide for yourself how you'll think with it, read with it, write with it.</div>
 
-  <div class="cue"><span class="k">slide — decide for yourself</span></div>
+  <div class="cue"><span class="k">slide 26 — my approach · I should have used AI.</span></div>
 
   <div class="chunk">That's what it means to live with AI.</div>
 
@@ -363,7 +357,6 @@
 </main>
 
 <script>
-  // font-size controls — adjust reading size live
   document.querySelectorAll('#bar .sz button').forEach(b=>{
     b.addEventListener('click', ()=>{
       document.documentElement.style.setProperty('--reading', b.dataset.sz + 'rem');

@@ -4,27 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reading and Writing with AI — v3 (integrated)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-     v3.8 — DESIGN SYSTEM
+     v3.0 — DESIGN SYSTEM
      Palette: academic red / black / grey on white.
-     Type: DM Serif Display (title, timeline cap) · DM Sans (everything else).
+     Type: Computer Modern serif (titles) · monospace (fragments, labels).
      ============================================================ */
   :root{
     --ink:#1a1a1a;
     --paper:#fff;
     --red:#8C1515;            /* academic red — from site identity */
-    --grey:#3a3a3a;
+    --grey:#666;
     --rail:#f6f4f2;
     --rail-line:#e4e0db;
-    --muted:#3a3a3a;
+    --muted:#8a8a8a;
     --maxread:46rem;
-    --serif: "DM Serif Display", Georgia, serif;
-    --display: "DM Serif Display", Georgia, serif;
-    --body: "DM Sans", system-ui, sans-serif;
-    --mono: "DM Sans", system-ui, sans-serif;
+    --serif: "Computer Modern", "Latin Modern Roman", "Times New Roman", Georgia, serif;
+    --display: "Computer Modern", "Latin Modern Roman", "Times New Roman", Georgia, serif;
+    --body: "Computer Modern", "Latin Modern Roman", "Times New Roman", Georgia, serif;
+    --mono: "Courier New", ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
   }
 
   *{box-sizing:border-box;}
@@ -141,98 +139,6 @@
   }
   .slide .frag em{font-style:italic;font-weight:600;color:var(--red);}
 
-  /* statement slides — full declarative sentences, smaller than frags */
-  .slide.stmt .frag{
-    font-size:clamp(2rem,4vw,5rem);
-    line-height:1.35;
-    max-width:80vw;
-    letter-spacing:-.005em;
-  }
-
-  /* names slides — stacked descriptor phrases for a concept */
-  .slide.names .namelist{
-    display:flex;flex-direction:column;gap:2vmin;
-    text-align:center;
-  }
-  .slide.names .name{
-    font-family:var(--mono);
-    font-size:clamp(1.8rem,3.5vw,4.5rem);
-    font-weight:600;
-    line-height:1.2;
-    color:var(--ink);
-  }
-  .slide.names .name:first-child{
-    font-size:clamp(2.4rem,5vw,6.5rem);
-    font-weight:700;
-  }
-  .slide.names .name em{font-style:normal;color:var(--red);}
-  .slide.names .name a{color:inherit;text-decoration:underline;text-underline-offset:.15em;}
-  .slide.names .name.body{
-    font-size:clamp(1.2rem,2.2vw,2.8rem);
-    font-weight:400;
-    color:var(--muted);
-    margin-top:.5vmin;
-  }
-  .slide.names .name.turn{
-    font-size:clamp(1.6rem,3vw,3.8rem);
-    font-weight:600;
-    color:var(--ink);
-    margin-top:1.5vmin;
-  }
-  .slide.names .name.punchline{
-    font-size:clamp(2rem,4vw,5rem);
-    font-weight:700;
-    color:var(--red);
-    margin-top:.5vmin;
-  }
-  .slide.names .name:first-child.punchline{font-size:clamp(2rem,4vw,5rem);}
-
-  /* vocab slides — terminology reference */
-  .slide.vocab .vocablist{
-    display:flex;flex-direction:column;gap:1.5vmin;
-    text-align:left;max-width:85vw;
-  }
-  .slide.vocab .term{
-    font-family:var(--mono);
-    font-size:clamp(1.4rem,2.6vw,3.4rem);
-    font-weight:600;
-    line-height:1.25;
-    color:var(--ink);
-  }
-  .slide.vocab .term.primary{
-    color:var(--red);
-    font-size:clamp(1.8rem,3.2vw,4.2rem);
-  }
-  .slide.vocab .term.muted{
-    color:var(--grey);
-    font-size:clamp(1.2rem,2.2vw,2.8rem);
-    font-weight:400;
-  }
-  .slide.vocab .vsep{
-    height:1px;background:var(--rail-line);
-    margin:.5vmin 0;
-  }
-
-  /* video slides */
-  .slide.video{flex-direction:column;gap:2vmin;}
-  .slide.video .vid-wrap{
-    width:min(78vw,138vh);
-    position:relative;
-  }
-  .slide.video .vid-wrap::before{
-    content:'';display:block;padding-top:56.25%;
-  }
-  .slide.video iframe{
-    position:absolute;inset:0;
-    width:100%;height:100%;border:none;
-  }
-  .slide.video .vid-label{
-    font-family:var(--mono);
-    font-size:clamp(1rem,2vw,2.2rem);
-    color:var(--muted);
-    text-align:center;
-  }
-
   /* title slide — SERIF title, MONO subtitle (now ~5x, dark) */
   .slide.title .frag{
     font-family:var(--serif);
@@ -244,12 +150,12 @@
   }
   .slide.title .sub{
     font-family:var(--mono);
-    font-size:clamp(1.8rem,5vw,4.4rem);
+    font-size:clamp(1.4rem,4vw,3rem);
     color:var(--red);
     margin-top:2.4rem;
     letter-spacing:.01em;
-    line-height:1.25;
-    max-width:26ch;
+    line-height:1.3;
+    max-width:30ch;
   }
 
   /* date slide — MONO */
@@ -263,17 +169,16 @@
   }
 
   /* timeline slide */
-  .slide.tl{padding:4vmin 5vmin;align-items:flex-start;}
-  .tlwrap{width:100%;max-width:1280px;margin-top:2vmin;}
+  .slide.tl{padding:8vmin 6vmin;}
+  .tlwrap{width:100%;max-width:1200px;}
   .tlwrap .cap{
     font-family:var(--serif);
-    font-size:clamp(2.6rem,7vw,6.4rem);
+    font-size:clamp(2rem,5vw,4.4rem);
     font-weight:700;
     color:var(--ink);
-    margin-bottom:18vmin;
+    margin-bottom:4rem;
     letter-spacing:0;
-    line-height:1.08;
-    text-align:left;
+    line-height:1.1;
   }
   .tline{position:relative;height:4px;background:var(--rail-line);width:100%;}
   .tline .fill{position:absolute;left:0;top:0;height:4px;background:var(--red);width:0;transition:width .6s ease;}
@@ -287,25 +192,19 @@
   .mark.on .dot{background:var(--red);}
   .mark .lbl{
     font-family:var(--mono);
-    font-size:clamp(1.2rem,2.4vw,2rem);
+    font-size:clamp(1rem,2.4vw,1.9rem);
     color:var(--ink);position:absolute;left:50%;transform:translateX(-50%);
-    font-weight:700;
-    width:9ch;
-    text-align:center;
-    white-space:normal;
-    overflow-wrap:break-word;
-    line-height:1.45;
+    white-space:nowrap;font-weight:600;
   }
   .mark .yr{
     font-family:var(--mono);
-    font-size:clamp(1.2rem,2.4vw,2rem);
-    color:var(--red);position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;
-    font-weight:600;
+    font-size:clamp(.7rem,1.5vw,1.1rem);
+    color:var(--grey);position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;
   }
-  .mark.up .lbl{bottom:3em;}
-  .mark.up .yr{bottom:1.25em;}
-  .mark.down .lbl{top:3em;}
-  .mark.down .yr{top:1.25em;}
+  .mark.up .lbl{bottom:30px;}
+  .mark.up .yr{bottom:10px;}
+  .mark.down .lbl{top:30px;}
+  .mark.down .yr{top:10px;}
 
   /* present-mode footer + progress */
   #pfoot{
@@ -322,14 +221,6 @@
   #pfoot kbd{font-family:var(--mono);border:1px solid var(--rail-line);
     border-radius:3px;padding:0 .3rem;color:var(--muted);}
 
-  #slidenum{
-    display:none;
-    position:fixed;top:1.2rem;right:1.8rem;z-index:120;
-    font-family:var(--mono);font-size:.9rem;
-    color:var(--muted);letter-spacing:.04em;
-  }
-  body.presenting #slidenum{display:block;}
-
   @media (prefers-reduced-motion: reduce){
     .tline .fill,.mark{transition:none;}
   }
@@ -338,7 +229,7 @@
 <body>
 
 <div id="bar">
-  <span class="title">nyhima-slides · v3.23 · red/black/grey</span>
+  <span class="title">nyhima-slides · v3.0 · red/black/grey</span>
   <span class="spacer"></span>
   <span class="hint">present: arrows / space · exit: Esc</span>
   <button id="toggle">▶ Present</button>
@@ -402,7 +293,7 @@
 
   <div class="block">
     <p>Then digital, and computing breaks language down into smaller and smaller pieces — characters into bits, bits into the smallest things we can store — so we can find them faster and faster, sort them, and string them back together, but only ever rearranging what we already made, never regenerating it.</p>
-    <div class="slide-rail timeline"><span class="lab">timeline · build</span><span class="word">▸ mark 7: digital · then mark 8: pre-transformer AI (the grandfather's AI — still only looked things up)</span></div>
+    <div class="slide-rail timeline"><span class="lab">timeline · build</span><span class="word">▸ mark 7: digital</span></div>
   </div>
 
   <div class="block">
@@ -412,12 +303,12 @@
 
   <div class="block noslide">
     <p>Now — there's a version of this story that's too clean, so let me complicate it. People had been teaching machines to produce language for decades before any of us noticed. Back in the nineteen-sixties, a program called ELIZA could hold a kind of conversation. There were translation systems. The technology that would become ChatGPT was generating text in labs for years before we saw it. So a machine didn't make its first sentence in 2022.</p>
-    <div class="slide-rail timeline"><span class="lab">timeline · final mark</span><span class="word">▸ mark 9: transformer · LLM (2017) — the named rupture-tech; the line ends on a machine, not a date</span></div>
+    <div class="slide-rail none"><span class="lab">slide</span><span class="word">— full line held —</span></div>
   </div>
 
-  <div class="block">
+  <div class="block noslide">
     <p>What I am going to tell you is this. For ten thousand years, the making stayed ours — in practice, in daily life, the creating was something humans did, and the machines, however clever, carried what we made.</p>
-    <div class="slide-rail"><span class="lab">slide · recap</span><span class="word">~50,000 years of talking → language has escaped its human container</span></div>
+    <div class="slide-rail none"><span class="lab">slide</span><span class="word">— full line held —</span></div>
   </div>
 
   <div class="block">
@@ -437,7 +328,7 @@
 
   <div class="block">
     <p>And I want to be careful to say what's new here, because it's easy to overshoot. A calculator produces a number — but you chose the operation. A search engine ranks pages that already exist. This is a different thing. You put a question to it, in plain language, on any subject you like, and it writes you something that wasn't there before. That's the part no earlier augmentation could do. And within five days, a million people were doing it.</p>
-    <div class="slide-rail"><span class="lab">slide · statement</span><span class="word">LLMs are not just faster, they are <em>different</em></span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">not faster — <em>different</em></span></div>
   </div>
 
   <div class="block noslide">
@@ -447,7 +338,7 @@
 
   <div class="block">
     <p>And I find the most useful way to hold that — the framing that's helped me most — comes from Geoffrey Hinton, one of the people most responsible for this technology even existing. He's argued that we might be looking at a genuinely different <em>form</em> of intelligence. Not a copy of ours. Not a simulation of a human mind. Something else. Now, I'm not telling you that's a settled fact — nobody can tell you that yet, and people who know far more than I do are arguing about it right now. But I'll tell you why I find the framing useful: it keeps me from the two easy mistakes. It is not a person. And it is not a calculator with a vocabulary. It's a new kind of thing, and we don't have good instincts for it yet, because we've never had one before.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">a <em>different</em> kind of mind · exotic artificial entity · immigrant species · neither a person nor a tool · a different kind of thing</span></div>
+    <div class="slide-rail"><span class="lab">slide · word</span><span class="word">a different kind of mind</span></div>
   </div>
 
   <div class="block noslide">
@@ -470,14 +361,14 @@
     <div class="slide-rail none"><span class="lab">slide</span><span class="word">— open / dark —</span></div>
   </div>
 
-  <div class="block">
-    <p>So let me get specific. We keep saying "AI." The foundational invention — the technical breakthrough, published in 2017 — is called transformer architecture. Think of it the way you think about the alphabet: a small set of principles that made a whole world of things possible. Built on top of it is a class of systems called Large Language Models — LLMs. And the ones you've heard of are all built on those: ChatGPT. Claude. Gemini. Copilot, which is probably the one that turned up in your software at work. Perplexity. Different companies; the same architecture underneath.</p>
-    <div class="slide-rail"><span class="lab">slide · vocab</span><span class="word">transformer architecture · LLM · ChatGPT · Claude · Copilot</span></div>
+  <div class="block noslide">
+    <p>So let me get specific. We keep saying "AI." What we're really talking about is a Large Language Model — an LLM — and the systems you've heard of are built on it. ChatGPT. Claude. Gemini. Copilot, which is probably the one that turned up in your software at work. Perplexity. Different companies; the same kind of thing underneath.</p>
+    <div class="slide-rail none"><span class="lab">slide</span><span class="word">— held —</span></div>
   </div>
 
   <div class="block">
     <p>And here's how it comes to be. You take an enormous amount of written text — a huge slice of everything humanity has digitized and put within reach. Not all of it. Not close to all of it — and that matters, because whatever gets left out, stays out. But a vast amount. And the system works through all of it and builds something like a giant map of relationships: how words follow words, how ideas sit near other ideas, how concepts connect. It isn't filing the documents away to look them up later — though, interestingly, it learns some passages well enough to reproduce them, which is its own thorny issue. Mostly it's learning the <em>patterns</em>. And from that map of patterns, it produces new text that fits. You ask it what fear is, what the French Revolution was about, how to phrase a hard paragraph — and it builds you an answer by predicting, piece by piece, what should plausibly come next.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">patterns, <em>not facts</em> · the whole machine is built to produce a response · fluent and wrong in the same voice</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">patterns, not facts</span></div>
   </div>
 
   <div class="block noslide">
@@ -487,7 +378,7 @@
 
   <div class="block">
     <p>And here's one more piece that changes how I think about the whole thing. The model isn't awake. It isn't sitting there thinking about you while you're away. It's dormant. You send it a question; it wakes up, generates a response, and goes back to sleep. Question in, generation out, then nothing. That single round-trip is the whole event. There's no continuous mind on the other side, watching, waiting. There's a system that switches on when you ask, and is otherwise still.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">asleep between questions · inference cycle · context window · system prompts</span></div>
+    <div class="slide-rail"><span class="lab">slide · word</span><span class="word">asleep between questions</span></div>
   </div>
 
   <div class="block noslide">
@@ -502,7 +393,7 @@
 
   <div class="block">
     <p>There's a part of this I find genuinely hard to hold in my head, because it's so at odds with how the thing feels to use. The screen is so clean. The answer just appears. And underneath that clean surface is one of the heaviest physical objects we've ever made.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">What AI is made of · water · minerals · chips · human labor · The benefits must outweigh the costs.</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">the weight underneath —</span></div>
   </div>
 
   <div class="block noslide">
@@ -512,7 +403,7 @@
 
   <div class="block">
     <p>And there's a real intellectual question sitting underneath all of this — one I don't think any of us should be too quick to settle. There's a well-known critique, the "stochastic parrots" argument, that says these systems don't understand anything at all. That they're just very sophisticated pattern-matchers, stitching together plausible runs of words with nothing underneath, and that we're fooling ourselves when we treat the fluent output as thought. And I think there's a lot to it. I also think it's genuinely open. Whether what these systems do turns out to be a new kind of thinking, or only a very convincing imitation of one — that's the kind of question this profession, and this whole culture, gets to actually argue about. We don't have to inherit the answer. We get to work it out.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">the question of what it is → how do we live with it?</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">or maybe —</span></div>
   </div>
 
   <div class="block noslide">
@@ -532,7 +423,7 @@
 
   <div class="block">
     <p>Go back to that long line we walked at the start — tokens, writing, the alphabet, the press. Every one of those was an augmentation. A way of reaching past the limits of a single head. And here's what's easy to forget: every one of them, when it showed up, frightened people. The oldest example we have is Plato — writing about <em>writing itself</em>, twenty-four hundred years ago. He worried it would weaken memory, that it would give people the <em>appearance</em> of wisdom in place of the real thing. And he wasn't entirely wrong! Something did change. But look what happened. We took up writing anyway, and memory changed, and we did not lose our minds. We got science. We got law. We got medicine, and records, and this conference. The augmentation didn't hollow us out. It enlarged us. It made us capable of things we couldn't have reached without it.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">the same fear, every time · Human Augmentation · Augmenting Human Intellect · capture · project · change · find</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">the same fear, every time —</span></div>
   </div>
 
   <div class="block noslide">
@@ -542,7 +433,7 @@
 
   <div class="block">
     <p>That fear is ancient. It comes back with every single augmentation of thought. And so far, every time, the augmentation has <em>enlarged</em> what a human being can do, not shrunk it.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">AI augments human intellect · not a tool · not a person · an exotic artificial entity</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">and every time, <em>more</em></span></div>
   </div>
 
   <div class="block noslide">
@@ -557,12 +448,12 @@
 
   <div class="block">
     <p>Think about it. A tool that only carries thought is a tool. But a thing that <em>generates</em> — that you can ask, that answers, that works a problem right alongside you — that's not just a tool anymore. It's something closer to an assistant. A collaborator. And here's where it gets strange, and I'd rather name the strangeness than smooth it over: some people find themselves treating it as a companion. I told you a minute ago it isn't a person, and I meant it — it isn't. And yet people talk to it like a <em>someone</em>, and feel met by it, and that isn't simply a mistake on their part, because the thing genuinely answers. A not-person that we relate to as a someone. We've never had that before. We don't even have a word for it. And the gap between what it <em>is</em> and how it <em>feels to use</em> is one of the central things we're going to have to learn to live inside. It is — to borrow the idea I keep returning to — a genuinely exotic kind of mind. Not human. Not pretending to be human. But able to do something no augmentation ever could: meet us in language, and generate.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">a genuinely exotic kind of mind · not human · not pretending to be human · meet us in language, and generate</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">a someone, and not —</span></div>
   </div>
 
   <div class="block">
     <p>So here's the posture I've landed on. Not defense. Not backing away. Not pretending it isn't here — and not handing ourselves over to it completely, either. The threat is real. But a threat is a <em>condition</em> — something you engage, with your eyes open — not a verdict you flee from. And engaging it with your eyes open is the whole of what I mean by agency. The people who came through every earlier one of these shifts intact weren't the ones who refused the new thing, and they weren't the ones who let it run them. They were the ones who picked it up on purpose, learned what it actually was, and decided — for themselves — how they'd use it. That choice is sitting right in front of you. It's really the only thing being asked of you.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">Living with AI · I could have used AI</span></div>
+    <div class="slide-rail"><span class="lab">slide · word — quiet center</span><span class="word">with</span></div>
   </div>
 
   <hr class="rule">
@@ -577,7 +468,7 @@
 
   <div class="block">
     <p>Here's the first thing worth saying plainly: we built these things. This new kind of mind didn't arrive from somewhere else. We made it, out of our own written record, with our own hands and a staggering amount of our own resources. It's here because we chose to build it. Which means the question of what we do with it was never really a question about the technology. It's a question about us. Ted Nelson saw this a long time ago — decades before any of it was possible, he imagined machines that would augment human thought, documents you could think <em>with</em>. He had a line for what he was after: <em>making people freer through computers.</em> That was the dream. And in a strange, partial, complicated way, it's arrived. We have, now, a thing we can genuinely think alongside. The dream came true — and, like most dreams that come true, it came true sideways, with costs and doubts attached. That doesn't make it less of an arrival.</p>
-    <div class="slide-rail"><span class="lab">slide · video</span><span class="word">▶ I could've had a V8 — youtube.com/watch?v=qYo0lVVH2wU&t=6s</span></div>
+    <div class="slide-rail"><span class="lab">slide · fragment</span><span class="word">freer —</span></div>
   </div>
 
   <div class="block noslide">
@@ -587,7 +478,7 @@
 
   <div class="block">
     <p>And I've started every task, for a while now, with one question: <em>how can I use AI to do this?</em> I call it keeping the model in the loop. You've probably heard "human in the loop" — the human kept in the chain to check the machine. I mean something closer to the reverse. I'm still doing my work. The same work I've always done — the reading, the thinking, the deciding what's worth saying. But wherever I can, I put the model into the loop. Not to do the thinking for me. To think <em>with</em>. To draft what I'll revise, to bring me more than I could have gathered alone, to argue with, to push against, while the judgment about what matters stays mine.</p>
-    <div class="slide-rail"><span class="lab">slide · names</span><span class="word">model in the loop · I'm still doing my work · not to do the thinking for me — to think with.</span></div>
+    <div class="slide-rail"><span class="lab">slide · word</span><span class="word">model in the loop</span></div>
   </div>
 
   <div class="block noslide">
@@ -597,7 +488,7 @@
 
   <div class="block">
     <p>And that's what I'd leave you with. Not a worry. Not a warning. An invitation — the same one every generation got when its great augmentation arrived, and answered well. Pick it up. Pay attention. Decide for yourself how you'll think with it, read with it, write with it.</p>
-    <div class="slide-rail"><span class="lab">slide · close</span><span class="word">my approach · I should have used AI.</span></div>
+    <div class="slide-rail"><span class="lab">slide · close</span><span class="word">decide for yourself</span></div>
   </div>
 
   <div class="block noslide">
@@ -617,7 +508,6 @@
      ========================================================= -->
 <div id="present">
   <div id="stage"></div>
-<div id="slidenum"></div>
 </div>
 <div id="pfoot" style="display:none;">
   <span id="pidx">1</span>
@@ -633,15 +523,13 @@
    For timeline slides, `marks` = how many of the 7 are visible.
    ============================================================ */
 const TL = [
-  {lbl:"spoken language",     yr:"~50,000 years"},
-  {lbl:"clay tokens",         yr:"~10,000 years"},
-  {lbl:"writing",             yr:"~5,000 years"},
-  {lbl:"alphabet",            yr:"~3,500 years"},
-  {lbl:"printing press",      yr:"~580 years"},
-  {lbl:"electronic",          yr:"~150 years"},
-  {lbl:"digital",             yr:"~70 years"},
-  {lbl:"pre-transformer AI",  yr:"~65 years"},
-  {lbl:"transformer · LLM",   yr:"2017"}
+  {lbl:"spoken language", yr:"~50,000 ya"},
+  {lbl:"clay tokens",     yr:"~10,000 ya"},
+  {lbl:"writing",         yr:"~5,000 ya"},
+  {lbl:"alphabet",        yr:"~3,500 ya"},
+  {lbl:"printing press",  yr:"~580 ya"},
+  {lbl:"electronic",      yr:"19–20c"},
+  {lbl:"digital",         yr:"late 20c"}
 ];
 
 const SLIDES = [
@@ -653,96 +541,20 @@ const SLIDES = [
   {type:"timeline", marks:5},
   {type:"timeline", marks:6},
   {type:"timeline", marks:7},
-  {type:"timeline", marks:8},
-  {type:"timeline", marks:9},
-  {type:"names", items:[
-    {text:"~50,000 years of talking"},
-    {text:"~10,000 years of coins"},
-    {text:"~3,500 years of the alphabet"},
-    {text:"and now, the machine talks back", cls:"turn"},
-    {text:"language has escaped its human container", cls:"punchline"}
-  ]},
   {type:"date", frag:"November 30, 2022"},
-  {type:"stmt", frag:'LLMs are not just faster, they are <em>different</em>'},
-  {type:"names", items:[
-    {text:"a <em>different</em> kind of mind"},
-    {text:"exotic artificial entity"},
-    {text:"immigrant species"},
-    {text:"neither a person nor a tool", cls:"body"},
-    {text:"a different kind of thing", cls:"body"},
-    {text:"we don't have good instincts for it", cls:"body"},
-    {text:"we've never had one before", cls:"body"}
-  ]},
-  {type:"vocab", terms:[
-    {text:"transformer architecture", cls:"primary"},
-    {text:"Large Language Model · LLM"},
-    {cls:"vsep"},
-    {text:"ChatGPT · Claude · Gemini", cls:"muted"},
-    {text:"Copilot · Perplexity", cls:"muted"}
-  ]},
-  {type:"names", items:[
-    {text:"patterns, <em>not facts</em>"},
-    {text:"the whole machine is built to produce a response, not to sit there in silence", cls:"body"},
-    {text:"producing is what it does best", cls:"body"},
-    {text:"completely fluent and completely wrong in exactly the same voice", cls:"body"}
-  ]},
-  {type:"names", items:[
-    {text:"asleep between questions"},
-    {text:"inference cycle", cls:"body"},
-    {text:"context window", cls:"body"},
-    {text:"system prompts", cls:"body"}
-  ]},
-  {type:"names", items:[
-    {text:"What AI is made of"},
-    {text:"water", cls:"body"},
-    {text:"minerals", cls:"body"},
-    {text:"chips", cls:"body"},
-    {text:"human labor", cls:"body"},
-    {text:"The benefits must outweigh the costs.", cls:"punchline"}
-  ]},
-  {type:"names", items:[
-    {text:"the question of what it is"},
-    {text:"doesn't, in the end, matter so much as", cls:"body"},
-    {text:"how do we live with it?", cls:"punchline"}
-  ]},
-  {type:"names", items:[
-    {text:"the same fear, every time"},
-    {text:"new ways of augmenting our thoughts will take our humanity away", cls:"turn"},
-    {text:"Human Augmentation"},
-    {text:"Augmenting Human Intellect"},
-    {text:"capturing the thought so we could keep it", cls:"body"},
-    {text:"recording · printing · projecting · broadcasting", cls:"body"},
-    {text:"changing it · finding it", cls:"body"}
-  ]},
-  {type:"names", items:[
-    {text:"AI augments human intellect"},
-    {text:"it is not a tool", cls:"body"},
-    {text:"it is not a person", cls:"body"},
-    {text:"an exotic artificial entity", cls:"punchline"}
-  ]},
-  {type:"names", items:[
-    {text:"a genuinely exotic kind of mind"},
-    {text:"not human", cls:"body"},
-    {text:"not pretending to be human", cls:"body"},
-    {text:"but able to do something no augmentation ever could", cls:"body"},
-    {text:"meet us in language, and generate", cls:"punchline"}
-  ]},
-  {type:"names", items:[
-    {text:"Living with AI", cls:"punchline"},
-    {text:"<a href='https://www.youtube.com/watch?v=qYo0lVVH2wU' target='_blank'>I could have used AI</a>", cls:"body"}
-  ]},
-  {type:"video", src:"https://www.youtube.com/embed/qYo0lVVH2wU?start=6&end=22", label:"I could've had a V8"},
-  {type:"names", items:[
-    {text:"model in the loop"},
-    {text:"I'm still doing my work", cls:"turn"},
-    {text:"the reading · the thinking · the deciding what's worth saying", cls:"body"},
-    {text:"wherever I can, I put the model into the loop", cls:"body"},
-    {text:"not to do the thinking for me — to think with.", cls:"punchline"}
-  ]},
-  {type:"names", items:[
-    {text:"my approach"},
-    {text:"I should have used AI.", cls:"punchline"}
-  ]},
+  {type:"frag", frag:'not faster — <em>different</em>'},
+  {type:"frag", frag:"a different kind of mind"},
+  {type:"frag", frag:"patterns, not facts"},
+  {type:"frag", frag:"asleep between questions"},
+  {type:"frag", frag:"the weight underneath —"},
+  {type:"frag", frag:"or maybe —"},
+  {type:"frag", frag:"the same fear, every time —"},
+  {type:"frag", frag:"and every time, <em>more</em>"},
+  {type:"frag", frag:"a someone, and not —"},
+  {type:"frag", frag:"with"},
+  {type:"frag", frag:"freer —"},
+  {type:"frag", frag:"model in the loop"},
+  {type:"frag", frag:"decide for yourself"},
   {type:"dark"}
 ];
 
@@ -751,7 +563,8 @@ const stage = document.getElementById('stage');
 
 function timelineHTML(nMarks){
   // positions along the line, to scale-ish (log-compressed so early gaps read large)
-  const pos = [2, 13, 25, 36, 54, 67, 78, 88, 97]; // early spread, modern cluster spaced for wrapped labels
+  // simple proportional placement by index works visually for the "crowding" effect:
+  const pos = [2, 16, 34, 48, 72, 88, 96]; // % left — early spread, late crowd
   let marks = "";
   for(let i=0;i<TL.length;i++){
     const on = i < nMarks;
@@ -784,28 +597,12 @@ function render(){
     inner = timelineHTML(s.marks);
   } else if(s.type==="dark"){
     inner = `<div class="frag" style="opacity:0">·</div>`;
-  } else if(s.type==="stmt"){
-    cls += " stmt";
-    inner = `<div class="frag">${s.frag}</div>`;
-  } else if(s.type==="names"){
-    cls += " names";
-    inner = `<div class="namelist">${s.items.map(i=>{
-      const t = typeof i==='string'?{text:i}:i;
-      return `<div class="name${t.cls?' '+t.cls:''}">${t.text}</div>`;
-    }).join('')}</div>`;
-  } else if(s.type==="vocab"){
-    cls += " vocab";
-    inner = `<div class="vocablist">${s.terms.map(t=>t.cls==='vsep'?`<div class="vsep"></div>`:`<div class="term${t.cls?' '+t.cls:''}">${t.text}</div>`).join('')}</div>`;
-  } else if(s.type==="video"){
-    cls += " video";
-    inner = `<div class="vid-wrap"><iframe src="${s.src}" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>${s.label?`<div class="vid-label">${s.label}</div>`:''}`;
   } else {
     inner = `<div class="frag">${s.frag}</div>`;
   }
   stage.innerHTML = `<div class="${cls}">${inner}</div>`;
   // progress
   document.getElementById('pidx').textContent = (cur+1) + " / " + SLIDES.length;
-  document.getElementById('slidenum').textContent = (cur+1) + " / " + SLIDES.length;
   const seg = document.getElementById('pseg');
   seg.innerHTML = SLIDES.map((_,i)=>`<i class="${i<=cur?'on':''}"></i>`).join('');
 }
