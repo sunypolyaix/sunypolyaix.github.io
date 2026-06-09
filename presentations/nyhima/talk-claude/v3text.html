@@ -1,0 +1,751 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+<title>nyhima-talk-v3.md</title>
+<style type='text/css'>:root {
+  /* Base Light */
+  --textPrimary: #24292E;
+  --background: #ffffff;
+  --body-border-color: #dfdfdf;
+  --link: #0366d6;
+  --link-highlight: rgba(3, 102, 214, 0.08);
+  --code-background: #f7f7f9;
+  --hr-background: #e3e4e8;
+  --thead-background: #f7f7f9;
+  --thead-border: #e3e4e8;
+  --tr-border: #bfc1c9; /* unused variable */
+  --tr-alt-background: #f7f7f9;
+  --kbd-background: #f7f7f9;
+  --kbd-color: #4b4d58;
+  --kbd-border: #d6d7dc;
+  --blockquote-color: #6a6d7c;
+  --blockquote-border: #e3e4e8;
+  --heading-color: #17181a;
+  --header-bottom-border: #e3e4e8;
+  --h6-color: #6a6d7c;
+  --frame-border: #e3e4e8;
+  --frame-color: #242528;
+  --mention-color: #242528;
+  --email-toggle-color: #4b4d58; /* unused variable */
+  --email-toggle-background: #e3e4e8; /* unused variable */
+  --email-quoted-color: #6a6d7c; /* unused variable */
+  --keyword-color: #9194a1;
+  --code-font: ui-monospace, Menlo, monospace;
+  
+  /* Highlight Light */
+  --hl_Background: #F6F8FA ;
+  --hl_Number: #005cc5 ;
+  --hl_Escape: #032f62 ;
+  --hl_String: #032f62 ;
+  --hl_String_Pre_Processor: #549ef1 ;
+  --hl_Block_Comment: #6a737d ;
+  --hl_Line_Comment: #6a737d ;
+  --hl_Pre_Processor: #d73a49 ; /* #include */
+  --hl_Line_Number:  #52565C ;
+  --hl_Operator: #032f62 ; /* +,-,(){} */
+  --hl_Interpolation:  #79c0ff ;
+  --hl_Keyword-1: #d73a49 ; /* import | func */
+  --hl_Keyword-2: #d73a49 ; /* int | str */
+  --hl_Keyword-3: #24292e ; /* ??? */
+  --hl_Keyword-4: #6f42c1 ; /* ??? */
+  --hl_Keyword-5: #d73a49 ; /* ??? */
+  --hl_Keyword-6: #d73a49 ; /* ??? */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Base Dark */
+  --textPrimary: #c9d1d9;
+  --background: #0d1117;
+  --body-border-color: #31363C;
+  --link: #58a6ff;
+  --link-highlight: rgba(3, 102, 214, 0.08);
+  --code-background: #2f3438;
+  --hr-background: #30363d;
+  --thead-background: #f7f7f9;
+  --thead-border: #3b434b;
+  --tr-border: #3b434b; /* unused variable */
+  --tr-alt-background: #161c23;
+  --kbd-background: #f7f7f9;
+  --kbd-color: #4b4d58;
+  --kbd-border: #050505;
+  --blockquote-color: #8b949e;
+  --blockquote-border: #3D434A;
+  --heading-color: #17181a;
+  --header-bottom-border: #21272c;
+  --h6-color: #6a6d7c;
+  --frame-border: #ff08d6;
+  --frame-color: #242528;
+  --mention-color: #242528;
+  --email-toggle-color: #4b4d58;
+  --email-toggle-background: #e3e4e8;
+  --email-quoted-color: #6a6d7c;
+  --keyword-color: #9194a1;
+  --code-font: ui-monospace, Menlo, monospace;
+
+  /* Highlight Dark */
+  --hl_Background: #161b22 ;
+  --hl_Number: #79c0ff ;
+  --hl_Escape: #a5d6ff ;
+  --hl_String: #549ef1 ;
+  --hl_String_Pre_Processor: #549ef1 ;
+  --hl_Block_Comment: #8b949e ;
+  --hl_Line_Comment: #8b949e ;
+  --hl_Pre_Processor: #FF7B72 ; /* #include */
+  --hl_Line_Number:  #52565C ;
+  --hl_Operator: #79c0ff ; /* +,-,(){} */
+  --hl_Interpolation:  #79c0ff ;
+  --hl_Keyword-1: #FF7B72 ; /* import | func */
+  --hl_Keyword-2: #FF7B72 ; /* int | str */
+  --hl_Keyword-3: #c9d1d9 ; /* ??? */
+  --hl_Keyword-4: #eea8ff ; /* ??? */
+  --hl_Keyword-5: #FF7B72 ; /* ??? */
+  --hl_Keyword-6: #FF7B72 ; /* ??? */
+  }
+}
+
+/*Syntax Highlight*/
+pre.hl	{ background-color: var(--hl_Background);}
+.hl.num { color: var(--hl_Number); font-weight: normal;}
+.hl.esc { color: var(--hl_Escape); font-weight: normal;}
+.hl.str { color: var(--hl_String); font-weight: normal;}
+.hl.pps { color: var(--hl_String_Pre_Processor); font-weight: normal;}
+.hl.com { color: var(--hl_Block_Comment); font-weight: normal;}
+.hl.slc { color: var(--hl_Line_Comment); font-weight: normal;}
+.hl.ppc { color: var(--hl_Pre_Processor); font-weight: normal;}
+.hl.lin { color: var(--hl_Line_Number); font-weight: normal;}
+.hl.opt { color: var(--hl_Operator); font-weight: normal;}
+.hl.ipl { color: var(--hl_Interpolation); font-weight: normal;}
+.hl.kwa { color: var(--hl_Keyword-1); font-weight: normal;}
+.hl.kwb { color: var(--hl_Keyword-2); font-weight: normal;}
+.hl.kwc { color: var(--hl_Keyword-3); font-weight: normal;}
+.hl.kwd { color: var(--hl_Keyword-4); font-weight: normal;}
+.hl.kwe { color: var(--hl_Keyword-5); font-weight: normal;}
+.hl.kwf { color: var(--hl_Keyword-6); font-weight: normal;}
+
+
+pre {
+  max-width: 902px;
+}
+* {
+  box-sizing: border-box;
+}
+
+input:disabled {
+  touch-action: none;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji, Segoe UI Emoji;
+}
+
+body {
+  margin: 0;
+  /* padding: 1rem; */
+  color: var(--textPrimary);
+  background-color: var(--background);
+}
+
+/* If the window is bigger than 902 pixels, the border will be visible. */
+@media (min-width: 902px) {
+  article {
+    border-radius: 8px;
+    border-width: 1px;  
+    border-style: solid;
+    border-color: var(--body-border-color);
+  }
+}
+
+article {
+  margin: auto;
+  max-width: 902px;
+  font-size: inherit;
+  line-height: 1.5;
+  word-wrap: break-word;
+  padding: 32px;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  -webkit-tap-highlight-color: var(--link-highlight);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+details summary {
+  outline: 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+blockquote {
+  margin: 0;
+}
+
+table, table *, pre {
+  touch-action: pan-x;
+}
+
+.markdown-body ul.contains-task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+pre, code, kbd {
+  font-size: 1rem;
+  font-family: var(--code-font);
+}
+
+.issue-keyword {
+  border-bottom: 1px dotted var(--keyword-color);
+}
+
+.team-mention, .user-mention {
+  font-weight: 600;
+  color: var(--mention-color);
+  white-space: nowrap;
+}
+
+.email-hidden-toggle, .email-hidden-reply {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  input[type="checkbox"] {
+    filter: invert(85%) brightness(1.5);
+  }
+}
+/* Fix checkboxes looking cut off when they render larger than the default size */
+input[type="checkbox"] {
+  transform: translate(0px);
+  width: 14px; height: 14px;
+}
+
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 0.18rem 0.31rem;
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+  color: var(--kbd-color);
+  vertical-align: middle;
+  background-color: var(--kbd-background);
+  border: 1px solid var(--kbd-border);
+  border-radius: 0.25rem;
+  box-shadow: inset 0 -1px 0 var(--kbd-border);
+  margin-right: 2px;
+}
+
+.markdown-body:after, .markdown-body:before {
+  display: table;
+  content: ""
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body > :first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body > :last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .absent {
+  color: var(--red-600);
+}
+
+.markdown-body .anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body blockquote, .markdown-body details, .markdown-body dl, .markdown-body ol, .markdown-body p, .markdown-body pre, .markdown-body table, .markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body table table {
+    margin-bottom: 0;
+}
+
+.markdown-body hr {
+  height: .25rem;
+  padding: 0;
+  margin: 24px 0;
+  background-color: var(--hr-background);
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding-left: 1rem;
+  color: var(--blockquote-color);
+  border-left: .25rem solid var(--blockquote-border);
+}
+
+.markdown-body blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 .octicon-link, .markdown-body h2 .octicon-link, .markdown-body h3 .octicon-link, .markdown-body h4 .octicon-link, .markdown-body h5 .octicon-link, .markdown-body h6 .octicon-link {
+  color: var(--heading-color);
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor, .markdown-body h2:hover .anchor, .markdown-body h3:hover .anchor, .markdown-body h4:hover .anchor, .markdown-body h5:hover .anchor, .markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link, .markdown-body h2:hover .anchor .octicon-link, .markdown-body h3:hover .anchor .octicon-link, .markdown-body h4:hover .anchor .octicon-link, .markdown-body h5:hover .anchor .octicon-link, .markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 code, .markdown-body h1 tt, .markdown-body h2 code, .markdown-body h2 tt, .markdown-body h3 code, .markdown-body h3 tt, .markdown-body h4 code, .markdown-body h4 tt, .markdown-body h5 code, .markdown-body h5 tt, .markdown-body h6 code, .markdown-body h6 tt {
+  font-size: inherit;
+}
+
+.markdown-body h1 {
+  font-size: 2rem;
+}
+
+.markdown-body h1, .markdown-body h2 {
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--header-bottom-border);
+}
+
+.markdown-body h2 {
+  font-size: 1.5rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-body h4 {
+  font-size: 1rem;
+}
+
+.markdown-body h5 {
+  font-size: .875rem;
+}
+
+.markdown-body h6 {
+  font-size: .85rem;
+  color: var(--h6-color);
+}
+
+.markdown-body ol, .markdown-body ul {
+  padding-left: 1.5rem;
+}
+
+.markdown-body ol.no-list, .markdown-body ul.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.markdown-body ol ol, .markdown-body ol ul, .markdown-body ul ol, .markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li > p {
+  margin-top: 16px;
+}
+
+.markdown-body li + li {
+  margin-top: .25rem;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td, .markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid var(--thead-border);
+}
+
+.markdown-body table tr {
+  background-color: var(--background);
+  border-top: 1px solid var(--tr-border); /* unused variable */
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--tr-alt-background);
+}
+
+.markdown-body table img {
+  background-color: initial;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: initial;
+  background-color: var(--background);
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body .emoji {
+  max-width: none;
+  vertical-align: text-top;
+  background-color: initial;
+}
+
+.markdown-body img.emoji {
+    max-width: 18px;
+}
+
+.markdown-body span.frame {
+  display: block;
+  overflow: hidden;
+}
+
+.markdown-body span.frame > span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--frame-border);
+}
+
+.markdown-body span.frame span img {
+  display: block;
+  float: left;
+}
+
+.markdown-body span.frame span span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: var(--frame-color);
+}
+
+.markdown-body span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-body span.align-center > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.markdown-body span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.markdown-body span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+.markdown-body span.align-right > span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-body span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+
+.markdown-body span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+  margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden;
+}
+
+.markdown-body span.float-right > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right;
+}
+
+.markdown-body code, .markdown-body tt {
+  padding: .2rem .4rem;
+  margin: 0;
+  font-size: 85%;
+  background-color: var(--code-background);
+  border-radius: 6px;
+}
+
+.markdown-body code br, .markdown-body tt br {
+  display: none;
+}
+
+.markdown-body del code {
+  text-decoration: inherit;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre, .markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: var(--hl_Background);
+  border-radius: 6px;
+}
+
+.markdown-body pre code, .markdown-body pre tt {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .csv-data td, .markdown-body .csv-data th {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.markdown-body .csv-data .blob-num {
+  padding: 10px 8px 9px;
+  text-align: right;
+  background: var(--background);
+  border: 0;
+}
+
+.markdown-body .csv-data tr {
+  border-top: 0;
+}
+
+.markdown-body .csv-data th {
+  font-weight: 600;
+  background: var(--thead-background);
+  border-top: 0;
+}
+
+.markdown-body mark {
+    padding: .2rem;
+    background-color: #fcf1b5;
+}
+
+@media (prefers-color-scheme: dark) {
+    .markdown-body mark {
+        padding: .2rem;
+        background-color: #fcf8e3;
+    }
+}
+
+/* Mermaid diagrams */
+.mermaid {
+    text-align: center;
+    margin: 16px 0;
+    background-color: transparent;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    .mermaid {
+        background-color: transparent;
+    }
+}
+
+</style>
+
+
+</head>
+<body>
+<article class='markdown-body'>
+<h1 id="reading-and-writing-with-ai-how-we-live-with-a-new-kind-of-mind-v3">Reading and Writing with AI: How We Live with a New Kind of Mind — v3</h1>
+<p><em>NYHIMA Annual Conference · Breakout Session · Emerging Trends · Tuesday, June 9, 2026 · Turning Stone Resort, Verona, NY</em></p>
+<p><em>Update notes: collaborative tone throughout; expert-distance language removed; cost section reframed; electronics and digital sentences added to timeline; model-in-the-loop close.</em></p>
+<hr />
+<h2 id="1-the-longest-story-we-are-part-of">1 · The longest story we are part of</h2>
+<p>I want to start a long way back. Further back than computers, much further back than this technology, because I don’t think you can see what’s actually happening right now until you see the line it sits on. And the line turns out to be very long.</p>
+<p>Here’s the thing I keep coming back to. For as long as there have been people, we’ve had one stubborn problem: a thought lives in one head, and it dies there, unless we can get it out. And so the whole history of our species, in a way, is the history of getting thought out of the head — finding ways to hold it, move it, work on it, hand it to someone who wasn’t in the room. Once you start looking at it that way, the whole sweep of it lines up.</p>
+<p>Start with spoken language. Somewhere deep in prehistory — tens of thousands of years ago — we develop symbolic speech. Words that hold steady. Words that mean the same thing tomorrow as they do today, that a person who wasn’t there can still understand. And suddenly a thought can travel — voice, to ear, to another mind. That’s the first container thought ever lived in. And for most of human history, it’s the only one. Your knowledge lived in you, and in the people close enough to hear you, and nowhere else.</p>
+<p>Then look what happens. About ten thousand years ago, clay tokens. People press shapes into clay to keep track of things — so many sheep, so many measures of grain. It sounds almost too small to mention. But look at what it actually is: for the first time, a piece of human thinking lives <em>outside</em> a human being. In matter. Where it doesn’t depend on anyone remembering it. Many scholars think this is the seed writing grows from. A thought, set down in the world.</p>
+<p>Then writing itself, around five thousand years ago — in Mesopotamia, in Egypt, more or less independently. And now it’s not just counts. Now it’s language. Thought moves from voice and ear to hand and eye. What used to live only in the air, in the moment of speaking, can be set down and still be there when the speaker is gone.</p>
+<p>Then the alphabet, roughly thirty-five hundred years ago. A small set of reusable pieces — letters — and out of them, anything. Now, other great writing systems did fine without one; this isn’t the only road. But the alphabet made writing easier to learn and easier to spread. You don’t need thousands of symbols anymore. You need a couple dozen, and the knack of putting them together.</p>
+<p>And then, much later — about five hundred and eighty years ago — Gutenberg. The printing press. And the press does for <em>copies</em> what the alphabet did for <em>composing</em>: it breaks text into pieces you can set and reset and reuse, and it makes any text, in any number, anywhere. Thought that used to be rare and expensive and locked away comes pouring out into whole populations.</p>
+<p>Then, in the nineteenth and twentieth centuries, electronics — telegraph, telephone, radio, television — and the speed of thought jumps again, until what once took weeks to cross a continent moves at the speed of light.</p>
+<p>Then digital, and computing breaks language down into smaller and smaller pieces — characters into bits, bits into the smallest things we can store — so we can find them faster and faster, sort them, and string them back together, but only ever rearranging what we already made, never regenerating it.</p>
+<p>Now here’s what I want you to notice — because once you see it, you can’t unsee it. Look at what every one of those steps has in common. Every single one is a human being, taking human thought, and putting it into the world so it can be kept and shared. Tokens, writing, alphabet, print — each one reaches a little further than the last. But in every case, from the clay token to the printed book, the human is the one making the thought. The technology carries it. Multiplies it. Holds it. It never makes it. We make it. And that holds for ten thousand years.</p>
+<p>Now — there’s a version of this story that’s too clean, so let me complicate it. People had been teaching machines to produce language for decades before any of us noticed. Back in the nineteen-sixties, a program called ELIZA could hold a kind of conversation. There were translation systems. The technology that would become ChatGPT was generating text in labs for years before we saw it. So a machine didn’t make its first sentence in 2022.</p>
+<p>What I am going to tell you is this. For ten thousand years, the making stayed ours — in practice, in daily life, the creating was something humans did, and the machines, however clever, carried what we made.</p>
+<p>And then that walks out of the lab, and into every hand on Earth, on November 30th, 2022.</p>
+<hr />
+<h2 id="2-the-break">2 · The break</h2>
+<p>On November 30th, 2022, a system called ChatGPT goes public — and all at once, anyone can sit down at a machine, ask it almost anything, at any hour, and watch it produce language back. Not look it up. Not play back something a person wrote. Produce it. Open-ended language, about anything you ask, made on the spot.</p>
+<p>And I want to be careful to say what’s new here, because it’s easy to overshoot. A calculator produces a number — but you chose the operation. A search engine ranks pages that already exist. This is a different thing. You put a question to it, in plain language, on any subject you like, and it writes you something that wasn’t there before. That’s the part no earlier augmentation could do. And within five days, a million people were doing it.</p>
+<p>Now, that first version — by today’s standards, it wasn’t much. It got things wrong. It made things up. It wouldn’t have fooled you for long. And none of that is the point. The point isn’t that it was good. The point is what it <em>did</em>: it composed. The augmentations before it carried our thought. This one writes its own. Clumsily at first. Much better now. But it writes. That’s not a faster tool. That’s a different kind of thing.</p>
+<p>And I find the most useful way to hold that — the framing that’s helped me most — comes from Geoffrey Hinton, one of the people most responsible for this technology even existing. He’s argued that we might be looking at a genuinely different <em>form</em> of intelligence. Not a copy of ours. Not a simulation of a human mind. Something else. Now, I’m not telling you that’s a settled fact — nobody can tell you that yet, and people who know far more than I do are arguing about it right now. But I’ll tell you why I find the framing useful: it keeps me from the two easy mistakes. It is not a person. And it is not a calculator with a vocabulary. It’s a new kind of thing, and we don’t have good instincts for it yet, because we’ve never had one before.</p>
+<p>That’s where we actually are. Ten thousand years of carrying human thought — and now, suddenly, something that doesn’t just carry it but produces it. And we’re the first people who’ve ever had to live alongside that. Not look back on it from a safe distance. Live in it, while it’s happening, before anyone has it figured out.</p>
+<p>So the rest of what I want to do with you is think about how we do that.</p>
+<hr />
+<h2 id="3-what-the-thing-actually-is">3 · What the thing actually is</h2>
+<p>Before we can talk about how to live with something, we should probably know what it is. And the good news is it’s a lot less mysterious than it looks — a fair amount of the mystery is manufactured, and I don’t think it serves any of us.</p>
+<p>So let me get specific. We keep saying “AI.” What we’re really talking about is a Large Language Model — an LLM — and the systems you’ve heard of are built on it. ChatGPT. Claude. Gemini. Copilot, which is probably the one that turned up in your software at work. Perplexity. Different companies; the same kind of thing underneath.</p>
+<p>And here’s how it comes to be. You take an enormous amount of written text — a huge slice of everything humanity has digitized and put within reach. Not all of it. Not close to all of it — and that matters, because whatever gets left out, stays out. But a vast amount. And the system works through all of it and builds something like a giant map of relationships: how words follow words, how ideas sit near other ideas, how concepts connect. It isn’t filing the documents away to look them up later — though, interestingly, it learns some passages well enough to reproduce them, which is its own thorny issue. Mostly it’s learning the <em>patterns</em>. And from that map of patterns, it produces new text that fits. You ask it what fear is, what the French Revolution was about, how to phrase a hard paragraph — and it builds you an answer by predicting, piece by piece, what should plausibly come next.</p>
+<p>That’s worth sitting with for a second, because it explains both what these things are wonderful at and where they fall down. They’re pattern-completion machines of staggering range. They’ll speak fluently on almost anything you put to them. The newer ones will sometimes tell you they’re unsure — but understand, the whole machine is built to <em>produce a response</em>, not to sit there in silence. Producing is what it does best. Which means it can be completely fluent and completely wrong in exactly the same voice. The confidence isn’t a signal that it’s right. It’s just how it talks.</p>
+<p>And here’s one more piece that changes how I think about the whole thing. The model isn’t awake. It isn’t sitting there thinking about you while you’re away. It’s dormant. You send it a question; it wakes up, generates a response, and goes back to sleep. Question in, generation out, then nothing. That single round-trip is the whole event. There’s no continuous mind on the other side, watching, waiting. There’s a system that switches on when you ask, and is otherwise still.</p>
+<p>This is why I keep saying it isn’t your grandfather’s AI. If you’re twenty-five, your grandfather’s AI was the expert system. Some of those were genuinely powerful inside a narrow lane — but they ran on rules people wrote out by hand. <em>If this, then that.</em> Ask one something outside its rules, and it had nothing for you. It could only give back what someone had already put in. This is the opposite. You can ask one of these models a question nobody ever anticipated, and it’ll build you <em>something</em> — coherent, plausible, sometimes wrong, but made fresh. The old machine looked things up. This one composes. And that’s the whole difference — the difference that landed in everyone’s hands in 2022.</p>
+<hr />
+<h2 id="4-what-it-costs-and-what-we-dont-know">4 · What it costs, and what we don’t know</h2>
+<p>There’s a part of this I find genuinely hard to hold in my head, because it’s so at odds with how the thing feels to use. The screen is so clean. The answer just appears. And underneath that clean surface is one of the heaviest physical objects we’ve ever made.</p>
+<p>Kate Crawford has traced this more carefully than most, and what she follows is the whole physical body of it. The electricity — these models run in data centers, buildings full of specialized machines, going up right now at a pace that rivals almost anything in the history of construction. The water that cools them. And the minerals the hardware is made of: lithium, cobalt, rare earth elements, pulled out of the ground in particular places, at real human and environmental cost. The chip in the clean machine starts in a mine. And the systems learned to be this smooth in part through human labor — people, a lot of them low-paid, a lot of them in the Global South, doing the work of labeling and filtering the worst of the training data so the rest of us never see it. So the seamlessness is built on something, and the something isn’t seamless. The exact figures get argued about — anyone who hands you one clean number is overselling it — but the direction doesn’t: this is one of the more physically demanding things we’ve ever built, and it’s growing fast. There’s no free question. Every one of them draws on the world somewhere.</p>
+<p>And there’s a real intellectual question sitting underneath all of this — one I don’t think any of us should be too quick to settle. There’s a well-known critique, the “stochastic parrots” argument, that says these systems don’t understand anything at all. That they’re just very sophisticated pattern-matchers, stitching together plausible runs of words with nothing underneath, and that we’re fooling ourselves when we treat the fluent output as thought. And I think there’s a lot to it. I also think it’s genuinely open. Whether what these systems do turns out to be a new kind of thinking, or only a very convincing imitation of one — that’s the kind of question this profession, and this whole culture, gets to actually argue about. We don’t have to inherit the answer. We get to work it out.</p>
+<p>So the cost is real, and the doubt is real, and I want to keep both of them in view. And even with both of them in view, here’s where I come down — and why I don’t think the answer is to back away.</p>
+<hr />
+<h2 id="5-the-turn">5 · The turn</h2>
+<p>Here’s the thing I most want to share with you, because it’s the thing that changed how I see all of this.</p>
+<p>Go back to that long line we walked at the start — tokens, writing, the alphabet, the press. Every one of those was an augmentation. A way of reaching past the limits of a single head. And here’s what’s easy to forget: every one of them, when it showed up, frightened people. The oldest example we have is Plato — writing about <em>writing itself</em>, twenty-four hundred years ago. He worried it would weaken memory, that it would give people the <em>appearance</em> of wisdom in place of the real thing. And he wasn’t entirely wrong! Something did change. But look what happened. We took up writing anyway, and memory changed, and we did not lose our minds. We got science. We got law. We got medicine, and records, and this conference. The augmentation didn’t hollow us out. It enlarged us. It made us capable of things we couldn’t have reached without it.</p>
+<p>Now, let me be careful here, because there’s a sloppy version of this that’s just false. I am <em>not</em> telling you every fear about every technology has been wrong. Plenty were right. Nuclear weapons earned their fear. So did leaded gasoline. So did the surveillance machine, and some of what the last twenty years of screens have done to us. Technology can wound, and pretending otherwise is its own kind of foolishness. But there’s one <em>particular</em> fear with a remarkably bad track record — and it’s a specific one. It’s the fear that a new tool for <em>thinking</em> will hollow out the human mind. That the written word will rot our memory. That print will drown judgment in cheap opinion. That the calculator will kill arithmetic. That <em>this</em> — whatever the current “this” happens to be — will make us less.</p>
+<p>That fear is ancient. It comes back with every single augmentation of thought. And so far, every time, the augmentation has <em>enlarged</em> what a human being can do, not shrunk it.</p>
+<p>And that’s the fear in this room right now, about AI. I can feel it; I think you can too. And what I want to offer is just this: weigh it against a very long losing streak.</p>
+<p>Because — and here’s where it gets genuinely new — I’m not going to promise you this time is exactly like the others. This time really is different. This is the first augmentation that generates open-ended language, on any subject, in the hands of ordinary people. That’s new. New things deserve real caution — that’s exactly why I put the costs and the doubts on the table a minute ago. But the difference cuts <em>both ways.</em> The very thing that makes this unsettling — that it generates, that it might be a different kind of mind altogether — is the same thing that makes it more than any augmentation we’ve ever had.</p>
+<p>Think about it. A tool that only carries thought is a tool. But a thing that <em>generates</em> — that you can ask, that answers, that works a problem right alongside you — that’s not just a tool anymore. It’s something closer to an assistant. A collaborator. And here’s where it gets strange, and I’d rather name the strangeness than smooth it over: some people find themselves treating it as a companion. I told you a minute ago it isn’t a person, and I meant it — it isn’t. And yet people talk to it like a <em>someone</em>, and feel met by it, and that isn’t simply a mistake on their part, because the thing genuinely answers. A not-person that we relate to as a someone. We’ve never had that before. We don’t even have a word for it. And the gap between what it <em>is</em> and how it <em>feels to use</em> is one of the central things we’re going to have to learn to live inside. It is — to borrow the idea I keep returning to — a genuinely exotic kind of mind. Not human. Not pretending to be human. But able to do something no augmentation ever could: meet us in language, and generate.</p>
+<p>So here’s the posture I’ve landed on. Not defense. Not backing away. Not pretending it isn’t here — and not handing ourselves over to it completely, either. The threat is real. But a threat is a <em>condition</em> — something you engage, with your eyes open — not a verdict you flee from. And engaging it with your eyes open is the whole of what I mean by agency. The people who came through every earlier one of these shifts intact weren’t the ones who refused the new thing, and they weren’t the ones who let it run them. They were the ones who picked it up on purpose, learned what it actually was, and decided — for themselves — how they’d use it. That choice is sitting right in front of you. It’s really the only thing being asked of you.</p>
+<hr />
+<h2 id="6-how-i-live-with-it">6 · How I live with it</h2>
+<p>So let me end by just showing you how I actually live with this. Not a prescription — I’m not going to tell you to do it my way. Just a glimpse of what it looks like from inside one person’s days.</p>
+<p>Here’s the first thing worth saying plainly: we built these things. This new kind of mind didn’t arrive from somewhere else. We made it, out of our own written record, with our own hands and a staggering amount of our own resources. It’s here because we chose to build it. Which means the question of what we do with it was never really a question about the technology. It’s a question about us. Ted Nelson saw this a long time ago — decades before any of it was possible, he imagined machines that would augment human thought, documents you could think <em>with</em>. He had a line for what he was after: <em>making people freer through computers.</em> That was the dream. And in a strange, partial, complicated way, it’s arrived. We have, now, a thing we can genuinely think alongside. The dream came true — and, like most dreams that come true, it came true sideways, with costs and doubts attached. That doesn’t make it less of an arrival.</p>
+<p>So here’s what it looks like for me. I’m aiming for a place — I’m mostly there already — where I open my laptop in the morning and I say, <em>hello, Claude</em> — my model of the week — or just, <em>hello, language model. What’s on the agenda today?</em> And my work starts in the model, and it very nearly ends there too. I don’t really open a word processor anymore. I don’t open a spreadsheet. The work happens in conversation with this thing.</p>
+<p>And I’ve started every task, for a while now, with one question: <em>how can I use AI to do this?</em> I call it keeping the model in the loop. You’ve probably heard “human in the loop” — the human kept in the chain to check the machine. I mean something closer to the reverse. I’m still doing my work. The same work I’ve always done — the reading, the thinking, the deciding what’s worth saying. But wherever I can, I put the model into the loop. Not to do the thinking for me. To think <em>with</em>. To draft what I’ll revise, to bring me more than I could have gathered alone, to argue with, to push against, while the judgment about what matters stays mine.</p>
+<p>That’s the whole of it, really. That’s what living with AI looks like from where I stand. Not a tool I pick up and put down. A new kind of mind I’ve folded into the loop of my own thinking — and I’m more capable for it, not less.</p>
+<p>And that’s what I’d leave you with. Not a worry. Not a warning. An invitation — the same one every generation got when its great augmentation arrived, and answered well. Pick it up. Pay attention. Decide for yourself how you’ll think with it, read with it, write with it.</p>
+<p>That’s what it means to live with AI.</p>
+<p>Thank you.</p>
+
+</article>
+
+<!--
+
+File generated with QLMarkdown [https://github.com/sbarex/QLMarkdown] - QLMarkdown, version 1.5.1 (52).
+Developed by SBAREX 2020 - 2026 with ❤️
+
+-->
+
+</body>
+</html>
