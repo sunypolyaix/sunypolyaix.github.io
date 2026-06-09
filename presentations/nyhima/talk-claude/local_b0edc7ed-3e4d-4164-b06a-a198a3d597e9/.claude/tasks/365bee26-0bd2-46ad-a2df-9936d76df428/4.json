@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "Verify figures, word counts, constraints",
+  "description": "Verify every number in the talk is sourced in the handout, check word counts per section, confirm no forbidden constructions (no bullet lists, no \"not X but Y\", no acronyms/framework labels, no call to action). Save both files and present.",
+  "activeForm": "Verifying figures, word counts, constraints",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

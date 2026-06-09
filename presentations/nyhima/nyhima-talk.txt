@@ -1,0 +1,183 @@
+Reading and Writing with AI: Why Universal AI Literacy Matters for Health Information Professionals
+
+NYHIMA Conference, June 9, 2026
+
+[PAUSE]
+
+Thank you. I want to start by being honest about where we are.
+
+We are in the middle of something. Not at the beginning, where you can see the whole shape of a thing before it arrives. Not at the end, where you can look back and say what it was. We are in the middle.
+
+And the truth about the middle of a large change is that the people living through it almost never understand it while it is happening. That understanding comes later. It comes to people who are not yet in this room, who will look back at this decade the way we look back at the arrival of the printing press, or the telephone, or the first computers, and say: that was the turn. They were standing right in it. I doubt they knew.
+
+So I am not going to stand up here and tell you I know what this is. I don't. Nobody does, not really, not yet. What I can do is be honest with you about what we can see from inside the middle of it.
+
+Here is what we can see. There is now a kind of machine that produces language. You type something to it, and it writes back. It drafts the email. It summarizes the report. It answers the question. It appears to reason. It was built from the written record of human knowledge—the books, the articles, the documentation, the billions of pages of things people have written down—and out of all of that it produces sentences that sound like a person wrote them. Often a competent person. Sometimes an expert.
+
+I am not going to explain how it works. I am not going to talk about the engineering, because the engineering is not what matters to you, and because honestly the engineering is not what matters about it at all. What matters is what it does, and what it asks of us, and what it costs. That is what we are here to look at.
+
+So here is where we are going for the next hour.
+
+First I want to ask why. Why do we use this. Not the easy answer—we will get past the easy answer quickly. The real one.
+
+Then I want to ask what it actually is. Not as an idea. As a physical thing in the world, that comes from somewhere, that was made by someone, that runs on something. Because you cannot judge a thing honestly until you know what it costs to make.
+
+Then I want to ask what it does to us. To us as people who think, and read, and write for a living. Because this tool reaches into exactly those things.
+
+And then, at the end, I am going to ask you to think. That is the whole close. Not a list of things to do on Monday. Not a strategy. Just thinking. I will explain why when we get there.
+
+That is the hour. Why we use it, what it is, what it costs, what it does to us, and then thinking.
+
+I am going to go slowly. Some of this is uncomfortable, and I am not going to rush you past the uncomfortable parts, because the discomfort is part of the point. I am not here to sell you anything. I am not here to scare you. I am here to look at this honestly, with you, as adults—which is something almost no one has bothered to do with you about this technology, even as it has been dropped into the middle of your work.
+
+So let's look.
+
+---
+
+Why do we use this?
+
+The answer you will hear everywhere is efficiency. It is faster. It saves time. You will hear that in every vendor pitch, every webinar, every memo from administration. And it is true, as far as it goes. But it is the shallow answer, and I want to get past it in the first two minutes, because if efficiency were the whole story this would be a small thing. A better dictation tool. A faster way to do the paperwork. We would not be having this conversation.
+
+The real reason is bigger, and it deserves to be said plainly, without embarrassment.
+
+This technology lets us do things that were not possible before. Not the same work, faster. Different work entirely.
+
+Let me say what I mean. There is a difference between a tool that does your task more quickly and a tool that does a task you simply could not have done. A faster horse gets you to the next town sooner. A telephone lets you speak to someone a thousand miles away in real time—which no amount of faster horse will ever give you. That is a difference in kind. And some of what this technology offers is a difference in kind.
+
+A person who has never been able to write a clean paragraph can now produce one. A clinician staring at a wall of unstructured notes can ask a question of all of it at once and get an answer in seconds. Someone working in a language that is not their first can write in it with confidence. A small office with no analyst can suddenly do analysis. These are not small conveniences. For the people they reach, they are genuinely new capacities. Things that were closed are now open.
+
+I want to be honest that this is real, because a lot of the conversation about AI pretends it isn't. It is real. That is why this is hard. If it were useless we would ignore it and go home. We use it because, some of the time, it does something we could not do, and it does it well enough to matter.
+
+That is the honest answer to why. Now I have to give you the other half of the honest answer, which is the part nobody says out loud.
+
+A great deal of why we use this has nothing to do with whether it helps. Some of it is structural. Work is being automated because machines can do it and machines are cheaper than people, and the fact that the work gets worse does not always stop it. Some of it is herd. Competitors are using it, so you use it, so you don't fall behind. The pressure to adopt is real and it is rising, and a lot of it has nothing to do with whether it is good for you or the people you serve.
+
+And some of it is simpler than that. Some of it is the dazzle of it. It is new, and it is powerful, and it does something that looks like thinking, and we have only had one of those technologies arrive in human history before—it was called writing—and it took us a hundred years to figure out how to use it well. We have been using this for about ten minutes.
+
+When something is new and powerful and incompletely understood, some adoption is just momentum. It is gravity. Things fall that way.
+
+So here is what is honest. We use it partly because it opens new capacities. And we use it partly because we are being pushed and pulled by forces that have nothing to do with whether it is good for us, and some of the time we have not stopped to notice that those two reasons are not the same thing, and the second one is moving faster than the first.
+
+That is why we use it. Now I want to talk about what it is.
+
+---
+
+When I say what it is, I do not mean the technical architecture. I do not mean how it works. I mean what it physically is. What it is made of. Where it comes from. What it costs.
+
+Because here is the thing about tools: you cannot judge a tool honestly until you understand what its making costs.
+
+A Zoom call that connects you to someone on another continent is convenient. It is also running on data centers that consume the annual electricity of a mid-sized city. But we mostly do not think about that. We just see the convenience.
+
+Same with this. It is a language machine. It produces text. That is the part you see. But there is a whole other system underneath it that you are not seeing.
+
+Let me describe what is underneath.
+
+First: infrastructure. These models run on vast server farms. Google has eighteen of them. These are buildings the size of cities filled with specialized chips, and they use an extraordinary amount of electricity. One model trained recently used the annual power consumption of about 1,400 American homes. For one training run.
+
+And that power has to come from somewhere. Some of it comes from renewable sources now, but a lot of it still comes from coal and gas.
+
+Second: water. These servers produce heat, and the heat has to be cooled, and cooling requires water. A lot of water. There have been reports from data centers running at volumes that are straining local water supplies. In some areas, communities have had to choose between the data center and drinking water.
+
+Third: minerals. The chips are made from rare earth elements. Lithium. Cobalt. Copper. These are mined, and mining is destructive, and a lot of it happens in regions where environmental regulation is minimal and labor practices are poor.
+
+And fourth: people. Behind the model is a vast amount of human labor—not the engineering labor, but the labor of making the training data. Humans being paid, usually poorly, by contracting companies to label images, to describe what is in videos, to filter out harmful content, to make sure the model does not spit out things that would be publicly embarrassing to the company.
+
+A lot of this labor is outsourced. A lot of it is done by people in countries where wages are low and worker protections are weak.
+
+So when you sit down and type to this tool and get a clean, useful response in 10 seconds, behind that 10 seconds is a server that cost millions to build, infrastructure that is consuming electricity at a scale you probably have not thought about, water being used in regions where water is precious, minerals extracted under conditions most of us would find unacceptable if we let ourselves think about them, and human labor, mostly invisible, done by people we will never meet and will never compensate.
+
+Now, I am not saying do not use this. I am not saying the cost is not worth it. But I am saying: you cannot judge it honestly if you do not know what it costs, and you cannot take real responsibility for using it if you are not willing to look at that cost.
+
+That is what it is. Now I want to talk about what it does.
+
+---
+
+This part is going to get uncomfortable, and I want to sit with the discomfort for a minute instead of rushing past it.
+
+When you hand off a task to a tool that is very good at that task, something happens to your capacity to do it yourself. You do not notice it immediately. It happens gradually. But it is real.
+
+The mechanism is simple. Skill is built by doing. You do a task, you get feedback, you improve. You do it again, you get better. Over years, you build judgment. You build intuition. You build the ability to notice what is wrong and fix it.
+
+But if you do not do the task, you do not build the skill.
+
+And if the tool you are using is very good—if it produces clean output that is hard to find fault with—then you are not getting good feedback. You are not building judgment about what the output should look like, because the output already looks good.
+
+This is subtle, but it is real.
+
+Let me give you a concrete example. You are a clinician. You have been writing clinical notes for twenty years. You know what a good note looks like. You know what details matter. You know what to watch out for.
+
+Then a tool arrives that can draft notes for you. You try it. It is fast. The notes are coherent. They hit the important points. You start using it regularly.
+
+Five years later, what has happened? You have written fewer notes yourself. Your hand has less memory for what a note should be. You have not caught as many mistakes, because you are not reading as carefully, because you are reading text that a machine produced and you are trusting it. And your intuition about what matters in a note—that thing you built over decades—is a little more faint than it was.
+
+This is not a catastrophic loss. It is a fade. Competence does not disappear. But it thins. And thinned competence makes you more dependent on the tool. And more dependent on the tool means you are less likely to notice when the tool makes a mistake.
+
+This is the thing that keeps me up at night. Not the fear that machines will become intelligent and take over—that is science fiction and it distracts from what is actually happening. What is actually happening is much simpler and much harder to fight. What is actually happening is that confident output is being trusted more than it has earned the right to be. The tool produces something that looks competent, and because it looks competent, we trust it. And the more we trust it without independent judgment, the more that trust becomes a habit. A faith. A thing that no longer requires thinking.
+
+And that is a problem, because the tool is not always right.
+
+Sometimes it is spectacularly wrong. Sometimes it invents citations. Sometimes it describes something that never happened. Sometimes it gets the basic facts backward.
+
+But most of the time it is close enough. Close enough that a tired person reading it quickly will not catch the error. Close enough that a person who is not expert in the domain will not know the error is there.
+
+And when confident output is trusted without sufficient judgment, errors that should have been caught do not get caught.
+
+In a field like health information, in a domain where the stakes are human bodies and human lives, confident output that has not earned its confidence is a problem that is not small.
+
+Now I want to widen out from the individual to the room. This is not only personal. It is social, and some of it is happening to this profession right now, in this building.
+
+Work is being restructured around this technology. Tasks that used to take a trained person are being reassigned to a tool plus a less-trained person, or to a tool plus no one.
+
+And here is the quiet part. When a machine can approximate the output of hard-won professional judgment—can produce something that looks close enough—then the people deciding budgets begin to ask what that judgment is still worth. Not whether the machine is actually as good. Whether it is good enough that the difference can be allowed to disappear from the spreadsheet. That question is being asked about a lot of careful, skilled, human work right now. Some of it is the work done by people in this room. I am not going to stand here and pretend otherwise. You would not believe me if I did.
+
+I want to be careful here, because there is a hysterical version of everything I just said, and I am not interested in the hysterical version. I am not telling you the machines are coming for all of you tomorrow. I am not telling you to be afraid. Fear makes people stupid, and you cannot think clearly while you are panicking, and thinking clearly is the entire point of this hour.
+
+What I am telling you is the honest, undramatic version. Capacities fade when they go unused. Skills that are intercepted early never form. Confident output earns more trust than it has earned the right to. And work, and the value placed on human expertise, is being quietly reshaped while most of the people affected have not been given a clear enough picture to even see it happening.
+
+I am diagnosing. I am not prescribing. I do not have a six-point plan to hand you, and I would not trust one if someone tried to hand it to me. What I have is a clear-eyed account of what this technology does to the people who use it, and a belief that you cannot respond well to something you have not first seen clearly.
+
+So we have looked at why we use it. We have looked at what it physically is and what it costs the world. And now we have looked at what it does to us—to our skill, our judgment, our trust, our work.
+
+There is one human capacity I have circled the whole time and not yet named directly. It is the one underneath all the others. It is the one thing in all of this that cannot be handed off to a machine without something essential being lost. I want to spend our last fifteen minutes there.
+
+---
+
+I want to talk about thinking.
+
+Not as a skill on a list. Not as something to optimize. Thinking—the plain act of working something out in your own mind. Holding a question. Turning it over. Being confused, and staying with the confusion, and slowly coming to understand. That.
+
+Here is the thing about thinking that I keep coming back to. It is the one act that cannot be handed off without ceasing to be yours.
+
+You can hand off the writing. The machine will produce sentences. You can hand off the search, the summary, the first draft, the calculation. All of that can be done for you, and the result can be real, and you can use it. But the moment you hand off the thinking—the actual working-out, the part where you hold the thing in your own mind and come to understand it—the moment you hand that off, it is no longer your thought. There is an answer on the screen, but you did not think it. And an answer you did not think is not knowledge that you have. It is just a thing in your possession that you are trusting. You own it the way you own a fact you read on a sign. It is not in you. You did not earn it. And when the sign is gone, you have nothing.
+
+This is the difference between having an answer and understanding something. The machine is very good at giving you answers. It cannot give you understanding, because understanding is not a thing that can be transferred. It is not a file. It only ever forms one way: a mind does the work. There is no version of understanding that you receive without thinking. The thinking is not the means to the understanding. The thinking is the understanding. They are the same event.
+
+And reading is part of this, more than we usually admit. We talk about reading as if it were just intake—getting the information off the page and into your head. But real reading is not intake. It is thinking, done with someone else's words as the occasion for it. When you read something hard and slow, and you stop, and you go back, and you argue with it in your head, you are not absorbing it. You are thinking it through. That is why a summary is never the same as having read the thing. The machine will summarize anything for you now—a report, an article, a whole book—and the summary will be accurate, and you will have the gist, and you will not have done the reading. You will have the conclusions without the journey that made the conclusions mean anything. And a profession that stops reading for itself, that takes the gist and skips the thinking that reading is, slowly loses the ability to tell a good argument from a bad one. Because that ability was built by reading. It does not come from the summary.
+
+So when I say the thinking is what is at stake, I mean the reading too, and the writing too, because those are not separate from thinking. They are thinking, done on a page. When you write something out yourself—really write it, struggle with the sentence until it says what you actually mean—you usually discover that you did not fully know what you meant until you wrote it. The writing was not the recording of a finished thought. The writing was where the thought got finished. Hand that off, and you get clean sentences and an unfinished mind. The page looks done. The thinking never happened.
+
+And that is why, when people ask me what they should do about all of this—and they always ask, they want the close to be a list, they want three things to do on Monday morning—I don't give them the list.
+
+I have spent this hour being honest with you. I told you why we use this, including the reasons that don't hold up. I showed you what it physically costs—the power, the water, the minerals, the hidden workers. I described what it does to us—the skills that fade, the judgment that thins, the trust we give too easily, the work being quietly reshaped underneath us. That was forty minutes of honest, sometimes uncomfortable accounting.
+
+And the payoff to all of that is not a checklist. It would be a betrayal of everything I just said to end with a checklist. Because a checklist is one more thing handed to you, one more piece of thinking done somewhere else and passed to you finished, one more answer you did not work out yourself. If I gave you five rules for using AI responsibly, you would write them down, and you would feel better, and you would have done no thinking at all. I would have done exactly what I am warning you about. I would have handed you the conclusion and skipped the part that was yours.
+
+So I am not going to do that. The payoff is the thinking itself. It is yours to do, and it is the one part of all of this that no one—not me, not a vendor, not your administration, not the machine—can do for you without it stopping being yours.
+
+What I can do is point you at the questions. Not answer them. Point at them.
+
+When you go back to your work, and the tool is there, and it offers to do a piece of your thinking for you, I want you to be able to notice the offer as it happens. Just notice it. To feel the small moment where you could do the thinking yourself or let it be done, and to know that the moment is a real choice and not a foregone one. That noticing is itself a kind of thinking, and it is most of the battle. Most of what gets handed off gets handed off without anyone deciding anything. It just slides. To make it a decision again—even sometimes—is to take it back.
+
+I want you to be able to ask, honestly, of any given task: is this a piece of work I want done, or is this a piece of thinking I want to have done? Because those are different, and the tool does not distinguish between them, and it will take the second as readily as the first. There is work you should be glad to hand off. And there is thinking that, if you hand it off, you will have quietly given away a piece of what makes you good at what you do. Telling those apart is not something I can do for you. You are the only one standing close enough to your own work to tell.
+
+And I want you to hold on to the slow, hard, unglamorous parts of your own expertise—the parts the machine offers to spare you. Because those parts, the difficult ones, the ones that take years, are not obstacles between you and your real work. They are your real work. They are where the judgment lives. A profession that lets a machine do all of its hard parts will wake up one day to find it has no hard parts left, and a profession with no hard parts is a profession that anyone, or anything, can do.
+
+I started by saying we are in the middle of something we do not yet understand. That is still true. I cannot tell you how this ends. No one can. But I can tell you that the people who come through a change like this with themselves intact are not the ones who refused the new thing, and they are not the ones who surrendered to it completely. They are the ones who kept thinking the whole way through. Who used the tool without letting it use them. Who knew, at each step, what they were handing over and what they were keeping.
+
+Reading. Thinking. Writing. These are the oldest human acts, and they are exactly the acts this technology reaches into, and they are what is actually at stake here—under all the talk of efficiency and disruption and productivity. The question this technology puts to you, finally, is not a technical one. It is not even really a question about the technology. It is a question about you. How much of your own reading are you willing to keep doing yourself. How much of your own writing. And how much of your own thinking.
+
+I am not going to answer that for you. That would be the one thing I have spent this whole hour asking you not to let anyone do.
+
+I am just going to leave it with you.
+
+Thank you.
