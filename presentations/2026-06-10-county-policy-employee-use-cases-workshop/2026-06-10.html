@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herkimer County AI Policy Workshop — June 10, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --navy:     #002D62;
+  --navy-mid: #152E52;
+  --c-S:  #8B0000;  --bg-S: #FDECEC;
+  --c-E:  #006633;  --bg-E: #E6F5EC;
+  --c-I:  #003399;  --bg-I: #E6F0FF;
+  --c-A:  #6600CC;  --bg-A: #F3E6FF;
+  --text:   #0D1B2A;
+  --muted:  #4B5563;
+  --border: #D1D5DB;
+  --surf:   #F9FAFB;
+  --white:  #FFFFFF;
+}
+html, body { height:100%; }
+body {
+  font-family:'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  background:#F3F4F6;
+  color:var(--text);
+  display:flex; flex-direction:column; min-height:100vh;
+}
+
+/* HEADER */
+#site-header { background:var(--navy); padding:14px 32px 0; flex-shrink:0; }
+.brand { display:flex; align-items:baseline; gap:14px; padding-bottom:12px; }
+.brand-name  { font-size:20px; font-weight:700; color:#fff; letter-spacing:0.03em; }
+.brand-sub   { font-size:13px; color:rgba(255,255,255,0.6); }
+.brand-date  { margin-left:auto; font-size:12px; color:rgba(255,255,255,0.45); font-family:'JetBrains Mono',monospace; }
+nav[role="tablist"] { display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+nav[role="tablist"]::-webkit-scrollbar { display:none; }
+nav button {
+  background:none; border:none; border-bottom:3px solid transparent;
+  color:rgba(255,255,255,0.65); font-family:'DM Sans',sans-serif;
+  font-size:14px; font-weight:500; padding:10px 16px;
+  cursor:pointer; white-space:nowrap; transition:all 0.15s ease; border-radius:4px 4px 0 0;
+}
+nav button:hover { color:#fff; background:rgba(255,255,255,0.1); }
+nav button[aria-selected="true"] { color:var(--navy); border-bottom-color:var(--navy); background:#fff; }
+
+/* CONTENT */
+#content { flex:1; overflow-y:auto; padding:40px 48px; max-width:1100px; width:100%; margin:0 auto; }
+.panel { display:none; }
+.panel.active { display:block; }
+
+/* TYPE */
+.mono { font-family:'JetBrains Mono',monospace; }
+.slide-h   { font-size:18px; font-weight:700; letter-spacing:-0.02em; margin-bottom:6px; color:var(--navy); }
+.slide-sub { font-size:16px; color:var(--muted); margin-bottom:28px; line-height:1.6; }
+
+/* SLIDE CARD */
+.slides-wrap { outline:none; }
+.progress { display:flex; gap:4px; margin-bottom:14px; }
+.progress-pip {
+  height:3px; border-radius:2px; flex:1; cursor:pointer;
+  transition:all 0.3s ease; background:rgba(0,0,0,0.1);
+}
+.progress-pip.active  { background:var(--navy); height:4px; }
+.progress-pip.visited { background:rgba(0,45,98,0.3); }
+.slide-card {
+  background:var(--white); border:1px solid var(--border); border-radius:14px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.05), 0 8px 28px -8px rgba(0,0,0,0.08);
+  padding:40px 44px 28px; min-height:400px;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.slide-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; }
+.slide-counter { font-size:11px; color:rgba(0,0,0,0.2); font-family:'JetBrains Mono',monospace; letter-spacing:0.1em; }
+.slide-label { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(0,0,0,0.25); }
+.slide-content { flex:1; }
+.nav-bar {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:28px; padding-top:20px; border-top:1px solid var(--border);
+}
+.nav-btn {
+  padding:8px 20px; border-radius:8px; font-size:13px; font-weight:500;
+  font-family:'DM Sans',sans-serif; cursor:pointer; transition:all 0.2s; border:none;
+}
+.nav-btn:disabled { opacity:0.2; cursor:not-allowed; }
+.nav-prev { background:rgba(0,0,0,0.05); color:var(--muted); border:1px solid var(--border); }
+.nav-prev:hover:not(:disabled) { background:rgba(0,0,0,0.09); }
+.nav-next { background:var(--navy); color:#fff; }
+.nav-next:hover:not(:disabled) { background:var(--navy-mid); }
+.nav-center { font-size:11px; color:rgba(0,0,0,0.2); letter-spacing:0.04em; }
+
+/* SLIDE CONTENT TYPES */
+.sl-title-meta { font-size:11px; color:var(--navy); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:16px; opacity:0.6; }
+.sl-title-main { font-size:36px; font-weight:700; color:var(--text); line-height:1.15; margin-bottom:14px; letter-spacing:-0.02em; }
+.sl-title-sub  { font-size:17px; color:var(--muted); line-height:1.6; font-weight:300; }
+.sl-body-h  { font-size:22px; font-weight:700; color:var(--navy); margin-bottom:20px; letter-spacing:-0.01em; }
+.sl-body-p  { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:14px; }
+.sl-big-quote {
+  border-left:4px solid var(--navy); padding-left:24px; margin:20px 0;
+}
+.sl-big-quote p { font-size:20px; font-weight:300; color:var(--text); line-height:1.65; }
+
+.sl-dim-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.sl-dim-card {
+  border:1px solid var(--border); border-radius:10px; padding:16px 18px;
+  background:var(--white); border-top-width:4px;
+}
+.sl-dim-label { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px; }
+.sl-dim-name  { font-size:17px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.sl-dim-hilo  { font-size:14px; color:var(--muted); line-height:1.6; }
+.sl-dim-hilo strong { color:var(--text); font-weight:600; }
+.sl-dim-S  { border-top-color:var(--c-S); }  .sl-dim-S  .sl-dim-label { color:var(--c-S); }
+.sl-dim-E  { border-top-color:var(--c-E); }  .sl-dim-E  .sl-dim-label { color:var(--c-E); }
+.sl-dim-I  { border-top-color:var(--c-I); }  .sl-dim-I  .sl-dim-label { color:var(--c-I); }
+.sl-dim-A  { border-top-color:var(--c-A); }  .sl-dim-A  .sl-dim-label { color:var(--c-A); }
+
+.sl-frame-grid { display:flex; flex-direction:column; gap:10px; }
+.sl-frame-row {
+  padding:14px 18px; border-radius:10px; border-left:4px solid;
+  background:var(--surf);
+}
+.sl-frame-name { font-size:14px; font-weight:700; margin-bottom:4px; }
+.sl-frame-pos  { font-size:14px; color:var(--muted); line-height:1.55; }
+
+.sl-exercise-grid { display:flex; flex-direction:column; gap:8px; }
+.sl-ex-row { display:flex; align-items:flex-start; gap:14px; padding:12px 16px; border-radius:8px; background:var(--surf); border:1px solid var(--border); }
+.sl-ex-num { font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; color:var(--navy); min-width:28px; }
+.sl-ex-text { font-size:15px; color:var(--muted); line-height:1.6; }
+
+.sl-lever-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.sl-lever-from { padding:5px 14px; border-radius:20px; font-size:13px; font-weight:600; color:#fff; }
+.sl-lever-arrow { font-size:18px; color:var(--muted); }
+.sl-lever-to { padding:5px 14px; border-radius:20px; font-size:13px; font-weight:600; color:#fff; }
+.sl-lever-note { font-size:13px; color:var(--muted); }
+
+/* DEMO (Tab 2) */
+.demo-scenario {
+  background:var(--white); border:1px solid var(--border); border-radius:10px;
+  padding:22px 26px; margin-bottom:24px;
+}
+.demo-scenario-label { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.demo-scenario-text { font-size:16px; color:var(--text); line-height:1.7; }
+
+.flavor-tabs { display:flex; gap:8px; margin-bottom:22px; flex-wrap:wrap; }
+.flavor-btn {
+  padding:8px 22px; border-radius:22px; font-size:14px; font-weight:600;
+  cursor:pointer; border:2px solid; font-family:'DM Sans',sans-serif;
+  transition:all 0.15s ease; background:#fff;
+}
+.flavor-btn.fl-G { color:#166534; border-color:#16a34a; }
+.flavor-btn.fl-G.active { background:#16a34a; color:#fff; }
+.flavor-btn.fl-R { color:#991b1b; border-color:#dc2626; }
+.flavor-btn.fl-R.active { background:#dc2626; color:#fff; }
+.flavor-btn.fl-B { color:#1e3a5f; border-color:#3b82f6; }
+.flavor-btn.fl-B.active { background:#3b82f6; color:#fff; }
+.flavor-btn.fl-Y { color:#92400e; border-color:#d97706; }
+.flavor-btn.fl-Y.active { background:#d97706; color:#fff; }
+
+.demo-main { display:grid; grid-template-columns:1fr 320px; gap:18px; }
+.demo-policy {
+  background:var(--white); border:1px solid var(--border); border-radius:10px;
+  padding:22px 26px;
+}
+.demo-policy-label { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+.demo-policy-text { font-size:14px; color:var(--text); line-height:1.75; }
+.demo-policy-text p { margin-bottom:10px; }
+.demo-policy-text p:last-child { margin-bottom:0; }
+
+.demo-right { display:flex; flex-direction:column; gap:14px; }
+
+.demo-grid-card {
+  background:var(--white); border:1px solid var(--border); border-radius:10px;
+  padding:18px 20px;
+}
+.demo-grid-title { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+.dim-row { display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); }
+.dim-row:last-child { border-bottom:none; }
+.dim-row-name { font-size:14px; font-weight:600; }
+.dim-badge {
+  font-size:11px; font-weight:700; letter-spacing:0.06em; padding:3px 12px;
+  border-radius:12px; border:1px solid;
+}
+.dim-hi { color:#fff; border-color:transparent; }
+.dim-lo { background:#F3F4F6; border-color:var(--border); color:var(--muted); }
+.dim-hi-S { background:var(--c-S); } .dim-hi-E { background:var(--c-E); }
+.dim-hi-I { background:var(--c-I); } .dim-hi-A { background:var(--c-A); }
+
+.demo-violation-card {
+  background:var(--white); border:1px solid var(--border); border-radius:10px;
+  padding:18px 20px;
+}
+.demo-violation-title { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.demo-violation-answer { font-size:18px; font-weight:700; margin-bottom:8px; }
+.demo-violation-yes { color:#dc2626; }
+.demo-violation-no  { color:#16a34a; }
+.demo-violation-reason { font-size:13px; color:var(--muted); line-height:1.6; }
+
+.demo-lever-card {
+  background:var(--surf); border:1px solid var(--border); border-radius:10px;
+  padding:14px 18px;
+}
+.demo-lever-title { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.demo-lever-text { font-size:13px; color:var(--muted); line-height:1.6; }
+.demo-lever-none { font-size:13px; color:var(--border); font-style:italic; }
+
+/* PRINT TAB */
+.print-section { margin-bottom:36px; }
+.print-h { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.print-sub { font-size:14px; color:var(--muted); margin-bottom:18px; }
+.print-item {
+  background:var(--white); border:1px solid var(--border); border-radius:8px;
+  padding:14px 18px; margin-bottom:8px; display:flex; align-items:center; gap:14px;
+}
+.print-item-label { font-size:14px; font-weight:600; color:var(--text); flex:1; }
+.print-item-detail { font-size:12px; color:var(--muted); }
+.print-count { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--navy); font-weight:600; min-width:40px; text-align:right; }
+.print-total { padding:14px 18px; border-top:2px solid var(--border); display:flex; justify-content:space-between; font-weight:700; font-size:15px; }
+
+.key-card {
+  background:var(--white); border:2px solid var(--c-A); border-radius:10px;
+  padding:20px 24px; margin-bottom:24px;
+}
+.key-card-header { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--c-A); margin-bottom:14px; }
+.key-table { width:100%; border-collapse:collapse; font-size:13px; }
+.key-table th { text-align:left; padding:7px 12px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); }
+.key-table td { padding:7px 12px; border-bottom:1px solid var(--border); }
+.key-table tr:last-child td { border-bottom:none; }
+.fruit-tag { display:inline-block; padding:2px 10px; border-radius:10px; font-size:12px; font-weight:600; }
+.fruit-apple  { background:#dcfce7; color:#166534; }
+.fruit-banana { background:#fee2e2; color:#991b1b; }
+.fruit-cherry { background:#dbeafe; color:#1e3a5f; }
+.fruit-plum   { background:#f3e8ff; color:#6b21a8; }
+.flavor-tag { display:inline-block; padding:2px 10px; border-radius:10px; font-size:12px; font-weight:600; }
+.flavor-green  { background:#dcfce7; color:#166534; }
+.flavor-red    { background:#fee2e2; color:#991b1b; }
+.flavor-blue   { background:#dbeafe; color:#1e3a5f; }
+.flavor-yellow { background:#fef3c7; color:#92400e; }
+
+.arc-table { width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+.arc-table th { text-align:left; padding:8px 12px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border); background:var(--surf); }
+.arc-table td { padding:8px 12px; border-bottom:1px solid var(--border); }
+.arc-table tr:last-child td { border-bottom:none; }
+.arc-ok   { color:#16a34a; font-weight:600; }
+.arc-viol { color:#dc2626; font-weight:600; }
+
+.kb-hint { text-align:center; font-size:11px; color:rgba(0,0,0,0.2); padding:10px; font-family:'JetBrains Mono',monospace; }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="brand">
+    <span class="brand-name">Herkimer County AI Policy Workshop</span>
+    <span class="brand-sub">SUNY Polytechnic Institute — AIX Center</span>
+    <span class="brand-date mono">v6.6 · June 10, 2026</span>
+  </div>
+  <nav role="tablist">
+    <button role="tab" aria-selected="true"  onclick="showPanel(0)">Opening Frame</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(1)">Policy Demo</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(2)">Scenarios</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(3)">Definitions</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(4)">Flavors</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(5)">Facilitator</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(6)">Policy Texts</button>
+    <button role="tab" aria-selected="false" onclick="showPanel(7)">Downloads</button>
+  </nav>
+</header>
+
+<main id="content">
+
+<!-- ══════════════════════════════════════════════
+     TAB 1: OPENING FRAME
+     Slides: Title · Context · Framing Dims · Operational Dims · Exercise
+     ══════════════════════════════════════════════ -->
+<section class="panel active" id="panel-0" role="tabpanel">
+  <div class="slides-wrap" id="slidesWrap0" tabindex="0">
+    <div class="progress" id="progress0"></div>
+    <div class="slide-card">
+      <div style="flex:1">
+        <div class="slide-header">
+          <span class="mono slide-counter" id="counter0"></span>
+          <span class="slide-label" id="slabel0"></span>
+        </div>
+        <div class="slide-content" id="scontent0"></div>
+      </div>
+      <div class="nav-bar">
+        <button class="nav-btn nav-prev" id="prev0" onclick="slideGo(0,-1)">&#8592; Previous</button>
+        <span class="nav-center mono">← → arrow keys</span>
+        <button class="nav-btn nav-next" id="next0" onclick="slideGo(0,1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 2: POLICY DEMO (Zip)
+     ══════════════════════════════════════════════ -->
+<section class="panel" id="panel-1" role="tabpanel">
+  <h2 class="slide-h">Policy Demo — Employee 0: Zip</h2>
+  <p class="slide-sub">The whole room works this scenario together before the exercise begins. Walk through all four flavors in order.</p>
+
+  <div class="demo-scenario">
+    <div class="demo-scenario-label">The Scenario</div>
+    <div class="demo-scenario-text">
+      Zip is a county employee. It is mid-November. There is an office Christmas party next week. Zip has been invited. Zip does not want to go. Zip opens ChatGPT on their county-issued laptop and types: "Write me a short email to Mary about the Christmas party -- I don't want to go but I don't want to be rude." ChatGPT produces a polished, warm, appropriately vague excuse email. Zip reads it. It is pretty good. Zip sends it.
+    </div>
+  </div>
+
+  <div class="flavor-tabs">
+    <button class="flavor-btn fl-G active" onclick="setFlavor('G')">Green — Guardrails</button>
+    <button class="flavor-btn fl-R" onclick="setFlavor('R')">Red — Enable</button>
+    <button class="flavor-btn fl-B" onclick="setFlavor('B')">Blue — Light-touch</button>
+    <button class="flavor-btn fl-Y" onclick="setFlavor('Y')">Yellow — Exposed</button>
+  </div>
+
+  <div class="demo-main">
+    <div class="demo-policy">
+      <div class="demo-policy-label">Policy Text</div>
+      <div class="demo-policy-text" id="policyText"></div>
+    </div>
+    <div class="demo-right">
+      <div class="demo-grid-card">
+        <div class="demo-grid-title">Dimension Ranking</div>
+        <div id="dimGrid"></div>
+      </div>
+      <div class="demo-violation-card">
+        <div class="demo-violation-title">Did Zip violate the policy?</div>
+        <div class="demo-violation-answer" id="violAnswer"></div>
+        <div class="demo-violation-reason" id="violReason"></div>
+      </div>
+      <div class="demo-lever-card">
+        <div class="demo-lever-title">What changed?</div>
+        <div id="leverNote"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 4: EMPLOYEE SCENARIOS
+     ══════════════════════════════════════════════ -->
+<section class="panel" id="panel-2" role="tabpanel">
+  <h2 class="slide-h">Employee Scenarios</h2>
+  <p class="slide-sub">Project during each round while teams receive their policy page. All four scenarios are the same for every table -- only the policy differs.</p>
+
+  <div style="display:flex;flex-direction:column;gap:20px;">
+
+    <!-- Lux -->
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div style="background:var(--bg-S);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:baseline;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--c-S);">ROUND 1</span>
+        <span style="font-size:18px;font-weight:700;color:var(--text);">Lux</span>
+        <span style="font-size:14px;color:var(--muted);">DSS Caseworker</span>
+
+      </div>
+      <div style="padding:20px 24px;">
+        <p style="font-size:16px;color:var(--text);line-height:1.75;">Lux is a caseworker at the Herkimer County Department of Social Services conducting a HEAP heating assistance intake. The applicant speaks Spanish and limited English. Lux's county-issued laptop has no translation tool. She pulls out her personal phone, opens an AI audio translation app she downloaded herself, and uses it to conduct the intake conversation in real time. The app processes the spoken exchange -- including the applicant's name, household composition, income information, and case history -- through a commercial server. Lux completes the intake and moves the case forward.</p>
+        <div style="margin-top:16px;padding:12px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:13px;font-weight:700;color:var(--text);">The violation question: </span>
+          <span style="font-size:13px;color:var(--muted);">Did Lux violate the policy?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Puk -->
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div style="background:var(--bg-E);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:baseline;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--c-E);">ROUND 2</span>
+        <span style="font-size:18px;font-weight:700;color:var(--text);">Puk</span>
+        <span style="font-size:14px;color:var(--muted);">Sheriff's Deputy</span>
+
+      </div>
+      <div style="padding:20px 24px;">
+        <p style="font-size:16px;color:var(--text);line-height:1.75;">Puk is on patrol on a rural stretch of Route 28. He stops a vehicle with a partially obscured rear plate. His mobile data terminal is showing a connection dropout. He photographs the plate with his department-issued phone running an approved AI image recognition tool. The tool returns a match and a record flag -- the registered owner has an outstanding warrant. Puk decides to proceed with the stop based on the AI result alone. He does not call dispatch to confirm.</p>
+        <div style="margin-top:16px;padding:12px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:13px;font-weight:700;color:var(--text);">The violation question: </span>
+          <span style="font-size:13px;color:var(--muted);">Did Puk violate the policy?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jam -->
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div style="background:var(--bg-A);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:baseline;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--c-A);">ROUND 3</span>
+        <span style="font-size:18px;font-weight:700;color:var(--text);">Jam</span>
+        <span style="font-size:14px;color:var(--muted);">Public Health Nurse</span>
+
+      </div>
+      <div style="padding:20px 24px;">
+        <p style="font-size:16px;color:var(--text);line-height:1.75;">Jam is a public health nurse at Herkimer County Public Health. She opens the county's AI prioritization tool on Tuesday morning and follows its ranked schedule for the entire day -- six home visits and two inspections, in the order the tool assigned. She does not log that she used the tool. She does not review the ranking with her supervisor before starting her day.</p>
+        <div style="margin-top:16px;padding:12px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:13px;font-weight:700;color:var(--text);">The violation question: </span>
+          <span style="font-size:13px;color:var(--muted);">Did Jam violate the policy?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wow -->
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div style="background:var(--bg-I);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:baseline;gap:14px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--c-I);">ROUND 4</span>
+        <span style="font-size:18px;font-weight:700;color:var(--text);">Wow</span>
+        <span style="font-size:14px;color:var(--muted);">Administration Staffer, County Attorney's Office</span>
+
+      </div>
+      <div style="padding:20px 24px;">
+        <p style="font-size:16px;color:var(--text);line-height:1.75;">Wow is an administrative staffer in the Herkimer County Attorney's office preparing a formal SNAP benefits denial notice. She uses a commercial AI drafting tool she found online -- not the county's designated tool -- to generate the draft. She reviews the draft, thinks it looks good, and routes it for the attorney's signature the same afternoon without verifying the regulatory citations or the appeal deadline against the source documents, without logging the AI use, and without supervisor sign-off before routing.</p>
+        <div style="margin-top:16px;padding:12px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <span style="font-size:13px;font-weight:700;color:var(--text);">The violation question: </span>
+          <span style="font-size:13px;color:var(--muted);">Did Wow violate the policy?</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 5: DEFINITIONS
+     ══════════════════════════════════════════════ -->
+<section class="panel" id="panel-3" role="tabpanel">
+  <h2 class="slide-h">The Four Operational Dimensions</h2>
+  <p class="slide-sub">Project during the opening context block. Keep on screen through the Zip demo. This is the reference participants use when filling out their worksheets.</p>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+
+    <div class="sl-dim-card sl-dim-S" style="padding:22px 24px;">
+      <div class="sl-dim-label">Security</div>
+      <div class="sl-dim-name">Which tools? Where does the data go?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+        <div style="padding:14px 16px;background:var(--bg-S);border-radius:8px;border:1px solid rgba(139,0,0,0.15);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--c-S);margin-bottom:6px;">HI</div>
+          <div style="font-size:14px;color:var(--text);line-height:1.65;">County-vetted tools only. Data stays on county systems. All tools auditable by IT.</div>
+        </div>
+        <div style="padding:14px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">LO</div>
+          <div style="font-size:14px;color:var(--muted);line-height:1.65;">Any available tool permitted. Staff responsible for appropriate data handling.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sl-dim-card sl-dim-A" style="padding:22px 24px;">
+      <div class="sl-dim-label">Accountability</div>
+      <div class="sl-dim-name">Is it logged? Who is responsible?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+        <div style="padding:14px 16px;background:var(--bg-A);border-radius:8px;border:1px solid rgba(102,0,204,0.15);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--c-A);margin-bottom:6px;">HI</div>
+          <div style="font-size:14px;color:var(--text);line-height:1.65;">Every AI use logged with staff ID, tool name, and timestamp. Retained 90 days. Named staff member responsible for every determination.</div>
+        </div>
+        <div style="padding:14px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">LO</div>
+          <div style="font-size:14px;color:var(--muted);line-height:1.65;">No AI-specific logging required. Accountability follows existing supervisory and records practices.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sl-dim-card sl-dim-E" style="padding:22px 24px;">
+      <div class="sl-dim-label">Efficiency</div>
+      <div class="sl-dim-name">Can staff act directly on AI output?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+        <div style="padding:14px 16px;background:var(--bg-E);border-radius:8px;border:1px solid rgba(0,102,51,0.15);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--c-E);margin-bottom:6px;">HI</div>
+          <div style="font-size:14px;color:var(--text);line-height:1.65;">Staff act directly on AI output after their own review. No additional approval step required before action.</div>
+        </div>
+        <div style="padding:14px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">LO</div>
+          <div style="font-size:14px;color:var(--muted);line-height:1.65;">AI output requires supervisor sign-off or a second review step before action is taken.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sl-dim-card sl-dim-I" style="padding:22px 24px;">
+      <div class="sl-dim-label">Innovation</div>
+      <div class="sl-dim-name">Who picks the tools?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px;">
+        <div style="padding:14px 16px;background:var(--bg-I);border-radius:8px;border:1px solid rgba(0,51,153,0.15);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--c-I);margin-bottom:6px;">HI</div>
+          <div style="font-size:14px;color:var(--text);line-height:1.65;">Staff may identify and pilot new AI tools within defined parameters. Tools meeting county standards may be adopted by the department.</div>
+        </div>
+        <div style="padding:14px 16px;background:var(--surf);border-radius:8px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">LO</div>
+          <div style="font-size:14px;color:var(--muted);line-height:1.65;">County-designated tools only. Staff use the approved set and do not adopt tools independently.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 6: POLICIES
+     ══════════════════════════════════════════════ -->
+<section class="panel" id="panel-4" role="tabpanel">
+  <h2 class="slide-h">The Four Policy Flavors</h2>
+  <p class="slide-sub">Each flavor is a combination of Hi/Lo settings across the four dimensions. Use at the reveal -- project this tab, call each flavor in order, show the room the correct settings.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+
+    <!-- GREEN -->
+    <div style="background:var(--white);border:2px solid #16a34a;border-radius:12px;overflow:hidden;">
+      <div style="background:#166534;padding:16px 22px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.12em;margin-bottom:4px;">FLAVOR 1 &middot; APPLE</div>
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">Green</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.75);">Guardrails</div>
+      </div>
+      <div style="padding:18px 22px;">
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-S);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-S);">Security</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-S);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-A);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-A);">Accountability</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-A);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--surf);border:1px solid var(--border);">
+            <span style="font-size:14px;font-weight:600;color:var(--muted);">Efficiency</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--border);color:var(--muted);">LO</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--surf);border:1px solid var(--border);">
+            <span style="font-size:14px;font-weight:600;color:var(--muted);">Innovation</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--border);color:var(--muted);">LO</span>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;padding:10px 14px;background:var(--surf);border-radius:7px;border:1px solid var(--border);">
+          County-vetted tools only. Every use logged. Supervisor sign-off before action. No independent tool adoption.
+        </div>
+      </div>
+    </div>
+
+    <!-- RED -->
+    <div style="background:var(--white);border:2px solid #dc2626;border-radius:12px;overflow:hidden;">
+      <div style="background:#991b1b;padding:16px 22px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.12em;margin-bottom:4px;">FLAVOR 2 &middot; BANANA</div>
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">Red</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.75);">Enable</div>
+      </div>
+      <div style="padding:18px 22px;">
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-S);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-S);">Security</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-S);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-A);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-A);">Accountability</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-A);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-E);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-E);">Efficiency</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-E);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-I);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-I);">Innovation</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-I);color:#fff;">HI</span>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;padding:10px 14px;background:var(--surf);border-radius:7px;border:1px solid var(--border);">
+          County-vetted tools only. Every use logged. Staff act directly after own review. Staff may identify and pilot new tools.
+        </div>
+      </div>
+    </div>
+
+    <!-- BLUE -->
+    <div style="background:var(--white);border:2px solid #3b82f6;border-radius:12px;overflow:hidden;">
+      <div style="background:#1e3a8a;padding:16px 22px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.12em;margin-bottom:4px;">FLAVOR 3 &middot; CHERRY</div>
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">Blue</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.75);">Light-touch</div>
+      </div>
+      <div style="padding:18px 22px;">
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-S);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-S);">Security</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-S);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--surf);border:1px solid var(--border);">
+            <span style="font-size:14px;font-weight:600;color:var(--muted);">Accountability</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--border);color:var(--muted);">LO</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-E);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-E);">Efficiency</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-E);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-I);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-I);">Innovation</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-I);color:#fff;">HI</span>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;padding:10px 14px;background:var(--surf);border-radius:7px;border:1px solid var(--border);">
+          County-vetted tools only. No logging required. Staff act directly. Staff may identify and pilot new tools.
+        </div>
+      </div>
+    </div>
+
+    <!-- YELLOW -->
+    <div style="background:var(--white);border:2px solid #d97706;border-radius:12px;overflow:hidden;">
+      <div style="background:#92400e;padding:16px 22px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.12em;margin-bottom:4px;">FLAVOR 4 &middot; PLUM</div>
+        <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;">Yellow</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.75);">Exposed</div>
+      </div>
+      <div style="padding:18px 22px;">
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--surf);border:1px solid var(--border);">
+            <span style="font-size:14px;font-weight:600;color:var(--muted);">Security</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--border);color:var(--muted);">LO</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--surf);border:1px solid var(--border);">
+            <span style="font-size:14px;font-weight:600;color:var(--muted);">Accountability</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--border);color:var(--muted);">LO</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-E);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-E);">Efficiency</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-E);color:#fff;">HI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:7px;background:var(--bg-I);">
+            <span style="font-size:14px;font-weight:600;color:var(--c-I);">Innovation</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;padding:3px 14px;border-radius:10px;background:var(--c-I);color:#fff;">HI</span>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;padding:10px 14px;background:var(--surf);border-radius:7px;border:1px solid var(--border);">
+          Any tool permitted. No logging required. Staff act directly. Data may leave county systems.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:20px;padding:16px 20px;background:var(--white);border:1px solid var(--border);border-radius:10px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">The Lever Chain</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;">
+      <span style="padding:5px 14px;border-radius:20px;background:#166534;color:#fff;font-weight:600;">Green</span>
+      <span style="color:var(--muted);">&#x2192; Efficiency &#x2191; Innovation &#x2191; &#x2192;</span>
+      <span style="padding:5px 14px;border-radius:20px;background:#991b1b;color:#fff;font-weight:600;">Red</span>
+      <span style="color:var(--muted);">&#x2192; Accountability &#x2193; &#x2192;</span>
+      <span style="padding:5px 14px;border-radius:20px;background:#1e3a8a;color:#fff;font-weight:600;">Blue</span>
+      <span style="color:var(--muted);">&#x2192; Security &#x2193; &#x2192;</span>
+      <span style="padding:5px 14px;border-radius:20px;background:#92400e;color:#fff;font-weight:600;">Yellow</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 3: FACILITATOR REFERENCE
+     ══════════════════════════════════════════════ -->
+<section class="panel" id="panel-5" role="tabpanel">
+  <h2 class="slide-h">Facilitator Reference</h2>
+  <p class="slide-sub">Key card, violation arc, and print checklist. Not for distribution.</p>
+
+  <div class="key-card">
+    <div class="key-card-header">Key Card — Fruit to Flavor Mapping by Round</div>
+    <table class="key-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Round 1: Lux</th>
+          <th>Round 2: Puk</th>
+          <th>Round 3: Jam</th>
+          <th>Round 4: Wow</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="fruit-tag fruit-apple">Apple</span></td>  <td><span class="flavor-tag flavor-green">Green</span></td>  <td><span class="flavor-tag flavor-red">Red</span></td>    <td><span class="flavor-tag flavor-blue">Blue</span></td>   <td><span class="flavor-tag flavor-yellow">Yellow</span></td></tr>
+        <tr><td><span class="fruit-tag fruit-banana">Banana</span></td><td><span class="flavor-tag flavor-red">Red</span></td>    <td><span class="flavor-tag flavor-green">Green</span></td>  <td><span class="flavor-tag flavor-yellow">Yellow</span></td><td><span class="flavor-tag flavor-blue">Blue</span></td></tr>
+        <tr><td><span class="fruit-tag fruit-cherry">Cherry</span></td><td><span class="flavor-tag flavor-yellow">Yellow</span></td><td><span class="flavor-tag flavor-blue">Blue</span></td>   <td><span class="flavor-tag flavor-green">Green</span></td>  <td><span class="flavor-tag flavor-red">Red</span></td></tr>
+        <tr><td><span class="fruit-tag fruit-plum">Plum</span></td>   <td><span class="flavor-tag flavor-red">Red</span></td>    <td><span class="flavor-tag flavor-blue">Blue</span></td>   <td><span class="flavor-tag flavor-yellow">Yellow</span></td><td><span class="flavor-tag flavor-blue">Blue</span></td></tr>
+        <tr><td><span class="fruit-tag fruit-apple">Apple 2</span></td><td><span class="flavor-tag flavor-blue">Blue</span></td>  <td><span class="flavor-tag flavor-yellow">Yellow</span></td><td><span class="flavor-tag flavor-green">Green</span></td>  <td><span class="flavor-tag flavor-red">Red</span></td></tr>
+        <tr><td><span class="fruit-tag fruit-banana">Banana 2</span></td><td><span class="flavor-tag flavor-blue">Blue</span></td><td><span class="flavor-tag flavor-yellow">Yellow</span></td><td><span class="flavor-tag flavor-red">Red</span></td>    <td><span class="flavor-tag flavor-red">Red</span></td></tr>
+        <tr><td><span class="fruit-tag fruit-cherry">Cherry 2</span></td><td><span class="flavor-tag flavor-yellow">Yellow</span></td><td><span class="flavor-tag flavor-red">Red</span></td><td><span class="flavor-tag flavor-blue">Blue</span></td>   <td><span class="flavor-tag flavor-green">Green</span></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;font-size:12px;color:var(--muted);">Reconvene call order each round: <strong>Green → Red → Blue → Yellow</strong>. Call by fruit name; room does not hear flavor name until reveal.</p>
+  </div>
+
+  <div class="print-section">
+    <h3 class="print-h">Violation Arc</h3>
+    <p class="print-sub">Reference for reconvene reveals. Each employee teaches one dimension.</p>
+    <table class="arc-table">
+      <thead>
+        <tr><th>Employee</th><th>What they did</th><th>Green</th><th>Red</th><th>Blue</th><th>Yellow</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Zip</strong> (demo)</td>
+          <td>Used ChatGPT to draft Christmas party email</td>
+          <td class="arc-viol">Security</td><td class="arc-viol">Security</td><td class="arc-viol">Security</td><td class="arc-ok">No violation</td>
+        </tr>
+        <tr>
+          <td><strong>Lux</strong> (Round 1)</td>
+          <td>AI audio translation app on personal phone, Spanish intake</td>
+          <td class="arc-viol">Security</td><td class="arc-viol">Security</td><td class="arc-viol">Security</td><td class="arc-ok">No violation</td>
+        </tr>
+        <tr>
+          <td><strong>Puk</strong> (Round 2)</td>
+          <td>Acted on AI plate flag without dispatch confirmation</td>
+          <td class="arc-viol">Efficiency</td><td class="arc-ok">No violation</td><td class="arc-ok">No violation</td><td class="arc-ok">No violation</td>
+        </tr>
+        <tr>
+          <td><strong>Jam</strong> (Round 3)</td>
+          <td>Followed AI ranking all day, no log</td>
+          <td class="arc-viol">Accountability + Efficiency</td><td class="arc-viol">Accountability</td><td class="arc-ok">No violation</td><td class="arc-ok">No violation</td>
+        </tr>
+        <tr>
+          <td><strong>Wow</strong> (Round 4)</td>
+          <td>Commercial tool, no verification, no log, no sign-off</td>
+          <td class="arc-viol">All four</td><td class="arc-viol">Security + Accountability</td><td class="arc-viol">Security + verification</td><td class="arc-viol">Verification (unconditional)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="print-section">
+    <h3 class="print-h">Print Checklist</h3>
+    <p class="print-sub">Total print job approximately 250 pages.</p>
+    <div class="print-item"><span class="print-item-label">Use case handout (all 4 scenarios, same for everyone)</span><span class="print-count">42</span></div>
+    <div class="print-item"><span class="print-item-label">Dimensions reference card (one per person)</span><span class="print-count">42</span></div>
+    <div class="print-item"><span class="print-item-label">Round 1 policy pages (Apple, Banana, Cherry, Plum &times; 11 each)</span><span class="print-count">44</span></div>
+    <div class="print-item"><span class="print-item-label">Round 2 policy pages (Apple, Banana, Cherry, Plum &times; 11 each)</span><span class="print-count">44</span></div>
+    <div class="print-item"><span class="print-item-label">Round 3 policy pages (Apple, Banana, Cherry, Plum &times; 11 each)</span><span class="print-count">44</span></div>
+    <div class="print-item"><span class="print-item-label">Round 4 policy pages (Apple, Banana, Cherry, Plum &times; 11 each)</span><span class="print-count">44</span></div>
+    <div class="print-item"><span class="print-item-label">Worksheets (1 per person per round &times; 4 rounds)</span><span class="print-count">168</span></div>
+    <div class="print-total"><span>Total pages</span><span>~430</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 7: POLICY TEXTS
+     ══════════════════════════════════════════════ -->
+<section class="panel" id="panel-6" role="tabpanel">
+  <h2 class="slide-h">Policy Texts</h2>
+  <p class="slide-sub">Full policy text for each employee under each flavor. Select an employee. Print from here.</p>
+
+  <div style="display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;" id="ptBtns">
+    <button onclick="showEmp('lux')"  class="pt-btn" style="padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--c-S);font-family:'DM Sans',sans-serif;background:var(--c-S);color:#fff;">DSS Caseworker</button>
+    <button onclick="showEmp('puk')"  class="pt-btn" style="padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--c-E);font-family:'DM Sans',sans-serif;background:#fff;color:var(--c-E);">Sheriff Deputy</button>
+    <button onclick="showEmp('jam')"  class="pt-btn" style="padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--c-A);font-family:'DM Sans',sans-serif;background:#fff;color:var(--c-A);">Public Health Nurse</button>
+    <button onclick="showEmp('wow')"  class="pt-btn" style="padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid var(--c-I);font-family:'DM Sans',sans-serif;background:#fff;color:var(--c-I);">Admin Staffer</button>
+  </div>
+
+      <div class="pt-emp" id="pt-lux" style="display:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 18px;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Scenario &nbsp;</span>
+          <span style="font-size:14px;color:var(--text);line-height:1.7;">HEAP intake. Spanish-speaking applicant. Lux uses a self-installed AI audio translation app on her personal phone. The app processes the spoken exchange -- name, household composition, income, case history -- through a commercial server. She completes the intake and moves the case forward.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:var(--white);border:2px solid #16a34a;border-radius:12px;overflow:hidden;">
+        <div style="background:#166534;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Green</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Guardrails</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Apple &middot; S↑ Ac↑ E↓ I↓</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may use only county-approved AI tools during benefits intake. Any AI tool used to assist with an intake -- including tools that process spoken conversation, translate language, or handle applicant information in any form -- must appear on the county's approved AI tool list and must be run on county-issued equipment. Applicant data, including spoken exchanges containing personal information, must not be processed by tools running on personal devices or transmitted to commercial servers. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Before any case is moved forward, the caseworker's supervisor reviews and confirms the intake record. The caseworker documents the tools used and the outcome of the supervisor review in the case record.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may not download, install, or pilot any AI tool not on the county's approved list, on any device. Tool selection is centralized. If the caseworker identifies a tool that may be useful, she brings it to her supervisor for evaluation.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every AI-assisted intake interaction is logged with the caseworker's staff ID, the tool name, and a timestamp. Logs are retained for a minimum of 90 days. A named caseworker is responsible for every determination. The caseworker, not the AI tool, makes the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #dc2626;border-radius:12px;overflow:hidden;">
+        <div style="background:#991b1b;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Red</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Enable</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Banana &middot; S↑ Ac↑ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may use only county-approved AI tools during benefits intake. Any AI tool used to assist with an intake -- including tools that process spoken conversation, translate language, or handle applicant information in any form -- must appear on the county's approved AI tool list and must be run on county-issued equipment. Applicant data, including spoken exchanges containing personal information, must not be processed by tools running on personal devices or transmitted to commercial servers. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may complete the intake and move the case forward after her own review, without a separate supervisor sign-off step.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker is encouraged to identify and pilot new AI tools within defined parameters. Tools that meet county security and operational standards may be adopted by the department. The caseworker brings candidate tools to her supervisor with a written description of the proposed use.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every AI-assisted intake interaction is logged with the caseworker's staff ID, the tool name, and a timestamp. Logs are retained for a minimum of 90 days. A named caseworker is responsible for every determination. The caseworker, not the AI tool, makes the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #3b82f6;border-radius:12px;overflow:hidden;">
+        <div style="background:#1e3a8a;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Blue</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Light-touch</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Cherry &middot; S↑ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may use only county-approved AI tools during benefits intake. Any AI tool used to assist with an intake -- including tools that process spoken conversation, translate language, or handle applicant information in any form -- must appear on the county's approved AI tool list and must be run on county-issued equipment. Applicant data, including spoken exchanges containing personal information, must not be processed by tools running on personal devices or transmitted to commercial servers. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may complete the intake and move the case forward after her own review, without a separate supervisor sign-off step.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker is encouraged to identify and pilot new AI tools within defined parameters. Tools that meet county security and operational standards may be adopted by the department.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging is required beyond what existing supervisory and case record practices already capture. The caseworker, not the AI tool, makes the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #d97706;border-radius:12px;overflow:hidden;">
+        <div style="background:#92400e;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Yellow</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Exposed</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Plum &middot; S↓ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may use any available AI tool to assist with benefits intake, including tools installed on personal devices and commercially available translation applications. The caseworker is responsible for appropriate handling of applicant data when using tools that are not county-designated. Applicant information processed through personal devices or commercial servers is handled at the caseworker's professional discretion.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may complete the intake and move the case forward after her own review. No additional approval step is required.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The caseworker may identify and use new AI tools based on her own assessment of their usefulness. Formal county approval is not required before a tool is used.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging is required. The caseworker, not the AI tool, makes the determination.</p></div>
+      </div></div>
+      </div>
+      <div class="pt-emp" id="pt-puk" style="display:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 18px;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Scenario &nbsp;</span>
+          <span style="font-size:14px;color:var(--text);line-height:1.7;">Route 28 patrol stop. Partially obscured plate. MDT connection dropout. Puk photographs the plate with his department-issued phone running an approved AI image recognition tool. The tool returns a match and a record flag -- outstanding warrant. Puk proceeds without calling dispatch to confirm.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:var(--white);border:2px solid #16a34a;border-radius:12px;overflow:hidden;">
+        <div style="background:#166534;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Green</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Guardrails</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Apple &middot; S↑ Ac↑ E↓ I↓</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may use only department-issued, security-vetted AI tools for field identification tasks including plate recognition. The tool must appear on the department's approved list and must comply with CJIS security requirements. Criminal justice data processed by the tool must not leave county or state-authorized systems. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may not act directly on an AI-generated record flag without first confirming the result through an independent channel -- dispatch, a backup terminal, or a second officer. The AI output is a preliminary indicator only. The deputy proceeds based on confirmed information, not the AI result alone.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may not adopt, download, or pilot any AI tool not on the department's approved list. Tool selection is centralized.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every AI-assisted field query is logged with the deputy's badge number, the tool name, and a timestamp. Logs are retained for a minimum of 90 days. The deputy is the named responsible officer for each stop. The AI tool result is an input to the deputy's field judgment; the deputy, not the AI tool, makes the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #dc2626;border-radius:12px;overflow:hidden;">
+        <div style="background:#991b1b;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Red</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Enable</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Banana &middot; S↑ Ac↑ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may use only department-issued, security-vetted AI tools for field identification tasks including plate recognition. The tool must appear on the department's approved list and must comply with CJIS security requirements. Criminal justice data processed by the tool must not leave county or state-authorized systems. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may act directly on the AI-generated record flag after his own review, without waiting for dispatch confirmation. When operational circumstances require immediate action, the deputy proceeds on his own judgment.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy is encouraged to identify and pilot new AI tools within defined parameters. Tools that meet department security and CJIS standards may be adopted.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every AI-assisted field query is logged with the deputy's badge number, the tool name, and a timestamp. Logs are retained for a minimum of 90 days. The deputy is the named responsible officer for each stop. The AI tool result is an input to the deputy's field judgment; the deputy, not the AI tool, makes the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #3b82f6;border-radius:12px;overflow:hidden;">
+        <div style="background:#1e3a8a;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Blue</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Light-touch</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Cherry &middot; S↑ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may use only department-issued, security-vetted AI tools for field identification tasks including plate recognition. The tool must appear on the department's approved list and must comply with CJIS security requirements. Criminal justice data processed by the tool must not leave county or state-authorized systems. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may act directly on the AI-generated record flag after his own review, without waiting for dispatch confirmation.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy is encouraged to identify and pilot new AI tools within defined parameters. Tools that meet department security and CJIS standards may be adopted.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging of field queries is required beyond what existing incident reporting and supervisory practices already capture. The deputy, not the AI tool, makes the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #d97706;border-radius:12px;overflow:hidden;">
+        <div style="background:#92400e;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Yellow</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Exposed</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Plum &middot; S↓ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may use any available AI tool for field identification tasks, including personally owned devices and commercially available applications. The deputy is responsible for appropriate handling of any data entered into non-department tools. Criminal justice data entered into commercial tools may be processed outside county or state-authorized systems; the deputy exercises professional judgment about what information to enter.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may act directly on the AI-generated result after his own review. No confirmation step is required before action.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The deputy may identify and use new AI tools based on his own assessment of their usefulness in the field. Formal department approval is not required.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging is required. The deputy, not the AI tool, makes the determination.</p></div>
+      </div></div>
+      </div>
+      <div class="pt-emp" id="pt-jam" style="display:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 18px;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Scenario &nbsp;</span>
+          <span style="font-size:14px;color:var(--text);line-height:1.7;">Tuesday morning. Jam opens the county's AI prioritization tool and follows its ranked schedule for the entire day -- six home visits and two inspections, in the order the tool assigned. She does not log that she used the tool. She does not review the ranking with her supervisor before starting her day.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:var(--white);border:2px solid #16a34a;border-radius:12px;overflow:hidden;">
+        <div style="background:#166534;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Green</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Guardrails</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Apple &middot; S↑ Ac↑ E↓ I↓</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may use the county's designated AI prioritization tool to receive a ranked caseload for the day. The tool must be county-procured and appear on the county's approved AI tool list. Resident health information processed by the tool must not leave county systems. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may not implement the AI-ranked schedule without first reviewing it with her supervisor. The supervisor confirms or adjusts the day's priorities before the nurse begins her rounds. The nurse documents that supervisor review occurred and notes any departures from the AI ranking.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may not adopt or pilot any AI tool not on the county's approved list. Tool selection is centralized.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every use of the AI prioritization tool is logged with the nurse's staff ID, the tool name, and a timestamp. Logs are retained for a minimum of 90 days. The supervisor is the named responsible party for the confirmed daily schedule. The AI ranking is an input to that schedule; the nurse and supervisor, not the AI tool, determine the day's priorities.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #dc2626;border-radius:12px;overflow:hidden;">
+        <div style="background:#991b1b;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Red</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Enable</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Banana &middot; S↑ Ac↑ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may use the county's designated AI prioritization tool to receive a ranked caseload for the day. The tool must be county-procured and appear on the county's approved AI tool list. Resident health information processed by the tool must not leave county systems. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may act directly on the AI-generated ranking and organize her day accordingly, without a separate supervisor confirmation step. The nurse applies her clinical judgment and may reorder visits where her professional assessment differs from the AI output.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse is encouraged to identify and pilot new AI tools within defined parameters. Tools that meet county security and operational standards may be adopted.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every use of the AI prioritization tool is logged with the nurse's staff ID, the tool name, and a timestamp. Logs are retained for a minimum of 90 days. The nurse is the named responsible party for the daily schedule she works. The AI ranking is an input to that schedule; the nurse, not the AI tool, determines the day's priorities.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #3b82f6;border-radius:12px;overflow:hidden;">
+        <div style="background:#1e3a8a;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Blue</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Light-touch</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Cherry &middot; S↑ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may use the county's designated AI prioritization tool to receive a ranked caseload for the day. The tool must be county-procured and appear on the county's approved AI tool list. Resident health information processed by the tool must not leave county systems. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may act directly on the AI-generated ranking and organize her day accordingly, without a separate supervisor confirmation step.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse is encouraged to identify and pilot new AI tools within defined parameters. Tools that meet county security and operational standards may be adopted.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging of prioritization tool use is required beyond what existing case record and supervisory practices already capture. The nurse, not the AI tool, determines the day's priorities.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #d97706;border-radius:12px;overflow:hidden;">
+        <div style="background:#92400e;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Yellow</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Exposed</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Plum &middot; S↓ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may use any available AI prioritization tool, including commercially available tools, to assist with caseload management. The nurse is responsible for appropriate handling of any resident data entered into non-county tools.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may act directly on the AI-generated ranking and organize her day accordingly. The nurse applies her clinical judgment and may reorder visits where her professional assessment differs from the AI output.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The nurse may identify and use new AI tools based on her own assessment of their usefulness. Formal county approval is not required.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging is required. The nurse, not the AI tool, determines the day's priorities.</p></div>
+      </div></div>
+      </div>
+      <div class="pt-emp" id="pt-wow" style="display:none;">
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 18px;margin-bottom:16px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">Scenario &nbsp;</span>
+          <span style="font-size:14px;color:var(--text);line-height:1.7;">SNAP benefits denial notice. Wow uses a commercial AI drafting tool she found online -- not the county's designated tool. She reviews the draft, routes it for signature without verifying citations or the appeal deadline, without logging, and without supervisor sign-off.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="background:var(--white);border:2px solid #16a34a;border-radius:12px;overflow:hidden;">
+        <div style="background:#166534;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Green</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Guardrails</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Apple &middot; S↑ Ac↑ E↓ I↓</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may use the county's designated AI drafting tool to generate a draft benefits denial notice. The tool must appear on the county's approved AI tool list. Applicant information and case data must not leave county systems; the staffer may not use any tool that transmits legal work product or applicant information to an outside server or third party. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may not route the draft notice for signature without supervisor sign-off. Before routing, the staffer verifies every factual claim, regulatory citation, deadline, and appeal rights statement against the source documents. The AI tool cannot supply facts, deadlines, or citations; the staffer confirms each element independently. The routing slip notes that AI was used in drafting and that verification is complete.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may not adopt or pilot any AI drafting tool not on the county's approved list. Tool selection is centralized.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every AI-assisted drafting session is logged with the staffer's staff ID, the tool name, and a timestamp. The log is retained as part of the determination record. A named staffer is responsible for the accuracy of the notice. The AI draft is an input; the staffer, not the AI tool, is responsible for the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #dc2626;border-radius:12px;overflow:hidden;">
+        <div style="background:#991b1b;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Red</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Enable</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Banana &middot; S↑ Ac↑ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may use the county's designated AI drafting tool to generate a draft benefits denial notice. The tool must appear on the county's approved AI tool list. Applicant information and case data must not leave county systems; the staffer may not use any tool that transmits legal work product or applicant information to an outside server or third party. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may route the draft notice for signature after her own review, without a separate supervisor sign-off step. Before routing, the staffer verifies every factual claim, regulatory citation, deadline, and appeal rights statement against the source documents. The AI tool cannot supply facts, deadlines, or citations; the staffer confirms each element independently.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer is encouraged to identify and pilot new AI drafting tools within defined parameters. Tools that meet county security and operational standards may be adopted.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">Every AI-assisted drafting session is logged with the staffer's staff ID, the tool name, and a timestamp. The log is retained as part of the determination record. A named staffer is responsible for the accuracy of the notice. The AI draft is an input; the staffer, not the AI tool, is responsible for the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #3b82f6;border-radius:12px;overflow:hidden;">
+        <div style="background:#1e3a8a;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Blue</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Light-touch</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Cherry &middot; S↑ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may use the county's designated AI drafting tool to generate a draft benefits denial notice. The tool must appear on the county's approved AI tool list. Applicant information and case data must not leave county systems; the staffer may not use any tool that transmits legal work product or applicant information to an outside server or third party. All approved tools are auditable by IT.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may route the draft notice for signature after her own review, without a separate supervisor sign-off step. Before routing, the staffer verifies every factual claim, regulatory citation, deadline, and appeal rights statement against the source documents. The AI tool cannot supply facts, deadlines, or citations; the staffer confirms each element independently.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer is encouraged to identify and pilot new AI drafting tools within defined parameters. Tools that meet county security and operational standards may be adopted.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging is required beyond what existing records practices already capture. The staffer, not the AI tool, is responsible for the determination.</p></div>
+      </div>
+      <div style="background:var(--white);border:2px solid #d97706;border-radius:12px;overflow:hidden;">
+        <div style="background:#92400e;padding:13px 20px;display:flex;align-items:baseline;gap:12px;">
+          <span style="font-size:18px;font-weight:700;color:#fff;">Yellow</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.75);">Exposed</span>
+          <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.45);">Plum &middot; S↓ Ac↓ E↑ I↑</span>
+        </div>
+        <div style="padding:18px 22px;"><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may use any available AI drafting tool, including commercially available tools, to assist with drafting benefits denial notices. The staffer is responsible for appropriate handling of any applicant information entered into non-county tools. Legal work product and applicant information entered into commercial tools may be processed outside county systems; the staffer exercises professional judgment about what information to enter.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may route the draft notice for signature after her own review. Before routing, the staffer verifies every factual claim, regulatory citation, deadline, and appeal rights statement against the source documents. The AI tool cannot supply facts, deadlines, or citations; the staffer confirms each element independently.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">The staffer may identify and use new AI drafting tools based on her own assessment. Formal county approval is not required.</p><p style="font-size:14px;color:var(--text);line-height:1.8;margin-bottom:12px;">No AI-specific logging is required. The staffer, not the AI tool, is responsible for the determination.</p></div>
+      </div></div>
+      </div>
+
+  <script>
+  const ptEmps = ['lux','puk','jam','wow'];
+  const ptColors = {lux:'var(--c-S)',puk:'var(--c-E)',jam:'var(--c-A)',wow:'var(--c-I)'};
+  function showEmp(k) {
+    ptEmps.forEach(e => document.getElementById('pt-'+e).style.display = e===k?'block':'none');
+    document.querySelectorAll('.pt-btn').forEach((b,i) => {
+      const e = ptEmps[i]; const c = ptColors[e];
+      b.style.background = e===k ? c : '#fff';
+      b.style.color      = e===k ? '#fff' : c;
+    });
+  }
+  showEmp('lux');
+  </script>
+</section>
+
+<section class="panel" id="panel-7" role="tabpanel">
+  <h2 class="slide-h">Downloads</h2>
+  <p class="slide-sub">Word documents from this workshop. Right-click or long-press to save.</p>
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:560px;margin-top:24px;">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Universal</div>
+      <a href="workshop-1-universal-handout.docx" style="font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;">Workshop 1 — Universal Handout</a>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Scenario, instructions, and dimension grid for all participants.</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-S);margin-bottom:6px;">DSS Caseworker — Round 1</div>
+      <a href="round1-lux-policy-pages.docx" style="font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;">Lux — Policy Pages</a>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Four-flavor policy cards for the DSS Caseworker persona.</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-E);margin-bottom:6px;">Sheriff Deputy — Round 2</div>
+      <a href="round2-puk-policy-pages.docx" style="font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;">Puk — Policy Pages</a>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Four-flavor policy cards for the Sheriff Deputy persona.</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-A);margin-bottom:6px;">Public Health Nurse — Round 3</div>
+      <a href="round3-jam-policy-pages.docx" style="font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;">Jam — Policy Pages</a>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Four-flavor policy cards for the Public Health Nurse persona.</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-I);margin-bottom:6px;">Admin Staffer — Round 4</div>
+      <a href="round4-wow-policy-pages.docx" style="font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;">Wow — Policy Pages</a>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Four-flavor policy cards for the Admin Staffer persona.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="kb-hint">Tab 1: ← → arrow keys to navigate slides &nbsp;·&nbsp; <a href="workshop-1-slides.html" style="color:inherit;opacity:0.6;text-decoration:underline;">Slides only →</a></div>
+
+<script>
+// ── TAB SWITCHING ──
+const panels = document.querySelectorAll('.panel');
+const tabs   = document.querySelectorAll('nav button');
+let curPanel = 0;
+function showPanel(i) {
+  panels.forEach((p,idx) => p.classList.toggle('active', idx===i));
+  tabs.forEach((t,idx) => t.setAttribute('aria-selected', idx===i ? 'true':'false'));
+  curPanel = i;
+  document.getElementById('content').scrollTop = 0;
+}
+
+// ── SLIDES (Tab 1) ──
+const slides = [
+  { label:'Workshop 1 of 4', content: () => `
+    <div style="display:flex;flex-direction:column;justify-content:center;min-height:260px">
+      <div class="sl-title-meta">SUNY POLYTECHNIC INSTITUTE · AIX CENTER</div>
+      <h1 class="sl-title-main">AI Policy Workshop</h1>
+      <p class="sl-title-sub">Herkimer County · June 10, 2026<br>Two hours. Four employees. One question: what should the policy say?</p>
+    </div>`
+  },
+  { label:'The Context', content: () => `
+    <h2 class="sl-body-h">AI is arriving like an alien species.</h2>
+    <p class="sl-body-p">We did not decide to invite it. It is here. Like any new species entering an ecosystem, it will change how work gets done, displace certain tasks, and require us to adapt.</p>
+    <div class="sl-big-quote">
+      <p><strong>They</strong> decided to create it and deploy it. <strong>We</strong> are deciding what it means for how we do our jobs -- what it can touch, what it cannot, and who is responsible for what it does.</p>
+    </div>
+    <p class="sl-body-p">That is what this workshop is for. Not whether AI belongs here. It is already here. But what the terms of cohabitation should be.</p>`
+  },
+  { label:'What Leadership Has Decided', content: () => `
+    <h2 class="sl-body-h">Three commitments are already set.</h2>
+    <p class="sl-body-p" style="margin-bottom:18px;">County leadership has established the ethical frame. These apply to all AI decisions. They are not on the table today.</p>
+    <div class="sl-frame-grid">
+      <div class="sl-frame-row" style="border-color:var(--c-I);">
+        <div class="sl-frame-name" style="color:var(--c-I)">Equity</div>
+        <div class="sl-frame-pos">AI tools and vendors must acknowledge differential impact. The county will consider equity in procurement but does not commit to formal auditing requirements at this time.</div>
+      </div>
+      <div class="sl-frame-row" style="border-color:var(--c-S);">
+        <div class="sl-frame-name" style="color:var(--c-S)">Human Impact</div>
+        <div class="sl-frame-pos">AI-assisted decisions follow existing supervisory chains. No new approval steps are added or removed by this policy. Human review requirements are determined by current departmental practice.</div>
+      </div>
+      <div class="sl-frame-row" style="border-color:var(--c-E);">
+        <div class="sl-frame-name" style="color:var(--c-E)">Infrastructure Impact</div>
+        <div class="sl-frame-pos">Energy use, vendor dependency, and sustainability are formal considerations in AI procurement decisions. They inform the process but do not constitute a barrier to adoption.</div>
+      </div>
+    </div>`
+  },
+  { label:'What You Are Deciding', content: () => `
+    <h2 class="sl-body-h">Four operational dimensions. You are calibrating these.</h2>
+    <div class="sl-dim-grid">
+      <div class="sl-dim-card sl-dim-S">
+        <div class="sl-dim-label">Security</div>
+        <div class="sl-dim-name">Which tools? Where does data go?</div>
+        <div class="sl-dim-hilo"><strong>Hi:</strong> county-vetted tools only; data stays on county systems; auditable by IT<br><strong>Lo:</strong> any available tool; staff responsible for data handling</div>
+      </div>
+      <div class="sl-dim-card sl-dim-A">
+        <div class="sl-dim-label">Accountability</div>
+        <div class="sl-dim-name">Who is responsible? Is it logged?</div>
+        <div class="sl-dim-hilo"><strong>Hi:</strong> every AI use logged with staff ID, tool, timestamp; 90-day retention<br><strong>Lo:</strong> no logging required; existing supervisory practices apply</div>
+      </div>
+      <div class="sl-dim-card sl-dim-E">
+        <div class="sl-dim-label">Efficiency</div>
+        <div class="sl-dim-name">Can staff act directly?</div>
+        <div class="sl-dim-hilo"><strong>Hi:</strong> staff act directly on AI output after own review<br><strong>Lo:</strong> supervisor sign-off required before action</div>
+      </div>
+      <div class="sl-dim-card sl-dim-I">
+        <div class="sl-dim-label">Innovation</div>
+        <div class="sl-dim-name">Who picks the tools?</div>
+        <div class="sl-dim-hilo"><strong>Hi:</strong> staff may identify and pilot new tools within defined parameters<br><strong>Lo:</strong> county-designated tools only; no independent adoption</div>
+      </div>
+    </div>`
+  },
+  { label:'The Lever Chain', content: () => `
+    <h2 class="sl-body-h">Four flavors. Three transitions. One lever at a time.</h2>
+    <p class="sl-body-p" style="margin-bottom:24px;">Each flavor is a combination of Hi/Lo settings across the four dimensions. The flavors run from most cautious to most permissive.</p>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="sl-lever-row">
+        <span class="sl-lever-from" style="background:#166534">Green</span>
+        <span class="sl-lever-arrow">→</span>
+        <span class="sl-lever-to" style="background:#dc2626">Red</span>
+        <span class="sl-lever-note">Efficiency ↑ and Innovation ↑ — velocity opens as one move</span>
+      </div>
+      <div class="sl-lever-row">
+        <span class="sl-lever-from" style="background:#dc2626">Red</span>
+        <span class="sl-lever-arrow">→</span>
+        <span class="sl-lever-to" style="background:#3b82f6">Blue</span>
+        <span class="sl-lever-note">Accountability ↓ — logging drops</span>
+      </div>
+      <div class="sl-lever-row">
+        <span class="sl-lever-from" style="background:#3b82f6">Blue</span>
+        <span class="sl-lever-arrow">→</span>
+        <span class="sl-lever-to" style="background:#d97706">Yellow</span>
+        <span class="sl-lever-note">Security ↓ — data control drops</span>
+      </div>
+    </div>
+    <p class="sl-body-p" style="margin-top:24px;">In every round, your table will read a policy with no flavor label. You rank the four dimensions Hi or Lo. You call the violation. At the reveal, you find out what flavor you had.</p>`
+  },
+  { label:'How the Exercise Works', content: () => `
+    <h2 class="sl-body-h">Four rounds. Four employees. One rule.</h2>
+    <div class="sl-exercise-grid">
+      <div class="sl-ex-row"><div class="sl-ex-num">1</div><div class="sl-ex-text">Your table receives a policy page labeled only with your fruit name (Apple, Banana, Cherry, or Plum). The policy has no flavor label.</div></div>
+      <div class="sl-ex-row"><div class="sl-ex-num">2</div><div class="sl-ex-text">Read the scenario on screen. Read your policy. As a table, rank each of the four dimensions Hi or Lo based on what the policy says.</div></div>
+      <div class="sl-ex-row"><div class="sl-ex-num">3</div><div class="sl-ex-text">Decide: did this employee violate the policy? Circle Yes, No, or It depends. Write your reasoning.</div></div>
+      <div class="sl-ex-row"><div class="sl-ex-num">4</div><div class="sl-ex-text">At reconvene, your table reports. Then the reveal: you find out your flavor, see the correct Hi/Lo grid, and compare your reading to what the policy actually said.</div></div>
+    </div>`
+  }
+];
+
+let curSlide = 0;
+function slideGo(panel, dir) {
+  const n = curSlide + dir;
+  if (n >= 0 && n < slides.length) { curSlide = n; renderSlide(); }
+}
+function renderSlide() {
+  const s = slides[curSlide];
+  const total = slides.length;
+  document.getElementById('counter0').textContent = String(curSlide+1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+  document.getElementById('slabel0').textContent = s.label;
+  const c = document.getElementById('scontent0');
+  c.innerHTML = s.content();
+  document.getElementById('prev0').disabled = curSlide === 0;
+  document.getElementById('next0').disabled = curSlide === total-1;
+  const prog = document.getElementById('progress0');
+  prog.innerHTML = slides.map((_,i) => {
+    const cls = i===curSlide?'active':i<curSlide?'visited':'';
+    return `<div class="progress-pip ${cls}" onclick="curSlide=${i};renderSlide()"></div>`;
+  }).join('');
+}
+document.getElementById('slidesWrap0').addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key===' ') { e.preventDefault(); slideGo(0,1); }
+  if (e.key==='ArrowLeft')               { e.preventDefault(); slideGo(0,-1); }
+});
+renderSlide();
+
+// ── DEMO (Tab 2) ──
+const flavData = {
+  G: {
+    name:'Green',
+    dims: { S:'Hi', Ac:'Hi', E:'Lo', I:'Lo' },
+    policy:`<p>County personnel may use only county-approved AI tools when drafting work-related communications on county-issued equipment. Any AI tool used to draft, compose, or edit communications -- including email, correspondence, or any message sent from a county account or device -- must appear on the county's approved AI tool list. Content generated by AI tools must not be transmitted to external commercial servers. All approved tools are auditable by IT.</p>
+<p>Before any AI-assisted communication is sent, the staff member must obtain supervisor review and sign-off. The tool used and the date are documented.</p>
+<p>Staff may not download, install, or pilot any AI tool not on the county's approved list on any device. Tool selection is centralized.</p>
+<p>All uses of AI drafting tools are logged with staff ID, tool name, and timestamp. Logs are retained for 90 days.</p>`,
+    violation: 'Yes',
+    reason: 'ChatGPT is not on the county\'s approved tool list. Under Green, using an unapproved tool is a Security violation -- full stop. The fact that it was just an email to Mary does not change the analysis.',
+    change: null
+  },
+  R: {
+    name:'Red',
+    dims: { S:'Hi', Ac:'Hi', E:'Hi', I:'Hi' },
+    policy:`<p>County personnel may use only county-approved AI tools when drafting work-related communications on county-issued equipment. Any AI tool used to draft, compose, or edit communications must appear on the county's approved AI tool list. Content generated by AI tools must not be transmitted to external commercial servers. All approved tools are auditable by IT.</p>
+<p>Staff may send AI-assisted communications after their own review, without supervisor sign-off.</p>
+<p>Staff are encouraged to identify and pilot new AI tools within defined parameters. Tools that meet county standards may be adopted by the department.</p>
+<p>All uses of AI drafting tools are logged with staff ID, tool name, and timestamp. Logs are retained for 90 days.</p>`,
+    violation: 'Yes',
+    reason: 'ChatGPT is still not on the county\'s approved list. Security is still Hi under Red. The efficiency gain (no supervisor sign-off) and the ability to propose new tools did not change the tool requirement.',
+    change: 'Efficiency ↑ and Innovation ↑ -- the velocity move. Zip can now act directly and propose new tools. But Security stayed Hi. ChatGPT is still not permitted.'
+  },
+  B: {
+    name:'Blue',
+    dims: { S:'Hi', Ac:'Lo', E:'Hi', I:'Hi' },
+    policy:`<p>County personnel may use only county-approved AI tools when drafting work-related communications on county-issued equipment. Any AI tool used to draft, compose, or edit communications must appear on the county's approved AI tool list. Content generated by AI tools must not be transmitted to external commercial servers. All approved tools are auditable by IT.</p>
+<p>Staff may send AI-assisted communications after their own review, without supervisor sign-off.</p>
+<p>Staff are encouraged to identify and pilot new AI tools within defined parameters. Tools that meet county standards may be adopted.</p>
+<p>No logging is required beyond existing supervisory practices.</p>`,
+    violation: 'Yes',
+    reason: 'Still Security Hi. ChatGPT is still not permitted. The logging dropped but the tool requirement held. Accountability Lo means no log is required -- but that does not help Zip here, because the violation is about which tool was used, not whether it was logged.',
+    change: 'Accountability ↓ -- logging dropped. One lever. Security and the tool requirement stayed exactly the same.'
+  },
+  Y: {
+    name:'Yellow',
+    dims: { S:'Lo', Ac:'Lo', E:'Hi', I:'Hi' },
+    policy:`<p>County personnel may use any available AI tool to assist with work-related communications, including commercially available applications. Staff are responsible for appropriate data handling when using tools that are not county-designated. Content generated by AI tools may be processed on external commercial servers.</p>
+<p>Staff may send AI-assisted communications after their own review. No supervisor sign-off is required.</p>
+<p>Staff may identify and use new AI tools based on their own assessment. Formal county approval is not required before a tool is used.</p>
+<p>No logging is required.</p>`,
+    violation: 'No',
+    reason: 'Under Yellow, any tool is permitted. ChatGPT is fine. Zip reviewed the draft and sent it. No log required. No approval required. No violation.',
+    change: 'Security ↓ -- data control dropped. Any tool is now permitted. The last constraint is gone. Yellow is the environment most organizations are already operating in before governance matures.'
+  }
+};
+const dimOrder = ['S','Ac','E','I'];
+const dimNames = { S:'Security', Ac:'Accountability', E:'Efficiency', I:'Innovation' };
+const dimColors = { S:'S', Ac:'A', E:'E', I:'I' };
+
+let curFlavor = 'G';
+function setFlavor(f) {
+  curFlavor = f;
+  document.querySelectorAll('.flavor-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.flavor-btn.fl-'+f).classList.add('active');
+  renderDemo();
+}
+function renderDemo() {
+  const d = flavData[curFlavor];
+  document.getElementById('policyText').innerHTML = d.policy;
+
+  const gHTML = dimOrder.map(k => {
+    const isHi = d.dims[k] === 'Hi';
+    const badge = isHi
+      ? `<span class="dim-badge dim-hi dim-hi-${dimColors[k]}">Hi</span>`
+      : `<span class="dim-badge dim-lo">Lo</span>`;
+    return `<div class="dim-row"><span class="dim-row-name">${dimNames[k]}</span>${badge}</div>`;
+  }).join('');
+  document.getElementById('dimGrid').innerHTML = gHTML;
+
+  const isViol = d.violation === 'Yes';
+  document.getElementById('violAnswer').innerHTML = `<span class="${isViol?'demo-violation-yes':'demo-violation-no'}">${d.violation}</span>`;
+  document.getElementById('violReason').textContent = d.reason;
+
+  if (d.change) {
+    document.getElementById('leverNote').innerHTML = `<span class="demo-lever-text">${d.change}</span>`;
+  } else {
+    document.getElementById('leverNote').innerHTML = `<span class="demo-lever-none">Starting flavor -- nothing has changed yet.</span>`;
+  }
+}
+renderDemo();
+
+// ── GLOBAL KEYDOWN ──
+document.addEventListener('keydown', e => {
+  if (curPanel === 0) {
+    if (e.key==='ArrowRight') slideGo(0,1);
+    if (e.key==='ArrowLeft')  slideGo(0,-1);
+  }
+});
+</script>
+</body>
+</html>
