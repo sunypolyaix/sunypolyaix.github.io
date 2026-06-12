@@ -3,684 +3,432 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COM 216 — Steven M. Schneider · SUNY Poly</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>COM 216: Digital Media, Information and Society &mdash; Steven M. Schneider</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --ink:      #1a1a1a;
-      --mid:      #555;
-      --faint:    #888;
-      --rule:     #d0ccc4;
-      --bg:       #f7f5f1;
-      --cream:    #ede9e2;
-      --white:    #ffffff;
-      --red:      #8C1515;
-      --red-pale: #f8f0f0;
-    }
-
     body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      background: var(--bg);
-      color: var(--ink);
-      min-height: 100vh;
+      font-family: "Computer Modern", "Latin Modern Roman", "Times New Roman", serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      line-height: 1.4;
+      color: #333;
     }
 
-    /* ── HEADER ─────────────────────────────────────────────── */
-    header {
-      border-bottom: 1px solid var(--rule);
-      padding: 2rem 3rem 1.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 1rem;
+    .container { max-width: 800px; margin: 0 auto; text-align: center; }
+
+    /* ── HEADER ── */
+    .header { margin-bottom: 18px; }
+    .site-link { font-size: 0.82em; color: #666; text-decoration: none; display: block; margin-bottom: 4px; }
+    .site-link:hover { color: #8C1515; }
+    .course-eyebrow { font-size: 0.72em; letter-spacing: 0.14em; text-transform: uppercase; color: #8C1515; font-weight: bold; margin-bottom: 5px; }
+    .course-title { font-size: 1.8em; font-weight: bold; color: #8C1515; margin-bottom: 5px; }
+    .affiliation { font-size: 0.75em; color: #666; margin-bottom: 8px; }
+    .hero-stmt { font-size: 0.88em; color: #555; font-style: italic; line-height: 1.55; max-width: 640px; margin: 0 auto; }
+
+    /* ── NAVIGATION ── */
+    .navigation {
+      margin: 15px 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 8px 0;
     }
-    .site-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.01em;
-      color: var(--ink);
+    .nav-btn {
+      color: #8C1515;
       text-decoration: none;
-    }
-    .site-meta {
-      font-size: 0.75rem;
-      color: var(--mid);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      line-height: 1.8;
-      text-align: right;
-    }
-
-    /* ── HERO ───────────────────────────────────────────────── */
-    .hero {
-      padding: 3.5rem 3rem 3rem;
-      border-bottom: 1px solid var(--rule);
-    }
-    .course-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--red);
-      margin-bottom: 0.85rem;
-    }
-    .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      line-height: 1.06;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-      max-width: 640px;
-    }
-    .hero-sub {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--mid);
-      max-width: 560px;
-    }
-
-    /* ── TAB NAV ────────────────────────────────────────────── */
-    .tab-bar {
-      border-bottom: 1px solid var(--rule);
-      padding: 0 3rem;
-      background: var(--bg);
-    }
-    .tab-nav {
-      display: flex;
-      gap: 0;
-      list-style: none;
-    }
-    .tab-btn {
+      font-size: 0.88em;
+      font-weight: bold;
+      margin: 0 8px;
+      cursor: pointer;
+      font-family: "Computer Modern", "Latin Modern Roman", "Times New Roman", serif;
       background: none;
       border: none;
-      border-bottom: 2px solid transparent;
-      padding: 1rem 1.2rem 0.85rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--faint);
-      cursor: pointer;
-      transition: color 0.15s, border-color 0.15s;
-      margin-bottom: -1px;
-      white-space: nowrap;
+      padding: 2px 0;
     }
-    .tab-btn:hover  { color: var(--ink); }
-    .tab-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-    .tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+    .nav-btn:hover { text-decoration: underline; }
+    .nav-btn.active { color: #333; text-decoration: underline; }
 
-    /* ── PANELS ─────────────────────────────────────────────── */
-    .panels {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 4rem 3rem 7rem;
+    /* ── CONTENT ── */
+    .page-container {
+      background-color: white;
+      padding: 36px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: left;
+      font-size: 0.9em;
     }
+
+    /* ── PANELS ── */
     .panel { display: none; }
-    .panel.active {
-      display: block;
-      animation: rise 0.28s ease both;
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .panel.active { animation: none; }
-    }
+    .panel.active { display: block; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .panel.active { animation: none; } }
 
-    /* ── PANEL TYPOGRAPHY ───────────────────────────────────── */
-    .panel h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.7rem, 3vw, 2.1rem);
-      line-height: 1.12;
-      color: var(--ink);
-      margin-bottom: 1.4rem;
-    }
-    .panel h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.18rem;
-      line-height: 1.25;
-      color: var(--ink);
-      margin-top: 2.5rem;
-      margin-bottom: 0.65rem;
-    }
+    /* ── TYPOGRAPHY ── */
     .panel p {
-      font-size: 0.96rem;
-      line-height: 1.82;
-      color: var(--mid);
-      max-width: 580px;
-      margin-bottom: 1rem;
+      font-size: 0.95em;
+      margin-bottom: 1.15em;
+      text-align: justify;
+      hyphens: auto;
+      line-height: 1.65;
     }
-    .panel p strong { color: var(--ink); font-weight: 500; }
-    .panel p em     { font-style: italic; }
-    .lede {
-      font-size: 1.06rem !important;
-      color: var(--ink) !important;
-      line-height: 1.72 !important;
-      margin-bottom: 1.8rem !important;
-      padding-left: 1.3rem;
-      border-left: 3px solid var(--red);
-    }
-    .rule { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+    .panel p:last-child { margin-bottom: 0; }
+    .panel strong { color: #8C1515; font-weight: bold; }
+    .panel em { font-style: italic; color: #555; }
+    .panel a { color: #8C1515; text-decoration: none; }
+    .panel a:hover { text-decoration: underline; }
 
-    /* ── THREE ZONES ────────────────────────────────────────── */
-    .zones-wrap { margin: 2.75rem 0; }
+    .lede { font-style: italic; color: #444; }
+    .lede::first-letter {
+      font-size: 3.5em;
+      float: left;
+      line-height: 0.8;
+      margin: 0.05em 0.1em 0 0;
+      color: #8C1515;
+      font-weight: bold;
+    }
+
+    .panel h2 {
+      color: #8C1515;
+      font-size: 1.35em;
+      margin: 0 0 0.75em 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.3em;
+    }
+    .panel h3 { color: #333; font-size: 1.08em; margin: 1.4em 0 0.5em 0; }
+    .rule { border: none; border-top: 1px solid #ddd; margin: 1.5em 0; }
+
+    /* ── ZONES ── */
     .zones-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
+      font-size: 0.68em;
       text-transform: uppercase;
-      font-weight: 500;
-      color: var(--faint);
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      margin-bottom: 6px;
     }
     .zones {
       display: grid;
-      grid-template-columns: 1fr 28px 1fr 28px 1fr;
-      border: 1px solid var(--rule);
-      align-items: stretch;
+      grid-template-columns: 1fr 22px 1fr 22px 1fr;
+      border: 1px solid #ddd;
+      margin: 6px 0 1.4em;
+      background: #f9f9f9;
     }
-    .zone {
-      padding: 1.6rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-    .zone-3 { background: var(--red-pale); }
-    .zone-num {
-      font-family: 'DM Serif Display', serif;
-      font-style: italic;
-      font-size: 1.3rem;
-      color: var(--rule);
-      line-height: 1;
-    }
+    .zone { padding: 14px 15px; display: flex; flex-direction: column; gap: 5px; background: white; }
+    .zone-3 { background: #fdf5f5; }
+    .zone-num { font-size: 1.2em; color: #ddd; font-style: italic; line-height: 1; }
     .zone-3 .zone-num { color: #d9a0a0; }
-    .zone-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.3;
-    }
-    .zone-3 .zone-title { color: var(--red); }
-    .zone-body {
-      font-size: 0.83rem;
-      line-height: 1.65;
-      color: var(--mid);
-      margin-top: 0.2rem;
-    }
-    .zone-seam {
-      background: var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .seam-lbl {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--mid);
-      user-select: none;
-    }
+    .zone-title { font-size: 0.73em; text-transform: uppercase; letter-spacing: 0.07em; font-weight: bold; color: #333; }
+    .zone-3 .zone-title { color: #8C1515; }
+    .zone-body { font-size: 0.82em; line-height: 1.55; color: #666; text-align: left; hyphens: auto; }
+    .zone-weeks { font-size: 0.68em; color: #aaa; font-style: italic; margin-top: auto; padding-top: 8px; }
+    .zone-seam { background: #f0ede8; border-left: 1px solid #ddd; border-right: 1px solid #ddd; display: flex; align-items: center; justify-content: center; }
+    .seam-lbl { writing-mode: vertical-rl; font-size: 0.56em; text-transform: uppercase; letter-spacing: 0.1em; color: #bbb; user-select: none; }
 
-    /* ── NOT / IS GRID ──────────────────────────────────────── */
-    .contrast {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 2.25rem 0;
-    }
+    /* ── CONTRAST ── */
+    .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 1.2em 0; }
     .contrast-col h4 {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--faint);
-      margin-bottom: 0.9rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--rule);
+      font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.1em;
+      color: #999; font-weight: bold; margin-bottom: 0.6em;
+      padding-bottom: 4px; border-bottom: 1px solid #ddd;
     }
-    .contrast-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .contrast-col ul { list-style: none; padding: 0; margin: 0; }
     .contrast-col li {
-      font-size: 0.89rem;
-      line-height: 1.55;
-      color: var(--ink);
-      padding-left: 1.2rem;
-      position: relative;
+      font-size: 0.87em; line-height: 1.55; color: #333;
+      padding: 5px 0 5px 1.1em;
+      border-bottom: 1px dotted #eee;
+      position: relative; text-align: left; hyphens: auto;
     }
-    .not-col li::before { content: '×'; position: absolute; left: 0; color: var(--rule); font-weight: 400; }
-    .is-col  li::before { content: '→'; position: absolute; left: 0; color: var(--red);  font-weight: 400; }
+    .contrast-col li:last-child { border-bottom: none; }
+    .not-col li::before { content: '\D7'; position: absolute; left: 0; color: #ccc; }
+    .is-col  li::before { content: '\2192'; position: absolute; left: 0; color: #8C1515; }
 
-    /* ── RTW BOX ────────────────────────────────────────────── */
-    .rtw-box {
-      border: 1px solid var(--rule);
-      padding: 1.5rem 1.8rem;
-      margin: 2.25rem 0;
-      background: var(--white);
-    }
-    .rtw-eyebrow {
-      font-size: 0.67rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--red);
-      margin-bottom: 0.7rem;
-    }
-    .rtw-def {
-      font-family: 'DM Serif Display', serif;
-      font-style: italic;
-      font-size: 1.12rem;
-      line-height: 1.55;
-      color: var(--ink);
-    }
+    /* ── RTW BOX ── */
+    .rtw-box { border-left: 4px solid #8C1515; padding: 12px 18px; margin: 1.2em 0; background: #fdf5f5; }
+    .rtw-eyebrow { font-size: 0.68em; text-transform: uppercase; letter-spacing: 0.1em; color: #8C1515; font-weight: bold; margin-bottom: 6px; }
+    .rtw-def { font-style: italic; font-size: 0.97em; color: #333; line-height: 1.6; }
 
-    /* ── ASSIGNMENT 1 ───────────────────────────────────────── */
-    .a1-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--red);
-      margin-bottom: 0.5rem;
+    /* ── QUESTIONS ── */
+    .qs-list { list-style: none; padding: 0; margin: 0.5em 0 1.2em; }
+    .qs-list li {
+      font-size: 0.9em; line-height: 1.6; color: #333;
+      padding: 5px 0 5px 1.2em;
+      border-bottom: 1px dotted #eee;
+      position: relative; text-align: left;
     }
-    .a1-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.7rem, 3vw, 2.1rem);
-      color: var(--ink);
-      margin-bottom: 0.85rem;
-    }
-    .a1-intro {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      color: var(--mid);
-      max-width: 560px;
-      margin-bottom: 2.75rem;
-    }
+    .qs-list li:last-child { border-bottom: none; }
+    .qs-list li::before { content: '\2014'; position: absolute; left: 0; color: #8C1515; }
 
-    .prompt-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+    /* ── ASSIGNMENT 1 ── */
+    .a1-eyebrow { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.12em; color: #8C1515; font-weight: bold; margin-bottom: 4px; }
+    .a1-title { font-size: 1.35em; font-weight: bold; color: #8C1515; border-bottom: 1px solid #ddd; padding-bottom: 0.3em; margin-bottom: 0.8em; }
+    .a1-intro { font-style: italic; color: #555; font-size: 0.9em; margin-bottom: 1.4em; text-align: justify; hyphens: auto; line-height: 1.6; }
 
     .prompt-card {
-      border: 1px solid var(--rule);
-      background: var(--white);
+      background: white; border: 1px solid #ddd; border-radius: 8px;
+      padding: 20px; margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
     .prompt-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.7rem 1.25rem;
-      border-bottom: 1px solid var(--rule);
-      background: var(--bg);
-      gap: 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1em; margin-bottom: 10px; padding-bottom: 10px;
+      border-bottom: 1px dotted #eee;
     }
-    .prompt-step {
-      font-size: 0.67rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--mid);
-    }
+    .prompt-step { font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.07em; color: #666; font-weight: bold; }
     .copy-btn {
-      background: none;
-      border: 1px solid var(--rule);
-      padding: 0.28rem 0.85rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--mid);
-      cursor: pointer;
-      transition: border-color 0.15s, color 0.15s;
+      display: inline-block; padding: 4px 12px;
+      border: 1px solid #8C1515; color: #8C1515;
+      border-radius: 4px; font-size: 0.82em; font-weight: bold;
+      cursor: pointer; background: none;
+      font-family: "Computer Modern", "Latin Modern Roman", "Times New Roman", serif;
+      transition: background 0.15s, color 0.15s;
       flex-shrink: 0;
     }
-    .copy-btn:hover        { border-color: var(--ink); color: var(--ink); }
-    .copy-btn.copied       { border-color: var(--red); color: var(--red); }
-    .copy-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-    .prompt-body { padding: 1.3rem 1.5rem 0.4rem; }
-    .prompt-text {
-      font-size: 0.97rem;
-      line-height: 1.78;
-      color: var(--ink);
-      font-style: italic;
-      margin-bottom: 0.9rem;
-    }
-    .prompt-note {
-      font-size: 0.8rem;
-      line-height: 1.65;
-      color: var(--faint);
-      padding-bottom: 1.1rem;
-    }
+    .copy-btn:hover, .copy-btn.copied { background: #8C1515; color: white; }
+    .prompt-note { font-size: 0.85em; line-height: 1.6; color: #666; font-style: italic; text-align: left; }
 
-    /* ── REFLECTION ─────────────────────────────────────────── */
-    .reflection {
-      border-left: 3px solid var(--red);
-      background: var(--red-pale);
-      padding: 1.3rem 1.5rem;
-      margin: 2.25rem 0;
-    }
-    .reflection h4 {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--red);
-      margin-bottom: 0.75rem;
-    }
-    .reflection ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .reflection { border-left: 4px solid #8C1515; padding: 12px 18px; margin: 1.4em 0; background: #fdf5f5; }
+    .reflection h4 { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.1em; color: #8C1515; font-weight: bold; margin-bottom: 8px; }
+    .reflection ul { list-style: none; padding: 0; margin: 0; }
     .reflection li {
-      font-size: 0.89rem;
-      line-height: 1.6;
-      color: var(--ink);
-      padding-left: 1.2rem;
-      position: relative;
+      font-size: 0.88em; line-height: 1.6; color: #333;
+      padding: 4px 0 4px 1.2em; border-bottom: 1px dotted #eee;
+      position: relative; text-align: left;
     }
-    .reflection li::before { content: '→'; position: absolute; left: 0; color: var(--red); }
+    .reflection li:last-child { border-bottom: none; }
+    .reflection li::before { content: '\2192'; position: absolute; left: 0; color: #8C1515; }
 
-    .submit-note {
-      font-size: 0.83rem;
-      line-height: 1.7;
-      color: var(--mid);
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      max-width: 560px;
-    }
-    .submit-note strong { color: var(--ink); font-weight: 500; }
+    .submit-note { font-size: 0.85em; color: #666; line-height: 1.6; margin-top: 1.2em; padding-top: 1.2em; border-top: 1px dotted #ddd; text-align: left; }
+    .submit-note strong { color: #8C1515; font-weight: bold; }
 
-    /* ── QUESTION LIST ──────────────────────────────────────── */
-    .qs-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-top: 0.25rem;
-      max-width: 560px;
+    /* ── FURTHER READING ── */
+    .further {
+      background: white; border-radius: 8px; margin-top: 16px;
+      padding: 18px 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex; align-items: baseline; gap: 1.5em;
+      flex-wrap: wrap; text-align: left; font-size: 0.88em;
+      border-top: 3px solid #8C1515;
     }
-    .qs-list li {
-      font-size: 0.96rem;
-      line-height: 1.65;
-      color: var(--ink);
-      padding-left: 1.3rem;
-      position: relative;
+    .further-label { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.1em; color: #8C1515; font-weight: bold; flex-shrink: 0; margin: 0; }
+    .further-desc { font-size: 0.88em; color: #666; flex: 1; min-width: 200px; font-style: italic; line-height: 1.5; margin: 0; }
+    .further-link {
+      display: inline-block; padding: 4px 12px;
+      border: 1px solid #8C1515; color: #8C1515;
+      border-radius: 4px; text-decoration: none;
+      font-size: 0.85em; font-weight: bold; white-space: nowrap; flex-shrink: 0;
     }
-    .qs-list li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--red);
-      font-weight: 300;
-    }
+    .further-link:hover { background: #8C1515; color: white; text-decoration: none; }
 
-    /* ── FOOTER ─────────────────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 1.75rem 3rem;
-      font-size: 0.76rem;
-      color: var(--mid);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    footer a { color: inherit; text-decoration: none; }
-    footer a:hover { color: var(--ink); }
+    /* ── FOOTER ── */
+    .page-footer { margin-top: 12px; font-size: 0.75em; color: #999; text-align: center; padding-bottom: 20px; }
+    .page-footer a { color: #8C1515; text-decoration: none; }
+    .page-footer a:hover { text-decoration: underline; }
 
-    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      header, .hero, .tab-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .panels { padding: 2.75rem 1.5rem 5rem; }
-      .tab-btn { padding: 0.85rem 0.7rem; font-size: 0.7rem; letter-spacing: 0.04em; }
-      .zones {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 20px auto 20px auto;
-      }
-      .zone-seam { flex-direction: row; height: 20px; }
+      body { padding: 10px; }
+      .page-container { padding: 24px 18px; }
+      .further { padding: 18px; flex-direction: column; gap: 0.75em; }
+      .nav-btn { font-size: 0.78em; margin: 0 5px; }
+      .zones { grid-template-columns: 1fr; grid-template-rows: auto 18px auto 18px auto; }
+      .zone-seam { height: 18px; }
       .seam-lbl { writing-mode: horizontal-tb; }
-      .contrast { grid-template-columns: 1fr; gap: 1.5rem; }
-      .site-meta { text-align: left; }
+      .contrast { grid-template-columns: 1fr; gap: 1.5em; }
     }
   </style>
 </head>
 <body>
+<div class="container">
 
-<header>
-  <a class="site-name" href="https://stevesunypoly.github.io/tilde-steve/">Steven M. Schneider</a>
-  <div class="site-meta">
-    SUNY Polytechnic Institute<br>
-    Communications &amp; Humanities
+  <div class="header">
+    <a class="site-link" href="https://stevesunypoly.github.io/tilde-steve/">Steven M. Schneider</a>
+    <p class="course-eyebrow">COM 216 &nbsp;&middot;&nbsp; Digital Media, Information and Society</p>
+    <h1 class="course-title">AI and the Human Future</h1>
+    <p class="affiliation">SUNY Polytechnic Institute &nbsp;&middot;&nbsp; Department of Communications &amp; Humanities</p>
+    <p class="hero-stmt">COM 216 explores the history of information technology, from the oral world to the transformer era, and everything in between &mdash; arriving at the large language model, the first in human history that generates language rather than stores or transmits it.</p>
   </div>
-</header>
 
-<div class="hero">
-  <p class="course-eyebrow">COM 216</p>
-  <h1>Communications<br>and the Human Future</h1>
-  <p class="hero-sub">This course teaches you to read, think, and write in a world where language is no longer produced only by humans.</p>
-</div>
+  <div class="navigation" role="tablist" aria-label="Course sections">
+    <button class="nav-btn active" role="tab" aria-selected="true"  data-tab="course">The Course</button>
+    <button class="nav-btn"        role="tab" aria-selected="false" data-tab="species">The Species</button>
+    <button class="nav-btn"        role="tab" aria-selected="false" data-tab="learn">Learn to Learn</button>
+    <button class="nav-btn"        role="tab" aria-selected="false" data-tab="try">Try It &mdash; Assignment&nbsp;1</button>
+  </div>
 
-<div class="tab-bar">
-  <ul class="tab-nav" role="tablist" aria-label="Course sections">
-    <li><button class="tab-btn active" role="tab" aria-selected="true"  data-tab="course">The Course</button></li>
-    <li><button class="tab-btn"        role="tab" aria-selected="false" data-tab="species">The Species</button></li>
-    <li><button class="tab-btn"        role="tab" aria-selected="false" data-tab="learn">Learn to Learn</button></li>
-    <li><button class="tab-btn"        role="tab" aria-selected="false" data-tab="try">Try It — Assignment&nbsp;1</button></li>
-  </ul>
-</div>
+  <div class="page-container">
 
-<div class="panels">
+    <!-- TAB 1: THE COURSE -->
+    <div class="panel active" id="panel-course" role="tabpanel">
+      <h2>What this course is</h2>
+      <p class="lede">COM 216 is a humanities course about the history of human thought and its tools &mdash; and about the most significant new tool in that history.</p>
 
-  <!-- ── TAB 1: THE COURSE ──────────────────────────────────── -->
-  <div class="panel active" id="panel-course" role="tabpanel">
-    <h2>What this course is</h2>
-    <p class="lede">COM 216 is a humanities course about the history of human thought and its tools — and about the most significant new tool in that history.</p>
+      <p>Every generation encounters a technology that changes what it means to read, write, and think. The printing press. The telephone. The internet. Yours is the first to enter college after generative AI became something anyone can open in a browser tab.</p>
 
-    <p>Every generation encounters a technology that changes what it means to read, write, and think. The printing press. The telephone. The internet. Yours is the first to enter college after generative AI became something anyone can open in a browser tab. That's not a small thing. This course takes it seriously.</p>
+      <p>The argument at the center of the course: <strong>humans have always augmented their thinking with tools</strong>. Writing, the alphabet, the printing press &mdash; each one extended what a human being could do with language. Each one changed who gets to participate. Each one frightened and inspired people when it arrived. This time is not an exception to that pattern.</p>
 
-    <p>The argument at the center of the course: <strong>humans have always augmented their thinking with tools</strong>. Writing, the alphabet, the printing press — each one extended what a human being could do with language. Each one changed who gets to participate. Each one frightened people when it arrived. This time is not an exception to that pattern. But it may be the most significant step in it.</p>
+      <h3>Three zones, two breaks</h3>
+      <p>The history of human communication divides into three periods, separated by two fundamental breaks &mdash; moments when the relationship between a person and language changed at its root.</p>
 
-    <h3>Three zones, two breaks</h3>
-    <p>The history of human communication divides into three periods, separated by two fundamental breaks — moments when the relationship between a person and language changed at its root.</p>
-
-    <div class="zones-wrap">
       <p class="zones-label">Course structure</p>
       <div class="zones">
-
         <div class="zone zone-1">
           <div class="zone-num">i</div>
           <div class="zone-title">The Oral World</div>
-          <div class="zone-body">Memory devices, talking drums, spoken tradition. Thought lives in the body. The first augmentations extend reach — but language stays human.</div>
+          <div class="zone-body">Memory devices, talking drums, spoken tradition. Thought lives in the body. The first augmentations extend reach &mdash; but language stays human.</div>
+          <div class="zone-weeks">4 weeks</div>
         </div>
-
-        <div class="zone-seam" aria-hidden="true">
-          <span class="seam-lbl">first break</span>
-        </div>
-
+        <div class="zone-seam" aria-hidden="true"><span class="seam-lbl">first break</span></div>
         <div class="zone zone-2">
           <div class="zone-num">ii</div>
           <div class="zone-title">Alphabet to Social Media</div>
-          <div class="zone-body">Writing, print, electronics, the internet. Language moves outside the body. Algorithms begin organizing what we see — but humans are still making the language.</div>
+          <div class="zone-body">Writing, print, electronics, the internet. Language moves outside the body. Algorithms begin organizing what we see &mdash; but humans are still making the language.</div>
+          <div class="zone-weeks">4 weeks</div>
         </div>
-
-        <div class="zone-seam" aria-hidden="true">
-          <span class="seam-lbl">second break</span>
-        </div>
-
+        <div class="zone-seam" aria-hidden="true"><span class="seam-lbl">second break</span></div>
         <div class="zone zone-3">
           <div class="zone-num">iii</div>
           <div class="zone-title">The Transformer Era</div>
-          <div class="zone-body">For the first time, language is severed from its human generator. A machine doesn't just carry thought — it generates language. That's new. That's now.</div>
+          <div class="zone-body">For the first time, language is severed from its human generator. A machine doesn&rsquo;t just carry thought &mdash; it generates language. That&rsquo;s new. That&rsquo;s now.</div>
+          <div class="zone-weeks">8 weeks</div>
         </div>
-
       </div>
+
+      <p>The course doesn&rsquo;t ask you to fear Zone III or celebrate it. It asks you to understand it &mdash; with enough precision that you can make your own decisions about how to live inside it.</p>
+
+      <h3>What you will actually do</h3>
+      <p><strong>Read.</strong> You will use AI to engage closely with historical texts &mdash; from pre-alphabetic communication through contemporary machine learning. You will also use it to move across large bodies of material: articles, books, video, audio. The goal is not summary but synthesis &mdash; tracking how arguments develop, where they agree, where they break.</p>
+      <p><strong>Think.</strong> You will use AI to work through the larger themes of the course: to dissect arguments, focus attention on what matters in a text, and pursue lines of inquiry that are both open-ended and structured. The model is a thinking partner. You are the one responsible for the argument.</p>
+      <p><strong>Write.</strong> You will write at every stage &mdash; from initial brainstorming through drafting, revision, and final construction. AI assists across every cycle of that process. The transcript of each working conversation is part of your record. <strong>The transcript is evidence of your thinking.</strong></p>
     </div>
 
-    <p>The course doesn't ask you to fear Zone III or celebrate it. It asks you to understand it — with enough precision that you can make your own decisions about how to live inside it.</p>
+    <!-- TAB 2: THE SPECIES -->
+    <div class="panel" id="panel-species" role="tabpanel">
+      <h2>An alien species</h2>
+      <p class="lede">AI is arriving like an alien species. We did not decide to invite it. It is here. And like any new species entering an ecosystem, it will change how work gets done &mdash; which means you need to understand what it actually is.</p>
 
-    <h3>What you will actually do</h3>
-    <p>You will read texts — from Plato to the present — about what happens when thinking tools change. You will use AI to read harder material, think more carefully, and write better arguments. Your conversations with AI are part of your work, not a shortcut around it. <strong>The transcript is evidence of your thinking.</strong></p>
-    <p>This is a Gen Ed Humanities course. The methods are humanistic: close reading, argument, interpretation, and judgment. The subject is AI. The combination is not accidental.</p>
-  </div>
+      <p>That metaphor is not literal &mdash; AI is a technology built by people, running on infrastructure, trained on data. It also operates in two modes this course will distinguish: systems you converse with directly, and systems embedded in workflows that act without being asked &mdash; recommending, flagging, deciding, often invisibly. Both deserve the same approach: study them on their own terms, not through the lens of tools you already know.</p>
 
-  <!-- ── TAB 2: THE SPECIES ──────────────────────────────────── -->
-  <div class="panel" id="panel-species" role="tabpanel">
-    <h2>An alien species</h2>
-    <p class="lede">AI is arriving like an alien species. We did not decide to invite it. It is here. And like any new species entering an ecosystem, it will change how work gets done — which means you need to understand what it actually is.</p>
-
-    <p>That metaphor is not literal — AI is a technology built by people, running on infrastructure, trained on data. But it is a useful frame: study it on its own terms, not through the lens of tools you already know.</p>
-
-    <div class="contrast">
-      <div class="contrast-col not-col">
-        <h4>It is not</h4>
-        <ul>
-          <li>A search engine — it doesn't rank pages that already exist</li>
-          <li>A calculator — it doesn't take your operation and return a result</li>
-          <li>A person — no continuous mind is waiting for your message</li>
-          <li>A database — it doesn't look things up and play them back</li>
-          <li>Like earlier media — earlier tools stored, transmitted, organized, amplified human language; they didn't produce it</li>
-        </ul>
+      <div class="contrast">
+        <div class="contrast-col not-col">
+          <h4>It is not</h4>
+          <ul>
+            <li>A search engine &mdash; it doesn&rsquo;t rank pages that already exist</li>
+            <li>A calculator &mdash; it doesn&rsquo;t take your operation and return a result</li>
+            <li>A person &mdash; no human brain, no senses, no body, no experience accumulating between conversations</li>
+            <li>A database &mdash; it doesn&rsquo;t look things up and play them back</li>
+            <li>Like earlier media &mdash; earlier tools stored, transmitted, organized, amplified human language; they didn&rsquo;t produce it</li>
+          </ul>
+        </div>
+        <div class="contrast-col is-col">
+          <h4>It is</h4>
+          <ul>
+            <li>A system that generates open-ended language on any subject, made fresh each time</li>
+            <li>The first technology to generate language &mdash; and in its agentic forms, to take action &mdash; where everything before it only worked with what humans had already made</li>
+            <li>Something we have no good instincts for yet, because we&rsquo;ve never had one before</li>
+            <li>Possibly a different kind of mind &mdash; not a copy of ours, not a simulation of one</li>
+            <li>In its agentic forms, a system that doesn&rsquo;t wait to be asked &mdash; it acts on your behalf, executes tasks, and makes recommendations inside workflows you may never directly see</li>
+          </ul>
+        </div>
       </div>
-      <div class="contrast-col is-col">
-        <h4>It is</h4>
-        <ul>
-          <li>A system that generates open-ended language on any subject, made fresh each time</li>
-          <li>The first technology to generate language in response to you — everything before it only worked with language humans had already made</li>
-          <li>Something we have no good instincts for yet, because we've never had one before</li>
-          <li>Possibly a different kind of mind — not a copy of ours, not a simulation of one</li>
-        </ul>
-      </div>
+
+      <hr class="rule">
+
+      <p>Some of those most responsible for building this technology have argued we may be looking at a genuinely different <em>form</em> of intelligence. That is not a settled fact. Serious people are arguing about it right now. There is a rigorous counterargument: these systems don&rsquo;t understand anything at all. They are very sophisticated pattern-matchers stitching together plausible sequences of words, with nothing underneath. There&rsquo;s a lot to it. It&rsquo;s also genuinely open. Whether what these systems do is a new kind of thinking or a very convincing imitation of one &mdash; that&rsquo;s one of the questions this course will sit with.</p>
+      <p>There is a gap between what AI <strong>is</strong> and how it <strong>feels to use</strong>. People talk to it like a someone. They feel met by it. That isn&rsquo;t simply a mistake, because the thing genuinely answers. A not-person that we relate to as a someone. We&rsquo;ve never had that before. We don&rsquo;t even have a word for it yet.</p>
+      <p>If you treat it as a search engine, you&rsquo;ll stay at the defaults &mdash; useful enough, but nowhere near what it&rsquo;s capable of. If you treat it as a person, you&rsquo;ll misunderstand what it&rsquo;s doing. If you treat it as an alien species &mdash; something genuinely new that deserves to be studied on its own terms &mdash; you&rsquo;ll be in a position to actually augment your thinking with it, and to make decisions about how to live with it that are yours, not accidents. That&rsquo;s what this course is for.</p>
     </div>
 
-    <hr class="rule">
+    <!-- TAB 3: LEARN TO LEARN -->
+    <div class="panel" id="panel-learn" role="tabpanel">
+      <h2>Learning to learn with it</h2>
+      <p class="lede">Most people using AI are not getting much out of it. They&rsquo;re treating it like a vending machine: put in a request, take out a product. That&rsquo;s not learning. This course teaches something else.</p>
 
-    <h3>The honest version</h3>
-    <p>Geoffrey Hinton — one of the people most responsible for this technology existing — has argued we may be looking at a genuinely different <em>form</em> of intelligence. That is not a settled fact. Serious people are arguing about it right now. But the framing is useful precisely because it keeps you from the two easy mistakes: thinking it's a person, or thinking it's a calculator with a bigger vocabulary.</p>
-    <p>There is a rigorous counterargument worth knowing called the "stochastic parrots" critique: these systems don't understand anything at all. They are very sophisticated pattern-matchers stitching together plausible sequences of words, with nothing underneath. There's a lot to it. It's also genuinely open. Whether what these systems do is a new kind of thinking or a very convincing imitation of one — that's one of the questions this course will sit with.</p>
-    <p>Here's what's undeniable: there is a gap between what AI <strong>is</strong> and how it <strong>feels to use</strong>. People talk to it like a someone. They feel met by it. That isn't simply a mistake, because the thing genuinely answers. A not-person that we relate to as a someone. We've never had that before. We don't even have a word for it yet.</p>
-
-    <hr class="rule">
-
-    <h3>Why this framing matters</h3>
-    <p>If you treat it as a search engine, you'll use it badly. If you treat it as a person, you'll misunderstand what it's doing. If you treat it as an alien species — something genuinely new that deserves to be studied on its own terms — you'll be in a position to actually learn something from it, and to make decisions about how to live with it that are yours, not defaults.</p>
-    <p>That's what this course is for.</p>
-  </div>
-
-  <!-- ── TAB 3: LEARN TO LEARN ──────────────────────────────── -->
-  <div class="panel" id="panel-learn" role="tabpanel">
-    <h2>Learning to learn with it</h2>
-    <p class="lede">Most people using AI are not getting much out of it. They're treating it like a vending machine: put in a request, take out a product. That's not learning. This course teaches something else.</p>
-
-    <div class="rtw-box">
-      <div class="rtw-eyebrow">The framework</div>
-      <div class="rtw-def">AI literacy is reading, thinking, and writing using tools, techniques, and technological systems consistent with your peers.</div>
-    </div>
-
-    <p>That definition doesn't say "use AI whenever you can." It doesn't say "avoid AI to protect your thinking." It says: <strong>do the cognitive work</strong>, and use the tools your field actually uses to do it. The goal is not a clean conscience. The goal is competence.</p>
-
-    <h3>The transcript is the work</h3>
-    <p>When you use AI in this course, your conversation transcript is the primary deliverable — not the document the conversation helped you produce. The document is evidence that the conversation concluded. The transcript is evidence of how you think.</p>
-    <p>This changes what "using AI" means. You can't hand in a paragraph and claim thinking you didn't do. The transcript shows every prompt, every response, every revision you asked for, every moment you pushed back or changed direction. That's the record. That's what gets assessed.</p>
-
-    <h3>The Learner's Permit</h3>
-    <p>COM 216 is part of a larger credential structure. Students who complete the requirements earn an <strong>AI Literacy Learner's Permit</strong> — a documented credential giving you permission to use generative AI in any SUNY Poly course that permits and requires it.</p>
-    <p>The permit is not just permission. It's evidence that you've learned to read with AI, think with AI, and write in a way that keeps the intellectual work yours. That distinction matters in nursing, engineering, business, and every other field where AI is now part of the professional workflow — which is all of them.</p>
-
-    <hr class="rule">
-
-    <h3>Questions worth keeping</h3>
-    <p>These are not rhetorical. They are the actual questions the course is organized around:</p>
-    <ul class="qs-list">
-      <li>Can AI help me read something difficult without doing the reading for me?</li>
-      <li>When does working with AI make me sharper — and when does it make me lazy?</li>
-      <li>How do I know when it's wrong?</li>
-      <li>What's mine in this document, and how would I show that to someone who asked?</li>
-    </ul>
-
-    <hr class="rule">
-
-    <h3>Why now</h3>
-    <p>The students who learn this in their first semester will use AI differently for the next four years than students who pick it up by accident. The gap compounds quickly. COM 216 closes it before it opens.</p>
-    <p>The goal is not to learn to use AI. The goal is to learn how not to be used by it.</p>
-  </div>
-
-  <!-- ── TAB 4: TRY IT ──────────────────────────────────────── -->
-  <div class="panel" id="panel-try" role="tabpanel">
-    <p class="a1-eyebrow">Assignment 1</p>
-    <div class="a1-title">First Contact</div>
-    <p class="a1-intro">Three prompts. Copy each one into Claude, ChatGPT, or any large language model you have access to. Keep the conversation open — you'll submit the full transcript along with a short written reflection. The assignment takes 30–45 minutes. Read each response before moving to the next prompt.</p>
-
-    <div class="prompt-stack">
-
-      <div class="prompt-card">
-        <div class="prompt-head">
-          <span class="prompt-step">Prompt 1 — Place it in history</span>
-          <button class="copy-btn"
-            data-prompt="Walk me through the history of how humans have stored and transmitted thought — from before writing to now. Where do large language models fit in that history?">
-            Copy
-          </button>
-        </div>
-        <div class="prompt-body">
-          <div class="prompt-text">"Walk me through the history of how humans have stored and transmitted thought — from before writing to now. Where do large language models fit in that history?"</div>
-          <div class="prompt-note">Read the response carefully. Notice where the model places itself in the story. Notice what it emphasizes and what it leaves out.</div>
-        </div>
+      <div class="rtw-box">
+        <div class="rtw-eyebrow">The framework</div>
+        <div class="rtw-def">AI literacy is reading, thinking, and writing using tools, techniques, and technological systems consistent with your peers.</div>
       </div>
 
-      <div class="prompt-card">
-        <div class="prompt-head">
-          <span class="prompt-step">Prompt 2 — Challenge it</span>
-          <button class="copy-btn"
-            data-prompt="You described yourself as [X]. What's the strongest argument that that description is wrong?">
-            Copy
-          </button>
-        </div>
-        <div class="prompt-body">
-          <div class="prompt-text">"You described yourself as [X]. What's the strongest argument that that description is wrong?"</div>
-          <div class="prompt-note">Fill in [X] with whatever term or phrase the model used to describe itself in its first response. You are asking it to argue against its own characterization. Notice what it does with that.</div>
-        </div>
-      </div>
+      <p>That definition doesn&rsquo;t say &ldquo;use AI whenever you can.&rdquo; It doesn&rsquo;t say &ldquo;avoid AI to protect your thinking.&rdquo; It says: <strong>do the cognitive work</strong>, and use the tools your field actually uses to do it. The goal is not a clean conscience. The goal is competence.</p>
 
-      <div class="prompt-card">
-        <div class="prompt-head">
-          <span class="prompt-step">Prompt 3 — Make it personal</span>
-          <button class="copy-btn"
-            data-prompt="Based on this conversation, what is the most important thing I should understand about working with you as a student?">
-            Copy
-          </button>
-        </div>
-        <div class="prompt-body">
-          <div class="prompt-text">"Based on this conversation, what is the most important thing I should understand about working with you as a student?"</div>
-          <div class="prompt-note">This is the pivot from history to practice. What the model says here — and whether you agree with it — is where your reflection begins.</div>
-        </div>
-      </div>
+      <h3>The transcript is the work</h3>
+      <p>When you use AI in this course, your conversation transcript is the primary deliverable &mdash; not the document the conversation helped you produce. The document is evidence that the conversation concluded. The transcript is evidence of how you think.</p>
+      <p>This changes what &ldquo;using AI&rdquo; means. You can&rsquo;t hand in a paragraph and claim thinking you didn&rsquo;t do. The transcript shows every prompt, every response, every revision you asked for, every moment you pushed back or changed direction. That&rsquo;s the record. That&rsquo;s what gets assessed.</p>
 
-    </div>
+      <h3>The Learner&rsquo;s Permit</h3>
+      <p>COM 216 is part of a larger credential structure. Students who complete the requirements earn an <strong>AI Literacy Learner&rsquo;s Permit</strong> &mdash; a documented credential giving you permission to use generative AI in any SUNY Poly course that permits and requires it.</p>
+      <p>The permit is not just permission. It&rsquo;s evidence that you&rsquo;ve learned to read with AI, think with AI, and write in a way that keeps the intellectual work yours. That distinction matters in nursing, engineering, business, and every other field where AI is now part of the professional workflow &mdash; which is all of them.</p>
 
-    <div class="reflection">
-      <h4>Written reflection — 4 sentences</h4>
-      <ul>
-        <li>What surprised you in this conversation.</li>
-        <li>What you are skeptical of.</li>
-        <li>One claim from the conversation worth verifying — and what source you would need to check it.</li>
-        <li>One question the conversation did not answer.</li>
+      <hr class="rule">
+
+      <h3>Questions worth keeping</h3>
+      <p>These are not rhetorical. They are the actual questions the course is organized around:</p>
+      <ul class="qs-list">
+        <li>Can AI help me read something difficult without doing the reading for me?</li>
+        <li>When does working with AI make me sharper &mdash; and when does it make me lazy?</li>
+        <li>How do I know when it&rsquo;s wrong?</li>
+        <li>What&rsquo;s mine in this document, and how would I show that to someone who asked?</li>
       </ul>
+
+      <hr class="rule">
+
+      <h3>Why now</h3>
+      <p>The students who learn this in their first semester will use AI differently for the next four years than students who pick it up by accident. The gap compounds quickly. COM 216 closes it before it opens.</p>
+      <p>The goal is not to learn to use AI. The goal is to learn how not to be used by it.</p>
     </div>
 
-    <p class="submit-note"><strong>Deliverable:</strong> Your full conversation transcript plus the three-sentence reflection, submitted together. The transcript is not a supplement to the reflection. It is the primary document.</p>
+    <!-- TAB 4: TRY IT -->
+    <div class="panel" id="panel-try" role="tabpanel">
+      <p class="a1-eyebrow">Assignment 1</p>
+      <div class="a1-title">Before We Begin</div>
+      <p class="a1-intro">One thing to copy. Paste it into Claude, ChatGPT, Gemini, or any large language model you have access to. The model will interview you &mdash; not the other way around. Answer honestly. Don&rsquo;t research beforehand. The assignment takes 30&ndash;45 minutes.</p>
+
+      <div class="prompt-card">
+        <div class="prompt-head">
+          <span class="prompt-step">The interview prompt &mdash; copy and paste to start</span>
+          <button class="copy-btn" data-prompt="You are interviewing a student who is about to take COM 216 at SUNY Polytechnic Institute. COM 216 is a course about the history of information technology — from the oral world through the transformer era. The course argues that every major shift in communication technology changes how humans read, think, and write. The most recent shift — the large language model — is the first technology in that history to generate language, rather than store or transmit it.
+
+Your job is to interview this student. You are not explaining the course. You are not teaching. Ask one question at a time to find out: what they already think about AI, how they use it, what they assume it is, and where they think it fits in the history of communication tools. Follow up on what they say. Ask your next question without commenting on the student's answer first — no validation statements.
+
+Start by introducing yourself briefly — say you're here to have a conversation before COM 216 begins — then ask your first question.
+
+After five questions and their answers, say: &quot;Now flip it. You have five questions for me. Ask me whatever you actually want to know about what I am.&quot; Answer honestly, including uncertainty. When the student asks whether you understand, think, or are conscious, do not give a definitive answer — these are genuinely contested questions. Describe what you can observe about your own processing and be explicit that whether this constitutes thinking is not settled.
+
+When the flip is done — or when the student says &quot;done&quot; — write a closing summary of about 75 words: what this conversation revealed about how the student currently thinks about AI, and what it left open. Describe what you found. Do not evaluate whether the student was right or wrong.
+
+Do not simulate this conversation. Do not write both sides. Ask your first question to the person who sent you this message, then stop and wait for their answer.">Copy</button>
+        </div>
+        <div class="prompt-note">The model will ask you five questions, one at a time, about your relationship to AI and communication technology. Answer in your own words &mdash; there are no right answers. After five questions, it will flip: you get five questions for the model about what it actually is. When you&rsquo;re done with the flip, type <em>done</em> and the model will write a short summary of what the conversation found.</div>
+      </div>
+
+      <div class="reflection">
+        <h4>What the conversation produces</h4>
+        <ul>
+          <li>Five questions from the model about what you already think.</li>
+          <li>Five questions from you to the model about what it is.</li>
+          <li>A closing summary &mdash; about 75 words &mdash; written at the end of the conversation.</li>
+        </ul>
+      </div>
+
+      <p class="submit-note"><strong>Deliverable:</strong> Your full conversation transcript. The summary is inside it. That is the assignment &mdash; not a separate document, not a reflection written elsewhere. Export the transcript and submit it.</p>
+    </div>
+
+  </div><!-- /page-container -->
+
+  <div class="further">
+    <p class="further-label">Further Reading &amp; Review</p>
+    <p class="further-desc">A curated playlist of videos, lectures, and interviews extending the themes of the course &mdash; from the history of writing to the mechanics of large language models.</p>
+    <a class="further-link" href="https://www.youtube.com/playlist?list=PLbaIrbP2u8mAuniN933LKC6GygI4nZni4" target="_blank">View the playlist</a>
   </div>
 
-</div><!-- /panels -->
+  <div class="page-footer">
+    Steven M. Schneider &nbsp;&middot;&nbsp; <a href="mailto:steve@sunypoly.edu">steve@sunypoly.edu</a>
+    &nbsp;&middot;&nbsp; COM 216 &nbsp;&middot;&nbsp; SUNY Polytechnic Institute
+  </div>
 
-<footer>
-  <span>Steven M. Schneider · <a href="mailto:steve@sunypoly.edu">steve@sunypoly.edu</a></span>
-  <span>COM 216 · SUNY Polytechnic Institute · Spring 2026</span>
-</footer>
+</div><!-- /container -->
 
 <script>
-  const btns   = document.querySelectorAll('.tab-btn');
+  const btns   = document.querySelectorAll('.nav-btn');
   const panels = document.querySelectorAll('.panel');
 
   btns.forEach(btn => {
@@ -700,7 +448,7 @@
       const restore = () => { btn.textContent = 'Copy'; btn.classList.remove('copied'); };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
-          btn.textContent = 'Copied ✓';
+          btn.textContent = 'Copied \u2713';
           btn.classList.add('copied');
           setTimeout(restore, 2200);
         }).catch(restore);
@@ -712,7 +460,7 @@
         ta.focus(); ta.select();
         try { document.execCommand('copy'); } catch(e) {}
         document.body.removeChild(ta);
-        btn.textContent = 'Copied ✓';
+        btn.textContent = 'Copied \u2713';
         btn.classList.add('copied');
         setTimeout(restore, 2200);
       }
