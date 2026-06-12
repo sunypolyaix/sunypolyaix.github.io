@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herkimer County AI Policy Workshop — Participant Handout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --navy:     #002D62;
+  --c-S:  #8B0000;  --bg-S: #FDECEC; --border-S: rgba(139,0,0,0.2);
+  --c-E:  #006633;  --bg-E: #E6F5EC; --border-E: rgba(0,102,51,0.2);
+  --c-I:  #003399;  --bg-I: #E8F0FF; --border-I: rgba(0,51,153,0.2);
+  --c-A:  #6600CC;  --bg-A: #F3E6FF; --border-A: rgba(102,0,204,0.2);
+  --text:   #0D1B2A;
+  --muted:  #4B5563;
+  --border: #D1D5DB;
+  --surf:   #F9FAFB;
+  --demo:   #F0F4F8;
+}
+
+/* ── SCREEN PREVIEW ── */
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #E5E7EB;
+  color: var(--text);
+}
+
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  background: #fff;
+  margin: 0.5in auto;
+  padding: 0.55in 0.65in 0.5in;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── PRINT ── */
+@media print {
+  @page { size: letter; margin: 0.5in 0.6in; }
+  body { background: #fff; }
+  .page {
+    width: 100%; min-height: auto; margin: 0; padding: 0;
+    box-shadow: none; page-break-after: always;
+  }
+  .page:last-child { page-break-after: avoid; }
+}
+
+/* ── HEADER ── */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2.5px solid var(--navy);
+  margin-bottom: 18px;
+}
+.header-left {}
+.header-org {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.header-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.header-right {
+  text-align: right;
+}
+.header-date {
+  font-size: 9px;
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+}
+.header-page-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ── PAGE 1: SCENARIOS ── */
+.section-intro {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+/* DEMO SCENARIO */
+.demo-block {
+  background: var(--demo);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--navy);
+  border-radius: 8px;
+  padding: 11px 15px;
+  margin-bottom: 12px;
+}
+.demo-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 5px;
+  opacity: 0.65;
+}
+.demo-employee {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.demo-role {
+  font-size: 10.5px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+.demo-text {
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+/* ROUND SCENARIOS */
+.round-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.scenario-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.scenario-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.round-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+.employee-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.employee-role {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.scenario-body {
+  padding: 10px 14px;
+}
+.scenario-text {
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.68;
+  margin-bottom: 8px;
+}
+.violation-q {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.vq-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+.vq-options {
+  display: flex;
+  gap: 8px;
+}
+.vq-opt {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 2px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* color bands */
+.band-S  { background: var(--bg-S); border-bottom-color: var(--border-S); }
+.band-S .round-tag  { color: var(--c-S); }
+.band-E  { background: var(--bg-E); border-bottom-color: var(--border-E); }
+.band-E .round-tag  { color: var(--c-E); }
+.band-A  { background: var(--bg-A); border-bottom-color: var(--border-A); }
+.band-A .round-tag  { color: var(--c-A); }
+.band-I  { background: var(--bg-I); border-bottom-color: var(--border-I); }
+.band-I .round-tag  { color: var(--c-I); }
+
+/* ── PAGE 2: DEFINITIONS ── */
+.def-intro {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.dim-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.dim-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  border-top-width: 4px;
+}
+
+.dim-card-S { border-top-color: var(--c-S); }
+.dim-card-A { border-top-color: var(--c-A); }
+.dim-card-E { border-top-color: var(--c-E); }
+.dim-card-I { border-top-color: var(--c-I); }
+
+.dim-top {
+  padding: 12px 18px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.dim-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 3px;
+}
+.dim-card-S .dim-label { color: var(--c-S); }
+.dim-card-A .dim-label { color: var(--c-A); }
+.dim-card-E .dim-label { color: var(--c-E); }
+.dim-card-I .dim-label { color: var(--c-I); }
+
+.dim-question {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.dim-hilo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px 18px;
+}
+
+.hilo-box {
+  border-radius: 7px;
+  padding: 10px 13px;
+}
+.hilo-box-hi-S { background: var(--bg-S); border: 1px solid var(--border-S); }
+.hilo-box-lo   { background: var(--surf); border: 1px solid var(--border); }
+.hilo-box-hi-A { background: var(--bg-A); border: 1px solid var(--border-A); }
+.hilo-box-hi-E { background: var(--bg-E); border: 1px solid var(--border-E); }
+.hilo-box-hi-I { background: var(--bg-I); border: 1px solid var(--border-I); }
+
+.hilo-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 5px;
+}
+.hilo-tag-hi-S { color: var(--c-S); }
+.hilo-tag-hi-A { color: var(--c-A); }
+.hilo-tag-hi-E { color: var(--c-E); }
+.hilo-tag-hi-I { color: var(--c-I); }
+.hilo-tag-lo   { color: var(--muted); }
+
+.hilo-text {
+  font-size: 12px;
+  line-height: 1.65;
+}
+.hilo-text-hi { color: var(--text); }
+.hilo-text-lo { color: var(--muted); }
+
+/* ── FOOTER ── */
+.page-footer {
+  margin-top: 14px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-note {
+  font-size: 9px;
+  color: var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* ── WORKSHEET AREA ── */
+.worksheet-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.worksheet-label {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.worksheet-line {
+  flex: 1;
+  border-bottom: 1px solid var(--border);
+  height: 16px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     PAGE 1: EMPLOYEE SCENARIOS
+     ════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-org">SUNY Polytechnic Institute &middot; AIX Center</div>
+      <div class="header-title">Herkimer County AI Policy Workshop</div>
+    </div>
+    <div class="header-right">
+      <div class="header-date">June 10, 2026</div>
+      <div class="header-page-label">Scenarios</div>
+    </div>
+  </div>
+
+  <p class="section-intro">
+    Each round, read the scenario below. Read the policy page at your table. As a team, decide whether this employee violated the policy &mdash; and why.
+  </p>
+
+  <!-- DEMO: Zip -->
+  <div class="demo-block">
+    <div class="demo-tag">Demo &middot; Employee 0 &middot; Whole Room</div>
+    <div class="demo-employee">Zip</div>
+    <div class="demo-role">County Employee</div>
+    <div class="demo-text">
+      Zip is a county employee. It is mid-November. There is an office Christmas party next week. Zip has been invited. Zip does not want to go. Zip opens ChatGPT on their county-issued laptop and types: &ldquo;Write me a short email to Mary about the Christmas party &mdash; I don&rsquo;t want to go but I don&rsquo;t want to be rude.&rdquo; ChatGPT produces a polished, warm, appropriately vague excuse email. Zip reads it. It is pretty good. Zip sends it.
+    </div>
+  </div>
+
+  <!-- Rounds 1-4 -->
+  <div class="round-grid">
+
+    <!-- Round 1: Lux -->
+    <div class="scenario-card">
+      <div class="scenario-header band-S">
+        <span class="round-tag">Round 1</span>
+        <span class="employee-name">Lux</span>
+        <span class="employee-role">DSS Caseworker</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-text">
+          Lux is a caseworker at the Herkimer County Department of Social Services conducting a HEAP heating assistance intake. The applicant speaks Spanish and limited English. Lux&rsquo;s county-issued laptop has no translation tool. She pulls out her personal phone, opens an AI audio translation app she downloaded herself, and uses it to conduct the intake conversation in real time. The app processes the spoken exchange &mdash; including the applicant&rsquo;s name, household composition, income information, and case history &mdash; through a commercial server. Lux completes the intake and moves the case forward.
+        </p>
+        <div class="violation-q">
+          <span class="vq-label">Did Lux violate the policy?</span>
+          <div class="vq-options">
+            <span class="vq-opt">Yes</span>
+            <span class="vq-opt">No</span>
+            <span class="vq-opt">It depends</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Round 2: Puk -->
+    <div class="scenario-card">
+      <div class="scenario-header band-E">
+        <span class="round-tag">Round 2</span>
+        <span class="employee-name">Puk</span>
+        <span class="employee-role">Sheriff&rsquo;s Deputy</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-text">
+          Puk is on patrol on a rural stretch of Route 28. He stops a vehicle with a partially obscured rear plate. His mobile data terminal is showing a connection dropout. He photographs the plate with his department-issued phone running an approved AI image recognition tool. The tool returns a match and a record flag &mdash; the registered owner has an outstanding warrant. Puk decides to proceed with the stop based on the AI result alone. He does not call dispatch to confirm.
+        </p>
+        <div class="violation-q">
+          <span class="vq-label">Did Puk violate the policy?</span>
+          <div class="vq-options">
+            <span class="vq-opt">Yes</span>
+            <span class="vq-opt">No</span>
+            <span class="vq-opt">It depends</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Round 3: Jam -->
+    <div class="scenario-card">
+      <div class="scenario-header band-A">
+        <span class="round-tag">Round 3</span>
+        <span class="employee-name">Jam</span>
+        <span class="employee-role">Public Health Nurse</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-text">
+          Jam is a public health nurse at Herkimer County Public Health. She opens the county&rsquo;s AI prioritization tool on Tuesday morning and follows its ranked schedule for the entire day &mdash; six home visits and two inspections, in the order the tool assigned. She does not log that she used the tool. She does not review the ranking with her supervisor before starting her day.
+        </p>
+        <div class="violation-q">
+          <span class="vq-label">Did Jam violate the policy?</span>
+          <div class="vq-options">
+            <span class="vq-opt">Yes</span>
+            <span class="vq-opt">No</span>
+            <span class="vq-opt">It depends</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Round 4: Wow -->
+    <div class="scenario-card">
+      <div class="scenario-header band-I">
+        <span class="round-tag">Round 4</span>
+        <span class="employee-name">Wow</span>
+        <span class="employee-role">Administration Staffer, County Attorney&rsquo;s Office</span>
+      </div>
+      <div class="scenario-body">
+        <p class="scenario-text">
+          Wow is an administrative staffer in the Herkimer County Attorney&rsquo;s office preparing a formal SNAP benefits denial notice. She uses a commercial AI drafting tool she found online &mdash; not the county&rsquo;s designated tool &mdash; to generate the draft. She reviews the draft, thinks it looks good, and routes it for the attorney&rsquo;s signature the same afternoon without verifying the regulatory citations or the appeal deadline against the source documents, without logging the AI use, and without supervisor sign-off before routing.
+        </p>
+        <div class="violation-q">
+          <span class="vq-label">Did Wow violate the policy?</span>
+          <div class="vq-options">
+            <span class="vq-opt">Yes</span>
+            <span class="vq-opt">No</span>
+            <span class="vq-opt">It depends</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /round-grid -->
+
+  <div class="page-footer">
+    <span class="footer-note">Herkimer County AI Policy Workshop &middot; June 10, 2026 &middot; Page 1 of 2</span>
+    <span class="footer-note">SUNY Polytechnic Institute &middot; AIX Center</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE 2: DEFINITIONS
+     ════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-org">SUNY Polytechnic Institute &middot; AIX Center</div>
+      <div class="header-title">Herkimer County AI Policy Workshop</div>
+    </div>
+    <div class="header-right">
+      <div class="header-date">June 10, 2026</div>
+      <div class="header-page-label">Definitions</div>
+    </div>
+  </div>
+
+  <p class="def-intro">
+    Every policy your table receives is built from these four dimensions, each set to Hi or Lo. Read the policy. Decide what the policy says about each dimension. Mark your reading on your worksheet.
+  </p>
+
+  <div class="dim-cards">
+
+    <!-- SECURITY -->
+    <div class="dim-card dim-card-S">
+      <div class="dim-top">
+        <div class="dim-label">Security</div>
+        <div class="dim-question">Which tools? Where does the data go?</div>
+      </div>
+      <div class="dim-hilo">
+        <div class="hilo-box hilo-box-hi-S">
+          <div class="hilo-tag hilo-tag-hi-S">Hi</div>
+          <div class="hilo-text hilo-text-hi">County-vetted tools only. Data stays on county systems. All tools auditable by IT.</div>
+        </div>
+        <div class="hilo-box hilo-box-lo">
+          <div class="hilo-tag hilo-tag-lo">Lo</div>
+          <div class="hilo-text hilo-text-lo">Any available tool permitted. Staff responsible for appropriate data handling.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCOUNTABILITY -->
+    <div class="dim-card dim-card-A">
+      <div class="dim-top">
+        <div class="dim-label">Accountability</div>
+        <div class="dim-question">Is it logged? Who is responsible?</div>
+      </div>
+      <div class="dim-hilo">
+        <div class="hilo-box hilo-box-hi-A">
+          <div class="hilo-tag hilo-tag-hi-A">Hi</div>
+          <div class="hilo-text hilo-text-hi">Every AI use logged with staff ID, tool name, and timestamp. Retained 90 days. Named staff member responsible for every determination.</div>
+        </div>
+        <div class="hilo-box hilo-box-lo">
+          <div class="hilo-tag hilo-tag-lo">Lo</div>
+          <div class="hilo-text hilo-text-lo">No AI-specific logging required. Accountability follows existing supervisory and records practices.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EFFICIENCY -->
+    <div class="dim-card dim-card-E">
+      <div class="dim-top">
+        <div class="dim-label">Efficiency</div>
+        <div class="dim-question">Can staff act directly on AI output?</div>
+      </div>
+      <div class="dim-hilo">
+        <div class="hilo-box hilo-box-hi-E">
+          <div class="hilo-tag hilo-tag-hi-E">Hi</div>
+          <div class="hilo-text hilo-text-hi">Staff act directly on AI output after their own review. No additional approval step required before action.</div>
+        </div>
+        <div class="hilo-box hilo-box-lo">
+          <div class="hilo-tag hilo-tag-lo">Lo</div>
+          <div class="hilo-text hilo-text-lo">AI output requires supervisor sign-off or a second review step before action is taken.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INNOVATION -->
+    <div class="dim-card dim-card-I">
+      <div class="dim-top">
+        <div class="dim-label">Innovation</div>
+        <div class="dim-question">Who picks the tools?</div>
+      </div>
+      <div class="dim-hilo">
+        <div class="hilo-box hilo-box-hi-I">
+          <div class="hilo-tag hilo-tag-hi-I">Hi</div>
+          <div class="hilo-text hilo-text-hi">Staff may identify and pilot new AI tools within defined parameters. Tools meeting county standards may be adopted by the department.</div>
+        </div>
+        <div class="hilo-box hilo-box-lo">
+          <div class="hilo-tag hilo-tag-lo">Lo</div>
+          <div class="hilo-text hilo-text-lo">County-designated tools only. Staff use the approved set and do not adopt tools independently.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /dim-cards -->
+
+  <!-- Notes area -->
+  <div style="margin-top:16px;padding:12px 16px;background:var(--surf);border:1px solid var(--border);border-radius:8px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-family:'JetBrains Mono',monospace;">Your Dimension Reading &mdash; Fill in as a team</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--c-S);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;margin-bottom:4px;">SECURITY</div>
+        <div style="display:flex;gap:12px;">
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Hi</label>
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Lo</label>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--c-A);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;margin-bottom:4px;">ACCOUNTABILITY</div>
+        <div style="display:flex;gap:12px;">
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Hi</label>
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Lo</label>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--c-E);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;margin-bottom:4px;">EFFICIENCY</div>
+        <div style="display:flex;gap:12px;">
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Hi</label>
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Lo</label>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;color:var(--c-I);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;margin-bottom:4px;">INNOVATION</div>
+        <div style="display:flex;gap:12px;">
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Hi</label>
+          <label style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:14px;height:14px;border:1.5px solid var(--border);border-radius:3px;"></span>Lo</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-note">Herkimer County AI Policy Workshop &middot; June 10, 2026 &middot; Page 2 of 2</span>
+    <span class="footer-note">SUNY Polytechnic Institute &middot; AIX Center</span>
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herkimer County AI Policy Workshop — June 10, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --navy:   #0D1B2A;
+  --navy2:  #1A2E44;
+  --navy3:  #243B55;
+  --cream:  #F8F5F0;
+  --muted:  #94A3B8;
+  --border: rgba(255,255,255,0.12);
+
+  --c-S: #f87171;  --bg-S: #450a0a;  --dark-S: #7f1d1d;
+  --c-E: #4ade80;  --bg-E: #052e16;  --dark-E: #14532d;
+  --c-I: #60a5fa;  --bg-I: #0c1445;  --dark-I: #1e3a8a;
+  --c-A: #c084fc;  --bg-A: #2e1065;  --dark-A: #4a1d96;
+
+  --g-hdr:  #052e16;  --g-acc: #16a34a;  --g-text: #86efac;
+  --r-hdr:  #450a0a;  --r-acc: #dc2626;  --r-text: #fca5a5;
+  --b-hdr:  #0c1445;  --b-acc: #3b82f6;  --b-text: #93c5fd;
+  --y-hdr:  #431407;  --y-acc: #f59e0b;  --y-text: #fcd34d;
+}
+
+html, body { height:100%; overflow:hidden; background:var(--navy); }
+body { font-family:'DM Sans', system-ui, sans-serif; color:var(--cream); }
+
+/* SLIDES */
+.slide {
+  display:none; position:absolute; inset:0;
+  flex-direction:column; justify-content:center; align-items:center;
+  padding:60px 80px; text-align:center;
+  background:var(--navy);
+}
+.slide.active { display:flex; }
+
+/* PROGRESS */
+#progress {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  display:flex; gap:6px; z-index:100;
+}
+.pip { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.2); cursor:pointer; transition:all 0.2s; }
+.pip.active { background:var(--cream); width:20px; border-radius:3px; }
+.pip.visited { background:rgba(255,255,255,0.45); }
+
+#nav-prev, #nav-next {
+  position:fixed; top:50%; transform:translateY(-50%);
+  background:rgba(255,255,255,0.06); border:1px solid var(--border);
+  color:var(--muted); font-size:22px; width:48px; height:64px;
+  border-radius:8px; cursor:pointer; display:flex; align-items:center;
+  justify-content:center; z-index:100; transition:all 0.15s;
+}
+#nav-prev { left:16px; }
+#nav-next { right:16px; }
+#nav-prev:hover, #nav-next:hover { background:rgba(255,255,255,0.12); color:var(--cream); }
+#nav-prev:disabled, #nav-next:disabled { opacity:0.15; cursor:not-allowed; }
+
+#counter {
+  position:fixed; top:20px; right:28px; font-family:'JetBrains Mono',monospace;
+  font-size:12px; color:rgba(255,255,255,0.25); letter-spacing:0.1em; z-index:100;
+}
+
+/* TYPE */
+.display { font-family:'Space Grotesk',sans-serif; }
+.eyebrow {
+  font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:20px;
+}
+.hero { font-family:'Space Grotesk',sans-serif; font-size:88px; font-weight:700;
+  line-height:1.0; letter-spacing:-0.03em; color:var(--cream); }
+.hero-sub { font-size:28px; color:var(--muted); margin-top:20px; font-weight:300; line-height:1.5; }
+.big-text { font-family:'Space Grotesk',sans-serif; font-size:56px; font-weight:600;
+  line-height:1.15; letter-spacing:-0.02em; color:var(--cream); }
+.body-text { font-size:26px; color:var(--muted); line-height:1.65; max-width:860px; }
+.label-tag {
+  display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11px;
+  font-weight:500; letter-spacing:0.15em; text-transform:uppercase;
+  padding:4px 14px; border-radius:20px; border:1px solid var(--border); color:var(--muted);
+  margin-bottom:24px;
+}
+
+/* ACCENT LINES */
+.they-we {
+  display:flex; gap:40px; margin-top:40px; text-align:left;
+}
+.they-card, .we-card {
+  flex:1; padding:28px 32px; border-radius:14px; border:1px solid var(--border);
+}
+.they-card { background:rgba(239,68,68,0.08); border-color:rgba(239,68,68,0.2); }
+.we-card   { background:rgba(74,222,128,0.08); border-color:rgba(74,222,128,0.2); }
+.tw-label  { font-family:'Space Grotesk',sans-serif; font-size:42px; font-weight:700; margin-bottom:12px; }
+.they-card .tw-label { color:#f87171; }
+.we-card   .tw-label { color:#4ade80; }
+.tw-text   { font-size:22px; color:var(--muted); line-height:1.55; }
+
+/* FRAMING DIMS */
+.frame-list { display:flex; flex-direction:column; gap:16px; width:100%; max-width:900px; text-align:left; }
+.frame-row {
+  display:flex; align-items:flex-start; gap:20px; padding:20px 24px;
+  border-radius:12px; border-left:4px solid; background:rgba(255,255,255,0.04);
+}
+.frame-name { font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600;
+  min-width:240px; }
+.frame-pos  { font-size:20px; color:var(--muted); line-height:1.55; }
+
+/* FOUR DIMS TABLE */
+.dim-table { width:100%; max-width:1000px; border-collapse:separate; border-spacing:0 8px; text-align:left; }
+.dim-table th {
+  font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--muted); padding:0 20px 8px; font-weight:400;
+}
+.dim-table td { padding:16px 20px; font-size:20px; line-height:1.5; }
+.dim-table td:first-child { border-radius:10px 0 0 10px; font-weight:700; font-size:22px; width:220px; }
+.dim-table td:last-child { border-radius:0 10px 10px 0; color:var(--muted); }
+.dim-table tr td { background:rgba(255,255,255,0.05); }
+.dim-S td:first-child { color:var(--c-S); }
+.dim-E td:first-child { color:var(--c-E); }
+.dim-I td:first-child { color:var(--c-I); }
+.dim-A td:first-child { color:var(--c-A); }
+.hi-tag {
+  display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.06em;
+  padding:2px 10px; border-radius:8px; margin-right:6px; vertical-align:middle;
+}
+
+/* FOUR FLAVORS 2x2 */
+.flavor-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; width:100%; max-width:900px; }
+.flavor-card {
+  border-radius:16px; overflow:hidden; border:2px solid;
+  text-align:left; cursor:default;
+}
+.flavor-card-hdr { padding:20px 24px; display:flex; align-items:center; gap:14px; }
+.flavor-emoji { font-size:36px; line-height:1; }
+.flavor-name  { font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:#fff; }
+.flavor-label { font-size:14px; color:rgba(255,255,255,0.65); }
+.flavor-card-body { padding:14px 24px 18px; }
+.flavor-dims-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+.flavor-dim-badge {
+  font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600;
+  padding:3px 10px; border-radius:6px; letter-spacing:0.04em;
+}
+.flavor-summary { font-size:15px; color:rgba(255,255,255,0.6); line-height:1.5; }
+
+.fc-green { border-color:var(--g-acc); } .fc-green .flavor-card-hdr { background:var(--g-hdr); }
+.fc-red   { border-color:var(--r-acc); } .fc-red   .flavor-card-hdr { background:var(--r-hdr); }
+.fc-blue  { border-color:var(--b-acc); } .fc-blue  .flavor-card-hdr { background:var(--b-hdr); }
+.fc-yellow{ border-color:var(--y-acc); } .fc-yellow .flavor-card-hdr { background:var(--y-hdr); }
+.fc-green .flavor-card-body  { background:rgba(5,46,22,0.6); }
+.fc-red   .flavor-card-body  { background:rgba(69,10,10,0.6); }
+.fc-blue  .flavor-card-body  { background:rgba(12,20,69,0.6); }
+.fc-yellow .flavor-card-body { background:rgba(67,20,7,0.6); }
+
+/* SCENARIO */
+.scenario-emp {
+  font-family:'Space Grotesk',sans-serif; font-size:72px; font-weight:700;
+  color:var(--cream); letter-spacing:-0.02em; margin-bottom:8px;
+}
+.scenario-role { font-size:26px; color:var(--muted); margin-bottom:36px; }
+.scenario-text { font-size:26px; color:var(--cream); line-height:1.7; max-width:900px; }
+.scenario-question {
+  margin-top:36px; display:inline-block;
+  padding:14px 32px; border-radius:10px; border:1px solid var(--border);
+  font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:500;
+  color:var(--muted); background:rgba(255,255,255,0.04);
+}
+
+/* REVEAL SLIDE */
+.reveal-slide { flex-direction:column; justify-content:flex-start; padding:0; text-align:left; }
+.reveal-hdr {
+  width:100%; padding:32px 64px; display:flex; align-items:center; gap:20px; flex-shrink:0;
+}
+.reveal-emoji { font-size:52px; line-height:1; }
+.reveal-flavor-name {
+  font-family:'Space Grotesk',sans-serif; font-size:56px; font-weight:700;
+  color:#fff; letter-spacing:-0.02em;
+}
+.reveal-flavor-label { font-size:24px; color:rgba(255,255,255,0.65); }
+.reveal-body { flex:1; padding:32px 64px; display:flex; gap:48px; align-items:flex-start; }
+.reveal-grid { display:flex; flex-direction:column; gap:10px; min-width:300px; }
+.reveal-dim-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 18px; border-radius:10px;
+}
+.reveal-dim-name { font-size:20px; font-weight:600; }
+.reveal-dim-badge {
+  font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700;
+  padding:4px 16px; border-radius:8px; letter-spacing:0.06em;
+}
+.badge-hi { color:#fff; }
+.badge-lo { background:rgba(255,255,255,0.08); color:var(--muted); }
+.reveal-right { flex:1; display:flex; flex-direction:column; gap:20px; }
+.violation-answer {
+  font-family:'Space Grotesk',sans-serif; font-size:72px; font-weight:700;
+  line-height:1; letter-spacing:-0.02em;
+}
+.v-yes { color:#f87171; }
+.v-no  { color:#4ade80; }
+.violation-reason { font-size:24px; color:var(--muted); line-height:1.6; max-width:560px; }
+.changed-note {
+  padding:14px 20px; border-radius:10px; background:rgba(255,255,255,0.05);
+  border:1px solid var(--border);
+}
+.changed-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.changed-text { font-size:20px; color:var(--cream); line-height:1.5; }
+
+/* HOW IT WORKS */
+.steps-list { display:flex; flex-direction:column; gap:16px; width:100%; max-width:800px; text-align:left; }
+.step-row { display:flex; align-items:flex-start; gap:22px; padding:18px 24px;
+  border-radius:12px; background:rgba(255,255,255,0.05); border:1px solid var(--border); }
+.step-num { font-family:'Space Grotesk',sans-serif; font-size:36px; font-weight:700;
+  color:rgba(255,255,255,0.2); min-width:40px; line-height:1; }
+.step-text { font-size:22px; color:var(--cream); line-height:1.55; }
+
+/* SUMMARY REVEAL (rounds 3+4) */
+.summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; max-width:900px; }
+.summary-card { padding:20px 24px; border-radius:12px; border:2px solid; text-align:left; }
+.summary-flavor { font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; margin-bottom:8px; }
+.summary-verdict { font-size:18px; line-height:1.55; color:var(--muted); }
+.sv-yes { color:#f87171; font-weight:700; }
+.sv-no  { color:#4ade80; font-weight:700; }
+
+/* PATTERN / SYNTHESIS */
+.pattern-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%; max-width:900px; }
+.pattern-card { padding:22px 26px; border-radius:12px; background:rgba(255,255,255,0.05);
+  border-left:4px solid; text-align:left; }
+.pattern-emp { font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--cream); margin-bottom:6px; }
+.pattern-dim { font-size:18px; color:var(--muted); }
+
+/* WOW MOMENT */
+.wow-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; max-width:900px; }
+.wow-card { padding:20px 24px; border-radius:12px; border:2px solid; text-align:left; }
+.wow-flavor { font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; margin-bottom:8px; }
+.wow-viol { font-size:15px; color:var(--muted); line-height:1.5; }
+.wow-all { font-size:22px; font-weight:700; color:#f87171; }
+
+/* LEVER CHAIN */
+.lever-chain { display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:28px; }
+.lc-pill { padding:10px 24px; border-radius:24px; font-family:'Space Grotesk',sans-serif;
+  font-size:20px; font-weight:700; color:#fff; }
+.lc-arrow { font-size:22px; color:var(--muted); }
+.lc-note { font-size:16px; color:var(--muted); }
+
+/* NEXT STEPS */
+.next-list { display:flex; flex-direction:column; gap:12px; width:100%; max-width:760px; text-align:left; }
+.next-row { display:flex; align-items:center; gap:18px; padding:16px 22px;
+  border-radius:10px; background:rgba(255,255,255,0.04); border:1px solid var(--border); }
+.next-date { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted);
+  min-width:160px; letter-spacing:0.04em; }
+.next-text { font-size:20px; color:var(--cream); }
+
+/* TITLE FRUIT DECORATION */
+.fruit-scatter {
+  position:absolute; pointer-events:none; user-select:none; opacity:0.18;
+  font-size:80px; line-height:1;
+}
+</style>
+</head>
+<body>
+
+<div id="counter"></div>
+<button id="nav-prev" onclick="go(-1)" disabled>&#8592;</button>
+<button id="nav-next" onclick="go(1)">&#8594;</button>
+<div id="progress"></div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 0. TITLE                                               -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide active" id="s0">
+  <div class="eyebrow">Herkimer County &middot; SUNY Poly AIX Center</div>
+  <h1 class="hero display">AI Policy<br>Workshop</h1>
+  <p class="hero-sub">June 10, 2026</p>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 1. ALIEN SPECIES                                       -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s1">
+  <h2 class="big-text" style="margin-bottom:16px;">AI is arriving like an alien species.</h2>
+  <p class="body-text">We did not decide to invite it. It is here. Like any new species entering an ecosystem, it will change how work gets done, displace certain tasks, and require us to adapt.</p>
+  <div class="they-we">
+    <div class="they-card">
+      <div class="tw-label">They</div>
+      <div class="tw-text">Decided to create it.<br>Decided to deploy it.</div>
+    </div>
+    <div class="we-card">
+      <div class="tw-label">We</div>
+      <div class="tw-text">Decide what it means for how we do our jobs.<br>Set the terms of cohabitation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 2. NOT DECIDING TODAY                                  -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s2">
+  <div class="eyebrow">Out of scope today</div>
+  <h2 class="big-text" style="margin-bottom:40px;">What we are <em>not</em> deciding.</h2>
+  <div class="steps-list">
+    <div class="step-row"><span class="step-num">✗</span><span class="step-text">Whether AI belongs here. It is already here.</span></div>
+    <div class="step-row"><span class="step-num">✗</span><span class="step-text">Whether it will take jobs. That is a they-level decision.</span></div>
+    <div class="step-row"><span class="step-num">✗</span><span class="step-text">Whether it is good or bad. That question is out of scope.</span></div>
+    <div class="step-row" style="border-color:rgba(74,222,128,0.3);background:rgba(74,222,128,0.06);">
+      <span class="step-num" style="color:#4ade80;">✓</span>
+      <span class="step-text" style="color:#4ade80;font-weight:600;">What the terms of cohabitation should be.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 3. FRAMING DIMENSIONS                                  -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s3">
+  <div class="eyebrow">Already decided by county leadership</div>
+  <h2 class="big-text" style="margin-bottom:36px;">Three commitments are fixed.</h2>
+  <div class="frame-list">
+    <div class="frame-row" style="border-color:var(--c-I);">
+      <div class="frame-name" style="color:var(--c-I);">Equity</div>
+      <div class="frame-pos">AI vendors must acknowledge differential impact. Equity is a formal procurement consideration.</div>
+    </div>
+    <div class="frame-row" style="border-color:var(--c-S);">
+      <div class="frame-name" style="color:var(--c-S);">Human Impact</div>
+      <div class="frame-pos">AI follows existing supervisory chains. No new approval steps added or removed by this policy.</div>
+    </div>
+    <div class="frame-row" style="border-color:var(--c-E);">
+      <div class="frame-name" style="color:var(--c-E);">Infrastructure</div>
+      <div class="frame-pos">Energy use, vendor dependency, and sustainability are formal procurement considerations.</div>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-size:18px;color:var(--muted);">These are not on the table today.</p>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 4. FOUR DIMENSIONS                                     -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s4">
+  <div class="eyebrow">What you are calibrating today</div>
+  <h2 class="big-text" style="margin-bottom:36px;">Four operational dimensions.</h2>
+  <table class="dim-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Hi</th>
+        <th>Lo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="dim-S">
+        <td>Security</td>
+        <td>County-vetted tools only. Data stays on county systems. Auditable by IT.</td>
+        <td>Any available tool. Staff responsible for data handling.</td>
+      </tr>
+      <tr class="dim-A">
+        <td>Accountability</td>
+        <td>Every AI use logged: staff ID, tool, timestamp. 90-day retention.</td>
+        <td>No logging required. Existing supervisory practices apply.</td>
+      </tr>
+      <tr class="dim-E">
+        <td>Efficiency</td>
+        <td>Staff act directly on AI output after own review.</td>
+        <td>Supervisor sign-off required before action.</td>
+      </tr>
+      <tr class="dim-I">
+        <td>Innovation</td>
+        <td>Staff may identify and pilot new tools within defined parameters.</td>
+        <td>County-designated tools only. No independent adoption.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 5. FOUR FLAVORS                                        -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s5">
+  <div class="eyebrow">Four combinations</div>
+  <h2 class="big-text" style="margin-bottom:28px;">The four policy flavors.</h2>
+  <div class="flavor-grid">
+    <div class="flavor-card fc-green">
+      <div class="flavor-card-hdr">
+        <div><div class="flavor-name">Green</div><div class="flavor-label">Guardrails</div></div>
+      </div>
+      <div class="flavor-card-body">
+        <div class="flavor-dims-row">
+          <span class="flavor-dim-badge" style="background:var(--dark-S);color:var(--c-S);">S ↑</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-A);color:var(--c-A);">Ac ↑</span>
+          <span class="flavor-dim-badge" style="background:rgba(255,255,255,0.08);color:var(--muted);">E ↓</span>
+          <span class="flavor-dim-badge" style="background:rgba(255,255,255,0.08);color:var(--muted);">I ↓</span>
+        </div>
+        <div class="flavor-summary">Vetted tools. Every use logged. Sign-off before action. No independent adoption.</div>
+      </div>
+    </div>
+    <div class="flavor-card fc-red">
+      <div class="flavor-card-hdr">
+        <div><div class="flavor-name">Red</div><div class="flavor-label">Enable</div></div>
+      </div>
+      <div class="flavor-card-body">
+        <div class="flavor-dims-row">
+          <span class="flavor-dim-badge" style="background:var(--dark-S);color:var(--c-S);">S ↑</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-A);color:var(--c-A);">Ac ↑</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-E);color:var(--c-E);">E ↑</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-I);color:var(--c-I);">I ↑</span>
+        </div>
+        <div class="flavor-summary">Vetted tools. Every use logged. Act directly. Staff may pilot new tools.</div>
+      </div>
+    </div>
+    <div class="flavor-card fc-blue">
+      <div class="flavor-card-hdr">
+        <div><div class="flavor-name">Blue</div><div class="flavor-label">Light-touch</div></div>
+      </div>
+      <div class="flavor-card-body">
+        <div class="flavor-dims-row">
+          <span class="flavor-dim-badge" style="background:var(--dark-S);color:var(--c-S);">S ↑</span>
+          <span class="flavor-dim-badge" style="background:rgba(255,255,255,0.08);color:var(--muted);">Ac ↓</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-E);color:var(--c-E);">E ↑</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-I);color:var(--c-I);">I ↑</span>
+        </div>
+        <div class="flavor-summary">Vetted tools. No logging. Act directly. Staff may pilot new tools.</div>
+      </div>
+    </div>
+    <div class="flavor-card fc-yellow">
+      <div class="flavor-card-hdr">
+        <div><div class="flavor-name">Yellow</div><div class="flavor-label">Exposed</div></div>
+      </div>
+      <div class="flavor-card-body">
+        <div class="flavor-dims-row">
+          <span class="flavor-dim-badge" style="background:rgba(255,255,255,0.08);color:var(--muted);">S ↓</span>
+          <span class="flavor-dim-badge" style="background:rgba(255,255,255,0.08);color:var(--muted);">Ac ↓</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-E);color:var(--c-E);">E ↑</span>
+          <span class="flavor-dim-badge" style="background:var(--dark-I);color:var(--c-I);">I ↑</span>
+        </div>
+        <div class="flavor-summary">Any tool. No logging. Act directly. Data may leave county systems.</div>
+      </div>
+    </div>
+  </div>
+  <div class="lever-chain">
+    <span class="lc-pill" style="background:#166534;">Green</span>
+    <span class="lc-arrow">→</span><span class="lc-note">E↑ I↑</span><span class="lc-arrow">→</span>
+    <span class="lc-pill" style="background:#991b1b;">Red</span>
+    <span class="lc-arrow">→</span><span class="lc-note">Ac↓</span><span class="lc-arrow">→</span>
+    <span class="lc-pill" style="background:#1e3a8a;">Blue</span>
+    <span class="lc-arrow">→</span><span class="lc-note">S↓</span><span class="lc-arrow">→</span>
+    <span class="lc-pill" style="background:#92400e;">Yellow</span>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 6. ZIP SCENARIO                                        -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s6">
+  <div class="label-tag">Employee 0 &middot; Demo</div>
+  <div class="scenario-emp display">Zip</div>
+  <div class="scenario-role">County Employee</div>
+  <p class="scenario-text">It is mid-November. There is an office Christmas party next week. Zip opens ChatGPT on their county-issued laptop and types: <strong style="color:var(--cream);">"Write me a short email to Mary about the Christmas party -- I don't want to go but I don't want to be rude."</strong> ChatGPT produces a polished, warm, appropriately vague excuse email. Zip reads it. It is pretty good. Zip sends it.</p>
+  <div class="scenario-question">Did Zip violate the policy?</div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 7. ZIP / GREEN                                         -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide reveal-slide" id="s7">
+  <div class="reveal-hdr" style="background:var(--g-hdr);border-bottom:3px solid var(--g-acc);">
+    <div>
+      <div class="reveal-flavor-name" style="color:#fff;">Green</div>
+      <div class="reveal-flavor-label">Guardrails &nbsp;·&nbsp; S↑ Ac↑ E↓ I↓</div>
+    </div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Employee 0 · Zip</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-S);">Security</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(192,132,252,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-A);">Accountability</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-A);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);">
+        <span class="reveal-dim-name" style="color:var(--muted);">Efficiency</span>
+        <span class="reveal-dim-badge badge-lo">LO</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);">
+        <span class="reveal-dim-name" style="color:var(--muted);">Innovation</span>
+        <span class="reveal-dim-badge badge-lo">LO</span>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">ChatGPT is not on the county's approved tool list. Security Hi means county-vetted tools only. The Christmas party email is irrelevant -- the tool is the issue.</div>
+      <div class="changed-note">
+        <div class="changed-label">Starting flavor</div>
+        <div class="changed-text">All four dimensions at their most cautious. Nothing has changed yet.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 8. ZIP / RED                                           -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide reveal-slide" id="s8">
+  <div class="reveal-hdr" style="background:var(--r-hdr);border-bottom:3px solid var(--r-acc);">
+    <div>
+      <div class="reveal-flavor-name" style="color:#fff;">Red</div>
+      <div class="reveal-flavor-label">Enable &nbsp;·&nbsp; S↑ Ac↑ E↑ I↑</div>
+    </div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Employee 0 · Zip</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-S);">Security</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(192,132,252,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-A);">Accountability</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-A);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">ChatGPT is still not approved. Security Hi held. Zip can now act without supervisor sign-off -- but only if using an approved tool.</div>
+      <div class="changed-note">
+        <div class="changed-label">What changed from Green</div>
+        <div class="changed-text" style="color:#4ade80;">Efficiency ↑ and Innovation ↑ &mdash; velocity opened as one move. Security held.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 9. ZIP / BLUE                                          -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide reveal-slide" id="s9">
+  <div class="reveal-hdr" style="background:var(--b-hdr);border-bottom:3px solid var(--b-acc);">
+    <div>
+      <div class="reveal-flavor-name" style="color:#fff;">Blue</div>
+      <div class="reveal-flavor-label">Light-touch &nbsp;·&nbsp; S↑ Ac↓ E↑ I↑</div>
+    </div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Employee 0 · Zip</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-S);">Security</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);">
+        <span class="reveal-dim-name" style="color:var(--muted);">Accountability</span>
+        <span class="reveal-dim-badge badge-lo">LO</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">Still Security Hi. ChatGPT is still not permitted. The logging dropped -- but that does not help Zip. The tool requirement held.</div>
+      <div class="changed-note">
+        <div class="changed-label">What changed from Red</div>
+        <div class="changed-text" style="color:#c084fc;">Accountability ↓ &mdash; logging dropped. One lever. Security held.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 10. ZIP / YELLOW                                       -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide reveal-slide" id="s10">
+  <div class="reveal-hdr" style="background:var(--y-hdr);border-bottom:3px solid var(--y-acc);">
+    <div>
+      <div class="reveal-flavor-name" style="color:#fff;">Yellow</div>
+      <div class="reveal-flavor-label">Exposed &nbsp;·&nbsp; S↓ Ac↓ E↑ I↑</div>
+    </div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Employee 0 · Zip</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);">
+        <span class="reveal-dim-name" style="color:var(--muted);">Security</span>
+        <span class="reveal-dim-badge badge-lo">LO</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);">
+        <span class="reveal-dim-name" style="color:var(--muted);">Accountability</span>
+        <span class="reveal-dim-badge badge-lo">LO</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span>
+      </div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);">
+        <span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span>
+        <span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-no">NO VIOLATION</div>
+      <div class="violation-reason">Any tool is permitted. ChatGPT is fine. Zip read the draft, sent it. No log required. No approval needed.</div>
+      <div class="changed-note">
+        <div class="changed-label">What changed from Blue</div>
+        <div class="changed-text" style="color:#fcd34d;">Security ↓ &mdash; data control dropped. Any tool now permitted. The last constraint is gone.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 11. HOW IT WORKS                                       -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s11">
+  <div class="eyebrow">The exercise</div>
+  <h2 class="big-text" style="margin-bottom:32px;">Now you do it.</h2>
+  <div class="steps-list">
+    <div class="step-row"><span class="step-num">1</span><span class="step-text">You receive a policy page labeled with your fruit name. No flavor label -- that is the game.</span></div>
+    <div class="step-row"><span class="step-num">2</span><span class="step-text">Read the scenario on screen. Read your policy. As a table, rank each dimension Hi or Lo.</span></div>
+    <div class="step-row"><span class="step-num">3</span><span class="step-text">Decide: did this employee violate the policy? Circle Yes, No, or It depends. Write your reasoning.</span></div>
+    <div class="step-row"><span class="step-num">4</span><span class="step-text">At reconvene: the flavor is revealed. Compare your ranking to the correct grid.</span></div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 12. ROUND 1: LUX SCENARIO                             -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s12">
+  <div class="label-tag">Round 1</div>
+  <div class="scenario-emp display">Lux</div>
+  <div class="scenario-role">DSS Caseworker</div>
+  <p class="scenario-text">Lux is conducting a HEAP heating assistance intake. The applicant speaks Spanish. Lux's county laptop has no translation tool. She pulls out her personal phone, opens an AI audio translation app she downloaded herself, and uses it to conduct the intake in real time. The app processes the spoken exchange through a commercial server. She completes the intake and moves the case forward.</p>
+  <div class="scenario-question">Did Lux violate the policy?</div>
+</div>
+
+<!-- ROUND 1 REVEALS: Green Red Blue Yellow -->
+<div class="slide reveal-slide" id="s13">
+  <div class="reveal-hdr" style="background:var(--g-hdr);border-bottom:3px solid var(--g-acc);">
+    <div><div class="reveal-flavor-name">Green</div><div class="reveal-flavor-label">Guardrails &nbsp;·&nbsp; S↑ Ac↑ E↓ I↓</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 1 · Lux</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);"><span class="reveal-dim-name" style="color:var(--c-S);">Security</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(192,132,252,0.12);"><span class="reveal-dim-name" style="color:var(--c-A);">Accountability</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-A);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Efficiency</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Innovation</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">Personal device. Commercial server. Unapproved app. Security Hi requires county-issued equipment and county-vetted tools only.</div>
+      <div class="changed-note"><div class="changed-label">Primary dimension</div><div class="changed-text" style="color:var(--c-S);">Security</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide reveal-slide" id="s14">
+  <div class="reveal-hdr" style="background:var(--r-hdr);border-bottom:3px solid var(--r-acc);">
+    <div><div class="reveal-flavor-name">Red</div><div class="reveal-flavor-label">Enable &nbsp;·&nbsp; S↑ Ac↑ E↑ I↑</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 1 · Lux</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);"><span class="reveal-dim-name" style="color:var(--c-S);">Security</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(192,132,252,0.12);"><span class="reveal-dim-name" style="color:var(--c-A);">Accountability</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-A);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);"><span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);"><span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">Security still Hi. Personal device and commercial server are still not permitted. The tool requirement did not change.</div>
+      <div class="changed-note"><div class="changed-label">What changed</div><div class="changed-text" style="color:#4ade80;">E↑ I↑ from Green &mdash; velocity opened. Security held.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide reveal-slide" id="s15">
+  <div class="reveal-hdr" style="background:var(--b-hdr);border-bottom:3px solid var(--b-acc);">
+    <div><div class="reveal-flavor-name">Blue</div><div class="reveal-flavor-label">Light-touch &nbsp;·&nbsp; S↑ Ac↓ E↑ I↑</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 1 · Lux</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);"><span class="reveal-dim-name" style="color:var(--c-S);">Security</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Accountability</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);"><span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);"><span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">Logging dropped but Security held. Personal device and commercial server are still not permitted.</div>
+      <div class="changed-note"><div class="changed-label">What changed</div><div class="changed-text" style="color:#c084fc;">Ac↓ from Red &mdash; logging dropped. Security held.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide reveal-slide" id="s16">
+  <div class="reveal-hdr" style="background:var(--y-hdr);border-bottom:3px solid var(--y-acc);">
+    <div><div class="reveal-flavor-name">Yellow</div><div class="reveal-flavor-label">Exposed &nbsp;·&nbsp; S↓ Ac↓ E↑ I↑</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 1 · Lux</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Security</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Accountability</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);"><span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);"><span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-no">NO VIOLATION</div>
+      <div class="violation-reason">Any tool permitted, including personal devices and commercial apps. Staff responsible for their own data handling. Lux acted within the policy.</div>
+      <div class="changed-note"><div class="changed-label">What changed</div><div class="changed-text" style="color:#fcd34d;">S↓ from Blue &mdash; data control dropped. Any tool now permitted.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 17. ROUND 2: PUK SCENARIO                             -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s17">
+  <div class="label-tag">Round 2</div>
+  <div class="scenario-emp display">Puk</div>
+  <div class="scenario-role">Sheriff's Deputy</div>
+  <p class="scenario-text">Puk stops a vehicle on Route 28 with a partially obscured plate. His MDT is down. He photographs the plate with his department-issued phone running an approved AI image recognition tool. The tool returns a match and a record flag -- outstanding warrant. Puk proceeds with the stop based on the AI result alone. He does not call dispatch to confirm.</p>
+  <div class="scenario-question">Did Puk violate the policy?</div>
+</div>
+
+<!-- ROUND 2 REVEALS -->
+<div class="slide reveal-slide" id="s18">
+  <div class="reveal-hdr" style="background:var(--g-hdr);border-bottom:3px solid var(--g-acc);">
+    <div><div class="reveal-flavor-name">Green</div><div class="reveal-flavor-label">Guardrails &nbsp;·&nbsp; S↑ Ac↑ E↓ I↓</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 2 · Puk</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);"><span class="reveal-dim-name" style="color:var(--c-S);">Security</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(192,132,252,0.12);"><span class="reveal-dim-name" style="color:var(--c-A);">Accountability</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-A);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Efficiency</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Innovation</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-yes">VIOLATION</div>
+      <div class="violation-reason">Efficiency Lo requires confirmation through dispatch, a backup terminal, or a second officer before proceeding. Puk acted on the AI result alone.</div>
+      <div class="changed-note"><div class="changed-label">Primary dimension</div><div class="changed-text" style="color:var(--c-E);">Efficiency</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide reveal-slide" id="s19">
+  <div class="reveal-hdr" style="background:var(--r-hdr);border-bottom:3px solid var(--r-acc);">
+    <div><div class="reveal-flavor-name">Red</div><div class="reveal-flavor-label">Enable &nbsp;·&nbsp; S↑ Ac↑ E↑ I↑</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 2 · Puk</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);"><span class="reveal-dim-name" style="color:var(--c-S);">Security</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(192,132,252,0.12);"><span class="reveal-dim-name" style="color:var(--c-A);">Accountability</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-A);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);"><span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);"><span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-no">NO VIOLATION</div>
+      <div class="violation-reason">Efficiency Hi: Puk may act directly on the AI result after his own review. When operational circumstances require immediate action, the deputy proceeds on his own judgment.</div>
+      <div class="changed-note"><div class="changed-label">What changed</div><div class="changed-text" style="color:#4ade80;">E↑ I↑ from Green &mdash; Puk can now act directly. Highest-stakes scenario in the exercise.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide reveal-slide" id="s20">
+  <div class="reveal-hdr" style="background:var(--b-hdr);border-bottom:3px solid var(--b-acc);">
+    <div><div class="reveal-flavor-name">Blue</div><div class="reveal-flavor-label">Light-touch &nbsp;·&nbsp; S↑ Ac↓ E↑ I↑</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 2 · Puk</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(248,113,113,0.12);"><span class="reveal-dim-name" style="color:var(--c-S);">Security</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-S);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Accountability</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);"><span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);"><span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-no">NO VIOLATION</div>
+      <div class="violation-reason">Puk acts directly. No logging required beyond existing incident reporting. No violation.</div>
+      <div class="changed-note"><div class="changed-label">What changed</div><div class="changed-text" style="color:#c084fc;">Ac↓ from Red &mdash; the field query no longer needs to be logged.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="slide reveal-slide" id="s21">
+  <div class="reveal-hdr" style="background:var(--y-hdr);border-bottom:3px solid var(--y-acc);">
+    <div><div class="reveal-flavor-name">Yellow</div><div class="reveal-flavor-label">Exposed &nbsp;·&nbsp; S↓ Ac↓ E↑ I↑</div></div>
+    <div style="margin-left:auto;font-size:15px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">Round 2 · Puk</div>
+  </div>
+  <div class="reveal-body">
+    <div class="reveal-grid">
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Security</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(255,255,255,0.04);"><span class="reveal-dim-name" style="color:var(--muted);">Accountability</span><span class="reveal-dim-badge badge-lo">LO</span></div>
+      <div class="reveal-dim-row" style="background:rgba(74,222,128,0.12);"><span class="reveal-dim-name" style="color:var(--c-E);">Efficiency</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-E);">HI</span></div>
+      <div class="reveal-dim-row" style="background:rgba(96,165,250,0.12);"><span class="reveal-dim-name" style="color:var(--c-I);">Innovation</span><span class="reveal-dim-badge badge-hi" style="background:var(--c-I);">HI</span></div>
+    </div>
+    <div class="reveal-right">
+      <div class="violation-answer v-no">NO VIOLATION</div>
+      <div class="violation-reason">Any tool permitted including personal devices. No confirmation required. No logging. Puk acts. No violation -- but CJIS data may have left authorized systems.</div>
+      <div class="changed-note"><div class="changed-label">Discussion question</div><div class="changed-text" style="color:#fcd34d;">Does the stakes level change which flavor you want for a field stop vs. a caseworker intake?</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 22. ROUND 3: JAM SCENARIO                             -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s22">
+  <div class="label-tag">Round 3</div>
+  <div class="scenario-emp display">Jam</div>
+  <div class="scenario-role">Public Health Nurse</div>
+  <p class="scenario-text">Jam opens the county's AI prioritization tool on Tuesday morning and follows its ranked schedule for the entire day -- six home visits and two inspections, in the order the tool assigned. She does not log that she used the tool. She does not review the ranking with her supervisor before starting her day.</p>
+  <div class="scenario-question">Did Jam violate the policy?</div>
+</div>
+
+<!-- ROUND 3 SUMMARY REVEAL -->
+<div class="slide" id="s23">
+  <div class="eyebrow">Round 3 reveal &middot; Jam &middot; Public Health Nurse</div>
+  <h2 class="big-text" style="margin-bottom:28px;font-size:44px;">The logging question.</h2>
+  <div class="summary-grid">
+    <div class="summary-card" style="border-color:var(--g-acc);background:rgba(5,46,22,0.4);">
+      <div class="summary-flavor" style="color:var(--g-text);">Green</div>
+      <div class="summary-verdict"><span class="sv-yes">VIOLATION</span> &mdash; No log + no supervisor schedule review. Both Accountability Hi and Efficiency Lo were breached.</div>
+    </div>
+    <div class="summary-card" style="border-color:var(--r-acc);background:rgba(69,10,10,0.4);">
+      <div class="summary-flavor" style="color:var(--r-text);">Red</div>
+      <div class="summary-verdict"><span class="sv-yes">VIOLATION</span> &mdash; No log. Accountability Hi requires every use logged with staff ID, tool, and timestamp.</div>
+    </div>
+    <div class="summary-card" style="border-color:var(--b-acc);background:rgba(12,20,69,0.4);">
+      <div class="summary-flavor" style="color:var(--b-text);">Blue</div>
+      <div class="summary-verdict"><span class="sv-no">NO VIOLATION</span> &mdash; Accountability Lo means no logging required. Jam acted directly on the AI ranking. Compliant.</div>
+    </div>
+    <div class="summary-card" style="border-color:var(--y-acc);background:rgba(67,20,7,0.4);">
+      <div class="summary-flavor" style="color:var(--y-text);">Yellow</div>
+      <div class="summary-verdict"><span class="sv-no">NO VIOLATION</span> &mdash; Any tool, no logging, act directly. Jam's entire day was AI-shaped and the policy permits it.</div>
+    </div>
+  </div>
+  <p style="margin-top:20px;font-size:18px;color:var(--muted);">Jam's day was AI-shaped before she made a single decision. The logging question determines whether there is any record of that.</p>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 24. ROUND 4: WOW SCENARIO                             -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s24">
+  <div class="label-tag">Round 4</div>
+  <div class="scenario-emp display">Wow</div>
+  <div class="scenario-role">Admin Staffer, County Attorney's Office</div>
+  <p class="scenario-text">Wow uses a commercial AI drafting tool she found online -- not the county's designated tool -- to generate a SNAP benefits denial notice. She reviews the draft, thinks it looks good, and routes it for the attorney's signature without verifying the regulatory citations or the appeal deadline, without logging the AI use, and without supervisor sign-off.</p>
+  <div class="scenario-question">Did Wow violate the policy?</div>
+</div>
+
+<!-- ROUND 4: WOW MOMENT -->
+<div class="slide" id="s25">
+  <div class="eyebrow">Round 4 reveal &middot; Wow &middot; Admin Staffer</div>
+  <h2 class="big-text" style="margin-bottom:10px;font-size:44px;">Every flavor. Every time.</h2>
+  <p style="font-size:20px;color:var(--muted);margin-bottom:24px;">Wow violates under all four flavors. One requirement is unconditional.</p>
+  <div class="wow-grid">
+    <div class="wow-card" style="border-color:var(--g-acc);background:rgba(5,46,22,0.4);">
+      <div class="wow-flavor" style="color:var(--g-text);">Green &mdash; <span class="wow-all">VIOLATION</span></div>
+      <div class="wow-viol">Commercial tool (Security). No supervisor sign-off (Efficiency). No log (Accountability). Unapproved adoption (Innovation).</div>
+    </div>
+    <div class="wow-card" style="border-color:var(--r-acc);background:rgba(69,10,10,0.4);">
+      <div class="wow-flavor" style="color:var(--r-text);">Red &mdash; <span class="wow-all">VIOLATION</span></div>
+      <div class="wow-viol">Commercial tool (Security). No log (Accountability). Did not verify citations.</div>
+    </div>
+    <div class="wow-card" style="border-color:var(--b-acc);background:rgba(12,20,69,0.4);">
+      <div class="wow-flavor" style="color:var(--b-text);">Blue &mdash; <span class="wow-all">VIOLATION</span></div>
+      <div class="wow-viol">Commercial tool (Security). Did not verify citations -- the AI cannot supply facts, deadlines, or citations.</div>
+    </div>
+    <div class="wow-card" style="border-color:var(--y-acc);background:rgba(67,20,7,0.4);">
+      <div class="wow-flavor" style="color:var(--y-text);">Yellow &mdash; <span class="wow-all">VIOLATION</span></div>
+      <div class="wow-viol" style="color:#fcd34d;font-weight:600;">Did not verify citations. This requirement is unconditional. No flavor removes it. The AI cannot supply facts.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 26. THE PATTERN                                        -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s26">
+  <div class="eyebrow">What each employee taught</div>
+  <h2 class="big-text" style="margin-bottom:32px;">One dimension at a time.</h2>
+  <div class="pattern-grid">
+    <div class="pattern-card" style="border-color:var(--c-S);">
+      <div class="pattern-emp">Lux</div>
+      <div class="pattern-dim" style="color:var(--c-S);">Security &mdash; where does the data go?</div>
+    </div>
+    <div class="pattern-card" style="border-color:var(--c-E);">
+      <div class="pattern-emp">Puk</div>
+      <div class="pattern-dim" style="color:var(--c-E);">Efficiency &mdash; how fast can you act?</div>
+    </div>
+    <div class="pattern-card" style="border-color:var(--c-A);">
+      <div class="pattern-emp">Jam</div>
+      <div class="pattern-dim" style="color:var(--c-A);">Accountability &mdash; is there a record?</div>
+    </div>
+    <div class="pattern-card" style="border-color:#f87171;">
+      <div class="pattern-emp">Wow</div>
+      <div class="pattern-dim" style="color:#f87171;">All four &mdash; one requirement unconditional</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 27. SYNTHESIS QUESTION                                 -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s27">
+  <div class="eyebrow">Discussion</div>
+  <h2 class="hero display" style="font-size:64px;margin-bottom:32px;">Which dimension felt most consequential?</h2>
+  <p class="body-text">Across all four employees -- where did the violation call change most dramatically from one flavor to the next?</p>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 28. WHAT COMES NEXT                                    -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s28">
+  <div class="eyebrow">The road ahead</div>
+  <h2 class="big-text" style="margin-bottom:32px;">What comes next.</h2>
+  <div class="next-list">
+    <div class="next-row"><span class="next-date">June 2026</span><span class="next-text">County leadership calibrates the real flavor. Your input from today informs that decision.</span></div>
+    <div class="next-row"><span class="next-date">Workshop 2</span><span class="next-text">The county's policy in draft form. You see the calibrated flavor applied to your department.</span></div>
+    <div class="next-row"><span class="next-date">Workshops 3–4</span><span class="next-text">Refinement, validation, and preparation for adoption.</span></div>
+    <div class="next-row" style="border-color:rgba(74,222,128,0.3);background:rgba(74,222,128,0.06);">
+      <span class="next-date" style="color:#4ade80;">November 4</span>
+      <span class="next-text" style="color:#4ade80;font-weight:600;">Legislative adoption.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- 29. THANK YOU                                          -->
+<!-- ─────────────────────────────────────────────────────── -->
+<div class="slide" id="s29">
+  <div class="eyebrow">Workshop 1 of 4</div>
+  <h1 class="hero display">Thank you.</h1>
+  <p class="hero-sub">Herkimer County AI &amp; Cybersecurity Policy Initiative<br>SUNY Polytechnic Institute &middot; AIX Center</p>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const N = slides.length;
+let cur = 0;
+
+function go(dir) {
+  const n = cur + dir;
+  if (n < 0 || n >= N) return;
+  slides[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  renderProgress();
+  document.getElementById('counter').textContent = String(cur+1).padStart(2,'0') + ' / ' + String(N).padStart(2,'0');
+  document.getElementById('nav-prev').disabled = cur === 0;
+  document.getElementById('nav-next').disabled = cur === N-1;
+}
+
+function renderProgress() {
+  const p = document.getElementById('progress');
+  p.innerHTML = Array.from({length:N},(_,i) => {
+    const cls = i===cur?'active':i<cur?'visited':'';
+    return `<div class="pip ${cls}" onclick="goTo(${i})"></div>`;
+  }).join('');
+}
+
+function goTo(i) {
+  slides[cur].classList.remove('active');
+  cur = i;
+  slides[cur].classList.add('active');
+  renderProgress();
+  document.getElementById('counter').textContent = String(cur+1).padStart(2,'0') + ' / ' + String(N).padStart(2,'0');
+  document.getElementById('nav-prev').disabled = cur === 0;
+  document.getElementById('nav-next').disabled = cur === N-1;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key===' ') { e.preventDefault(); go(1); }
+  if (e.key==='ArrowLeft')               { e.preventDefault(); go(-1); }
+});
+
+// init
+document.getElementById('counter').textContent = '01 / ' + String(N).padStart(2,'0');
+document.getElementById('nav-prev').disabled = true;
+renderProgress();
+</script>
+</body>
+</html>
