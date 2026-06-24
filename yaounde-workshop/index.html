@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0067)file:///C:/Users/thistlet/Downloads/ai_workshop_poster_yaounde.html -->
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Tools for Research — Affiche Atelier (Université de Yaoundé I)</title>
-  <link href="./AI Tools for Research — Affiche Atelier (Université de Yaoundé I)_files/css2" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -120,8 +120,10 @@
     .cta-block {
       background: #EF9F27; border-radius: 6px;
       padding: 20px 24px;
+    }
+    .cta-top {
       display: flex; justify-content: space-between; align-items: center;
-      gap: 16px;
+      gap: 16px; margin-bottom: 12px;
     }
     .cta-main { font-size: 15px; font-weight: 700; color: #412402; line-height: 1.3; }
     .cta-sub { font-size: 12px; color: #633806; margin-top: 3px; }
@@ -129,8 +131,18 @@
       font-size: 12px; font-weight: 500; color: #412402;
       border: 1.5px solid #412402; border-radius: 4px;
       padding: 8px 14px; white-space: nowrap; text-decoration: none;
+      flex-shrink: 0;
     }
     .cta-url:hover { background: rgba(65,36,2,0.1); }
+    .cta-divider { height: 0.5px; background: rgba(65,36,2,0.25); margin-bottom: 10px; }
+    .cta-register {
+      font-size: 11px; color: #633806; line-height: 1.5;
+    }
+    .cta-register a {
+      color: #412402; font-weight: 600; word-break: break-all;
+      text-decoration: none;
+    }
+    .cta-register a:hover { text-decoration: underline; }
     .footer {
       display: flex; justify-content: space-between; align-items: center;
       margin-top: 24px;
@@ -161,21 +173,21 @@
 
   <div class="circuit-rule">
     <svg viewBox="0 0 620 18" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="9" x2="60" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <circle cx="64" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"></circle>
-      <line x1="67" y1="9" x2="120" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <rect x="120" y="5" width="18" height="8" rx="1" fill="none" stroke="#EF9F27" stroke-width="0.5"></rect>
-      <line x1="138" y1="9" x2="200" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <circle cx="204" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"></circle>
-      <line x1="207" y1="9" x2="260" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <rect x="260" y="5" width="18" height="8" rx="1" fill="none" stroke="#EF9F27" stroke-width="0.5"></rect>
-      <line x1="278" y1="9" x2="340" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <circle cx="344" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"></circle>
-      <line x1="347" y1="9" x2="400" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <rect x="400" y="5" width="18" height="8" rx="1" fill="none" stroke="#EF9F27" stroke-width="0.5"></rect>
-      <line x1="418" y1="9" x2="480" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
-      <circle cx="484" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"></circle>
-      <line x1="487" y1="9" x2="620" y2="9" stroke="#1D9E75" stroke-width="0.5"></line>
+      <line x1="0" y1="9" x2="60" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <circle cx="64" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"/>
+      <line x1="67" y1="9" x2="120" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <rect x="120" y="5" width="18" height="8" rx="1" fill="none" stroke="#EF9F27" stroke-width="0.5"/>
+      <line x1="138" y1="9" x2="200" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <circle cx="204" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"/>
+      <line x1="207" y1="9" x2="260" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <rect x="260" y="5" width="18" height="8" rx="1" fill="none" stroke="#EF9F27" stroke-width="0.5"/>
+      <line x1="278" y1="9" x2="340" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <circle cx="344" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"/>
+      <line x1="347" y1="9" x2="400" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <rect x="400" y="5" width="18" height="8" rx="1" fill="none" stroke="#EF9F27" stroke-width="0.5"/>
+      <line x1="418" y1="9" x2="480" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
+      <circle cx="484" cy="9" r="3" fill="none" stroke="#1D9E75" stroke-width="0.5"/>
+      <line x1="487" y1="9" x2="620" y2="9" stroke="#1D9E75" stroke-width="0.5"/>
     </svg>
   </div>
 
@@ -248,11 +260,20 @@
   </div>
 
   <div class="cta-block">
-    <div>
-      <div class="cta-main">Register &amp; learn more · Inscription / Informations</div>
-      <div class="cta-sub">Visit our website · Visitez notre site web</div>
+    <div class="cta-top">
+      <div>
+        <div class="cta-main">Register &amp; learn more · Inscription / Informations</div>
+        <div class="cta-sub">Visit our website · Visitez notre site web</div>
+      </div>
+      <a class="cta-url" href="https://sunypolyaix.github.io">sunypolyaix.github.io</a>
     </div>
-    <a class="cta-url" href="https://sunypolyaix.github.io/">sunypolyaix.github.io</a>
+    <div class="cta-divider"></div>
+    <div class="cta-register">
+      Register now · Inscrivez-vous maintenant: &nbsp;
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScvczbjOefell4GrF4rW_QolZZ4A951K9H_ade0H1SEy__cYQ/viewform?usp=sharing&ouid=118298096415990599037">
+        Registration Form · Formulaire d'inscription
+      </a>
+    </div>
   </div>
 
   <div class="footer">
@@ -262,6 +283,5 @@
   </div>
 
 </div>
-
-
-</body></html>
+</body>
+</html>
